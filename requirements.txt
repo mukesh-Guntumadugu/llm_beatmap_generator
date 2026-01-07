@@ -1,0 +1,5 @@
+numpy
+librosa
+google-generativeai
+pydantic
+python-dotenv
