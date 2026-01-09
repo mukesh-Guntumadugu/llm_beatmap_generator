@@ -1,12 +1,14 @@
 import argparse
 import sys
 import os
+from dotenv import load_dotenv
 
 def main():
+    load_dotenv()
     parser = argparse.ArgumentParser(description="LLM Beatmap Generator for StepMania")
     parser.add_argument("--audio", type=str, help="Path to the audio file (mp3/wav)")
     parser.add_argument("--difficulty", type=str, default="Challenge", help="Difficulty level")
-    parser.add_argument("--api-key", type=str, help="Google API API Key (optional, can be env var)")
+    parser.add_argument("--api-key", type=str, help="Google API API Key (optional, can be env var)", default=os.getenv("GOOGLE_API_KEY"))
     
     args = parser.parse_args()
 

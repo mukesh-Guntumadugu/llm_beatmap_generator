@@ -1,5 +1,5 @@
 numpy
 librosa
-google-generativeai
+google-genai
 pydantic
 python-dotenv
