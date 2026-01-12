@@ -1,0 +1,312 @@
+time,note,thinking
+0.0,down,Strong kick/snare hit on beat 1.
+0.24,up,Eighth note off-beat percussion.
+0.48,down,Strong quarter-note pulse (Beat 2).
+0.72,up,Eighth note off-beat percussion.
+0.96,down,Strong quarter-note pulse (Beat 3).
+1.2,up,Eighth note off-beat percussion.
+1.44,down,Strong quarter-note pulse (Beat 4).
+1.68,up,Eighth note off-beat percussion.
+1.92,down,Strong quarter-note pulse (Beat 1 of measure 2).
+2.16,up,Eighth note off-beat percussion.
+2.4,down,Strong quarter-note pulse (Beat 2).
+2.64,up,Eighth note off-beat percussion.
+2.88,down,Strong quarter-note pulse (Beat 3).
+3.12,up,Eighth note off-beat percussion.
+3.36,down,Strong quarter-note pulse (Beat 4).
+3.6,up,Eighth note off-beat percussion.
+3.84,down,Strong quarter-note pulse (Beat 1 of measure 3).
+4.08,up,Eighth note off-beat percussion.
+4.32,down,Strong quarter-note pulse (Beat 2).
+4.56,up,Eighth note off-beat percussion.
+4.8,down,Strong quarter-note pulse (Beat 3).
+5.04,up,Eighth note off-beat percussion.
+5.28,down,Strong quarter-note pulse (Beat 4).
+5.52,up,Eighth note off-beat percussion.
+5.76,down,Strong quarter-note pulse (Beat 1 of measure 4).
+6.0,up,Eighth note off-beat percussion.
+6.24,down,Strong quarter-note pulse (Beat 2).
+6.48,up,Eighth note off-beat percussion.
+6.72,down,Strong quarter-note pulse (Beat 3).
+6.96,up,Eighth note off-beat percussion.
+7.2,down,Strong quarter-note pulse (Beat 4).
+7.44,up,Eighth note off-beat percussion.
+7.68,down,Strong quarter-note pulse (Beat 1 of measure 5).
+7.92,up,Eighth note off-beat percussion.
+8.16,down,Strong quarter-note pulse (Beat 2).
+8.4,up,Eighth note off-beat percussion.
+8.64,down,Strong quarter-note pulse (Beat 3).
+8.88,up,Eighth note off-beat percussion.
+10.0,down,Strong kick on the first beat of the measure (128 BPM).
+10.469,up,Off-beat kick (eighth note rhythm).
+10.938,down,Primary kick on the second beat.
+11.406,up,Off-beat kick.
+11.875,down,Primary kick on the third beat.
+12.344,up,Off-beat kick.
+12.813,down,Primary kick on the fourth beat.
+13.281,up,Off-beat kick.
+13.75,down,Primary kick on the first beat of the new measure.
+14.219000000000001,up,Off-beat kick.
+14.687999999999999,down,Primary kick on the second beat.
+15.155999999999999,up,Off-beat kick.
+15.625,down,Primary kick on the third beat.
+16.094,up,Off-beat kick.
+16.563,down,Primary kick on the fourth beat.
+17.031,up,Off-beat kick.
+17.5,down,Primary kick on the first beat.
+17.969,up,Off-beat kick.
+18.438000000000002,down,Primary kick on the second beat.
+18.906,up,Off-beat kick.
+20.08,down,Identifying the primary downbeat (kick drum) on the start of the first bar.
+20.24,up,"Eighth note off-beat, using up to alternate direction and match the snare/synth accent."
+20.4,down,"Second quarter note kick drum, returning to down."
+20.56,up,"Eighth note off-beat, matching melodic accent."
+20.72,down,Third quarter note kick drum.
+20.88,up,Eighth note off-beat.
+21.04,down,Fourth quarter note kick drum.
+21.2,up,Eighth note off-beat.
+21.36,down,"Start of Bar 2, quarter note kick."
+21.52,up,Off-beat accent.
+21.68,down,Quarter note kick.
+21.84,up,Off-beat accent.
+22.0,down,Quarter note kick.
+22.16,up,Off-beat accent.
+22.32,down,Quarter note kick.
+22.48,up,Off-beat accent.
+22.64,down,"Start of Bar 3, consistent quarter note pattern."
+22.8,up,Consistent eighth note off-beat.
+22.96,down,Consistent quarter note pattern.
+23.12,up,Consistent eighth note off-beat.
+23.28,down,Consistent quarter note pattern.
+23.44,up,Consistent eighth note off-beat.
+23.6,down,Consistent quarter note pattern.
+23.759999999999998,up,Consistent eighth note off-beat.
+23.92,down,"Start of Bar 4, preparing for a fill."
+24.08,up,Eighth note.
+24.240000000000002,down,Quarter note.
+24.4,up,Eighth note.
+24.56,left,"Start of a melodic run/fill, shifting direction."
+24.72,right,Continuing the quick melodic run.
+24.88,down,Strong kick accent closing the phrase.
+25.04,up,Final accent before the rhythmic break/fade out.
+25.2,left,"Beginning of the sustained breakdown section, emphasizing a long hold/step."
+25.84,right,Second phrase marker in the breakdown (0.64s interval).
+26.48,up,Third phrase marker in the breakdown.
+27.12,down,Final sustained marker before the tempo returns.
+27.68,down,"Rhythm returns aggressively (kick), starting a fast alternating stream."
+27.84,left,"Eighth note, alternating direction."
+28.0,right,"Eighth note, continuing the stream."
+28.16,up,"Eighth note, completing the four-way cycle."
+28.32,down,"Eighth note, starting cycle over."
+28.48,left,Eighth note.
+28.64,right,Eighth note.
+28.8,up,Eighth note.
+28.96,down,Continuing the dense rhythmic sequence.
+29.119999999999997,left,Continuing the dense rhythmic sequence.
+29.28,right,Continuing the dense rhythmic sequence.
+29.439999999999998,up,Continuing the dense rhythmic sequence.
+29.6,down,Continuing the dense rhythmic sequence.
+29.759999999999998,left,Continuing the dense rhythmic sequence.
+29.92,right,Continuing the dense rhythmic sequence.
+30.08,up,End of recognizable phrase within the audio snippet.
+30.0,down,Strong initial beat/kick drum; assigned 'down' as the primary downbeat action.
+30.35,up,Snare hit and melodic emphasis; assigned 'up' as the counter beat.
+30.7,down,Second kick beat; consistent downbeat rhythm.
+31.05,up,Second snare hit; consistent counter beat rhythm.
+31.4,down,Kick beat marking the start of the next measure.
+31.75,up,Snare beat.
+32.1,down,Kick beat.
+32.45,up,Snare beat.
+32.8,right,"Melodic variation starts here, shifting the feel; assigned 'right'."
+33.15,left,Paired beat in the varied section; assigned 'left'.
+33.5,right,Continuation of the melodic variation.
+33.85,left,Paired beat.
+34.2,down,Return to the main kick pattern and original melody hook.
+34.55,up,Snare beat.
+34.9,down,Kick beat.
+35.25,up,Snare beat.
+35.6,down,Kick beat.
+35.95,up,Snare beat.
+36.3,down,Kick beat.
+36.65,up,Snare beat.
+37.0,right,New melodic section featuring a sweep/arpeggio sound; assigned 'right' for the shift.
+37.35,left,Paired beat in the new melodic section.
+37.7,right,Continuation of the melodic emphasis.
+38.05,left,Paired beat.
+38.4,down,Return to the standard kick downbeat rhythm.
+38.75,up,Snare beat.
+39.1,down,Final strong beat before the clip ends.
+40.0,down,Strong kick drum hit marking beat 1.
+40.5,left,"Second strong pulse (likely snare/kick combo), assigned left for alternating pattern."
+41.0,down,"Third strong pulse, matching beat 1."
+41.5,right,"Fourth strong pulse, assigned right."
+42.0,down,"Beat 1 of the next bar, repeating the foundational rhythm."
+42.5,left,Beat 2.
+43.0,down,Beat 3.
+43.5,right,Beat 4.
+44.0,down,"Beat 1, start of a slightly denser rhythmic section with quick percussion."
+44.25,up,Capturing the rapid 8th note percussion/hi-hat rhythm.
+44.5,left,Another 8th note percussion hit.
+44.75,up,Another 8th note percussion hit.
+45.0,down,Beat 2 (strong pulse).
+45.25,up,8th note percussion.
+45.5,right,8th note percussion.
+45.75,up,8th note percussion.
+46.0,down,Beat 3 (strong pulse).
+46.5,left,"Beat 4, simplifying back to quarter notes."
+47.0,down,Beat 1 of new bar.
+47.5,right,Beat 2.
+48.0,down,Beat 3.
+48.5,left,Beat 4.
+49.0,down,"Beat 1, focusing on main kick."
+49.5,up,Melodic accent and snare hit on beat 2.
+50.0,down,Kick on beat 3.
+50.5,left,Melodic accent on beat 4.
+51.0,down,Kick on beat 1.
+51.5,up,Snare/Melody on beat 2.
+52.0,down,Kick on beat 3.
+52.5,right,"Melody accent on beat 4, beginning of the strongest melody phrase."
+53.0,down,Kick 1.
+53.5,left,Melody/Snare 2.
+54.0,down,Kick 3.
+54.5,right,Melody/Snare 4.
+55.0,down,Final charted kick.
+50.0,down,First strong beat (kick drum) establishing the 150 BPM tempo.
+50.4,up,"Second beat (snare/clap), marking the upbeat in a typical 4/4 structure."
+50.8,down,"Third beat (kick drum), maintaining the downbeat pulse."
+51.2,up,"Fourth beat (snare/clap), completing the first measure."
+51.6,down,Kick on beat 1 of the second measure.
+52.0,up,Snare on beat 2.
+52.4,down,Kick on beat 3.
+52.8,up,Snare on beat 4.
+53.2,down,Kick on beat 1. Melody becomes more apparent.
+53.6,up,Snare on beat 2.
+54.0,down,Kick on beat 3.
+54.4,up,Snare on beat 4.
+54.8,down,Kick on beat 1.
+55.2,up,Snare on beat 2.
+55.6,down,Kick on beat 3.
+56.0,up,Snare on beat 4.
+56.4,down,Kick on beat 1.
+56.8,up,Snare on beat 2.
+57.2,down,Kick on beat 3.
+57.6,up,Snare on beat 4.
+58.0,down,Kick on beat 1. Vocal sample begins.
+58.4,up,Snare on beat 2.
+58.8,down,Kick on beat 3.
+59.2,up,Snare on beat 4.
+59.6,down,Kick on beat 1.
+60.0,up,Snare on beat 2.
+60.4,down,Kick on beat 3.
+60.8,up,Snare on beat 4.
+61.2,down,Kick on beat 1.
+61.6,up,Snare on beat 2.
+62.0,down,Kick on beat 3.
+62.4,up,Snare on beat 4.
+62.8,down,Kick on beat 1.
+63.2,up,Snare on beat 2.
+63.6,down,Kick on beat 3.
+64.0,up,"Snare on beat 4, leading into the drop."
+64.4,down,Major downbeat/drop point (Kick on beat 1). Intensity increases.
+64.8,up,Snare on beat 2.
+65.2,down,Kick on beat 3.
+65.6,up,Snare on beat 4.
+66.0,down,Kick on beat 1.
+66.4,up,Snare on beat 2.
+66.8,down,Kick on beat 3.
+67.2,up,Snare on beat 4.
+67.6,down,Kick on beat 1.
+68.0,up,Snare on beat 2.
+68.4,down,Kick on beat 3.
+68.8,up,Snare on beat 4.
+69.2,down,Kick on beat 1.
+69.6,up,Snare on beat 2.
+70.0,down,Kick on beat 3.
+70.4,up,Snare on beat 4.
+70.8,down,Kick on beat 1.
+71.2,up,Snare on beat 2.
+71.6,down,Kick on beat 3.
+72.0,up,Snare on beat 4.
+72.4,down,Kick on beat 1.
+72.8,up,Snare on beat 2.
+73.2,down,Kick on beat 3.
+73.6,up,Snare on beat 4.
+74.0,down,Final strong downbeat before the music fades out quickly.
+82.0,down,Strong kick drum hit marking the beginning of the main 4/4 rhythm section (the 'drop'). Used 'down' as the primary beat marker.
+82.46,up,Quarter note beat 2 (kick drum). Alternating direction ('up') for consecutive quarter notes to maintain flow.
+82.92,down,Quarter note beat 3 (kick drum). Returning to 'down'.
+83.38,up,Quarter note beat 4 (kick drum). Alternating direction.
+83.84,down,Next measure Beat 1 (kick drum). Used 'down' to reset the measure focus.
+84.3,up,Next measure Beat 2 (kick drum). Alternating direction.
+84.76,down,Next measure Beat 3 (kick drum). Used 'down'.
+85.22,up,Next measure Beat 4 (kick drum). Used 'up'.
+85.68,down,Start of third measure (kick drum). Used 'down'.
+86.14,up,Third measure Beat 2 (kick drum). Used 'up'.
+86.6,down,Third measure Beat 3 (kick drum). Used 'down'.
+87.06,up,Third measure Beat 4 (kick drum). Used 'up'.
+87.52,down,Start of fourth measure (kick drum). Used 'down' as the rhythm continues.
+90.0,down,"The beat starts with a heavy emphasis, usually aligning with the primary kick drum or bassline on the downbeat (1)."
+90.5,left,"This is the second beat (2). A different note is used to follow the melodic or rhythmic movement, diverging from the initial vertical movement to a horizontal one."
+91.0,up,"The third strong beat (3). Often accompanied by a snare hit or defining chord change, balancing the vertical movement established at 0.0."
+91.5,right,"The fourth beat (4). Chosen as the opposing horizontal direction to 'left' to complete the movement pattern within the measure, preparing for the next strong beat."
+92.0,down,New measure starts (Beat 1). Repeating 'down' reinforces the main rhythmic pulse of the music and marks the phrase transition.
+92.5,down,An unexpected quick double hit or syncopation (Beat 2) suggesting a rapid rhythmic element in the bass or percussion track. Staying 'down' emphasizes the repeated rhythmic motif.
+93.0,up,"Beat 3 emphasis, mirroring the pattern from the first measure (1.0s) to maintain structural consistency."
+93.5,left,"Beat 4 anticipation. Choosing 'left' prepares the listener for a potential return to the 'down' on the next measure, following a common setup in rhythm game charting to guide the player's focus."
+100.26,down,"This is the first strong downbeat (Beat 1) of the main rhythm sequence, fittingly chosen as 'down' to establish the baseline."
+100.525,up,"Following the 'down' on Beat 1, 'up' is chosen as the standard alternating step for Beat 2, maintaining flow and contrast."
+100.79,left,Beat 3 shifts the movement axis to lateral 'left' to prevent repetitive vertical movement.
+101.055,right,"Alternating lateral movement for Beat 4, pairing with 'left'."
+101.32,up,"This is an 8th note intermediate hit. Choosing 'up' prepares for the next strong 'down' beat, creating a brief Up-Down sequence."
+101.585,down,"Strong downbeat (Beat 1 of M2). Chosen as 'down' to anchor the measure, contrasting the preceding 'up'."
+101.85,left,Alternating step on Beat 2. Uses 'left' to vary the stepping pattern after the vertical start.
+102.115,right,Paired with 'left' for Beat 3.
+102.38,up,Beat 4. Chosen as 'up' to provide space before the next 'down' (2.645).
+102.645,down,Beat 1 (M3). Back to 'down' as the foundational movement choice for measure start.
+102.91,right,Rhythmic pulse (8th note). Chosen as 'right' to lead into the subsequent 'left' and break up the vertical pattern.
+103.175,left,Beat 3. Uses 'left' for standard lateral movement.
+103.44,right,Beat 4. Paired with 'left'.
+103.67,up,A quick preparatory hit (near 16th note before the downbeat). 'Up' is used to set up a sharp transition into the major 'down' beat.
+103.93,down,"Beat 1 (M4). 'Down' for strong measure initiation, immediately following the preparatory 'up'."
+104.195,left,Beat 2. Shifts direction horizontally.
+104.46,right,Beat 3. Paired with 'left'.
+104.725,up,Beat 4. 'Up' continues the standard alternation scheme and provides contrast.
+104.99,down,Beat 1 (M5). Strong vertical emphasis on 'down' to mark the new measure.
+105.255,left,Beat 2. Lateral choice to alternate movement.
+105.52,right,Beat 3. Paired lateral step.
+105.785,up,Beat 4. 'Up' is used here to maintain alternating movement and prepare for the next 'down'.
+106.05,down,Beat 1 (M6). Back to 'down' for rhythm anchoring.
+106.315,left,Beat 2. Horizontal direction introduced.
+106.58,right,Beat 3. Horizontal pairing.
+106.845,up,Beat 4. 'Up' maintains the pattern balance before the upcoming complex sequence.
+107.08,down,Beat 1 (M7). 'Down' marks the start of a quick sequence. Chosen to initiate the rapid footwork.
+107.21,right,First 16th note step in a rapid sequence. Chosen as 'right' to force quick alternation immediately after 'down'.
+107.34,left,Second 16th note/8th note complex. Chosen as 'left' for quick side-to-side movement.
+107.605,right,"Beat 3. Returns to standard 1/4 timing, 'right' provides flow after 'left'."
+107.87,up,Beat 4. 'Up' is used to complete the measure and ensure vertical variation.
+108.135,down,Beat 1 (M8). Final note chosen as 'down' to conclude the phrase strongly and provide maximum stability.
+110.67,left,"Initial beat, setting up a consistent L R U D sequence based on the rapid, repetitive rhythm."
+111.07,right,Continuing the L R U D sequence.
+111.47,up,Continuing the L R U D sequence.
+111.87,down,Completing the first set of the L R U D sequence.
+112.27,left,Restarting the L R U D sequence.
+112.67,right,Continuing the L R U D sequence.
+113.07,up,Continuing the L R U D sequence.
+113.47,down,Completing the L R U D sequence.
+113.87,left,Restarting the L R U D sequence.
+114.27,right,Continuing the L R U D sequence.
+114.67,up,Continuing the L R U D sequence.
+115.07,down,Completing the L R U D sequence.
+115.47,left,Restarting the L R U D sequence.
+115.87,right,Continuing the L R U D sequence.
+116.27,up,Continuing the L R U D sequence.
+116.67,down,Completing the L R U D sequence.
+117.07,left,Restarting the L R U D sequence.
+117.47,right,Continuing the L R U D sequence.
+117.87,up,Continuing the L R U D sequence.
+118.27,down,Completing the L R U D sequence.
+118.67,left,Restarting the L R U D sequence.
+119.07,right,"Final beat detected in the provided segment, continuing the L R U D sequence."
+120.0,down,"Initial strong beat identification, starting point of the perceived rhythm."
+120.5,up,"The following weaker beat, chosen 'up' to create a basic alternating rhythmic structure, suggesting a simple quarter or eighth note pulse."
+121.0,down,"Return to the strong beat type, reinforcing the established metric pattern (like the '2' in a 1-2 count), indicating rhythmic consistency."

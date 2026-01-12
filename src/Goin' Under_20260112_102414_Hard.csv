@@ -1,0 +1,148 @@
+time,note,thinking
+0.063,down,"This is the first strong kick drum sound, marking the beginning of the repeating 1/8 note rhythm pattern. Assigned 'down' to represent the primary beat/low frequency."
+0.312,up,"This is a distinct snare/clap hit, occurring on the off-beat (1/8 note). Assigned 'up' to contrast the 'down' beat."
+0.563,down,Kick drum returning on the main quarter note beat.
+0.812,up,Snare/clap on the off-beat.
+1.062,down,Kick drum hit.
+1.312,up,Snare/clap hit.
+1.562,down,Kick drum hit.
+1.812,up,Snare/clap hit.
+2.062,down,"The 1/8 note pattern continues, using 'down' for the kick."
+2.312,up,Snare/clap hit.
+2.562,down,Kick drum hit.
+2.812,up,Snare/clap hit.
+3.062,down,Kick drum hit.
+3.312,up,Snare/clap hit.
+3.562,down,Kick drum hit.
+3.812,up,Snare/clap hit.
+4.062,down,Kick drum hit. Pattern remains consistent.
+4.312,up,Snare/clap hit.
+4.562,down,Kick drum hit.
+4.812,up,Snare/clap hit.
+5.062,down,Kick drum hit.
+5.312,up,Snare/clap hit.
+5.562,down,Kick drum hit.
+5.812,up,Snare/clap hit.
+6.062,down,Kick drum hit.
+6.312,up,Snare/clap hit.
+6.562,down,Kick drum hit.
+6.812,up,Snare/clap hit.
+7.062,down,Kick drum hit.
+7.312,up,Snare/clap hit.
+7.562,down,Kick drum hit.
+7.812,up,Snare/clap hit.
+8.062,down,Kick drum hit.
+8.312,up,Snare/clap hit.
+8.562,down,Kick drum hit.
+8.812,up,Final clear snare/clap hit before the audio ends shortly after 9 seconds.
+10.5,down,Strong initial beat (Kick/Beat 1). Starting with 'down' to signify the primary pulse.
+10.707,left,"Eighth note subdivision, alternating direction for continuous rhythm."
+10.914,up,Main beat (Snare/Beat 2). Using 'up' to alternate from 'down'.
+11.121,right,"Eighth note subdivision, alternating direction."
+11.328,down,Main beat (Kick/Beat 3). Restarting the Down/Up pattern on the strong beats.
+11.535,left,Eighth note subdivision.
+11.742,up,Main beat (Snare/Beat 4). Continuous alternating stream.
+11.949,right,Eighth note subdivision.
+12.156,down,Start of M2 Beat 1. Continuing the consistent 8th note pattern.
+12.363,left,Eighth note subdivision.
+12.57,up,M2 Beat 2.
+12.777000000000001,right,Eighth note subdivision.
+12.984,down,M2 Beat 3.
+13.190999999999999,left,Eighth note subdivision.
+13.398,up,M2 Beat 4.
+13.605,right,Eighth note subdivision.
+13.812,down,M3 Beat 1. Consistent high-tempo stream based on the driving dance beat.
+14.019,left,Eighth note subdivision.
+14.225999999999999,up,M3 Beat 2.
+14.433,right,Eighth note subdivision.
+14.64,down,M3 Beat 3.
+14.847000000000001,left,Eighth note subdivision.
+15.054,up,M3 Beat 4.
+15.261,right,Eighth note subdivision.
+15.468,down,M4 Beat 1. Maintaining the pattern.
+15.675,left,Eighth note subdivision.
+15.882,up,M4 Beat 2.
+16.089,right,Eighth note subdivision.
+16.296,down,M4 Beat 3.
+16.503,left,Eighth note subdivision.
+16.71,up,M4 Beat 4.
+16.917,right,Eighth note subdivision.
+17.124,down,M5 Beat 1. Continuous repetition of the underlying rhythm.
+17.331,left,Eighth note subdivision.
+17.538,up,M5 Beat 2.
+17.745,right,Eighth note subdivision.
+17.951999999999998,down,M5 Beat 3.
+18.159,left,Eighth note subdivision.
+18.366,up,M5 Beat 4.
+18.573,right,"Eighth note subdivision, end of the clip's primary rhythmic segment."
+20.07,down,Identifying the primary beat (kick drum) at the start of the measure. Down represents low frequency.
+20.23,up,Identifying the off-beat snare/clap hit. Up represents higher frequency/off-beat emphasis.
+20.39,down,Continuing the kick drum pulse.
+20.55,up,Continuing the off-beat snare/clap pulse.
+20.71,down,Continuing the kick drum pulse.
+20.87,up,Continuing the off-beat snare/clap pulse.
+21.03,down,Continuing the kick drum pulse.
+21.19,up,Continuing the off-beat snare/clap pulse.
+21.35,down,Continuing the kick drum pulse (start of the next measure).
+21.51,up,Continuing the off-beat snare/clap pulse.
+21.67,down,Continuing the kick drum pulse.
+21.83,up,Continuing the off-beat snare/clap pulse.
+21.99,down,Continuing the kick drum pulse.
+22.15,up,Continuing the off-beat snare/clap pulse.
+22.31,down,Continuing the kick drum pulse.
+22.47,up,Continuing the off-beat snare/clap pulse.
+22.63,down,Continuing the kick drum pulse.
+22.79,up,Continuing the off-beat snare/clap pulse.
+22.95,down,Continuing the kick drum pulse.
+23.11,up,Continuing the off-beat snare/clap pulse.
+23.27,down,Continuing the kick drum pulse.
+23.43,up,Continuing the off-beat snare/clap pulse.
+23.59,down,Continuing the kick drum pulse.
+23.75,up,Continuing the off-beat snare/clap pulse.
+23.91,down,Continuing the kick drum pulse.
+24.07,up,Continuing the off-beat snare/clap pulse.
+24.23,down,Continuing the kick drum pulse.
+24.39,up,Continuing the off-beat snare/clap pulse.
+24.55,down,Continuing the kick drum pulse.
+24.71,up,Continuing the off-beat snare/clap pulse.
+24.87,down,Continuing the kick drum pulse.
+25.03,up,Continuing the off-beat snare/clap pulse.
+25.19,down,Continuing the kick drum pulse.
+25.35,up,Continuing the off-beat snare/clap pulse.
+25.509999999999998,down,Continuing the kick drum pulse.
+25.67,up,Continuing the off-beat snare/clap pulse.
+25.83,down,Continuing the kick drum pulse.
+25.990000000000002,up,Continuing the off-beat snare/clap pulse.
+26.15,down,Continuing the kick drum pulse.
+26.31,up,Continuing the off-beat snare/clap pulse.
+26.47,down,Continuing the kick drum pulse.
+26.63,up,Continuing the off-beat snare/clap pulse.
+26.79,down,Continuing the kick drum pulse.
+26.95,up,Final snare hit before the rhythm break.
+27.28,left,"Start of the distinct, accented hits during the buildup/breakdown. Using left/right for directional contrast."
+27.44,right,Next accented hit.
+27.6,left,Next accented hit.
+27.759999999999998,right,Next accented hit.
+27.92,down,"Strong, low frequency hit (bass drop anticipation)."
+28.16,up,High pitched sound effect/vocal sample emphasis.
+28.84,right,Ringing sound effect/final flourish before the segment ends.
+50.52,down,First strong kick beat establishing the 187.5 BPM quarter note rhythm.
+50.84,up,"Continuation of the primary quarter note rhythm, alternating direction."
+51.16,left,"The third beat in the sequence, maintaining flow."
+51.48,right,"The fourth beat in the sequence, completing the bar."
+52.12,down,Another distinct kick drum hit.
+52.44,up,Alternating step following the kick.
+53.08,left,Clear heavy beat in the ongoing pattern.
+53.4,right,Rhythmically coupled beat.
+54.36,down,Identifying a persistent bass/kick hit.
+55.32,up,"Strong beat coinciding with the first vocal sample ('Go down...'), emphasizing the core rhythm."
+55.64,down,"Next quarter note hit, alternating direction."
+56.12,up,Clear percussion hit in the middle of the phrase.
+57.08,left,Identifying a primary beat towards the end of the musical phrase.
+57.4,right,"Alternating step, continuing the quarter note sequence."
+58.04,down,"Start of a new sequence, marked by a strong kick."
+58.36,up,Alternating step following the lead beat.
+59.32,left,Consistent primary beat timing.
+59.64,right,Alternating step.
+60.32,down,Focusing on a distinct percussive impact before the track continues its loop/progression.
+60.64,up,"Final marked beat, maintaining the consistent rhythm pattern."
