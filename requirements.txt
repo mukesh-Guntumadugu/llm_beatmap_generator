@@ -3,3 +3,6 @@ librosa
 google-genai
 pydantic
 python-dotenv
+torch
+torchaudio
+encodec

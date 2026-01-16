@@ -15,8 +15,7 @@ from pydantic import BaseModel, Field
 from google import genai
 from google.genai import types
 from google.genai.errors import ServerError, ClientError
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
-
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type, retry_if_exception
 __version__ = "0.2.2"
 __author__ = "Mukesh Guntumadugu" 
 
@@ -93,30 +92,51 @@ def create_audio_slice(input_path: str, output_path: str, offset: float, duratio
         print(f"Failed to slice audio at {offset}s: {e}")
         return False
 
+def is_retryable_error(exception):
+    """Custom retry predicate: retry on ServerError or 429."""
+    if isinstance(exception, ServerError):
+        return True
+    if isinstance(exception, ClientError):
+        if exception.code == 429:
+            print(f"Rate limit hit (429). Retrying...")
+            return True
+        print(f"Non-retryable ClientError: {exception.code} - {exception.message}")
+    return False
+
 @retry(
-    retry=retry_if_exception_type((ServerError, ClientError)),
+    retry=retry_if_exception(is_retryable_error),
     stop=stop_after_attempt(10),
     wait=wait_exponential(multiplier=2, min=4, max=120)
 )
 def generate_content_with_retry(prompt, audio_file):
     """Helper to retry generation on failure."""
-    try:
-        return _client.models.generate_content(
-            model="gemini-flash-latest",
-            contents=[prompt, audio_file],
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                response_schema=list[Beat]
-            )
+    # Note: exception handling is done by the retry decorator's predicate.
+    return _client.models.generate_content(
+        model="gemini-pro-latest", 
+        contents=[prompt, audio_file],
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            response_schema=list[Beat],
+            safety_settings=[
+                types.SafetySetting(
+                    category="HARM_CATEGORY_HATE_SPEECH",
+                    threshold="BLOCK_NONE"
+                ),
+                types.SafetySetting(
+                    category="HARM_CATEGORY_DANGEROUS_CONTENT",
+                    threshold="BLOCK_NONE"
+                ),
+                types.SafetySetting(
+                    category="HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                    threshold="BLOCK_NONE"
+                ),
+                types.SafetySetting(
+                    category="HARM_CATEGORY_HARASSMENT",
+                    threshold="BLOCK_NONE"
+                )
+            ]
         )
-    except ClientError as e:
-        # Only retry on 429
-        if e.code == 429:
-             print("Hit 429 (Resource Exhausted). Retrying...")
-             raise e
-        else:
-             # Re-raise other client errors immediately (e.g. 400 Bad Request)
-             raise e
+    )
 
 def generate_beatmap_chunk(slice_path: str, prompt: str = None) -> list[Beat]:
     """
@@ -148,7 +168,10 @@ def generate_beatmap_chunk(slice_path: str, prompt: str = None) -> list[Beat]:
 
         # Parse the response text into our Pydantic models
         if not response.text:
+            print(f"DEBUG: Empty response text. Candidates: {response.candidates}")
             return []
+        
+        # print(f"DEBUG: Response text: {response.text[:200]}...") # Optional debug
         
         # The SDK might return parsed object or we might need to parse JSON. 
         # With response_schema, response.parsed might be available? 
@@ -160,9 +183,11 @@ def generate_beatmap_chunk(slice_path: str, prompt: str = None) -> list[Beat]:
         print(f"Error processing slice {slice_path}: {e}")
         return []
 
-def process_full_song(audio_path: str, level: str = "Hard"):
+def process_full_song(audio_path: str, level: str = "Hard", mode: str = "full"):
     """
-    Processes the entire song in 10s chunks and saves to CSV.
+    Processes the song based on the selected mode:
+    - 'full': Processes the entire song in one go/request to Gemini.
+    - 'split': Slices the audio into chunks and processes them sequentially.
     """
     if not os.path.exists(audio_path):
         print(f"Audio file not found: {audio_path}")
@@ -170,40 +195,66 @@ def process_full_song(audio_path: str, level: str = "Hard"):
 
     # Get total duration
     total_duration = librosa.get_duration(path=audio_path)
-    print(f"Processing '{audio_path}' (Duration: {total_duration:.2f}s)")
+    print(f"Processing '{audio_path}' (Duration: {total_duration:.2f}s) in '{mode}' mode")
     
-    chunk_duration = 10.0
-    all_beats = []
-    
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    temp_slice_path = os.path.join(script_dir, "temp_current_slice.ogg")
+    # Select prompt based on level
+    if level.lower() == "easy":
+        prompt_text = (
+            "Listen to the audio and identify the main beats. "
+            "Generate a beginner-level beatmap with fewer notes, focusing only on strong downbeats. "
+            "Avoid complex rhythms and rapid notes."
+        )
+    else:
+        prompt_text = (
+            "Listen to the audio and identify the beats and rhythm. "
+            "Generate a hard-level beatmap with complex rhythms and frequent notes matching the intensity."
+        )
 
+    all_beats = []
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
     try:
-        num_chunks = math.ceil(total_duration / chunk_duration)
+        if mode == "split":
+            chunk_duration = 100.0
+            temp_slice_path = os.path.join(script_dir, "temp_current_slice.wav")
+            num_chunks = math.ceil(total_duration / chunk_duration)
+            
+            try:
+                for i in range(num_chunks):
+                    offset = i * chunk_duration
+                    print(f"Processing chunk {i+1}/{num_chunks} (Time: {offset:.1f}s - {min(offset + chunk_duration, total_duration):.1f}s)...")
+                    
+                    has_audio = create_audio_slice(audio_path, temp_slice_path, offset, chunk_duration)
+                    if not has_audio:
+                        break
+                    
+                    chunk_beats = generate_beatmap_chunk(temp_slice_path, prompt=prompt_text)
+                    
+                    # Adjust timestamps
+                    for beat in chunk_beats:
+                        beat.time += offset # Add offset to make time relative to start of song
+                        all_beats.append(beat)
+                        
+                    # Sleep briefly to be nice to the API/local checks
+                    time.sleep(5)
+            finally:
+                 if os.path.exists(temp_slice_path):
+                    os.remove(temp_slice_path)
+
+        else: # Full mode
+            print(f"Uploading full audio file: {audio_path}...")
+            # Reuse generate_beatmap_chunk logic but for the full file
+            all_beats = generate_beatmap_chunk(audio_path, prompt=prompt_text)
         
-        for i in range(num_chunks):
-            offset = i * chunk_duration
-            print(f"Processing chunk {i+1}/{num_chunks} (Time: {offset:.1f}s - {min(offset + chunk_duration, total_duration):.1f}s)...")
-            
-            has_audio = create_audio_slice(audio_path, temp_slice_path, offset, chunk_duration)
-            if not has_audio:
-                break
-            
-            chunk_beats = generate_beatmap_chunk(temp_slice_path)
-            
-            # Adjust timestamps
-            for beat in chunk_beats:
-                beat.time += offset # Add offset to make time relative to start of song
-                all_beats.append(beat)
-                
-            # Sleep briefly to be nice to the API/local checks
-            time.sleep(5) 
+        if not all_beats:
+            print("No beats generated.")
+            return
 
         # Generate CSV Filename
-        # Format: {OriginalName}_{Timestamp}_{Level}.csv
+        # Format: {OriginalName}_{Timestamp}_{Level}_{Mode}.csv
         original_name = os.path.splitext(os.path.basename(audio_path))[0]
         timestamp = time.strftime("%Y%m%d_%H%M%S")
-        csv_filename = f"{original_name}_{timestamp}_{level}.csv"
+        csv_filename = f"{original_name}_{timestamp}_{level}_{mode}.csv"
         csv_path = os.path.join(script_dir, csv_filename)
         
         print(f"Saving to CSV: {csv_path}")
@@ -218,9 +269,8 @@ def process_full_song(audio_path: str, level: str = "Hard"):
                 
         print("Done!")
 
-    finally:
-        if os.path.exists(temp_slice_path):
-            os.remove(temp_slice_path)
+    except Exception as e:
+        print(f"Error processing song: {e}")
 
 if __name__ == "__main__":
     from dotenv import load_dotenv
@@ -238,8 +288,16 @@ if __name__ == "__main__":
         test_audio = os.path.join(script_dir, "musicForBeatmap", "Goin' Under", "Goin' Under.ogg") 
         
         if os.path.exists(test_audio):
+             # Ask user for mode
+            try:
+               user_input = input("Enter mode ('full' [default] or 'split'): ").strip().lower()
+            except EOFError:
+               user_input = "full"
+            
+            mode = "split" if user_input in ["split", "s"] else "full"
+            
             # Process full song and save to CSV
-            process_full_song(test_audio, level="Hard")
+            process_full_song(test_audio, level="Easy", mode=mode)
         else:
             print(f"Test audio file not found: {test_audio}")
 
