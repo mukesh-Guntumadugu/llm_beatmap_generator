@@ -37,7 +37,6 @@ class BeatmapLSTM(nn.Module):
         return logits
 
 def train(dataset_path, epochs=100):
-    # Check device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
     

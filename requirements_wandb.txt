@@ -1,0 +1,4 @@
+# Weights & Biases Requirements
+# Install with: pip install -r requirements_wandb.txt
+
+wandb>=0.16.0

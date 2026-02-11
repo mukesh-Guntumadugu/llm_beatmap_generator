@@ -6,3 +6,6 @@ python-dotenv
 torch
 torchaudio
 encodec
+matplotlib
+plotly
+pandas

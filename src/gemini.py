@@ -22,9 +22,7 @@ __author__ = "Mukesh Guntumadugu"
 _client: genai.Client | None = None
 
 class Beat(BaseModel):
-    time: float = Field(..., description="Timestamp of the beat in seconds")
-    note: str = Field(..., description="Type of note (e.g., 'up','down','left','right',etc)")
-    thinking: str = Field(..., description=" why up are down why not others ?")
+    notes: str = Field(..., description="4-character string representing columns Left, Up, Down, Right (e.g. '1000') OR a single comma ',' to separate measures.")
 
 def setup_gemini(api_key: str):
     """Configures the Google GenAI Client."""
@@ -197,23 +195,73 @@ def process_full_song(audio_path: str, level: str = "Hard", mode: str = "full"):
     total_duration = librosa.get_duration(path=audio_path)
     print(f"Processing '{audio_path}' (Duration: {total_duration:.2f}s) in '{mode}' mode")
     
+    expected_commas = int(total_duration)
+    
     # Select prompt based on level
     if level.lower() == "easy":
         prompt_text = (
-            "Listen to the audio and identify the main beats. "
-            "Generate a beginner-level beatmap with fewer notes, focusing only on strong downbeats. "
-            "Avoid complex rhythms and rapid notes."
+            f"The audio is {total_duration:.1f} seconds long. You MUST generate chart data for the ENTIRE duration.\n"
+            f"Target: approximately {expected_commas} measure separators (commas) — one for roughly every second of audio.\n\n"
+            "Listen to the audio and generate StepMania chart rows for a beginner difficulty. "
+            "Output a continuous sequence of 4-character strings covering the entire audio duration. "
+            "Each string represents a row in the chart (Left, Up, Down, Right). "
+            "Use '0000' for empty rows to maintain correct timing and rhythm (e.g., 4 rows per beat). "
+            "IMPORTANT: Separate measures with a comma ',' on its own line/entry. A measure usually has 4 beats.\n"
+            "Use the following note codes:\n"
+            "0: Empty\n"
+            "1: Tap\n"
+            "2: Hold Head\n"
+            "3: Hold End\n"
+            "4: Roll Head\n"
+            ",: Measure Separator\n\n"
+            "Example Sequence:\n"
+            "1000\n"
+            "0000\n"
+            "0000\n"
+            "0000\n"
+            ",\n"
+            "0010\n"
+            "...\n"
+            "Focus on strong downbeats using mostly taps. Ensure commas separate logical musical chunks.\n"
+            ""
+            "DO NOT STOP EARLY. GENERATE UNTIL THE END OF THE SONG."
         )
     else:
         prompt_text = (
-            "Listen to the audio and identify the beats and rhythm. "
-            "Generate a hard-level beatmap with complex rhythms and frequent notes matching the intensity."
+            f"The audio is {total_duration:.1f} seconds long. You MUST generate chart data for the ENTIRE duration.\n"
+            f"Target: approximately {expected_commas} measure separators (commas) — one for roughly every second of audio.\n\n"
+            "Listen to the audio and generate StepMania chart rows for a hard difficulty. "
+            "Output a continuous sequence of 4-character strings covering the entire audio duration. "
+            "Each string represents a row in the chart (Left, Up, Down, Right). "
+            "Use '0000' for empty rows to maintain correct timing and rhythm (e.g., 4 rows per beat). "
+            "IMPORTANT: Separate measures with a comma ',' on its own line/entry. A measure usually has 4 beats.\n"
+            "Use the following note codes:\n"
+            "0: Empty\n"
+            "1: Tap\n"
+            "2: Hold Head\n"
+            "3: Hold End\n"
+            "4: Roll Head\n"
+            ",: Measure Separator\n\n"
+            "Example Sequence:\n"
+            "1000\n"
+            "0200\n"
+            ",\n"
+            "0301\n"
+            "...\n"
+            "Match the intensity of the music with complex patterns. Ensure commas separate logical musical chunks.\n"
+            "DO NOT STOP EARLY. GENERATE UNTIL THE END OF THE SONG."
         )
 
     all_beats = []
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     try:
+        # Check if we should try caching (only for full mode and sufficient duration/tokens)
+        # 32k tokens roughly corresponds to > 2 minutes of audio + text.
+        # We'll just attempt it for 'full' mode if requested or by default if long enough.
+        # For this implementation, we will try standard upload first, or cache if user requested (implied context).
+        # Let's add a simple toggle for now or just try-except the cache creation.
+        
         if mode == "split":
             chunk_duration = 100.0
             temp_slice_path = os.path.join(script_dir, "temp_current_slice.wav")
@@ -230,10 +278,8 @@ def process_full_song(audio_path: str, level: str = "Hard", mode: str = "full"):
                     
                     chunk_beats = generate_beatmap_chunk(temp_slice_path, prompt=prompt_text)
                     
-                    # Adjust timestamps
-                    for beat in chunk_beats:
-                        beat.time += offset # Add offset to make time relative to start of song
-                        all_beats.append(beat)
+                    # Store beats directly
+                    all_beats.extend(chunk_beats)
                         
                     # Sleep briefly to be nice to the API/local checks
                     time.sleep(5)
@@ -243,14 +289,79 @@ def process_full_song(audio_path: str, level: str = "Hard", mode: str = "full"):
 
         else: # Full mode
             print(f"Uploading full audio file: {audio_path}...")
-            # Reuse generate_beatmap_chunk logic but for the full file
-            all_beats = generate_beatmap_chunk(audio_path, prompt=prompt_text)
+            
+            check_and_update_usage()
+            global _client
+            if not _client:
+                api_key = os.environ.get("GOOGLE_API_KEY")
+                if api_key:
+                    setup_gemini(api_key)
+                else:
+                    raise ValueError("Gemini client not initialized.")
+
+            # Attempt caching strategy
+            try:
+                # First upload the file to File API
+                audio_file = _client.files.upload(file=audio_path)
+                while audio_file.state == "PROCESSING":
+                    time.sleep(1)
+                    audio_file = _client.files.get(name=audio_file.name)
+                
+                print("Audio uploaded. Attempting to create context cache (ttl=10m)...")
+                
+                # Create cached content
+                # Note: This requires the content to be large enough (>32k tokens)
+                cache_config = {
+                    "contents": [prompt_text, audio_file],
+                    "ttl": "600s"
+                }
+                
+                # Check if we are using a pro model for caching benefits
+                cached_content = _client.caches.create(model="gemini-2.0-flash-001", config=cache_config)
+                print(f"Cache created: {cached_content.name}. Generating content...")
+
+                response = _client.models.generate_content(
+                    model="gemini-2.0-flash-001",
+                    contents=[], # Content is in cache
+                    config=types.GenerateContentConfig(
+                        cached_content=cached_content.name,
+                        response_mime_type="application/json",
+                        response_schema=list[Beat],
+                    )
+                )
+                
+                if response.text:
+                    data = json.loads(response.text)
+                    all_beats = [Beat(**item) for item in data]
+                else:
+                    print("Empty response from cached generation.")
+
+            except Exception as e:
+                print(f"Cache creation/usage failed (likely <32k tokens or quota). Falling back to standard generation: {e}")
+                # Fallback to standard generation
+                # Re-upload or reuse audio_file object if it exists?
+                # The 'generate_beatmap_chunk' handles upload internally, so we can just call that
+                # but we already uploaded it above. Let's just call generate_content directly if we have the file.
+                
+                try:
+                    # If audio_file was created above, use it
+                    # If it wasn't (e.g. upload failed), generate_beatmap_chunk will try again
+                    if 'audio_file' in locals() and audio_file:
+                        response = generate_content_with_retry(prompt_text, audio_file)
+                        if response.text:
+                            data = json.loads(response.text)
+                            all_beats = [Beat(**item) for item in data]
+                    else:
+                        all_beats = generate_beatmap_chunk(audio_path, prompt=prompt_text)
+                except Exception as inner_e:
+                     print(f"Fallback generation failed: {inner_e}")
+
         
         if not all_beats:
             print("No beats generated.")
             return
 
-        # Generate CSV Filename
+        # Generate CSV Filename (keeping .csv extension for now as requested, but format is raw text/custom)
         # Format: {OriginalName}_{Timestamp}_{Level}_{Mode}.csv
         original_name = os.path.splitext(os.path.basename(audio_path))[0]
         timestamp = time.strftime("%Y%m%d_%H%M%S")
@@ -259,14 +370,13 @@ def process_full_song(audio_path: str, level: str = "Hard", mode: str = "full"):
         
         print(f"Saving to CSV: {csv_path}")
         
-        with open(csv_path, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ['time', 'note', 'thinking']
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            
-            writer.writeheader()
+        # Write raw lines to avoid CSV quoting of the comma separator
+        with open(csv_path, 'w', encoding='utf-8') as f:
+            f.write("notes\n") # Header
             for beat in all_beats:
-                writer.writerow(beat.model_dump())
+                f.write(f"{beat.notes}\n")
                 
+        print("Done!")                
         print("Done!")
 
     except Exception as e:

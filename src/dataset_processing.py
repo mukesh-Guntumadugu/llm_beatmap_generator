@@ -1,155 +1,166 @@
-import torch
-import simfile
-from simfile.timing import TimingData
-from simfile.timing.engine import TimingEngine
-from simfile.notes import NoteData
+import re
 from pathlib import Path
-import argparse
-import numpy as np
 
-class BeatmapTokenizer:
+def parse_ssc_file(ssc_path, target_difficulty="Easy", target_stepstype="dance-single"):
     """
-    Class to process .ssc files and align them with audio tokens.
+    Parses SSC file to extract notes for a specific chart.
+    Returns a list of (Time, Frame, NoteString).
     """
-    def __init__(self, frame_rate=75.0):
-        """
-        Args:
-            frame_rate (float): The frame rate of the EnCodec model (tokens per second).
-                                EnCodec 24khz uses 75Hz by default.
-        """
-        self.frame_rate = frame_rate
+    with open(ssc_path, 'r', encoding='utf-8') as f:
+        content = f.read()
 
-    def parse_ssc(self, ssc_path):
-        """
-        Parses an .ssc file and extracts note data.
-        Returns the first available chart (usually the highest difficulty if ordered).
-        """
-        with open(ssc_path, 'r', encoding='utf-8') as f:
-            ssc = simfile.load(f)
+    # 1. Extract Global Tags
+    offset_match = re.search(r"#OFFSET:([-0-9.]+);", content)
+    bpms_match = re.search(r"#BPMS:(.+?);", content)
+    
+    if not offset_match or not bpms_match:
+        raise ValueError("Could not find OFFSET or BPMS")
         
-        # Taking the first chart for now. In future we might want to select specific difficulty.
-        if not ssc.charts:
-            raise ValueError(f"No charts found in {ssc_path}")
+    offset = float(offset_match.group(1))
+    
+    # We assume constant BPM for now based on user file (0.000=180.000)
+    # A full parser would handle changes, but let's stick to the prompt's file.
+    bpms_str = bpms_match.group(1)
+    # simple parse: "0.000=180.000"
+    first_bpm = float(bpms_str.split('=')[1])
+    seconds_per_beat = 60.0 / first_bpm
+    
+    print(f"Global Offset: {offset}")
+    print(f"BPM: {first_bpm}")
+    
+    # 2. Find the specific Chart
+    # We split by #NOTEDATA:; to separate charts
+    charts = content.split("#NOTEDATA:;")
+    
+    target_chart = None
+    for chart in charts:
+        if f"#STEPSTYPE:{target_stepstype};" in chart and f"#DIFFICULTY:{target_difficulty};" in chart:
+            target_chart = chart
+            break
             
-        chart = ssc.charts[0]
-        print(f"Processing Chart: {chart.difficulty} ({chart.meter})")
+    if not target_chart:
+        raise ValueError(f"Chart {target_stepstype} / {target_difficulty} not found.")
         
-        return ssc, chart
-
-    def get_note_timings(self, ssc, chart):
-        """
-        Extracts the time (in seconds) and column index for every note.
-        Returns a list of tuples: (time, column_index, note_type)
-        """
-        note_data = NoteData(chart)
-        # TimingEngine handles the complex beat-to-time logic
-        timing_engine = TimingEngine(TimingData(ssc, chart))
+    print(f"Found Chart: {target_stepstype} - {target_difficulty}")
+    
+    # 3. Extract Notes
+    # Notes are between #NOTES: and ;
+    notes_match = re.search(r"#NOTES:(.*?);", target_chart, re.DOTALL)
+    if not notes_match:
+        raise ValueError("Could not find #NOTES section")
         
-        notes = []
+    notes_raw = notes_match.group(1).strip()
+    
+    # 4. Parse Measures
+    measures = notes_raw.split(',')
+    
+    parsed_notes = []
+    
+    # Audio Frame Rate
+    FRAME_RATE = 75.0
+    
+    current_beat = 0.0
+    
+    for measure_idx, measure in enumerate(measures):
+        rows = measure.strip().split('\n')
+        # Remove comments or empty lines if any (though usually clean)
+        rows = [r.strip() for r in rows if len(r.strip()) >= 4 and not r.strip().startswith('//')]
         
-        # Iterate over notes
-        # simfile's NoteData iterator yields (beat, column, note_type)
-        for note in note_data:
-            beat = note.beat
-            col = note.column
-            note_type = note.note_type
+        num_rows = len(rows)
+        if num_rows == 0:
+            continue
             
-            # 1 = Tap, 2 = Hold Head, 4 = Roll Head. We ignore mines (M) usually.
-            if note_type.name in ['TAP', 'HOLD_HEAD', 'ROLL_HEAD']:
-                time = timing_engine.time_at(beat)
-                notes.append((time, col, 1)) # 1 indicates "Hit"
+        # Each measure is 4 beats (standard 4/4)
+        beats_per_measure = 4.0
         
-        return notes
-
-    def align_to_audio(self, notes, num_audio_tokens):
-        """
-        Creates a label tensor aligned to the audio tokens.
-        
-        Args:
-            notes (list): List of (time, col, type).
-            num_audio_tokens (int): Total number of time steps in the audio tokens.
+        for i, row in enumerate(rows):
+            # Calculate Beat
+            # Row index i out of num_rows covers the 4 beats
+            beat_within_measure = (i / num_rows) * beats_per_measure
+            total_beat = (measure_idx * beats_per_measure) + beat_within_measure
             
-        Returns:
-            torch.Tensor: Shape (num_audio_tokens, 4). 4 columns for Left, Down, Up, Right.
-                          Values are 0 or 1.
-        """
-        # 4 Lanes for standard DDR/StepMania
-        labels = torch.zeros((num_audio_tokens, 4), dtype=torch.float32)
-        
-        ignored_count = 0
-        
-        for time, col, val in notes:
-            # Convert time (seconds) to token index
-            # Index = Time * FrameRate
-            token_idx = int(round(time * self.frame_rate))
+            # Calculate Time
+            # Time = Offset + (TotalBeat * SecondsPerBeat)
+            time_sec = offset + (total_beat * seconds_per_beat)
             
-            if 0 <= token_idx < num_audio_tokens:
-                if 0 <= col < 4:
-                    labels[token_idx, col] = 1.0
-            else:
-                ignored_count += 1
+            # Align to Frame
+            frame_idx = int(round(time_sec * FRAME_RATE))
+            
+            # If note is not empty "0000"
+            if row != "0000":
+                parsed_notes.append({
+                    "time": time_sec,
+                    "frame": frame_idx,
+                    "measure": measure_idx,
+                    "beat": total_beat,
+                    "note": row
+                })
                 
-        if ignored_count > 0:
-            print(f"Warning: {ignored_count} notes were out of bounds of the audio duration.")
-            
-        return labels
+    return parsed_notes
 
-def process_song(token_path, ssc_path, output_path):
-    print(f"--- Processing {Path(token_path).stem} ---")
+def create_aligned_dataset(ssc_path, tokens_path, output_path):
+    import torch
     
-    # 1. Load Audio Tokens
-    tokens = torch.load(token_path)
-    # Tokens shape: (1, 8, Time)
-    num_tokens = tokens.shape[-1]
-    duration_est = num_tokens / 75.0
-    print(f"Audio Duration: {duration_est:.2f}s ({num_tokens} tokens)")
+    # 1. Load Tokens
+    print(f"Loading tokens from {tokens_path}...")
+    tokens = torch.load(tokens_path)
+    # Shape: (1, 32, T) or (32, T)
+    if tokens.dim() == 3:
+        tokens = tokens.squeeze(0) # (32, T)
+        
+    num_frames = tokens.shape[1]
+    print(f"Audio Tokens: {num_frames} frames")
     
-    # 2. Parse Beatmap
-    processor = BeatmapTokenizer(frame_rate=75.0)
-    ssc, chart = processor.parse_ssc(ssc_path)
-    notes = processor.get_note_timings(ssc, chart)
-    print(f"Found {len(notes)} notes.")
+    # 2. Parse Notes
+    print(f"Parsing SSC: {ssc_path}...")
+    notes = parse_ssc_file(ssc_path)
+    print(f"Parsed {len(notes)} notes.")
     
-    # 3. Create Labels
-    labels = processor.align_to_audio(notes, num_tokens)
-    print(f"Label Tensor Shape: {labels.shape}")
+    # 3. Create Target Tensor
+    # Shape: (T, 4) - 4 lanes
+    # Values: 0=Empty, 1=Tap, 2=Hold, 3=Tail, 4=Roll, 5=Mine
+    # Mapping Chars to Ints
+    # M -> 5, F -> 0 (ignore), L -> 1 (treat as tap for now?)
+    char_map = {
+        '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, 'M': 5
+    }
     
-    # 4. Save Combined Dataset
+    targets = torch.zeros((num_frames, 4), dtype=torch.long)
+    
+    for n in notes:
+        frame = n['frame']
+        note_str = n['note'] # e.g. "1000"
+        
+        if 0 <= frame < num_frames:
+            for lane, char in enumerate(note_str):
+                val = char_map.get(char, 0) # Default to 0 if unknown
+                targets[frame, lane] = val
+        else:
+            # Note is outside audio duration (rare but possible with padding)
+            pass
+            
+    # 4. Save Dataset
     dataset = {
-        'audio_tokens': tokens, # (1, 8, T)
-        'beatmap_labels': labels, # (T, 4)
-        'metadata': {
-            'song_title': ssc.title,
-            'artist': ssc.artist,
-            'difficulty': chart.difficulty,
-            'frame_rate': 75.0
+        "tokens": tokens,   # (32, T)
+        "targets": targets, # (T, 4)
+        "metadata": {
+            "ssc_path": str(ssc_path),
+            "tokens_path": str(tokens_path)
         }
     }
     
     torch.save(dataset, output_path)
-    print(f"Saved dataset to {output_path}")
-    
-    # Validation Print
-    # Find a spot with notes
-    active_indices = torch.where(labels.sum(dim=1) > 0)[0]
-    if len(active_indices) > 0:
-        idx = active_indices[0]
-        print(f"\nVerification Example at Token {idx} ({idx/75.0:.2f}s):")
-        print(f"Audio Code (Book 0): {tokens[0, 0, idx]}")
-        print(f"Label (L,D,U,R): {labels[idx].tolist()}")
+    print(f"Dataset saved to {output_path}")
+    print(f"Target Tensor Shape: {targets.shape}")
+    print(f"Non-zero frames in target: {(targets.sum(dim=1) > 0).sum()}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("token_path", help="Path to .pt audio tokens")
-    parser.add_argument("ssc_path", help="Path to .ssc file")
-    parser.add_argument("--output", help="Output path for dataset .pt", default=None)
+    ssc_path = "src/musicForBeatmap/MechaTribe Assault/Mecha-Tribe Assault.ssc"
+    # Update this to the actual token file path found dynamically or hardcoded for now
+    tokens_path = "src/Neural Audio Codecs/outputs/Mecha-Tribe Assault_20260121_010831_tokens.pt"
+    output_dataset = "src/Neural Audio Codecs/outputs/Mecha-Tribe Assault_dataset.pt"
     
-    args = parser.parse_args()
-    
-    out_path = args.output
-    if out_path is None:
-        # Default: outputs/Song_dataset.pt
-        p = Path(args.token_path)
-        out_path = p.parent / f"{p.stem.replace('_tokens', '')}_dataset.pt"
-        
-    process_song(args.token_path, args.ssc_path, out_path)
+    try:
+        create_aligned_dataset(ssc_path, tokens_path, output_dataset)
+    except Exception as e:
+        print(f"Error: {e}")

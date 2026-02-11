@@ -61,6 +61,7 @@ def get_quantization_idx(beat_fraction):
     row = round(beat_fraction * 48)
     return row
 
+
 def generate_notes_string(notes_data, metadata):
     """
     Converts timestamped notes into SM measure strings.
@@ -74,20 +75,34 @@ def generate_notes_string(notes_data, metadata):
     # Beat = (Time - Offset) * (BPM / 60)
     beat_notes = []
     for note in notes_data:
-        t = float(note['time'])
-        direction = note['note'].lower()
+        try:
+            t = float(note['time'])
+        except ValueError:
+            continue
+            
+        # Support 'notes' (new) or 'note' (old)
+        val = note.get('notes', note.get('note', '0000'))
+        if not val: val = '0000'
         
         beat_idx = (t - offset) * (bpm / 60.0)
         
-        # Map direction
-        col = -1
-        if 'left' in direction: col = 0
-        elif 'down' in direction: col = 1
-        elif 'up' in direction: col = 2
-        elif 'right' in direction: col = 3
-        
-        if col != -1:
-            beat_notes.append({'beat': beat_idx, 'col': col})
+        # Check if it's the 1000 format
+        if any(c in val for c in "01234M"): 
+            # Assume string format like "1000"
+            for col_idx, char in enumerate(val):
+                if col_idx >= 4: break
+                if char != '0':
+                    beat_notes.append({'beat': beat_idx, 'col': col_idx, 'type': char})
+        else:
+            # Fallback to old keywords
+            direction = val.lower()
+            col = -1
+            if 'left' in direction: col = 0
+            elif 'down' in direction: col = 1
+            elif 'up' in direction: col = 2
+            elif 'right' in direction: col = 3
+            if col != -1:
+                beat_notes.append({'beat': beat_idx, 'col': col, 'type': '1'})
             
     if not beat_notes:
         return ""
@@ -115,8 +130,8 @@ def generate_notes_string(notes_data, metadata):
         if row_idx not in measure_grid[measure_idx]:
              measure_grid[measure_idx][row_idx] = ['0','0','0','0']
              
-        # Set note (1 = Tap note)
-        measure_grid[measure_idx][row_idx][item['col']] = '1'
+        # Set note (Use the type found, usually '1')
+        measure_grid[measure_idx][row_idx][item['col']] = item.get('type', '1')
         
     # 3. Serialize to String
     sm_output = []
@@ -126,32 +141,11 @@ def generate_notes_string(notes_data, metadata):
         if m in measure_grid:
             rows = measure_grid[m]
             
-            # Optimization: Determine simplification level for this measure?
-            # For now, we will output standard 16th notes (wait, if we use 192 lines it's huge)
-            # Let's try to simplify. 
-            # Actually, standard SM usually outputs 4th, 8th, 12th, 16th. 
-            # Let's iterate through 192 rows. If all zero, skip? 
-            # No, StepMania expects consistent lines per measure (e.g. 4, 8, 16, 192 lines).
-            # The number of lines determines the resolution FOR THAT MEASURE.
-            # So check the GCD of active rows.
-            
+            # Optimization: Determine simplification level
             active_rows = sorted(rows.keys())
-            
-            # Calculate necessary resolution
-            # Standard quantizations (lines per measure): 4, 8, 12, 16, 24, 32, 48, 64, 96, 192
-            # row_idx is in 0..191 range.
-            # If all row_indices are divisible by 48 -> 4 lines (4ths)
-            # If divisible by 24 -> 8 lines (8ths)
-            # If divisible by 12 -> 16 lines (16ths)
             
             required_res = 192
             if active_rows:
-                # Find greatest capability divisor
-                # We need a resolution (res) such that for all r in active_rows:
-                # (r * res) / 192 is an integer.
-                # Equivalent to checking divisibility of 192/res?
-                
-                # Check 4ths (step 48)
                 if all(r % 48 == 0 for r in active_rows): required_res = 4
                 elif all(r % 24 == 0 for r in active_rows): required_res = 8
                 elif all(r % 16 == 0 for r in active_rows): required_res = 12
@@ -161,7 +155,6 @@ def generate_notes_string(notes_data, metadata):
                 elif all(r % 4 == 0 for r in active_rows): required_res = 48
                 elif all(r % 3 == 0 for r in active_rows): required_res = 64
                 
-            
             measure_str = []
             step = 192 // required_res
             
@@ -182,12 +175,14 @@ def main():
     parser = argparse.ArgumentParser(description="Convert CSV beatmap to .sm file")
     parser.add_argument("csv_file", help="Input CSV file")
     parser.add_argument("sm_file", help="Reference .sm file (for metadata)")
-    parser.add_argument("--output", help="Output .sm file name", default=None)
+    parser.add_argument("--output", help="Output file name", default=None)
+    parser.add_argument("--only-notes", action="store_true", help="Output only the note data string (flat text)")
     
     args = parser.parse_args()
     
     if not args.output:
-        args.output = args.csv_file.replace(".csv", ".sm")
+        ext = ".txt" if args.only_notes else ".sm"
+        args.output = args.csv_file.replace(".csv", ext)
         
     print(f"Reading CSV: {args.csv_file}")
     notes_data = []
@@ -204,10 +199,13 @@ def main():
     
     note_data_str = generate_notes_string(notes_data, metadata)
     
-    # Construct final file
-    # We append the new charts. For now, let's create a 'Challenge' difficulty entry.
-    
-    chart_block = """
+    if args.only_notes:
+        final_content = note_data_str + ";"
+    else:
+        # Construct final file
+        # We append the new charts. For now, let's create a 'Challenge' difficulty entry.
+        
+        chart_block = """
 //---------------dance-single - ----------------
 #NOTES:
      dance-single:
@@ -216,9 +214,8 @@ def main():
      10:
      0.0,0.0,0.0,0.0,0.0:
 """ 
-    chart_block += note_data_str + ";\n"
-    
-    final_content = "".join(header_lines) + chart_block
+        chart_block += note_data_str + ";\n"
+        final_content = "".join(header_lines) + chart_block
     
     print(f"Writing to: {args.output}")
     with open(args.output, 'w') as f:
@@ -228,3 +225,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

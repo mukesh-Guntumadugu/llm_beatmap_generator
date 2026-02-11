@@ -21,3 +21,8 @@ springtime_tokens.pt
 tokens03.pt
 src/temp_current_slice.ogg
 src/.gemini_usage.json
+
+# Large Files
+audio_representation.npy
+wandb/
+
