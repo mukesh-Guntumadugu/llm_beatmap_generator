@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Simple Beatmap Validator Script
+Smart Beatmap Validator Script
 
-INSTRUCTIONS:
-1. Edit the CONFIGURATION section below with your file paths
-2. Run: python3 validate_my_beatmap.py
-3. Check the output files generated
+This script helps you check the quality of your AI-generated beatmap.
+You can manually configure paths below, or let it auto-detect from .ssc files.
 """
 
 import sys
 import os
+import re
+import glob
 
 # Add src to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
@@ -23,131 +23,167 @@ from analysis.beatmap_validator import (
     visualize_validation
 )
 
+# ============================================================================
+# USER CONFIGURATION (EDIT THIS SECTION)
+# ============================================================================
+
+# 1. GENERATED Beatmap  (The .txt file you made)
+GENERATED_BEATMAP_PATH = "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Bad Ketchup_20260218_012707_Easy_gemini-pro-latest.txt"
+
+# 2. ORIGINAL Metadata / Beatmap (The .ssc or .sm file)
+# Used to get BPM, Offset, and correct difficulty data.
+# If you don't have one, set to None.
+ORIGINAL_METADATA_PATH = "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup.ssc"
+
+# 3. Audio File (Optional - leave None to read from Metadata file)
+AUDIO_FILE_PATH = None 
+
+# 4. Manual Settings (Optional - leave None to read from Metadata file)
+MANUAL_BPM = None     # e.g. 145.0
+MANUAL_OFFSET = None  # e.g. 0.02
 
 # ============================================================================
-# CONFIGURATION - EDIT THIS SECTION WITH YOUR FILE PATHS
+# END CONFIGURATION
 # ============================================================================
 
-# Required: Audio file path (mp3, ogg, wav)
-AUDIO_FILE = "src/musicForBeatmap/Springtime/Kommisar - Springtime.mp3"
 
-# Required: Beatmap file to validate (.txt or .text format)
-BEATMAP_FILE = "src/musicForBeatmap/Springtime/beatmap_easy.txt"
-
-# Optional: Generated/comparison beatmap (leave as None if not comparing)
-GENERATED_BEATMAP_FILE = "generated_springtime_beatmap_20260210_010532.text"
-# Set to None to skip comparison:
-# GENERATED_BEATMAP_FILE = None
-
-# Required: Song metadata
-BPM = 142.0              # Beats per minute (from .ssc file)
-OFFSET = -0.028          # Time offset in seconds (from .ssc file)
-
-# Optional: Tolerance window in milliseconds (default: 50ms)
-TOLERANCE_MS = 50.0
-
-# Output file paths (will be created in the same directory as this script)
-OUTPUT_JSON = "my_validation_results.json"
-OUTPUT_VISUALIZATION = "my_validation_visualization.png"
-
-# If comparing beatmaps, output files for comparison
-COMPARISON_ORIGINAL_JSON = "my_original_validation.json"
-COMPARISON_GENERATED_JSON = "my_generated_validation.json"
-COMPARISON_ORIGINAL_VIZ = "my_original_viz.png"
-COMPARISON_GENERATED_VIZ = "my_generated_viz.png"
-
-# ============================================================================
-# END CONFIGURATION - DO NOT EDIT BELOW THIS LINE
-# ============================================================================
+def find_metadata_and_audio(beatmap_path):
+    """
+    Looks for a .ssc file in the same folder to find BPM, Offset and Audio.
+    Returns: audio_path, ssc_path, bpm, offset
+    """
+    # This function is kept for backward compatibility if needed, 
+    # but main logic now handles explicit paths.
+    folder = os.path.dirname(beatmap_path)
+    ssc_files = glob.glob(os.path.join(folder, "*.ssc"))
+    
+    if not ssc_files:
+        return None, None, 120.0, 0.0
+        
+    ssc_path = ssc_files[0]
+    bpm = 120.0
+    offset = 0.0
+    audio_filename = None
+    
+    with open(ssc_path, 'r', errors='ignore') as f:
+        content = f.read()
+        bpm_match = re.search(r"#BPMS:.*?=(\d+\.?\d*);", content, re.DOTALL)
+        if bpm_match: bpm = float(bpm_match.group(1))
+        offset_match = re.search(r"#OFFSET:(-?\d+\.?\d*);", content)
+        if offset_match: offset = float(offset_match.group(1))
+        music_match = re.search(r"#MUSIC:(.*?);", content)
+        if music_match: audio_filename = music_match.group(1).strip()
+            
+    audio_path = None
+    if audio_filename:
+        potential_path = os.path.join(folder, audio_filename)
+        if os.path.exists(potential_path): audio_path = potential_path
+            
+    if not audio_path:
+        audio_files = glob.glob(os.path.join(folder, "*.ogg")) + glob.glob(os.path.join(folder, "*.mp3"))
+        if audio_files: audio_path = audio_files[0]
+            
+    return audio_path, ssc_path, bpm, offset
 
 
 def main():
-    """Run beatmap validation based on configuration above"""
+    print("\n" + "="*60)
+    print(" SMART BEATMAP VALIDATOR (Manual Config Mode)")
+    print("="*60)
     
-    print("\n" + "="*70)
-    print("BEATMAP VALIDATOR")
-    print("="*70)
-    
-    # Check if required files exist
-    if not os.path.exists(AUDIO_FILE):
-        print(f"\n❌ Error: Audio file not found: {AUDIO_FILE}")
-        print("Please update AUDIO_FILE in the configuration section.")
+    # 1. Check Generated File
+    if not GENERATED_BEATMAP_PATH or not os.path.exists(GENERATED_BEATMAP_PATH):
+        print(f"\n❌ Error: Generated Beatmap file not found:\n{GENERATED_BEATMAP_PATH}")
         return
+
+    # 2. Get Metadata (BPM, Offset, Audio)
+    # Default values
+    bpm = 120.0
+    offset = 0.0
+    audio_path = None
     
-    if not os.path.exists(BEATMAP_FILE):
-        print(f"\n❌ Error: Beatmap file not found: {BEATMAP_FILE}")
-        print("Please update BEATMAP_FILE in the configuration section.")
+    # A. Try reading from Original Metadata (.ssc) if provided
+    if ORIGINAL_METADATA_PATH and os.path.exists(ORIGINAL_METADATA_PATH):
+        print(f"📄 Reading Metadata from: {os.path.basename(ORIGINAL_METADATA_PATH)}")
+        try:
+            with open(ORIGINAL_METADATA_PATH, 'r', errors='ignore') as f:
+                content = f.read()
+                
+                # Find BPM
+                bpm_match = re.search(r"#BPMS:.*?=(\d+\.?\d*);", content, re.DOTALL)
+                if bpm_match: bpm = float(bpm_match.group(1))
+                
+                # Find Offset
+                offset_match = re.search(r"#OFFSET:(-?\d+\.?\d*);", content)
+                if offset_match: offset = float(offset_match.group(1))
+                
+                # Find Audio filename
+                music_match = re.search(r"#MUSIC:(.*?);", content)
+                if music_match:
+                    audio_filename = music_match.group(1).strip()
+                    # Look for audio in same folder as .ssc
+                    ssc_dir = os.path.dirname(ORIGINAL_METADATA_PATH)
+                    potential_audio = os.path.join(ssc_dir, audio_filename)
+                    if os.path.exists(potential_audio):
+                        audio_path = potential_audio
+        except Exception as e:
+            print(f"⚠️  Warning reading metadata: {e}")
+    else:
+        print("⚠️  No Original Metadata file provided (or file not found). Using defaults.")
+
+    # B. Apply Manual Overrides (if set in config)
+    if MANUAL_BPM is not None: 
+        bpm = MANUAL_BPM
+        print(f"   👉 Using Manual BPM: {bpm}")
+        
+    if MANUAL_OFFSET is not None: 
+        offset = MANUAL_OFFSET
+        print(f"   👉 Using Manual Offset: {offset}")
+        
+    if AUDIO_FILE_PATH is not None: 
+        audio_path = AUDIO_FILE_PATH
+        print(f"   👉 Using Manual Audio Path: {os.path.basename(audio_path)}")
+
+    # 3. Validation Checks
+    if not audio_path or not os.path.exists(audio_path):
+        print("\n❌ Error: Could not find audio file!")
+        print("Please set AUDIO_FILE_PATH in the script configuration.")
         return
+
+    print(f"   ✅ Audio:  {os.path.basename(audio_path)}")
+    print(f"   ✅ BPM:    {bpm}")
+    print(f"   ✅ Offset: {offset}")
     
-    # Validate main beatmap
-    print(f"\n{'='*70}")
-    print("VALIDATING BEATMAP")
-    print(f"{'='*70}")
+    # Check if GENERATED file is empty
+    if os.path.getsize(GENERATED_BEATMAP_PATH) == 0:
+        print(f"\n⚠️  Generated file is empty! {GENERATED_BEATMAP_PATH}")
     
+    # 4. Validate
+    print("\n" + "-"*60)
+    print("Running Validation...")
     results = validate_beatmap(
-        audio_path=AUDIO_FILE,
-        beatmap_path=BEATMAP_FILE,
-        bpm=BPM,
-        offset=OFFSET,
-        tolerance_ms=TOLERANCE_MS
+        audio_path=audio_path,
+        beatmap_path=GENERATED_BEATMAP_PATH,
+        bpm=bpm,
+        offset=offset,
+        tolerance_ms=50.0,
+        difficulty="Easy"
     )
     
-    # Print report
     print_validation_report(results)
     
-    # Save outputs
-    save_results_json(results, OUTPUT_JSON)
-    visualize_validation(results, OUTPUT_VISUALIZATION)
+    # Save outputs with timestamp
+    from datetime import datetime
+    timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     
-    print(f"\n✅ Validation complete!")
-    print(f"\n📁 Generated files:")
-    print(f"   - {OUTPUT_JSON}")
-    print(f"   - {OUTPUT_VISUALIZATION}")
+    json_filename = f"validation_results_{timestamp_str}.json"
+    viz_filename = f"validation_visualization_{timestamp_str}.html"
     
-    # Compare with generated beatmap if specified
-    if GENERATED_BEATMAP_FILE and GENERATED_BEATMAP_FILE != "None":
-        if not os.path.exists(GENERATED_BEATMAP_FILE):
-            print(f"\n⚠ Warning: Generated beatmap not found: {GENERATED_BEATMAP_FILE}")
-            print("Skipping comparison.")
-        else:
-            print(f"\n{'='*70}")
-            print("COMPARING BEATMAPS")
-            print(f"{'='*70}")
-            
-            original_results, generated_results = compare_beatmaps(
-                audio_path=AUDIO_FILE,
-                original_beatmap_path=BEATMAP_FILE,
-                generated_beatmap_path=GENERATED_BEATMAP_FILE,
-                bpm=BPM,
-                offset=OFFSET,
-                tolerance_ms=TOLERANCE_MS
-            )
-            
-            # Print comparison
-            print_comparison_report(original_results, generated_results)
-            
-            # Save comparison outputs
-            save_results_json(original_results, COMPARISON_ORIGINAL_JSON)
-            save_results_json(generated_results, COMPARISON_GENERATED_JSON)
-            visualize_validation(original_results, COMPARISON_ORIGINAL_VIZ)
-            visualize_validation(generated_results, COMPARISON_GENERATED_VIZ)
-            
-            print(f"\n✅ Comparison complete!")
-            print(f"\n📁 Additional comparison files:")
-            print(f"   - {COMPARISON_ORIGINAL_JSON}")
-            print(f"   - {COMPARISON_GENERATED_JSON}")
-            print(f"   - {COMPARISON_ORIGINAL_VIZ}")
-            print(f"   - {COMPARISON_GENERATED_VIZ}")
+    save_results_json(results, json_filename)
+    visualize_validation(results, viz_filename)
     
-    print(f"\n{'='*70}")
-    print("✅ ALL DONE!")
-    print(f"{'='*70}\n")
+    print(f"\n Done! Check '{viz_filename}' (Open in Browser for Interactivity)")
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:
-        print(f"\n❌ Error: {e}")
-        import traceback
-        traceback.print_exc()
+    main()

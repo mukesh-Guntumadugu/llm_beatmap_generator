@@ -106,11 +106,11 @@ def is_retryable_error(exception):
     stop=stop_after_attempt(10),
     wait=wait_exponential(multiplier=2, min=4, max=120)
 )
-def generate_content_with_retry(prompt, audio_file):
+def generate_content_with_retry(prompt, audio_file, model_name="gemini-pro-latest"):
     """Helper to retry generation on failure."""
     # Note: exception handling is done by the retry decorator's predicate.
     return _client.models.generate_content(
-        model="gemini-pro-latest", 
+        model=model_name, 
         contents=[prompt, audio_file],
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
@@ -136,7 +136,7 @@ def generate_content_with_retry(prompt, audio_file):
         )
     )
 
-def generate_beatmap_chunk(slice_path: str, prompt: str = None) -> list[Beat]:
+def generate_beatmap_chunk(slice_path: str, prompt: str = None, model_name: str = "gemini-pro-latest") -> list[Beat]:
     """
     Uploads an audio file to Gemini and generates a beatmap/timing response for that chunk.
     """
@@ -162,7 +162,7 @@ def generate_beatmap_chunk(slice_path: str, prompt: str = None) -> list[Beat]:
             audio_file = _client.files.get(name=audio_file.name)
 
         # print("Generating beatmap for slice...")
-        response = generate_content_with_retry(prompt, audio_file)
+        response = generate_content_with_retry(prompt, audio_file, model_name=model_name)
 
         # Parse the response text into our Pydantic models
         if not response.text:

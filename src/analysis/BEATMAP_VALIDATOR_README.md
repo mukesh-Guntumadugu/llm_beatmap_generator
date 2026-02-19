@@ -190,6 +190,17 @@ Default 50ms tolerance window accounts for:
 - Audio processing delays
 - Quantization in beatmap timing
 
+## How Alignment Works
+
+### Onset Alignment Explained
+The "Onset Alignment" score (e.g., 66%) might seem low even for perfect charts. Here's why:
+
+1.  **Detection is Imperfect**: The algorithm looks for sudden energy spikes (spectral flux). It often misses soft sounds or "flow" sections where steps follow a melody rather than a hard beat.
+2.  **False Positives**: The audio might have a ghost note (snare ghost) that triggers a detection, but the chart ignores it.
+3.  **Genre Dependency**: In chaotic genres like Breakcore ("Bad Ketchup"), the audio is a wall of noise. The algorithm detects hundreds of onsets, but matching them exactly to the charted 16th notes is statistically difficult.
+
+**Verdict**: If your **Beat Alignment** is high (>80%) and **Percussive Alignment** is high (>70%), your chart is excellent, even if Onset Alignment is lower (60-70%). Rely on Beat Alignment as the primary quality metric.
+
 ## Files in this Module
 
 - `beatmap_validator.py` - Core validation module
