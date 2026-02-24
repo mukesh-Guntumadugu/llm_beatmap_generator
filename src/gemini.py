@@ -236,7 +236,7 @@ _BEATMAP_SYSTEM_INSTRUCTION = (
     "- beat_position must be consistent with the detected BPM and time_ms.\n"
 )
 
-def create_beatmap_prompt_cache(difficulty: str = "Challenging", model_name: str = "gemini-2.0-flash-001", ttl_seconds: int = 3600) -> str | None:
+def create_beatmap_prompt_cache(difficulty: str = "Hard", model_name: str = "gemini-2.0-flash-001", ttl_seconds: int = 3600) -> str | None:
     """
     Creates a Gemini context cache for the static beatmap system instruction.
     Returns the cache name to reuse across all songs, or None if caching fails.
@@ -269,7 +269,7 @@ def create_beatmap_prompt_cache(difficulty: str = "Challenging", model_name: str
 def generate_beatmap_csv(
     audio_path: str,
     duration: float,
-    difficulty: str = "Challenging",  #
+    difficulty: str = "Hard",  #
     model_name: str = "gemini-2.0-flash-001",
     cached_content_name: str | None = None
 ) -> list[BeatCSV]:
@@ -309,6 +309,7 @@ def generate_beatmap_csv(
                 cached_content=cached_content_name,
                 response_mime_type="application/json",
                 response_schema=list[BeatCSV],
+                max_output_tokens=65536,
                 safety_settings=[
                     types.SafetySetting(category="HARM_CATEGORY_HATE_SPEECH", threshold="BLOCK_NONE"),
                     types.SafetySetting(category="HARM_CATEGORY_DANGEROUS_CONTENT", threshold="BLOCK_NONE"),
@@ -323,6 +324,7 @@ def generate_beatmap_csv(
             config = types.GenerateContentConfig(
                 response_mime_type="application/json",
                 response_schema=list[BeatCSV],
+                max_output_tokens=65536,
                 safety_settings=[
                     types.SafetySetting(category="HARM_CATEGORY_HATE_SPEECH", threshold="BLOCK_NONE"),
                     types.SafetySetting(category="HARM_CATEGORY_DANGEROUS_CONTENT", threshold="BLOCK_NONE"),
@@ -355,6 +357,7 @@ def generate_beatmap_csv(
                 config_full = types.GenerateContentConfig(
                     response_mime_type="application/json",
                     response_schema=list[BeatCSV],
+                    max_output_tokens=65536,
                     safety_settings=[
                         types.SafetySetting(category="HARM_CATEGORY_HATE_SPEECH", threshold="BLOCK_NONE"),
                         types.SafetySetting(category="HARM_CATEGORY_DANGEROUS_CONTENT", threshold="BLOCK_NONE"),
@@ -379,7 +382,7 @@ def generate_beatmap_csv(
         return []
 
 
-def process_full_song(audio_path: str, level: str = "Challenging", mode: str = "full", model_name: str = "gemini-2.0-flash-001"):
+def process_full_song(audio_path: str, level: str = "Hard", mode: str = "full", model_name: str = "gemini-2.0-flash-001"):
     """
     Processes the song based on the selected mode:
     - 'full': Processes the entire song in one go/request to Gemini.
@@ -400,7 +403,7 @@ def process_full_song(audio_path: str, level: str = "Challenging", mode: str = "
         prompt_text = (
             f"The audio is {total_duration:.1f} seconds long. You MUST generate chart data for the ENTIRE duration.\n"
             f"Target: approximately {expected_commas} measure separators (commas) — one for roughly every second of audio.\n\n"
-            "Listen to the audio and generate StepMania chart rows for a Challenging difficulty. "
+            "Listen to the audio and generate StepMania chart rows for a Hard difficulty. "
             "Output a continuous sequence of 4-character strings covering the entire audio duration. "
             "Each string represents a row in the chart (Left, Up, Down, Right). "
             "Use '0000' for empty rows to maintain correct timing and rhythm (e.g., 4 rows per beat). "
