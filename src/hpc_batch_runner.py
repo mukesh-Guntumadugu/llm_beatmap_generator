@@ -22,6 +22,7 @@ import requests
 import librosa
 
 DIFFICULTY  = "Medium"
+MODEL_NAME  = "Qwen2-Audio-7B"
 SERVER_URL  = "http://localhost:8000"
 
 # Where the Fraxtil songs live (relative to project root)
@@ -96,7 +97,7 @@ def process_song(audio_path: str, task_id: int, server_url: str):
     # Skip if already done for this task
     existing = [
         f for f in os.listdir(dirname)
-        if f.startswith(f"{name_no_ext}_{DIFFICULTY}_{task_tag}_") and f.endswith(".txt")
+        if f.startswith(f"{name_no_ext}_{DIFFICULTY}_{MODEL_NAME}_{task_tag}_") and f.endswith(".txt")
     ]
     if existing:
         print(f"  Skipping — already done ({task_tag}): {existing[0]}")
@@ -137,7 +138,7 @@ def process_song(audio_path: str, task_id: int, server_url: str):
 
         # ── Save files ────────────────────────────────────────────────────
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        base      = f"{name_no_ext}_{DIFFICULTY}_{task_tag}_{timestamp}"
+        base      = f"{name_no_ext}_{DIFFICULTY}_{MODEL_NAME}_{task_tag}_{timestamp}"
 
         # Plain beatmap .txt
         txt_path = os.path.join(dirname, f"{base}.txt")

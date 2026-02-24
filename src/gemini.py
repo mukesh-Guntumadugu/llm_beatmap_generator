@@ -559,11 +559,11 @@ def process_full_song(audio_path: str, level: str = "Challenging", mode: str = "
             print("No beats generated.")
             return
 
-        # Generate CSV Filename (keeping .csv extension for now as requested, but format is raw text/custom)
-        # Format: {OriginalName}_{Timestamp}_{Level}_{Mode}.csv
+        # Generate CSV Filename
+        # Format: {OriginalName}_{Level}_{ModelName}_{Timestamp}_{Mode}.csv
         original_name = os.path.splitext(os.path.basename(audio_path))[0]
         timestamp = time.strftime("%Y%m%d_%H%M%S")
-        csv_filename = f"{original_name}_{timestamp}_{level}_{mode}.csv"
+        csv_filename = f"{original_name}_{level}_gemini-2.0-flash-001_{timestamp}_{mode}.csv"
         csv_path = os.path.join(script_dir, csv_filename)
         
         print(f"Saving to CSV: {csv_path}")

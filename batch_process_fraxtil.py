@@ -88,7 +88,7 @@ def process_song(audio_path, task_id: int, cached_content_name=None):
 
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         # Filename format: SongName_Beginner_task0003_20260224_012345
-        base = f"{name_no_ext}_{DIFFICULTY}_{task_tag}_{timestamp}"
+        base = f"{name_no_ext}_{DIFFICULTY}_{MODEL_NAME}_{task_tag}_{timestamp}"
 
         # ── File 1: plain beatmap .txt ─────────────────────────────────────
         beatmap_path = os.path.join(dirname, f"{base}.txt")
