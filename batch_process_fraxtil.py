@@ -10,7 +10,7 @@ import librosa
 
 from src.gemini import setup_gemini, generate_beatmap_csv, create_beatmap_prompt_cache
 
-DIFFICULTY = "challenging"
+DIFFICULTY = "Challenging"
 MODEL_NAME = "gemini-pro-latest"  # Caching attempted; falls back gracefully if unsupported
 
 # ── Task ID registry ──────────────────────────────────────────────────────────
