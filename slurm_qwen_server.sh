@@ -21,8 +21,10 @@ if [ -f "$VENV_PATH/bin/activate" ]; then
     echo "Using venv: $VENV_PATH"
     source "$VENV_PATH/bin/activate"
 else
-    echo "⚠️  Venv not found — using system Python with --user packages"
+    echo "⚠️  Venv not found — installing required packages on compute node..."
     export PATH="$HOME/.local/bin:$PATH"
+    python3 -m pip install --user --quiet packaging transformers torch torchaudio librosa fastapi uvicorn requests soundfile
+    echo "✅ Packages installed."
 fi
 
 # Go to project directory
