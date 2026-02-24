@@ -111,7 +111,7 @@ def load_beatmap_from_ssc(filepath: str, difficulty: str = "Easy") -> List[List[
         # Notes end with a semicolon
         notes_data = notes_part.split(';')[0].strip()
     except IndexError:
-        print("❌ Error: Malformed #NOTES section")
+        print("Error: Malformed #NOTES section")
         return []
 
     measures = []
@@ -153,10 +153,10 @@ def load_beatmap_measures(filepath: str, difficulty: str = "Easy") -> List[List[
         with open(filepath, 'r') as f:
             content = f.read()
             if not content.strip():
-                print(f"⚠️ Warning: File {os.path.basename(filepath)} is empty!")
+                print(f"Warning: File {os.path.basename(filepath)} is empty!")
                 return []
     except Exception as e:
-        print(f"❌ Error reading file: {e}")
+        print(f"Error reading file: {e}")
         return []
     
     measures = []
@@ -633,62 +633,62 @@ def print_validation_report(results: ValidationResults):
     
     valid_steps = results.total_steps - results.match_out_of_bounds
     
-    print(f"\n📊 OVERVIEW")
+    print(f"\nOVERVIEW")
     print(f"  Total Steps (Rows): {results.total_steps}")
     print(f"  Valid Steps (In Audio): {valid_steps}")
     if results.match_out_of_bounds > 0:
-        print(f"  ❌ Out of Bounds (Ignored): {results.match_out_of_bounds}")
+        print(f"  Out of Bounds (Ignored): {results.match_out_of_bounds}")
         
     print(f"  Total Arrows (Notes): {results.total_arrows}")
     print(f"  BPM: {results.bpm}")
     print(f"  Offset: {results.offset}s")
     
-    print(f"\n🚥 STEP CLASSIFICATION (Valid Steps Only)")
+    print(f"\nSTEP CLASSIFICATION (Valid Steps Only)")
     print(f"  Perfect Match (Beat+Onset): {results.match_perfect}")
     print(f"  Grid Match (Beat only): {results.match_beat}")
     print(f"  Audio Match (Onset only): {results.match_onset}")
     print(f"  Percussive Match (Perc only): {results.match_perc}")
     print(f"  Unaligned (Bad/Ghost): {results.match_bad}")
     
-    print(f"\n🎵 ONSET ALIGNMENT")
+    print(f"\nONSET ALIGNMENT")
     print(f"  Percentage on Onsets: {results.onset_alignment_percentage:.2f}%")
     print(f"  Steps on Onsets: {results.steps_on_onsets}/{valid_steps}")
     print(f"  Mean Distance to Nearest Onset: {results.mean_onset_distance_ms:.2f}ms")
     
     # Rating
     if results.onset_alignment_percentage >= 80:
-        rating = "✅ EXCELLENT"
+        rating = "EXCELLENT"
     elif results.onset_alignment_percentage >= 60:
-        rating = "✓ GOOD"
+        rating = "GOOD"
     elif results.onset_alignment_percentage >= 40:
-        rating = "⚠ FAIR"
+        rating = "FAIR"
     else:
-        rating = "❌ POOR"
+        rating = "POOR"
     print(f"  Rating: {rating}")
     
-    print(f"\n🥁 BEAT ALIGNMENT")
+    print(f"\nBEAT ALIGNMENT")
     print(f"  Percentage on Beats: {results.beat_alignment_percentage:.2f}%")
     print(f"  Steps on Beats: {results.steps_on_beats}/{valid_steps}")
     print(f"  Mean Distance to Nearest Beat: {results.mean_beat_distance_ms:.2f}ms")
     
     # Rating
     if results.beat_alignment_percentage >= 80:
-        rating = "✅ EXCELLENT"
+        rating = "EXCELLENT"
     elif results.beat_alignment_percentage >= 60:
-        rating = "✓ GOOD"
+        rating = "GOOD"
     elif results.beat_alignment_percentage >= 40:
-        rating = "⚠ FAIR"
+        rating = "FAIR"
     else:
-        rating = "❌ POOR"
+        rating = "POOR"
     print(f"  Rating: {rating}")
     
-    print(f"\n🔊 PERCUSSIVE ALIGNMENT")
+    print(f"\nPERCUSSIVE ALIGNMENT")
     print(f"  Percentage on Percussive Features: {results.percussive_alignment_percentage:.2f}%")
     print(f"  Steps on Percussive: {results.steps_on_percussive}/{results.total_steps}")
     
     # Quantization Summary
     if results.step_partials:
-        print(f"\n🎼 QUANTIZATION ANALYSIS (Rhythm)")
+        print(f"\nQUANTIZATION ANALYSIS (Rhythm)")
         from collections import Counter
         counts = Counter(results.step_partials)
         total = len(results.step_partials)
@@ -707,13 +707,13 @@ def print_validation_report(results: ValidationResults):
     
     # Rating
     if results.percussive_alignment_percentage >= 70:
-        rating = "✅ EXCELLENT"
+        rating = "EXCELLENT"
     elif results.percussive_alignment_percentage >= 50:
-        rating = "✓ GOOD"
+        rating = "GOOD"
     elif results.percussive_alignment_percentage >= 30:
-        rating = "⚠ FAIR"
+        rating = "FAIR"
     else:
-        rating = "❌ POOR"
+        rating = "POOR"
     print(f"  Rating: {rating}")
     
     print(f"\n{'='*60}")
@@ -734,24 +734,24 @@ def print_comparison_report(
     print("COMPARISON REPORT")
     print(f"{'='*60}")
     
-    print(f"\n📊 OVERVIEW")
+    print(f"\nOVERVIEW")
     print(f"  Original Steps: {original.total_steps}")
     print(f"  Generated Steps: {generated.total_steps}")
     print(f"  Difference: {generated.total_steps - original.total_steps:+d}")
     
-    print(f"\n🎵 ONSET ALIGNMENT COMPARISON")
+    print(f"\nONSET ALIGNMENT COMPARISON")
     print(f"  Original:  {original.onset_alignment_percentage:6.2f}%")
     print(f"  Generated: {generated.onset_alignment_percentage:6.2f}%")
     diff = generated.onset_alignment_percentage - original.onset_alignment_percentage
     print(f"  Difference: {diff:+6.2f}%")
     
-    print(f"\n🥁 BEAT ALIGNMENT COMPARISON")
+    print(f"\nBEAT ALIGNMENT COMPARISON")
     print(f"  Original:  {original.beat_alignment_percentage:6.2f}%")
     print(f"  Generated: {generated.beat_alignment_percentage:6.2f}%")
     diff = generated.beat_alignment_percentage - original.beat_alignment_percentage
     print(f"  Difference: {diff:+6.2f}%")
     
-    print(f"\n🔊 PERCUSSIVE ALIGNMENT COMPARISON")
+    print(f"\nPERCUSSIVE ALIGNMENT COMPARISON")
     print(f"  Original:  {original.percussive_alignment_percentage:6.2f}%")
     print(f"  Generated: {generated.percussive_alignment_percentage:6.2f}%")
     diff = generated.percussive_alignment_percentage - original.percussive_alignment_percentage
@@ -770,7 +770,7 @@ def save_results_json(results: ValidationResults, output_path: str):
     """
     with open(output_path, 'w') as f:
         json.dump(asdict(results), f, indent=2)
-    print(f"\n💾 Results saved to: {output_path}")
+    print(f"\nResults saved to: {output_path}")
 
 
 def visualize_validation(
@@ -1066,7 +1066,7 @@ def visualize_validation(
     )
 
     fig.write_html(output_path)
-    print(f"\n📊 Interactive visualization saved to: {output_path}")
+    print(f"\nInteractive visualization saved to: {output_path}")
 
 
 if __name__ == "__main__":

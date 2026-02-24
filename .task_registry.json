@@ -1,0 +1,10 @@
+{
+  "last_task_id": 1,
+  "tasks": {
+    "1": {
+      "created": "2026-02-24T01:27:02.250738",
+      "difficulty": "Beginner",
+      "model": "gemini-pro-latest"
+    }
+  }
+}

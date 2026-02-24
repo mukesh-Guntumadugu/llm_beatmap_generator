@@ -35,8 +35,8 @@ GENERATED_BEATMAP_PATH = "/Users/mukeshguntumadugu/llm_beatmap_generator/src/mus
 # If you don't have one, set to None.
 ORIGINAL_METADATA_PATH = "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup.ssc"
 
-# 3. Audio File (Optional - leave None to read from Metadata file)
-AUDIO_FILE_PATH = None 
+# 3. Audio File (Set to None to auto-find from same folder, or set full path to override)
+AUDIO_FILE_PATH = None  # e.g. "/path/to/song.ogg" — auto-detected from folder if None
 
 # 4. Manual Settings (Optional - leave None to read from Metadata file)
 MANUAL_BPM = None     # e.g. 145.0
@@ -45,6 +45,22 @@ MANUAL_OFFSET = None  # e.g. 0.02
 # ============================================================================
 # END CONFIGURATION
 # ============================================================================
+
+
+# Supported audio extensions (auto-detection)
+AUDIO_EXTENSIONS = ['.ogg', '.mp3', '.mp4', '.wav', '.flac', '.aac', '.m4a', '.opus']
+
+
+def find_audio_in_folder(folder):
+    """
+    Scans folder for any audio file and returns the first match.
+    Checks all common audio extensions.
+    """
+    for ext in AUDIO_EXTENSIONS:
+        matches = glob.glob(os.path.join(folder, f"*{ext}"))
+        if matches:
+            return matches[0]
+    return None
 
 
 def find_metadata_and_audio(beatmap_path):
@@ -93,7 +109,7 @@ def main():
     
     # 1. Check Generated File
     if not GENERATED_BEATMAP_PATH or not os.path.exists(GENERATED_BEATMAP_PATH):
-        print(f"\n❌ Error: Generated Beatmap file not found:\n{GENERATED_BEATMAP_PATH}")
+        print(f"\nError: Generated Beatmap file not found:\n{GENERATED_BEATMAP_PATH}")
         return
 
     # 2. Get Metadata (BPM, Offset, Audio)
@@ -104,7 +120,7 @@ def main():
     
     # A. Try reading from Original Metadata (.ssc) if provided
     if ORIGINAL_METADATA_PATH and os.path.exists(ORIGINAL_METADATA_PATH):
-        print(f"📄 Reading Metadata from: {os.path.basename(ORIGINAL_METADATA_PATH)}")
+        print(f"Reading Metadata from: {os.path.basename(ORIGINAL_METADATA_PATH)}")
         try:
             with open(ORIGINAL_METADATA_PATH, 'r', errors='ignore') as f:
                 content = f.read()
@@ -127,36 +143,52 @@ def main():
                     if os.path.exists(potential_audio):
                         audio_path = potential_audio
         except Exception as e:
-            print(f"⚠️  Warning reading metadata: {e}")
+            print(f"Warning reading metadata: {e}")
     else:
-        print("⚠️  No Original Metadata file provided (or file not found). Using defaults.")
+        print("No Original Metadata file provided (or file not found). Using defaults.")
 
     # B. Apply Manual Overrides (if set in config)
     if MANUAL_BPM is not None: 
         bpm = MANUAL_BPM
-        print(f"   👉 Using Manual BPM: {bpm}")
+        print(f"   Using Manual BPM: {bpm}")
         
     if MANUAL_OFFSET is not None: 
         offset = MANUAL_OFFSET
-        print(f"   👉 Using Manual Offset: {offset}")
+        print(f"   Using Manual Offset: {offset}")
         
     if AUDIO_FILE_PATH is not None: 
         audio_path = AUDIO_FILE_PATH
-        print(f"   👉 Using Manual Audio Path: {os.path.basename(audio_path)}")
+        print(f"   Using Manual Audio Path: {os.path.basename(audio_path)}")
 
-    # 3. Validation Checks
+    # 3. If audio still not found, auto-detect from the beatmap / metadata folder
     if not audio_path or not os.path.exists(audio_path):
-        print("\n❌ Error: Could not find audio file!")
-        print("Please set AUDIO_FILE_PATH in the script configuration.")
+        # Try the folder of the generated beatmap first
+        search_folders = [os.path.dirname(GENERATED_BEATMAP_PATH)]
+        if ORIGINAL_METADATA_PATH:
+            search_folders.append(os.path.dirname(ORIGINAL_METADATA_PATH))
+        
+        for folder in search_folders:
+            found = find_audio_in_folder(folder)
+            if found:
+                audio_path = found
+                print(f"   Auto-detected Audio: {os.path.basename(audio_path)}")
+                break
+
+    # 4. Validation Checks
+    if not audio_path or not os.path.exists(audio_path):
+        print("\nError: Could not find audio file!")
+        print(f"Searched for audio in: {os.path.dirname(GENERATED_BEATMAP_PATH)}")
+        print(f"Supported extensions: {', '.join(AUDIO_EXTENSIONS)}")
+        print("You can also set AUDIO_FILE_PATH explicitly in the script configuration.")
         return
 
-    print(f"   ✅ Audio:  {os.path.basename(audio_path)}")
-    print(f"   ✅ BPM:    {bpm}")
-    print(f"   ✅ Offset: {offset}")
+    print(f"   Audio:  {os.path.basename(audio_path)}")
+    print(f"   BPM:    {bpm}")
+    print(f"   Offset: {offset}")
     
     # Check if GENERATED file is empty
     if os.path.getsize(GENERATED_BEATMAP_PATH) == 0:
-        print(f"\n⚠️  Generated file is empty! {GENERATED_BEATMAP_PATH}")
+        print(f"\nWarning: Generated file is empty: {GENERATED_BEATMAP_PATH}")
     
     # 4. Validate
     print("\n" + "-"*60)
