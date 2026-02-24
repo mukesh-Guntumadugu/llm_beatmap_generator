@@ -15,8 +15,15 @@ echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 # Create logs dir if it doesn't exist
 mkdir -p /data/mg546924/logs
 
-# Activate your Python environment (adjust path if different)
-source /data/mg546924/envs/qwen_env/bin/activate
+# Activate Python environment — use venv if it exists, else fall back to --user packages
+VENV_PATH="/data/mg546924/envs/qwen_env"
+if [ -f "$VENV_PATH/bin/activate" ]; then
+    echo "Using venv: $VENV_PATH"
+    source "$VENV_PATH/bin/activate"
+else
+    echo "⚠️  Venv not found — using system Python with --user packages"
+    export PATH="$HOME/.local/bin:$PATH"
+fi
 
 # Go to project directory
 cd /data/mg546924/llm_beatmap_generator
@@ -27,7 +34,7 @@ SERVER_PORT=8000
 # ── Step 1: Start the Qwen inference server in background ─────────────────────
 echo ""
 echo "=== Starting Qwen2-Audio Server ==="
-python src/hpc_qwen_server.py \
+python3 src/hpc_qwen_server.py \
     --model-dir "$MODEL_DIR" \
     --host 0.0.0.0 \
     --port $SERVER_PORT &
@@ -35,16 +42,16 @@ python src/hpc_qwen_server.py \
 SERVER_PID=$!
 echo "Server PID: $SERVER_PID"
 
-# Wait for the server to be ready (model loading takes ~60-120 seconds)
+# Wait for the server to be ready — up to 10 minutes (model loading ~2-4 min on A6000)
 echo "Waiting for server to become healthy..."
-for i in $(seq 1 60); do
+for i in $(seq 1 120); do
     sleep 5
     STATUS=$(curl -s http://localhost:$SERVER_PORT/health 2>/dev/null | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('model_loaded','false'))" 2>/dev/null)
     if [ "$STATUS" = "True" ]; then
         echo "✅ Server is ready! (waited ${i}x5s)"
         break
     fi
-    echo "  Still loading... (attempt $i/60)"
+    echo "  Still loading... (attempt $i/120)"
 done
 
 if [ "$STATUS" != "True" ]; then
