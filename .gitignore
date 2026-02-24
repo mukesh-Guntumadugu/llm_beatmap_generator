@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 .venv/
 .venv1/
+sheetenv/
+bpenv/
 
 # Mac
 .DS_Store
