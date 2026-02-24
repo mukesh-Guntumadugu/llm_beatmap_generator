@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=qwen_beatmap
-#SBATCH --partition=gpu             # Use your cluster's GPU partition name (check with: sinfo)
-#SBATCH --gres=gpu:1                # 1 GPU (Qwen2-Audio-7B needs ~16GB VRAM)
+#SBATCH --partition=defq            # Default GPU partition on Ohio HPC
+#SBATCH --gres=gpu:A6000:1          # 1x A6000 GPU (48GB VRAM — plenty for Qwen2-Audio-7B)
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=48G
 #SBATCH --time=12:00:00             # 12 hours max (adjust as needed)
