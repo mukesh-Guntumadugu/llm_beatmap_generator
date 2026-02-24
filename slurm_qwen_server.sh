@@ -3,7 +3,6 @@
 #SBATCH --partition=defq            # Default GPU partition on Ohio HPC
 #SBATCH --gres=gpu:A6000:1          # 1x A6000 GPU (48GB VRAM — plenty for Qwen2-Audio-7B)
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=32G
 #SBATCH --time=12:00:00             # 12 hours max (adjust as needed)
 #SBATCH --output=/data/mg546924/logs/qwen_beatmap_%j.out
 #SBATCH --error=/data/mg546924/logs/qwen_beatmap_%j.err
