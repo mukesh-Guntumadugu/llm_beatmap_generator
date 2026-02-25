@@ -21,6 +21,10 @@ import argparse
 import requests
 import librosa
 
+# Import the same detailed system instruction used by Gemini
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+from src.gemini import _BEATMAP_SYSTEM_INSTRUCTION
+
 DIFFICULTY  = "Medium"
 MODEL_NAME  = "Qwen2-Audio-7B"
 SERVER_URL  = "http://localhost:8000"
@@ -36,17 +40,16 @@ _REGISTRY_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", 
 
 # ── Prompt ────────────────────────────────────────────────────────────────────
 def build_prompt(duration: float, difficulty: str = DIFFICULTY) -> str:
+    expected_commas = int(duration)  # ~1 measure separator per second
     return (
-        f"The audio is {duration:.1f} seconds long.\n"
-        f"Generate a {difficulty} difficulty StepMania beatmap for the ENTIRE duration.\n\n"
-        "Output a JSON array of objects. Each object has:\n"
-        "  - notes (str): 4-character row e.g. '1000' OR ',' for measure separator\n\n"
-        "Rules:\n"
-        "- Each measure has 4, 8, or 16 note rows then a ',' separator.\n"
-        "- Use '0000' for silent slots.\n"
-        "- Cover the ENTIRE audio. DO NOT STOP EARLY.\n\n"
-        "Example:\n"
-        '[{"notes":"1000"},{"notes":"0000"},{"notes":"0010"},{"notes":"0000"},{"notes":","}]\n'
+        _BEATMAP_SYSTEM_INSTRUCTION  # Full Gemini system instruction
+        + f"\nDifficulty: {difficulty}\n\n"
+        + f"The audio is {duration:.1f} seconds long. You MUST generate chart data for the ENTIRE duration.\n"
+        + f"Target: approximately {expected_commas} measure separators (commas) — one per second.\n\n"
+        + "Output a JSON array of objects. Each object has:\n"
+        + "  - notes (str): 4-character row e.g. '1000' OR ',' for measure separator\n\n"
+        + "Example:\n"
+        + '[{"notes":"1000"},{"notes":"0000"},{"notes":"0010"},{"notes":","}]\n'
     )
 
 # ── Task registry helpers ──────────────────────────────────────────────────────
