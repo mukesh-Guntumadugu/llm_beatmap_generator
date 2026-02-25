@@ -23,7 +23,7 @@ if [ -f "$VENV_PATH/bin/activate" ]; then
 else
     echo "⚠️  Venv not found — installing required packages on compute node..."
     export PATH="$HOME/.local/bin:$PATH"
-    python3 -m pip install --user --quiet packaging transformers torch torchaudio librosa fastapi uvicorn requests soundfile
+    python3 -m pip install --user --quiet packaging psutil transformers torch torchaudio librosa fastapi uvicorn requests soundfile
     echo "✅ Packages installed."
 fi
 
