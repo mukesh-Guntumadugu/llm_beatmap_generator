@@ -179,6 +179,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("task_id", nargs="?", type=int, help="Resume a specific task ID")
     parser.add_argument("--server", default=SERVER_URL, help="Qwen server URL")
+    parser.add_argument("--song", default=None, help="Test with one song (partial name, e.g. 'Bad Ketchup')")
     args = parser.parse_args()
 
     # Check server health
@@ -206,7 +207,16 @@ def main():
     print(f"   Difficulty : {DIFFICULTY}\n")
 
     target_files = get_target_files(BASE_DIR)
-    print(f"Found {len(target_files)} audio files.\n")
+
+    # Single-song test mode
+    if args.song:
+        target_files = [f for f in target_files if args.song.lower() in os.path.basename(os.path.dirname(f)).lower()]
+        if not target_files:
+            print(f"\u274c No audio file found matching '{args.song}'. Check the song name.")
+            sys.exit(1)
+        print(f"\U0001f3b5 Single-song test: {os.path.basename(target_files[0])}\n")
+    else:
+        print(f"Found {len(target_files)} audio files.\n")
 
     for i, audio_file in enumerate(target_files):
         print(f"[{i+1}/{len(target_files)}] ", end="")
