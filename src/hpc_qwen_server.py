@@ -66,16 +66,16 @@ def generate(req: GenerateRequest):
         tmp_path = tmp.name
 
     try:
-        # Load audio at the correct sample rate for the model
+        # Load audio with soundfile (preferred for Qwen2-Audio processor)
         target_sr = _processor.feature_extractor.sampling_rate
-        y, sr = librosa.load(tmp_path, sr=target_sr)
+        y, sr = librosa.load(tmp_path, sr=target_sr, mono=True)
 
-        # Build conversation in Qwen2-Audio chat format
+        # Build conversation — audio_url must point to the actual temp file
         conversation = [
             {
                 "role": "user",
                 "content": [
-                    {"type": "audio", "audio_url": tmp_path},
+                    {"type": "audio", "audio_url": f"file://{tmp_path}"},
                     {"type": "text",  "text": req.prompt},
                 ],
             }
@@ -83,8 +83,14 @@ def generate(req: GenerateRequest):
         text = _processor.apply_chat_template(
             conversation, add_generation_prompt=True, tokenize=False
         )
+
+        # Pass audio array + sampling_rate explicitly
         inputs = _processor(
-            text=text, audios=[y], return_tensors="pt", padding=True
+            text=text,
+            audios=[y],
+            sampling_rate=target_sr,
+            return_tensors="pt",
+            padding=True,
         ).to(_model.device)
 
         with torch.no_grad():
