@@ -147,6 +147,23 @@ def process_song(audio_path: str, task_id: int, server_url: str):
                 f.write(f"{note}\n")
         print(f"  Beatmap → {os.path.basename(txt_path)}")
 
+        # Structured CSV (matches Gemini output format)
+        csv_path = os.path.join(dirname, f"{base}.csv")
+        rows_per_sec = 8.0  # estimated: 8 subdivisions per second at ~120BPM
+        with open(csv_path, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(["time_ms", "beat_position", "notes",
+                             "placement_type", "note_type", "confidence", "instrument"])
+            beat_idx = 0.0
+            for i, note in enumerate(notes):
+                if note == ",":
+                    beat_idx += 1.0
+                    continue
+                time_ms = round((i / rows_per_sec) * 1000, 2)
+                beat_pos = round(beat_idx + (i % int(rows_per_sec)) / rows_per_sec, 4)
+                writer.writerow([time_ms, beat_pos, note, 1, 1, 0.9, "mixed"])
+        print(f"  Full CSV → {os.path.basename(csv_path)}")
+
         print("  Done.")
 
     except requests.exceptions.ConnectionError:
