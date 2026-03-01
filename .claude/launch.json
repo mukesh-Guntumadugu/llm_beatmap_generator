@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Qwen2-Audio Beatmap Server",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "src/hpc_qwen_server.py",
+        "--host", "0.0.0.0",
+        "--port", "8000",
+        "--model-dir", "/data/mg546924/models/Qwen2-Audio-7B-Instruct"
+      ],
+      "port": 8000,
+      "_note": "HPC-only: requires CUDA GPU + Qwen2-Audio-7B model weights. Run on cluster via: sbatch slurm_qwen_server.sh"
+    }
+  ]
+}
