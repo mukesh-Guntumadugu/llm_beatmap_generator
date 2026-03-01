@@ -12,6 +12,14 @@ Usage:
 
 import os
 import sys
+
+# ── Ensure project root is on sys.path when run as `python3 src/hpc_batch_runner.py` ──
+# Running the script directly puts `src/` on sys.path, making `from src.beatmap_prompt`
+# resolve to `src/src/beatmap_prompt.py` (wrong). We fix that here.
+_PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
+
 import time
 import csv
 import json
@@ -23,6 +31,7 @@ import librosa
 
 from src.beatmap_prompt import build_qwen_prompt
 import re
+
 
 DIFFICULTIES = ["Beginner", "Easy", "Medium", "Hard", "Challenge"]
 MODEL_NAME   = "Qwen2-Audio-7B"
