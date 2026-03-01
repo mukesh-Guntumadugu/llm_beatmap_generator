@@ -1,21 +1,13 @@
 {
-  "last_task_id": 4,
+  "last_task_id": 2,
   "tasks": {
     "1": {
-      "created": "2026-02-24T19:41:40.025558",
-      "difficulty": "Medium"
+      "created": "2026-03-01T12:54:27.407576",
+      "difficulty": "Hard"
     },
     "2": {
-      "created": "2026-02-24T19:51:18.279145",
-      "difficulty": "Medium"
-    },
-    "3": {
-      "created": "2026-02-24T20:10:05.748113",
-      "difficulty": "Medium"
-    },
-    "4": {
-      "created": "2026-02-24T20:36:46.266121",
-      "difficulty": "Medium"
+      "created": "2026-03-01T12:54:32.491346",
+      "difficulty": "Beginner"
     }
   }
 }

@@ -1,0 +1,32 @@
+Job started: Sun Mar  1 12:29:31 PM PST 2026
+Node: node001
+Array task: 3  →  Difficulty: Hard
+GPU: NVIDIA RTX A6000
+⚠️  Venv not found — installing required packages on compute node...
+✅ Packages installed.
+
+=== Starting Qwen2-Audio Server (port 8003) ===
+Server PID: 3839010
+Waiting for server to become healthy...
+  Still loading... (attempt 1/120)
+Loading model from: /data/mg546924/models/Qwen2-Audio-7B-Instruct
+  Still loading... (attempt 2/120)
+✅ Model loaded and ready.
+INFO:     127.0.0.1:58618 - "GET /health HTTP/1.1" 200 OK
+✅ Server is ready! (waited 3x5s)
+
+=== Starting Batch Runner (Difficulty: Hard) ===
+INFO:     127.0.0.1:58626 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58632 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52014 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53496 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40300 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57682 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58660 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51138 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44752 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51748 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45022 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47366 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53752 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49446 - "POST /generate HTTP/1.1" 200 OK

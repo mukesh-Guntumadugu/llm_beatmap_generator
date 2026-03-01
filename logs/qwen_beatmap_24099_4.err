@@ -1,0 +1,7 @@
+The tokenizer you are loading from '/data/mg546924/models/Qwen2-Audio-7B-Instruct' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:02,  2.58it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:02,  2.14it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  2.04it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  2.00it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  2.02it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:02<00:00,  2.03it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  2.21it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.57it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.26it/s]
+INFO:     Started server process [3839014]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8004 (Press CTRL+C to quit)
+Keyword argument `audios` is not a valid argument for this processor and will be ignored.

@@ -1,0 +1,14 @@
+Here's an example of how you could generate a JSON array of objects that meets the given requirements:
+```css
+[
+{"time_ms": 0.0, "beat_position": 1, "notes": "1000", "placement_type": 2, "note_type": 0, "confidence": 1.0, "instrument": "kick"},
+{"time_ms": 1.07, "beat_position": 2, "notes": "0000", "placement_type": 1, "note_type": 0, "confidence": 1.0, "instrument": "separator"},
+{"time_ms": 1.29, "beat_position": 3, "notes": "0010", "placement_type": 2, "note_type": 0, "confidence": 1.0, "instrument": "kick"},
+{"time_ms": 1.57, "beat_position": 4, "notes": "0000", "placement_type": 1, "note_type": 0, "confidence": 1.0, "instrument": "separator"},
+{"time_ms": 1.79, "beat_position": 5, "notes": "0010", "placement_type": 2, "note_type": 0, "confidence": 1.0, "instrument": "kick"},
+...
+{"time_ms": 150.0, "beat_position": 145, "notes": "0000", "placement_type": 1, "note_type": 0, "confidence": 1.0, "instrument": "separator"},
+{"time_ms": 150.0, "beat_position": 146, "notes": "0000", "placement_type": 1, "note_type": 0, "confidence": 1.0, "instrument": "separator"}
+]
+```
+This would result in a JSON array with 149 objects, each representing a beat position and note row in the music. The first object represents the first beat of the first measure, and the last object represents the last beat of the last measure. There are 146 separator objects between the beat positions, representing the 146 measure separators that were requested.

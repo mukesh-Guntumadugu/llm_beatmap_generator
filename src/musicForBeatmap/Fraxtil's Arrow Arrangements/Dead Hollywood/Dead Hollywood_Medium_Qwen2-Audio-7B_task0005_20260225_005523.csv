@@ -1,0 +1,61 @@
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,0.0,```json,1,1,0.9,mixed
+125.0,0.125,[,1,1,0.9,mixed
+250.0,0.25,"{""time_ms"": 0.0, ""beat_position"": 1, ""notes"": ""1000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""kick""},",1,1,0.9,mixed
+375.0,0.375,"{""time_ms"": 1.09, ""beat_position"": 2, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+500.0,0.5,"{""time_ms"": 2.17, ""beat_position"": 3, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+625.0,0.625,"{""time_ms"": 3.25, ""beat_position"": 4, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+750.0,0.75,"{""time_ms"": 4.33, ""beat_position"": 5, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+875.0,0.875,"{""time_ms"": 5.41, ""beat_position"": 6, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+1000.0,0.0,"{""time_ms"": 6.49, ""beat_position"": 7, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+1125.0,0.125,"{""time_ms"": 7.57, ""beat_position"": 8, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+1250.0,0.25,"{""time_ms"": 8.65, ""beat_position"": 9, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+1375.0,0.375,"{""time_ms"": 9.73, ""beat_position"": 10, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+1500.0,0.5,"{""time_ms"": 10.81, ""beat_position"": 11, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+1625.0,0.625,"{""time_ms"": 11.89, ""beat_position"": 12, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+1750.0,0.75,"{""time_ms"": 12.97, ""beat_position"": 13, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+1875.0,0.875,"{""time_ms"": 14.05, ""beat_position"": 14, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+2000.0,0.0,"{""time_ms"": 15.13, ""beat_position"": 15, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+2125.0,0.125,"{""time_ms"": 16.21, ""beat_position"": 16, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+2250.0,0.25,"{""time_ms"": 17.29, ""beat_position"": 17, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+2375.0,0.375,"{""time_ms"": 18.37, ""beat_position"": 18, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+2500.0,0.5,"{""time_ms"": 19.45, ""beat_position"": 19, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+2625.0,0.625,"{""time_ms"": 20.53, ""beat_position"": 20, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+2750.0,0.75,"{""time_ms"": 21.61, ""beat_position"": 21, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+2875.0,0.875,"{""time_ms"": 22.69, ""beat_position"": 22, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+3000.0,0.0,"{""time_ms"": 23.77, ""beat_position"": 23, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+3125.0,0.125,"{""time_ms"": 24.85, ""beat_position"": 24, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+3250.0,0.25,"{""time_ms"": 25.93, ""beat_position"": 25, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+3375.0,0.375,"{""time_ms"": 27.01, ""beat_position"": 26, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+3500.0,0.5,"{""time_ms"": 28.09, ""beat_position"": 27, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+3625.0,0.625,"{""time_ms"": 29.17, ""beat_position"": 28, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+3750.0,0.75,"{""time_ms"": 30.25, ""beat_position"": 29, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+3875.0,0.875,"{""time_ms"": 31.33, ""beat_position"": 30, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+4000.0,0.0,"{""time_ms"": 32.41, ""beat_position"": 31, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+4125.0,0.125,"{""time_ms"": 33.49, ""beat_position"": 32, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+4250.0,0.25,"{""time_ms"": 34.57, ""beat_position"": 33, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+4375.0,0.375,"{""time_ms"": 35.65, ""beat_position"": 34, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+4500.0,0.5,"{""time_ms"": 36.73, ""beat_position"": 35, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+4625.0,0.625,"{""time_ms"": 37.81, ""beat_position"": 36, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+4750.0,0.75,"{""time_ms"": 38.89, ""beat_position"": 37, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+4875.0,0.875,"{""time_ms"": 39.97, ""beat_position"": 38, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+5000.0,0.0,"{""time_ms"": 41.05, ""beat_position"": 39, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+5125.0,0.125,"{""time_ms"": 42.13, ""beat_position"": 40, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+5250.0,0.25,"{""time_ms"": 43.21, ""beat_position"": 41, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+5375.0,0.375,"{""time_ms"": 44.29, ""beat_position"": 42, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+5500.0,0.5,"{""time_ms"": 45.37, ""beat_position"": 43, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+5625.0,0.625,"{""time_ms"": 46.45, ""beat_position"": 44, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+5750.0,0.75,"{""time_ms"": 47.53, ""beat_position"": 45, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+5875.0,0.875,"{""time_ms"": 48.61, ""beat_position"": 46, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+6000.0,0.0,"{""time_ms"": 49.69, ""beat_position"": 47, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+6125.0,0.125,"{""time_ms"": 50.77, ""beat_position"": 48, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+6250.0,0.25,"{""time_ms"": 51.85, ""beat_position"": 49, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+6375.0,0.375,"{""time_ms"": 52.93, ""beat_position"": 50, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+6500.0,0.5,"{""time_ms"": 54.01, ""beat_position"": 51, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+6625.0,0.625,"{""time_ms"": 55.09, ""beat_position"": 52, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+6750.0,0.75,"{""time_ms"": 56.17, ""beat_position"": 53, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+6875.0,0.875,"{""time_ms"": 57.25, ""beat_position"": 54, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+7000.0,0.0,"{""time_ms"": 58.33, ""beat_position"": 55, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""},",1,1,0.9,mixed
+7125.0,0.125,"{""time_ms"": 59.41, ""beat_position"": 56, ""notes"": ""0000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""snare""}",1,1,0.9,mixed
+7250.0,0.25,],1,1,0.9,mixed
+7375.0,0.375,```,1,1,0.9,mixed

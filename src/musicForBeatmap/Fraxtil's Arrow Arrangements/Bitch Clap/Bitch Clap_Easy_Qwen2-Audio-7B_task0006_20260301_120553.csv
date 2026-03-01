@@ -1,0 +1,16 @@
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,0.0,Here's an example of how you could generate a JSON array of objects that meets the requirements specified in the prompt:,1,1,0.9,mixed
+125.0,0.125,```css,1,1,0.9,mixed
+250.0,0.25,[,1,1,0.9,mixed
+375.0,0.375,"{""time_ms"": 0.0, ""beat_position"": 1, ""notes"": ""1000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""kick""},",1,1,0.9,mixed
+500.0,0.5,"{""time_ms"": 0.72, ""beat_position"": 2, ""notes"": ""0000"", ""placement_type"": 1, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""separator""},",1,1,0.9,mixed
+625.0,0.625,"{""time_ms"": 0.84, ""beat_position"": 3, ""notes"": ""0010"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""kick""},",1,1,0.9,mixed
+750.0,0.75,"{""time_ms"": 1.56, ""beat_position"": 4, ""notes"": ""0000"", ""placement_type"": 1, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""separator""},",1,1,0.9,mixed
+875.0,0.875,"{""time_ms"": 1.71, ""beat_position"": 5, ""notes"": ""0010"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""kick""},",1,1,0.9,mixed
+1000.0,0.0,...,1,1,0.9,mixed
+1125.0,0.125,"{""time_ms"": 129.57, ""beat_position"": 128, ""notes"": ""0000"", ""placement_type"": 1, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""separator""},",1,1,0.9,mixed
+1250.0,0.25,"{""time_ms"": 129.60, ""beat_position"": 129, ""notes"": """", ""placement_type"": 1, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""separator""}",1,1,0.9,mixed
+1375.0,0.375,],1,1,0.9,mixed
+1500.0,0.5,```,1,1,0.9,mixed
+1625.0,0.625,"This array contains 129 objects, each representing a beat in the music. The `time_ms` field specifies the timestamp of the beat in milliseconds, the `beat_position` field indicates the beat number from the start of the song, the `notes` field represents the notes played on that beat as a 4-character string (e.g. '1000'), the `placement_type` field indicates the type of note placement (0=unsure, 1=onset, 2=beat, 3=grid, 4=percussive, 5=unaligned, -1=separator), the `note_type` field indicates the type of note (0=whole, 1=half, 2=quarter, 3=eighth, 4=extended, -1=separator), the `confidence` field indicates the confidence level of the beat detection, and the `instrument` field indicates the instrument used for the beat.",1,1,0.9,mixed
+1750.0,0.75,"The measure structure is respected by ensuring that each measure contains exactly 4, 8, 12, or 16 note rows before the separator. In this example, each measure contains 8 rows (e.g. '0000', '0010', etc.).",1,1,0.9,mixed

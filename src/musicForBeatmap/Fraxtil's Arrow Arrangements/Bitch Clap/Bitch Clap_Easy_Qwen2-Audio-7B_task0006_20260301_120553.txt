@@ -1,0 +1,15 @@
+Here's an example of how you could generate a JSON array of objects that meets the requirements specified in the prompt:
+```css
+[
+{"time_ms": 0.0, "beat_position": 1, "notes": "1000", "placement_type": 2, "note_type": 0, "confidence": 1.0, "instrument": "kick"},
+{"time_ms": 0.72, "beat_position": 2, "notes": "0000", "placement_type": 1, "note_type": 0, "confidence": 1.0, "instrument": "separator"},
+{"time_ms": 0.84, "beat_position": 3, "notes": "0010", "placement_type": 2, "note_type": 0, "confidence": 1.0, "instrument": "kick"},
+{"time_ms": 1.56, "beat_position": 4, "notes": "0000", "placement_type": 1, "note_type": 0, "confidence": 1.0, "instrument": "separator"},
+{"time_ms": 1.71, "beat_position": 5, "notes": "0010", "placement_type": 2, "note_type": 0, "confidence": 1.0, "instrument": "kick"},
+...
+{"time_ms": 129.57, "beat_position": 128, "notes": "0000", "placement_type": 1, "note_type": 0, "confidence": 1.0, "instrument": "separator"},
+{"time_ms": 129.60, "beat_position": 129, "notes": "", "placement_type": 1, "note_type": 0, "confidence": 1.0, "instrument": "separator"}
+]
+```
+This array contains 129 objects, each representing a beat in the music. The `time_ms` field specifies the timestamp of the beat in milliseconds, the `beat_position` field indicates the beat number from the start of the song, the `notes` field represents the notes played on that beat as a 4-character string (e.g. '1000'), the `placement_type` field indicates the type of note placement (0=unsure, 1=onset, 2=beat, 3=grid, 4=percussive, 5=unaligned, -1=separator), the `note_type` field indicates the type of note (0=whole, 1=half, 2=quarter, 3=eighth, 4=extended, -1=separator), the `confidence` field indicates the confidence level of the beat detection, and the `instrument` field indicates the instrument used for the beat.
+The measure structure is respected by ensuring that each measure contains exactly 4, 8, 12, or 16 note rows before the separator. In this example, each measure contains 8 rows (e.g. '0000', '0010', etc.).

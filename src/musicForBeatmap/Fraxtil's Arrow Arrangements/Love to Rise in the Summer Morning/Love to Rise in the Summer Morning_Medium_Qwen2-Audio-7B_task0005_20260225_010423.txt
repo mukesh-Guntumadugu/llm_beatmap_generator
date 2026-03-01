@@ -1,0 +1,16 @@
+```json
+[
+{"time_ms": 0.0, "beat_position": 1, "notes": "1000"},
+{"time_ms": 1.93, "beat_position": 2, "notes": "0000"},
+{"time_ms": 2.83, "beat_position": 3, "notes": "0010"},
+{"time_ms": 3.73, "beat_position": 4, "notes": ","},
+{"time_ms": 4.07, "beat_position": 1, "notes": "1000"},
+{"time_ms": 5.93, "beat_position": 2, "notes": "0000"},
+{"time_ms": 6.83, "beat_position": 3, "notes": "0010"},
+{"time_ms": 7.73, "beat_position": 4, "notes": ","},
+{"time_ms": 8.07, "beat_position": 1, "notes": "1000"},
+{"time_ms": 9.93, "beat_position": 2, "notes": "0000"},
+{"time_ms": 10.83, "beat_position": 3, "notes": "0010"},
+{"time_ms": 11.73, "beat_position": 4, "notes": ","}
+]
+```

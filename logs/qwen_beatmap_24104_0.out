@@ -1,0 +1,71 @@
+Job started: Sun Mar  1 12:54:21 PM PST 2026
+Node: node002
+Array task: 0  →  Difficulty: Beginner
+GPU: NVIDIA RTX A6000
+⚠️  Venv not found — installing required packages on compute node...
+✅ Packages installed.
+
+=== Starting Qwen2-Audio Server (port 8000) ===
+Server PID: 2413917
+Waiting for server to become healthy...
+  Still loading... (attempt 1/120)
+Loading model from: /data/mg546924/models/Qwen2-Audio-7B-Instruct
+✅ Model loaded and ready.
+INFO:     127.0.0.1:57224 - "GET /health HTTP/1.1" 200 OK
+✅ Server is ready! (waited 2x5s)
+
+=== Starting Batch Runner (Difficulty: Beginner) ===
+INFO:     127.0.0.1:57240 - "GET /health HTTP/1.1" 200 OK
+▶  New HPC Task ID: 0002
+   Difficulties : Beginner
+
+Found 20 audio files.
+
+
+============================================================
+  Difficulty: Beginner
+============================================================
+
+[1/20] Processing: Bad Ketchup  [Beginner]
+  Skipping — already done (task0002, Beginner): Bad Ketchup_Beginner_Qwen2-Audio-7B_task0002_20260301_123028_RAW.txt
+[2/20] Processing: Bitch Clap  [Beginner]
+  Skipping — already done (task0002, Beginner): Bitch Clap_Beginner_Qwen2-Audio-7B_task0002_20260301_123119.txt
+[3/20] Processing: Call Me Maybe (Remix)  [Beginner]
+  Skipping — already done (task0002, Beginner): Call Me Maybe (Remix)_Beginner_Qwen2-Audio-7B_task0002_20260301_123137_RAW.txt
+[4/20] Processing: Dead Hollywood  [Beginner]
+  Skipping — already done (task0002, Beginner): Dead Hollywood_Beginner_Qwen2-Audio-7B_task0002_20260301_123222_RAW.txt
+[5/20] Processing: Deal With It  [Beginner]
+  Skipping — already done (task0002, Beginner): Deal With It_Beginner_Qwen2-Audio-7B_task0002_20260301_123312.txt
+[6/20] Processing: Gangnam Style  [Beginner]
+  Skipping — already done (task0002, Beginner): Gangnam Style_Beginner_Qwen2-Audio-7B_task0002_20260301_123357_RAW.txt
+[7/20] Processing: Girls  [Beginner]
+  Skipping — already done (task0002, Beginner): Girls_Beginner_Qwen2-Audio-7B_task0002_20260301_123442.txt
+[8/20] Processing: Goin' Under  [Beginner]
+  Skipping — already done (task0002, Beginner): Goin' Under_Beginner_Qwen2-Audio-7B_task0002_20260301_123534.txt
+[9/20] Processing: Goodbye (2012 Mix)  [Beginner]
+  Skipping — already done (task0002, Beginner): Goodbye (2012 Mix)_Beginner_Qwen2-Audio-7B_task0002_20260301_123618_RAW.txt
+[10/20] Processing: Human Error  [Beginner]
+  Skipping — already done (task0002, Beginner): Human Error_Beginner_Qwen2-Audio-7B_task0002_20260301_123656.txt
+[11/20] Processing: Inner Universe (Extended Mix)  [Beginner]
+  Skipping — already done (task0002, Beginner): Inner Universe (Extended Mix)_Beginner_Qwen2-Audio-7B_task0002_20260301_123715_RAW.txt
+[12/20] Processing: Love to Rise in the Summer Morning  [Beginner]
+  Skipping — already done (task0002, Beginner): Love to Rise in the Summer Morning_Beginner_Qwen2-Audio-7B_task0002_20260301_123741_RAW.txt
+[13/20] Processing: Named 'The Moon'  [Beginner]
+  Skipping — already done (task0002, Beginner): Named 'The Moon'_Beginner_Qwen2-Audio-7B_task0002_20260301_123827.txt
+[14/20] Processing: Need Your Love -SF_Dubstep Mix-  [Beginner]
+  Skipping — already done (task0002, Beginner): Need Your Love -SF_Dubstep Mix-_Beginner_Qwen2-Audio-7B_task0002_20260301_123847_RAW.txt
+[15/20] Processing: No Beginning  [Beginner]
+  Skipping — already done (task0002, Beginner): No Beginning_Beginner_Qwen2-Audio-7B_task0002_20260301_124205_RAW.txt
+[16/20] Processing: Pain Game  [Beginner]
+  Skipping — already done (task0002, Beginner): Pain Game_Beginner_Qwen2-Audio-7B_task0002_20260301_124533_RAW.txt
+[17/20] Processing: Stamina  [Beginner]
+  Skipping — already done (task0002, Beginner): Stamina_Beginner_Qwen2-Audio-7B_task0002_20260301_124617_RAW.txt
+[18/20] Processing: Star Gear  [Beginner]
+  Skipping — already done (task0002, Beginner): Star Gear_Beginner_Qwen2-Audio-7B_task0002_20260301_124708.txt
+[19/20] Processing: The Seconds  [Beginner]
+  Skipping — already done (task0002, Beginner): The Seconds_Beginner_Qwen2-Audio-7B_task0002_20260301_124755.txt
+[20/20] Processing: Turn Up (The Music)  [Beginner]
+  Skipping — already done (task0002, Beginner): Turn Up (The Music)_Beginner_Qwen2-Audio-7B_task0002_20260301_125123_RAW.txt
+
+=== Batch finished (exit code: 0). Shutting down server. ===
+Job ended: Sun Mar  1 12:54:52 PM PST 2026

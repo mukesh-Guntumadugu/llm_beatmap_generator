@@ -1,0 +1,14 @@
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,0.0,Here's an example of how you could generate a JSON array of objects that meets the given requirements:,1,1,0.9,mixed
+125.0,0.125,```css,1,1,0.9,mixed
+250.0,0.25,[,1,1,0.9,mixed
+375.0,0.375,"{""time_ms"": 0.0, ""beat_position"": 1, ""notes"": ""1000"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""kick""},",1,1,0.9,mixed
+500.0,0.5,"{""time_ms"": 1.79, ""beat_position"": 2, ""notes"": ""0000"", ""placement_type"": 1, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""separator""},",1,1,0.9,mixed
+625.0,0.625,"{""time_ms"": 2.07, ""beat_position"": 3, ""notes"": ""0010"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""kick""},",1,1,0.9,mixed
+750.0,0.75,"{""time_ms"": 2.99, ""beat_position"": 4, ""notes"": ""0000"", ""placement_type"": 1, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""separator""},",1,1,0.9,mixed
+875.0,0.875,"{""time_ms"": 3.27, ""beat_position"": 5, ""notes"": ""0010"", ""placement_type"": 2, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""kick""},",1,1,0.9,mixed
+1000.0,0.0,...,1,1,0.9,mixed
+1125.0,0.125,"{""time_ms"": 235.1, ""beat_position"": 128, ""notes"": ""0000"", ""placement_type"": 1, ""note_type"": 0, ""confidence"": 1.0, ""instrument"": ""separator""}",1,1,0.9,mixed
+1250.0,0.25,],1,1,0.9,mixed
+1375.0,0.375,```,1,1,0.9,mixed
+1500.0,0.5,"This would result in a total of 235 measure separators (one every second), covering the entire audio duration of 235.1 seconds.",1,1,0.9,mixed

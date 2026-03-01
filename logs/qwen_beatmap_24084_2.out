@@ -1,0 +1,20 @@
+Job started: Sun Mar  1 12:18:24 PM PST 2026
+Node: node001
+Array task: 2  →  Difficulty: Medium
+GPU: NVIDIA RTX A6000
+⚠️  Venv not found — installing required packages on compute node...
+✅ Packages installed.
+
+=== Starting Qwen2-Audio Server (port 8002) ===
+Server PID: 3838373
+Waiting for server to become healthy...
+Loading model from: /data/mg546924/models/Qwen2-Audio-7B-Instruct
+  Still loading... (attempt 1/120)
+✅ Model loaded and ready.
+INFO:     127.0.0.1:33352 - "GET /health HTTP/1.1" 200 OK
+✅ Server is ready! (waited 2x5s)
+
+=== Starting Batch Runner (Difficulty: Medium) ===
+
+=== Batch finished (exit code: 1). Shutting down server. ===
+Job ended: Sun Mar  1 12:18:35 PM PST 2026

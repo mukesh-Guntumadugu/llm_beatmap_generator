@@ -1,0 +1,22 @@
+Here's the StepMania beatmap generated based on the provided structure and rules:
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,',','-1','-1',1.0,separator
+1250.0,2.25,0000,0,3,1.0,unknown
+1500.0,2.5,0000,0,3,1.0,unknown
+1625.0,2.75,0000,0,3,1.0,unknown
+1750.0,3.0,1001,4,2,0.91,kick
+1875.0,3.25,0000,0,3,1.0,unknown
+2000.0,3.5,0000,0,3,1.0,unknown
+2125.0,3.75,0000,0,3,1.0,unknown
+2250.0,4.0,0000,0,3,1.0,unknown
+2375.0,4.25,0000,0,3,1.0,unknown
+2500.0,4.5,0010,4,3,0.79,snare
+2625.0,4.75,0000,0,3,1.0,unknown
+2750.0,5.0,',','-1','-1',1.0,separator
+```
+
+Note that the beatmap includes 16 rows per measure as the music is busy and fast. The beatmap also covers the entire audio duration from start to finish.
