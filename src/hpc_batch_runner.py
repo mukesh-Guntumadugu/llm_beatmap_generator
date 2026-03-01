@@ -21,28 +21,8 @@ import argparse
 import requests
 import librosa
 
-# Beatmap system instruction (same as Gemini's _BEATMAP_SYSTEM_INSTRUCTION in src/gemini.py)
-_BEATMAP_SYSTEM_INSTRUCTION = (
-    "You are a StepMania beatmap generator. Output a JSON array of objects.\n"
-    "Each object has these fields:\n"
-    "  - time_ms (float): exact timestamp in milliseconds\n"
-    "  - beat_position (float): beat number from song start\n"
-    "  - notes (str): 4-character row (Left, Down, Up, Right e.g. '1000') OR ',' for measure end\n"
-    "  - placement_type (int): 0=unsure, 1=onset, 2=beat, 3=grid, 4=percussive, 5=unaligned, -1=separator\n"
-    "  - note_type (int): 0=whole, 1=half, 2=quarter, 3=eighth, 4=extended, -1=separator\n"
-    "  - confidence (float): 0.0-1.0\n"
-    "  - instrument (str): kick/snare/bass/melody/guitar/synth/unknown or 'separator'\n\n"
-    "=== MEASURE STRUCTURE ===\n"
-    "Each measure MUST contain EXACTLY 4, 8, 12, or 16 note rows before the ','.\n"
-    "  - 4 rows  = quarter note grid (sparse)\n"
-    "  - 8 rows  = eighth note grid (moderate)\n"
-    "  - 16 rows = sixteenth note grid (dense/fast, MOST COMMON for Hard/Medium)\n"
-    "At 120 BPM, a 16-row measure spans ~2 seconds. Use '0000' for empty slots.\n"
-    "NEVER output two consecutive separator rows or a separator with zero note rows.\n\n"
-    "=== OTHER RULES ===\n"
-    "- Cover the ENTIRE audio from start to finish. Do NOT stop early.\n"
-    "- beat_position must be consistent with the detected BPM and time_ms.\n"
-)
+from src.beatmap_prompt import build_qwen_prompt
+import re
 
 DIFFICULTIES = ["Beginner", "Easy", "Medium", "Hard", "Challenge"]
 MODEL_NAME   = "Qwen2-Audio-7B"
@@ -59,17 +39,97 @@ _REGISTRY_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", 
 
 # ── Prompt ────────────────────────────────────────────────────────────────────
 def build_prompt(duration: float, difficulty: str = "Medium") -> str:
-    expected_commas = int(duration)  # ~1 measure separator per second
-    return (
-        _BEATMAP_SYSTEM_INSTRUCTION  # Full Gemini system instruction
-        + f"\nDifficulty: {difficulty}\n\n"
-        + f"The audio is {duration:.1f} seconds long. You MUST generate chart data for the ENTIRE duration.\n"
-        + f"Target: approximately {expected_commas} measure separators (commas) — one per second.\n\n"
-        + "Output a JSON array of objects. Each object has:\n"
-        + "  - notes (str): 4-character row e.g. '1000' OR ',' for measure separator\n\n"
-        + "Example:\n"
-        + '[{"notes":"1000"},{"notes":"0000"},{"notes":"0010"},{"notes":","}]\n'
-    )
+    """Uses the shared prompt (same as Gemini) from src/beatmap_prompt.py."""
+    return build_qwen_prompt(difficulty, duration)
+
+# ── Robust Qwen output parser ─────────────────────────────────────────────────
+def _parse_qwen_output(text: str) -> list[dict]:
+    """
+    Handles all the ways Qwen might format its response:
+      1. Clean JSON array: [{...}, ...]
+      2. JSON objects wrapped in a markdown code block (```json ... ```)
+      3. JSON objects with preamble/explanation text before them
+      4. Plain 4-char note rows (fallback)
+
+    Always returns a list of dicts with keys:
+      time_ms, beat_position, notes, placement_type, note_type, confidence, instrument
+    """
+    # ── Step 1: Strip markdown code fences (```json, ```css, ``` etc.) ────────
+    clean = re.sub(r"```[a-zA-Z]*", "", text).replace("```", "")
+
+    # ── Step 2: Try to extract a JSON array [...] from anywhere in the text ───
+    array_match = re.search(r"\[.*\]", clean, re.DOTALL)
+    if array_match:
+        try:
+            data = json.loads(array_match.group(0))
+            if isinstance(data, list) and data:
+                rows = []
+                for i, item in enumerate(data):
+                    if isinstance(item, dict) and "notes" in item:
+                        rows.append({
+                            "time_ms":        float(item.get("time_ms", i * 125.0)),
+                            "beat_position":   float(item.get("beat_position", round(i / 4.0, 3))),
+                            "notes":           str(item["notes"]),
+                            "placement_type":  int(item.get("placement_type", 1)),
+                            "note_type":       int(item.get("note_type", 2)),
+                            "confidence":      float(item.get("confidence", 0.9)),
+                            "instrument":      str(item.get("instrument", "mixed")),
+                        })
+                if rows:
+                    print(f"  ✅ Parsed {len(rows)} rows from JSON array.")
+                    return rows
+        except (json.JSONDecodeError, ValueError):
+            pass
+
+    # ── Step 3: Try to extract individual JSON objects {...} line by line ──────
+    rows = []
+    for i, line in enumerate(clean.splitlines()):
+        line = line.strip().rstrip(",")
+        if line.startswith("{") and line.endswith("}"):
+            try:
+                item = json.loads(line)
+                if "notes" in item:
+                    rows.append({
+                        "time_ms":        float(item.get("time_ms", i * 125.0)),
+                        "beat_position":   float(item.get("beat_position", round(i / 4.0, 3))),
+                        "notes":           str(item["notes"]),
+                        "placement_type":  int(item.get("placement_type", 1)),
+                        "note_type":       int(item.get("note_type", 2)),
+                        "confidence":      float(item.get("confidence", 0.9)),
+                        "instrument":      str(item.get("instrument", "mixed")),
+                    })
+            except (json.JSONDecodeError, ValueError):
+                pass
+    if rows:
+        print(f"  ✅ Parsed {len(rows)} rows from individual JSON objects.")
+        return rows
+
+    # ── Step 4: Fallback — plain 4-character note rows ─────────────────────────
+    fallback = []
+    rows_per_sec = 8.0
+    beat_idx = 1.0
+    row_count = 0
+    for line in clean.splitlines():
+        note = line.strip()
+        if note == ",":
+            beat_idx += 1.0
+        elif len(note) == 4 and all(c in "01234M" for c in note):
+            fallback.append({
+                "time_ms":        round(row_count / rows_per_sec * 1000, 2),
+                "beat_position":   round(beat_idx + (row_count % int(rows_per_sec)) / rows_per_sec, 3),
+                "notes":           note,
+                "placement_type":  1,
+                "note_type":       2,
+                "confidence":      0.9,
+                "instrument":      "mixed",
+            })
+            row_count += 1
+    if fallback:
+        print(f"  ✅ Parsed {len(fallback)} rows from plain note lines (fallback).")
+        return fallback
+
+    print("  ⚠️  Could not parse any valid rows from Qwen output.")
+    return []
 
 # ── Task registry helpers ──────────────────────────────────────────────────────
 def load_registry():
@@ -150,40 +210,39 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
             print("  No output from model.")
             return
 
-        # ── Parse JSON response → list of note rows ───────────────────────
-        try:
-            data  = json.loads(text)
-            notes = [item["notes"] for item in data]
-        except (json.JSONDecodeError, KeyError):
-            # Fallback: treat raw text lines as notes
-            notes = [line.strip() for line in text.splitlines() if line.strip()]
+        # ── Parse Qwen response (handles JSON, markdown, plain text) ──────
+        parsed_rows = _parse_qwen_output(text)
+        if not parsed_rows:
+            print("  ⚠️  No valid rows parsed. Saving raw response as .txt for inspection.")
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            raw_path = os.path.join(dirname, f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_{timestamp}_RAW.txt")
+            with open(raw_path, "w", encoding="utf-8") as f:
+                f.write(text)
+            return
 
         # ── Save files ────────────────────────────────────────────────────
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         base      = f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_{timestamp}"
 
-        # Plain beatmap .txt
+        # Plain beatmap .txt (just the notes column, same as Gemini .txt)
         txt_path = os.path.join(dirname, f"{base}.txt")
         with open(txt_path, "w", encoding="utf-8") as f:
-            for note in notes:
-                f.write(f"{note}\n")
+            for row in parsed_rows:
+                f.write(f"{row['notes']}\n")
         print(f"  Beatmap → {os.path.basename(txt_path)}")
 
-        # Structured CSV (matches Gemini output format)
+        # Structured CSV matching Gemini output format exactly
         csv_path = os.path.join(dirname, f"{base}.csv")
-        rows_per_sec = 8.0  # estimated: 8 subdivisions per second at ~120BPM
         with open(csv_path, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(["time_ms", "beat_position", "notes",
                              "placement_type", "note_type", "confidence", "instrument"])
-            beat_idx = 0.0
-            for i, note in enumerate(notes):
-                if note == ",":
-                    beat_idx += 1.0
-                    continue
-                time_ms = round((i / rows_per_sec) * 1000, 2)
-                beat_pos = round(beat_idx + (i % int(rows_per_sec)) / rows_per_sec, 4)
-                writer.writerow([time_ms, beat_pos, note, 1, 1, 0.9, "mixed"])
+            for row in parsed_rows:
+                writer.writerow([
+                    row["time_ms"], f"{row['beat_position']:.3f}",
+                    row["notes"], row["placement_type"], row["note_type"],
+                    f"{row['confidence']:.3f}", row["instrument"]
+                ])
         print(f"  Full CSV → {os.path.basename(csv_path)}")
 
         print("  Done.")
