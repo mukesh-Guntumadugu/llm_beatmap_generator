@@ -1,5 +1,5 @@
 {
-  "last_task_id": 6,
+  "last_task_id": 8,
   "tasks": {
     "1": {
       "created": "2026-02-24T01:27:02.250738",
@@ -28,6 +28,16 @@
     },
     "6": {
       "created": "2026-02-24T14:53:35.056705",
+      "difficulty": "Hard",
+      "model": "gemini-3-flash-preview"
+    },
+    "7": {
+      "created": "2026-03-01T14:25:46.953538",
+      "difficulty": "Hard",
+      "model": "gemini-3-flash-preview"
+    },
+    "8": {
+      "created": "2026-03-01T14:31:02.855704",
       "difficulty": "Hard",
       "model": "gemini-3-flash-preview"
     }

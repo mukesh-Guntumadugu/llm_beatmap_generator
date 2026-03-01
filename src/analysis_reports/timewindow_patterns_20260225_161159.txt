@@ -1,0 +1,161 @@
+====================================================================
+  DDR-STYLE TIME-WINDOW PATTERN ANALYSIS
+  Generated : 20260225_161159
+  Songs     : 18
+  Windows   : 500ms, 1000ms, 2000ms
+====================================================================
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 500ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-song pattern prevalence (how many songs contain each pattern):
+
+    Single Notes     ██████████████████  (18/18 songs)
+    Jack             ███████  (7/18 songs)
+    Jump             █  (1/18 songs)
+
+  Per-song top patterns:
+
+    [Bad Ketchup]
+      Single Notes ×345
+    [Bitch Clap]
+      Single Notes ×374   Jack ×1
+    [Dead Hollywood]
+      Single Notes ×305
+    [Deal With It]
+      Single Notes ×249   Jack ×15   Jump ×5
+    [Gangnam Style]
+      Single Notes ×316
+    [Girls]
+      Single Notes ×275
+    [Goodbye (2012 Mix)]
+      Single Notes ×257   Jack ×22
+    [Human Error]
+      Single Notes ×408   Jack ×1
+    [Inner Universe (Extended Mix)]
+      Single Notes ×541
+    [Love to Rise in the Summer Morning]
+      Single Notes ×323   Jack ×2
+    [Named 'The Moon']
+      Single Notes ×271
+    [Need Your Love -SF_Dubstep Mix-]
+      Single Notes ×297
+    [No Beginning]
+      Single Notes ×307
+    [Pain Game]
+      Single Notes ×325
+    [Stamina]
+      Single Notes ×246   Jack ×7
+    [Star Gear]
+      Single Notes ×371
+    [The Seconds]
+      Single Notes ×281
+    [Turn Up (The Music)]
+      Single Notes ×329   Jack ×4
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 1000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-song pattern prevalence (how many songs contain each pattern):
+
+    Single Notes     ██████████████████  (18/18 songs)
+    Spin             ███████████  (11/18 songs)
+    Double Step      ████████  (8/18 songs)
+    Jack             ███████  (7/18 songs)
+    Jump             █  (1/18 songs)
+
+  Per-song top patterns:
+
+    [Bad Ketchup]
+      Single Notes ×347
+    [Bitch Clap]
+      Single Notes ×229   Double Step ×73   Spin ×72   Jack ×2
+    [Dead Hollywood]
+      Single Notes ×329
+    [Deal With It]
+      Spin ×151   Single Notes ×63   Jack ×30   Double Step ×20   Jump ×6
+    [Gangnam Style]
+      Single Notes ×222   Spin ×95
+    [Girls]
+      Single Notes ×275
+    [Goodbye (2012 Mix)]
+      Single Notes ×242   Jack ×44   Double Step ×5   Spin ×5
+    [Human Error]
+      Single Notes ×241   Spin ×169   Jack ×2
+    [Inner Universe (Extended Mix)]
+      Single Notes ×611
+    [Love to Rise in the Summer Morning]
+      Single Notes ×159   Spin ×150   Double Step ×16   Jack ×4
+    [Named 'The Moon']
+      Single Notes ×294
+    [Need Your Love -SF_Dubstep Mix-]
+      Single Notes ×337
+    [No Beginning]
+      Single Notes ×217   Spin ×82   Double Step ×12
+    [Pain Game]
+      Single Notes ×203   Spin ×146
+    [Stamina]
+      Single Notes ×219   Spin ×21   Jack ×14   Double Step ×9
+    [Star Gear]
+      Single Notes ×337   Spin ×26   Double Step ×8
+    [The Seconds]
+      Single Notes ×291
+    [Turn Up (The Music)]
+      Single Notes ×261   Double Step ×48   Spin ×38   Jack ×8
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 2000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-song pattern prevalence (how many songs contain each pattern):
+
+    Single Notes     ██████████████████  (18/18 songs)
+    Stream           ████████████████  (16/18 songs)
+    Double Step      ████████████████  (16/18 songs)
+    Spin             ████████████  (12/18 songs)
+    Footswitch       ██████████  (10/18 songs)
+    Jack             ███████  (7/18 songs)
+    Jump             █  (1/18 songs)
+
+  Per-song top patterns:
+
+    [Bad Ketchup]
+      Single Notes ×227   Footswitch ×124   Stream ×124   Double Step ×69
+    [Bitch Clap]
+      Stream ×324   Double Step ×323   Spin ×224   Single Notes ×39   Footswitch ×17   Jack ×5
+    [Dead Hollywood]
+      Single Notes ×219   Stream ×134   Double Step ×127
+    [Deal With It]
+      Spin ×230   Double Step ×190   Stream ×184   Jack ×60   Single Notes ×8   Jump ×8
+    [Gangnam Style]
+      Single Notes ×221   Spin ×97   Double Step ×96   Stream ×95
+    [Girls]
+      Double Step ×180   Stream ×178   Single Notes ×89   Spin ×4
+    [Goodbye (2012 Mix)]
+      Stream ×162   Double Step ×138   Jack ×88   Single Notes ×77   Spin ×22   Footswitch ×9
+    [Human Error]
+      Spin ×361   Double Step ×345   Stream ×338   Single Notes ×49   Jack ×5
+    [Inner Universe (Extended Mix)]
+      Single Notes ×681
+    [Love to Rise in the Summer Morning]
+      Double Step ×272   Stream ×259   Spin ×170   Footswitch ×110   Single Notes ×47   Jack ×10
+    [Named 'The Moon']
+      Single Notes ×189   Stream ×128   Double Step ×125
+    [Need Your Love -SF_Dubstep Mix-]
+      Single Notes ×377
+    [No Beginning]
+      Spin ×206   Double Step ×198   Stream ×190   Single Notes ×69   Footswitch ×9
+    [Pain Game]
+      Stream ×213   Double Step ×210   Single Notes ×156   Spin ×154   Footswitch ×63
+    [Stamina]
+      Stream ×122   Double Step ×117   Single Notes ×103   Spin ×62   Jack ×28   Footswitch ×15
+    [Star Gear]
+      Double Step ×290   Stream ×285   Footswitch ×239   Single Notes ×72   Spin ×55
+    [The Seconds]
+      Stream ×259   Double Step ×257   Single Notes ×42
+    [Turn Up (The Music)]
+      Double Step ×180   Single Notes ×156   Stream ×131   Spin ×109   Footswitch ×20   Jack ×16
+
+====================================================================

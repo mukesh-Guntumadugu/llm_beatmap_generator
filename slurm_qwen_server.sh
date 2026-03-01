@@ -3,19 +3,24 @@
 #SBATCH --partition=defq            # Default GPU partition on Ohio HPC
 #SBATCH --gres=gpu:A6000:1          # 1x A6000 GPU (48GB VRAM — plenty for Qwen2-Audio-7B)
 #SBATCH --cpus-per-task=8
-#SBATCH --time=12:00:00             # 12 hours max (adjust as needed)
-#SBATCH --output=/data/mg546924/logs/qwen_beatmap_%j.out
-#SBATCH --error=/data/mg546924/logs/qwen_beatmap_%j.err
+#SBATCH --time=12:00:00             # 12 hours per array task (20 songs × ~10 min = ~3.5 hrs)
+#SBATCH --array=0-4                 # 5 tasks: one per difficulty (Beginner/Easy/Medium/Hard/Challenge)
+#SBATCH --output=/data/mg546924/logs/qwen_beatmap_%A_%a.out   # %A=job ID, %a=array index
+#SBATCH --error=/data/mg546924/logs/qwen_beatmap_%A_%a.err
 
-# ── Setup ─────────────────────────────────────────────────────────────────────
+# ── Map array index → difficulty ──────────────────────────────────────────────
+DIFFICULTIES=("Beginner" "Easy" "Medium" "Hard" "Challenge")
+DIFFICULTY=${DIFFICULTIES[$SLURM_ARRAY_TASK_ID]}
+
 echo "Job started: $(date)"
 echo "Node: $(hostname)"
+echo "Array task: $SLURM_ARRAY_TASK_ID  →  Difficulty: $DIFFICULTY"
 echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 
 # Create logs dir if it doesn't exist
 mkdir -p /data/mg546924/logs
 
-# Activate Python environment — use venv if it exists, else fall back to --user packages
+# ── Activate Python environment ────────────────────────────────────────────────
 VENV_PATH="/data/mg546924/envs/qwen_env"
 if [ -f "$VENV_PATH/bin/activate" ]; then
     echo "Using venv: $VENV_PATH"
@@ -31,11 +36,13 @@ fi
 cd /data/mg546924/llm_beatmap_generator
 
 MODEL_DIR="/data/mg546924/models/Qwen2-Audio-7B-Instruct"
-SERVER_PORT=8000
+
+# Each array task uses a different port so they don't collide
+SERVER_PORT=$((8000 + SLURM_ARRAY_TASK_ID))
 
 # ── Step 1: Start the Qwen inference server in background ─────────────────────
 echo ""
-echo "=== Starting Qwen2-Audio Server ==="
+echo "=== Starting Qwen2-Audio Server (port $SERVER_PORT) ==="
 python3 src/hpc_qwen_server.py \
     --model-dir "$MODEL_DIR" \
     --host 0.0.0.0 \
@@ -57,17 +64,17 @@ for i in $(seq 1 120); do
 done
 
 if [ "$STATUS" != "True" ]; then
-    echo "❌ Server failed to start within 5 minutes. Check logs."
+    echo "❌ Server failed to start within 10 minutes. Check logs."
     kill $SERVER_PID 2>/dev/null
     exit 1
 fi
 
-# ── Step 2: Run the batch runner ──────────────────────────────────────────────
+# ── Step 2: Run the batch runner for this difficulty ──────────────────────────
 echo ""
-echo "=== Starting Batch Runner ==="
-# Pass a task ID to resume, or omit to create a new one
-# Example to resume task 1:  python src/hpc_batch_runner.py 1
-python src/hpc_batch_runner.py --server http://localhost:$SERVER_PORT
+echo "=== Starting Batch Runner (Difficulty: $DIFFICULTY) ==="
+python3 src/hpc_batch_runner.py \
+    --server http://localhost:$SERVER_PORT \
+    --difficulty "$DIFFICULTY"
 
 BATCH_EXIT=$?
 

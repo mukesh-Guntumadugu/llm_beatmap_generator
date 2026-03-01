@@ -44,9 +44,9 @@ _BEATMAP_SYSTEM_INSTRUCTION = (
     "- beat_position must be consistent with the detected BPM and time_ms.\n"
 )
 
-DIFFICULTY  = "Medium"
-MODEL_NAME  = "Qwen2-Audio-7B"
-SERVER_URL  = "http://localhost:8000"
+DIFFICULTIES = ["Beginner", "Easy", "Medium", "Hard", "Challenge"]
+MODEL_NAME   = "Qwen2-Audio-7B"
+SERVER_URL   = "http://localhost:8000"
 
 # Where the Fraxtil songs live (relative to project root)
 BASE_DIR = os.path.join(
@@ -58,7 +58,7 @@ BASE_DIR = os.path.join(
 _REGISTRY_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".task_registry_hpc.json")
 
 # ── Prompt ────────────────────────────────────────────────────────────────────
-def build_prompt(duration: float, difficulty: str = DIFFICULTY) -> str:
+def build_prompt(duration: float, difficulty: str = "Medium") -> str:
     expected_commas = int(duration)  # ~1 measure separator per second
     return (
         _BEATMAP_SYSTEM_INSTRUCTION  # Full Gemini system instruction
@@ -85,12 +85,12 @@ def save_registry(reg):
     with open(_REGISTRY_FILE, "w") as f:
         json.dump(reg, f, indent=2)
 
-def create_new_task(reg) -> int:
+def create_new_task(reg, difficulty: str) -> int:
     new_id = reg["last_task_id"] + 1
     reg["last_task_id"] = new_id
     reg["tasks"][str(new_id)] = {
         "created": datetime.datetime.now().isoformat(),
-        "difficulty": DIFFICULTY,
+        "difficulty": difficulty,
     }
     save_registry(reg)
     return new_id
@@ -109,20 +109,20 @@ def get_target_files(base_dir):
                 audio_files.append(os.path.join(root, file))
     return sorted(audio_files)
 
-def process_song(audio_path: str, task_id: int, server_url: str):
+def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str):
     name_no_ext = os.path.splitext(os.path.basename(audio_path))[0]
     dirname     = os.path.dirname(audio_path)
     task_tag    = f"task{task_id:04d}"
 
-    print(f"Processing: {name_no_ext}")
+    print(f"Processing: {name_no_ext}  [{difficulty}]")
 
-    # Skip if already done for this task
+    # Skip if already done for this task + difficulty
     existing = [
         f for f in os.listdir(dirname)
-        if f.startswith(f"{name_no_ext}_{DIFFICULTY}_{MODEL_NAME}_{task_tag}_") and f.endswith(".txt")
+        if f.startswith(f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_") and f.endswith(".txt")
     ]
     if existing:
-        print(f"  Skipping — already done ({task_tag}): {existing[0]}")
+        print(f"  Skipping — already done ({task_tag}, {difficulty}): {existing[0]}")
         return
 
     try:
@@ -130,7 +130,7 @@ def process_song(audio_path: str, task_id: int, server_url: str):
         print(f"  Duration: {duration:.1f}s  |  Encoding audio...")
 
         audio_b64 = audio_to_b64(audio_path)
-        prompt    = build_prompt(duration, DIFFICULTY)
+        prompt    = build_prompt(duration, difficulty)
 
         print(f"  Sending to local Qwen server ({server_url})...")
         resp = requests.post(
@@ -160,7 +160,7 @@ def process_song(audio_path: str, task_id: int, server_url: str):
 
         # ── Save files ────────────────────────────────────────────────────
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        base      = f"{name_no_ext}_{DIFFICULTY}_{MODEL_NAME}_{task_tag}_{timestamp}"
+        base      = f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_{timestamp}"
 
         # Plain beatmap .txt
         txt_path = os.path.join(dirname, f"{base}.txt")
@@ -195,11 +195,20 @@ def process_song(audio_path: str, task_id: int, server_url: str):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="HPC Batch Runner for Qwen2-Audio beatmap generation")
     parser.add_argument("task_id", nargs="?", type=int, help="Resume a specific task ID")
     parser.add_argument("--server", default=SERVER_URL, help="Qwen server URL")
     parser.add_argument("--song", default=None, help="Test with one song (partial name, e.g. 'Bad Ketchup')")
+    parser.add_argument(
+        "--difficulty",
+        default=None,
+        choices=DIFFICULTIES,
+        help="Single difficulty to generate (default: all five difficulties sequentially)",
+    )
     args = parser.parse_args()
+
+    # Resolve difficulty list
+    difficulties = [args.difficulty] if args.difficulty else DIFFICULTIES
 
     # Check server health
     try:
@@ -220,10 +229,11 @@ def main():
             sys.exit(1)
         print(f"▶  Resuming HPC Task ID: {task_id:04d}")
     else:
-        task_id = create_new_task(registry)
+        first_difficulty = difficulties[0]
+        task_id = create_new_task(registry, first_difficulty)
         print(f"▶  New HPC Task ID: {task_id:04d}")
 
-    print(f"   Difficulty : {DIFFICULTY}\n")
+    print(f"   Difficulties : {', '.join(difficulties)}\n")
 
     target_files = get_target_files(BASE_DIR)
 
@@ -237,10 +247,14 @@ def main():
     else:
         print(f"Found {len(target_files)} audio files.\n")
 
-    for i, audio_file in enumerate(target_files):
-        print(f"[{i+1}/{len(target_files)}] ", end="")
-        process_song(audio_file, task_id, args.server)
-        time.sleep(1)
+    for difficulty in difficulties:
+        print(f"\n{'='*60}")
+        print(f"  Difficulty: {difficulty}")
+        print(f"{'='*60}\n")
+        for i, audio_file in enumerate(target_files):
+            print(f"[{i+1}/{len(target_files)}] ", end="")
+            process_song(audio_file, task_id, args.server, difficulty)
+            time.sleep(1)
 
 if __name__ == "__main__":
     main()

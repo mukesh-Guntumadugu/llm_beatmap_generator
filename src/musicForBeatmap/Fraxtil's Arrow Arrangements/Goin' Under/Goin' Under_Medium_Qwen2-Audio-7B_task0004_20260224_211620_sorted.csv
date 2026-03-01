@@ -1,0 +1,7 @@
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,0.0,Here's a sample beatmap in JSON format that covers the entire 123.4-second audio track with a medium difficulty level and a consistent rhythm pattern:,1,1,0.9,mixed
+125.0,0.125,```css,1,1,0.9,mixed
+250.0,0.25,"[    {      ""notes"": ""1000"",      ""time_signature"": ""4/4""    },    {      ""notes"": ""0000"",      ""time_signature"": ""4/4""    },    {      ""notes"": ""0010"",      ""time_signature"": ""4/4""    },    {      ""notes"": ""0000"",      ""time_signature"": ""4/4""    },    {      ""notes"": """",      ""time_signature"": ""4/4""    }]",1,1,0.9,mixed
+375.0,0.375,```,1,1,0.9,mixed
+500.0,0.5,"This beatmap consists of four measures, each with four notes. The first measure contains only notes from the first column (1000), while the second measure is empty to indicate a measure separator. The third measure includes two notes from the second column (0010), followed by another empty measure separator. Finally, the fourth and fifth measures contain only notes from the third column (0000).",1,1,0.9,mixed
+625.0,0.625,"Note that this beatmap covers the entire 123.4-second audio track, but it may not be suitable for all types of music due to its strict adherence to a consistent rhythm pattern.",1,1,0.9,mixed

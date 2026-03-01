@@ -1,0 +1,1533 @@
+{
+  "generated": "20260226_142828",
+  "source": "AI-task0001",
+  "window_sizes_ms": [
+    500.0,
+    1000.0,
+    2000.0,
+    3000.0
+  ],
+  "charts_analyzed": 18,
+  "source_files": {
+    "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+    "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+    "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv",
+    "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+    "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+    "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+    "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+    "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+    "Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv",
+    "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+    "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv",
+    "Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv",
+    "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+    "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+    "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+    "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+    "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv",
+    "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+  },
+  "per_chart": {
+    "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          345
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          347
+        ]
+      ],
+      "2000ms": [
+        [
+          "Single Notes",
+          227
+        ],
+        [
+          "Footswitch",
+          124
+        ],
+        [
+          "Stream",
+          124
+        ],
+        [
+          "Double Step",
+          69
+        ]
+      ],
+      "3000ms": [
+        [
+          "Footswitch",
+          336
+        ],
+        [
+          "Stream",
+          336
+        ],
+        [
+          "Double Step",
+          192
+        ],
+        [
+          "Single Notes",
+          19
+        ]
+      ]
+    },
+    "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          374
+        ],
+        [
+          "Jack",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          229
+        ],
+        [
+          "Double Step",
+          73
+        ],
+        [
+          "Spin",
+          72
+        ],
+        [
+          "Jack",
+          2
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          324
+        ],
+        [
+          "Double Step",
+          323
+        ],
+        [
+          "Spin",
+          224
+        ],
+        [
+          "Single Notes",
+          39
+        ],
+        [
+          "Footswitch",
+          17
+        ],
+        [
+          "Jack",
+          5
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          366
+        ],
+        [
+          "Double Step",
+          356
+        ],
+        [
+          "Spin",
+          288
+        ],
+        [
+          "Footswitch",
+          23
+        ],
+        [
+          "Jack",
+          8
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ]
+    },
+    "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          305
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          329
+        ]
+      ],
+      "2000ms": [
+        [
+          "Single Notes",
+          219
+        ],
+        [
+          "Stream",
+          134
+        ],
+        [
+          "Double Step",
+          127
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          257
+        ],
+        [
+          "Double Step",
+          195
+        ],
+        [
+          "Single Notes",
+          96
+        ]
+      ]
+    },
+    "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          249
+        ],
+        [
+          "Jack",
+          15
+        ],
+        [
+          "Jump",
+          5
+        ]
+      ],
+      "1000ms": [
+        [
+          "Spin",
+          151
+        ],
+        [
+          "Single Notes",
+          63
+        ],
+        [
+          "Jack",
+          30
+        ],
+        [
+          "Double Step",
+          20
+        ],
+        [
+          "Jump",
+          6
+        ]
+      ],
+      "2000ms": [
+        [
+          "Spin",
+          230
+        ],
+        [
+          "Double Step",
+          190
+        ],
+        [
+          "Stream",
+          184
+        ],
+        [
+          "Jack",
+          60
+        ],
+        [
+          "Single Notes",
+          8
+        ],
+        [
+          "Jump",
+          8
+        ],
+        [
+          "Footswitch",
+          7
+        ]
+      ],
+      "3000ms": [
+        [
+          "Spin",
+          251
+        ],
+        [
+          "Stream",
+          234
+        ],
+        [
+          "Double Step",
+          175
+        ],
+        [
+          "Jack",
+          82
+        ],
+        [
+          "Jump",
+          10
+        ],
+        [
+          "Footswitch",
+          3
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ]
+    },
+    "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          316
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          222
+        ],
+        [
+          "Spin",
+          95
+        ]
+      ],
+      "2000ms": [
+        [
+          "Single Notes",
+          221
+        ],
+        [
+          "Spin",
+          97
+        ],
+        [
+          "Double Step",
+          96
+        ],
+        [
+          "Stream",
+          95
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          203
+        ],
+        [
+          "Single Notes",
+          115
+        ],
+        [
+          "Footswitch",
+          106
+        ],
+        [
+          "Double Step",
+          101
+        ],
+        [
+          "Spin",
+          99
+        ]
+      ]
+    },
+    "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          275
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          275
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          180
+        ],
+        [
+          "Stream",
+          178
+        ],
+        [
+          "Single Notes",
+          89
+        ],
+        [
+          "Spin",
+          4
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          225
+        ],
+        [
+          "Double Step",
+          190
+        ],
+        [
+          "Single Notes",
+          44
+        ],
+        [
+          "Footswitch",
+          43
+        ],
+        [
+          "Spin",
+          8
+        ]
+      ]
+    },
+    "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          257
+        ],
+        [
+          "Jack",
+          22
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          242
+        ],
+        [
+          "Jack",
+          44
+        ],
+        [
+          "Double Step",
+          5
+        ],
+        [
+          "Spin",
+          5
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          162
+        ],
+        [
+          "Double Step",
+          138
+        ],
+        [
+          "Jack",
+          88
+        ],
+        [
+          "Single Notes",
+          77
+        ],
+        [
+          "Spin",
+          22
+        ],
+        [
+          "Footswitch",
+          9
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          214
+        ],
+        [
+          "Double Step",
+          125
+        ],
+        [
+          "Jack",
+          110
+        ],
+        [
+          "Single Notes",
+          63
+        ],
+        [
+          "Spin",
+          40
+        ],
+        [
+          "Footswitch",
+          2
+        ]
+      ]
+    },
+    "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          408
+        ],
+        [
+          "Jack",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          241
+        ],
+        [
+          "Spin",
+          169
+        ],
+        [
+          "Jack",
+          2
+        ]
+      ],
+      "2000ms": [
+        [
+          "Spin",
+          361
+        ],
+        [
+          "Double Step",
+          345
+        ],
+        [
+          "Stream",
+          338
+        ],
+        [
+          "Single Notes",
+          49
+        ],
+        [
+          "Jack",
+          5
+        ]
+      ],
+      "3000ms": [
+        [
+          "Spin",
+          388
+        ],
+        [
+          "Double Step",
+          387
+        ],
+        [
+          "Stream",
+          372
+        ],
+        [
+          "Single Notes",
+          11
+        ],
+        [
+          "Jack",
+          8
+        ],
+        [
+          "Footswitch",
+          5
+        ]
+      ]
+    },
+    "Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          541
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          611
+        ]
+      ],
+      "2000ms": [
+        [
+          "Single Notes",
+          681
+        ]
+      ],
+      "3000ms": [
+        [
+          "Footswitch",
+          396
+        ],
+        [
+          "Stream",
+          394
+        ],
+        [
+          "Single Notes",
+          279
+        ],
+        [
+          "Double Step",
+          196
+        ]
+      ]
+    },
+    "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          323
+        ],
+        [
+          "Jack",
+          2
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          159
+        ],
+        [
+          "Spin",
+          150
+        ],
+        [
+          "Double Step",
+          16
+        ],
+        [
+          "Jack",
+          4
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          272
+        ],
+        [
+          "Stream",
+          259
+        ],
+        [
+          "Spin",
+          170
+        ],
+        [
+          "Footswitch",
+          110
+        ],
+        [
+          "Single Notes",
+          47
+        ],
+        [
+          "Jack",
+          10
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          295
+        ],
+        [
+          "Double Step",
+          275
+        ],
+        [
+          "Spin",
+          178
+        ],
+        [
+          "Footswitch",
+          124
+        ],
+        [
+          "Single Notes",
+          28
+        ],
+        [
+          "Jack",
+          18
+        ]
+      ]
+    },
+    "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          271
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          294
+        ]
+      ],
+      "2000ms": [
+        [
+          "Single Notes",
+          189
+        ],
+        [
+          "Stream",
+          128
+        ],
+        [
+          "Double Step",
+          125
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          176
+        ],
+        [
+          "Single Notes",
+          141
+        ],
+        [
+          "Double Step",
+          129
+        ]
+      ]
+    },
+    "Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          297
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          337
+        ]
+      ],
+      "2000ms": [
+        [
+          "Single Notes",
+          377
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          167
+        ],
+        [
+          "Single Notes",
+          162
+        ],
+        [
+          "Double Step",
+          153
+        ],
+        [
+          "Footswitch",
+          50
+        ]
+      ]
+    },
+    "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          307
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          217
+        ],
+        [
+          "Spin",
+          82
+        ],
+        [
+          "Double Step",
+          12
+        ]
+      ],
+      "2000ms": [
+        [
+          "Spin",
+          206
+        ],
+        [
+          "Double Step",
+          198
+        ],
+        [
+          "Stream",
+          190
+        ],
+        [
+          "Single Notes",
+          69
+        ],
+        [
+          "Footswitch",
+          9
+        ]
+      ],
+      "3000ms": [
+        [
+          "Spin",
+          264
+        ],
+        [
+          "Stream",
+          252
+        ],
+        [
+          "Double Step",
+          214
+        ],
+        [
+          "Single Notes",
+          16
+        ],
+        [
+          "Footswitch",
+          5
+        ]
+      ]
+    },
+    "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          325
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          203
+        ],
+        [
+          "Spin",
+          146
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          213
+        ],
+        [
+          "Double Step",
+          210
+        ],
+        [
+          "Single Notes",
+          156
+        ],
+        [
+          "Spin",
+          154
+        ],
+        [
+          "Footswitch",
+          63
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          282
+        ],
+        [
+          "Double Step",
+          250
+        ],
+        [
+          "Spin",
+          160
+        ],
+        [
+          "Footswitch",
+          124
+        ],
+        [
+          "Single Notes",
+          89
+        ]
+      ]
+    },
+    "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          246
+        ],
+        [
+          "Jack",
+          7
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          219
+        ],
+        [
+          "Spin",
+          21
+        ],
+        [
+          "Jack",
+          14
+        ],
+        [
+          "Double Step",
+          9
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          122
+        ],
+        [
+          "Double Step",
+          117
+        ],
+        [
+          "Single Notes",
+          103
+        ],
+        [
+          "Spin",
+          62
+        ],
+        [
+          "Jack",
+          28
+        ],
+        [
+          "Footswitch",
+          15
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          164
+        ],
+        [
+          "Double Step",
+          127
+        ],
+        [
+          "Spin",
+          107
+        ],
+        [
+          "Single Notes",
+          61
+        ],
+        [
+          "Jack",
+          42
+        ],
+        [
+          "Footswitch",
+          10
+        ]
+      ]
+    },
+    "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          371
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          337
+        ],
+        [
+          "Spin",
+          26
+        ],
+        [
+          "Double Step",
+          8
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          290
+        ],
+        [
+          "Stream",
+          285
+        ],
+        [
+          "Footswitch",
+          239
+        ],
+        [
+          "Single Notes",
+          72
+        ],
+        [
+          "Spin",
+          55
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          364
+        ],
+        [
+          "Double Step",
+          308
+        ],
+        [
+          "Footswitch",
+          285
+        ],
+        [
+          "Spin",
+          76
+        ],
+        [
+          "Single Notes",
+          6
+        ]
+      ]
+    },
+    "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          281
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          291
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          259
+        ],
+        [
+          "Double Step",
+          257
+        ],
+        [
+          "Single Notes",
+          42
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          263
+        ],
+        [
+          "Double Step",
+          259
+        ],
+        [
+          "Single Notes",
+          38
+        ]
+      ]
+    },
+    "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          329
+        ],
+        [
+          "Jack",
+          4
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          261
+        ],
+        [
+          "Double Step",
+          48
+        ],
+        [
+          "Spin",
+          38
+        ],
+        [
+          "Jack",
+          8
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          180
+        ],
+        [
+          "Single Notes",
+          156
+        ],
+        [
+          "Stream",
+          131
+        ],
+        [
+          "Spin",
+          109
+        ],
+        [
+          "Footswitch",
+          20
+        ],
+        [
+          "Jack",
+          16
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          213
+        ],
+        [
+          "Double Step",
+          204
+        ],
+        [
+          "Spin",
+          190
+        ],
+        [
+          "Single Notes",
+          110
+        ],
+        [
+          "Jack",
+          24
+        ],
+        [
+          "Footswitch",
+          12
+        ]
+      ]
+    }
+  },
+  "cross_chart_prevalence": {
+    "500ms": {
+      "Single Notes": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Jack": {
+        "songs": 7,
+        "song_list": [
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Jump": {
+        "songs": 1,
+        "song_list": [
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv"
+        ]
+      }
+    },
+    "1000ms": {
+      "Single Notes": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Spin": {
+        "songs": 11,
+        "song_list": [
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Double Step": {
+        "songs": 8,
+        "song_list": [
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Jack": {
+        "songs": 7,
+        "song_list": [
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Jump": {
+        "songs": 1,
+        "song_list": [
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv"
+        ]
+      }
+    },
+    "2000ms": {
+      "Single Notes": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Stream": {
+        "songs": 16,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Double Step": {
+        "songs": 16,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Spin": {
+        "songs": 12,
+        "song_list": [
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Footswitch": {
+        "songs": 10,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Jack": {
+        "songs": 7,
+        "song_list": [
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Jump": {
+        "songs": 1,
+        "song_list": [
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv"
+        ]
+      }
+    },
+    "3000ms": {
+      "Stream": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Double Step": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Single Notes": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Footswitch": {
+        "songs": 15,
+        "song_list": [
+          "Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv",
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Spin": {
+        "songs": 12,
+        "song_list": [
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv",
+          "Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv",
+          "Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Jack": {
+        "songs": 7,
+        "song_list": [
+          "Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv",
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv",
+          "Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv",
+          "Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv",
+          "Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv",
+          "Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv",
+          "Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv"
+        ]
+      },
+      "Jump": {
+        "songs": 1,
+        "song_list": [
+          "Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv"
+        ]
+      }
+    }
+  }
+}

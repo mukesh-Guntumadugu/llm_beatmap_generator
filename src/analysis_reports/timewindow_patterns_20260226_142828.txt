@@ -1,0 +1,1295 @@
+====================================================================
+  DDR-STYLE TIME-WINDOW PATTERN ANALYSIS  [AI-TASK0001]
+  Generated : 20260226_142828
+  Charts    : 18
+  Windows   : 500ms, 1000ms, 2000ms, 3000ms
+====================================================================
+
+── SOURCE FILES USED ────────────────────────────────────────────────
+  Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv
+  Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv
+  Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv
+  Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv
+  Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv
+  Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv
+  Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv
+  Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv
+  Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv
+  Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv
+  Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv
+  Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv
+  No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv
+  Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv
+  Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv
+  Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv
+  The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv
+  Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv
+────────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 500ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence (all patterns):
+
+    Quad             ∅  (0/18 charts)  (never detected)
+    Hand             ∅  (0/18 charts)  (never detected)
+    Bracket          ∅  (0/18 charts)  (never detected)
+    Spin             ∅  (0/18 charts)  (never detected)
+    Candle           ∅  (0/18 charts)  (never detected)
+    Gallop           ∅  (0/18 charts)  (never detected)
+    Jack             ███████  (7/18 charts)
+    Crossover        ∅  (0/18 charts)  (never detected)
+    Double Step      ∅  (0/18 charts)  (never detected)
+    Jump             █  (1/18 charts)
+    Footswitch       ∅  (0/18 charts)  (never detected)
+    Stream           ∅  (0/18 charts)  (never detected)
+    Single Notes     ██████████████████  (18/18 charts)
+    Empty            ∅  (0/18 charts)  (never detected)
+
+  Per-chart patterns (all pattern types):
+
+    [Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×345
+      Empty            ×0 (absent)
+    [Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×1
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×374
+      Empty            ×0 (absent)
+    [Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×305
+      Empty            ×0 (absent)
+    [Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×15
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×5
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×249
+      Empty            ×0 (absent)
+    [Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×316
+      Empty            ×0 (absent)
+    [Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×275
+      Empty            ×0 (absent)
+    [Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×22
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×257
+      Empty            ×0 (absent)
+    [Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×1
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×408
+      Empty            ×0 (absent)
+    [Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×541
+      Empty            ×0 (absent)
+    [Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×2
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×323
+      Empty            ×0 (absent)
+    [Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×271
+      Empty            ×0 (absent)
+    [Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×297
+      Empty            ×0 (absent)
+    [No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×307
+      Empty            ×0 (absent)
+    [Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×325
+      Empty            ×0 (absent)
+    [Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×7
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×246
+      Empty            ×0 (absent)
+    [Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×371
+      Empty            ×0 (absent)
+    [The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×281
+      Empty            ×0 (absent)
+    [Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×4
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×329
+      Empty            ×0 (absent)
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 1000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence (all patterns):
+
+    Quad             ∅  (0/18 charts)  (never detected)
+    Hand             ∅  (0/18 charts)  (never detected)
+    Bracket          ∅  (0/18 charts)  (never detected)
+    Spin             ███████████  (11/18 charts)
+    Candle           ∅  (0/18 charts)  (never detected)
+    Gallop           ∅  (0/18 charts)  (never detected)
+    Jack             ███████  (7/18 charts)
+    Crossover        ∅  (0/18 charts)  (never detected)
+    Double Step      ████████  (8/18 charts)
+    Jump             █  (1/18 charts)
+    Footswitch       ∅  (0/18 charts)  (never detected)
+    Stream           ∅  (0/18 charts)  (never detected)
+    Single Notes     ██████████████████  (18/18 charts)
+    Empty            ∅  (0/18 charts)  (never detected)
+
+  Per-chart patterns (all pattern types):
+
+    [Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×347
+      Empty            ×0 (absent)
+    [Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×72
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×2
+      Crossover        ×0 (absent)
+      Double Step      ×73
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×229
+      Empty            ×0 (absent)
+    [Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×329
+      Empty            ×0 (absent)
+    [Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×151
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×30
+      Crossover        ×0 (absent)
+      Double Step      ×20
+      Jump             ×6
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×63
+      Empty            ×0 (absent)
+    [Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×95
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×222
+      Empty            ×0 (absent)
+    [Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×275
+      Empty            ×0 (absent)
+    [Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×5
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×44
+      Crossover        ×0 (absent)
+      Double Step      ×5
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×242
+      Empty            ×0 (absent)
+    [Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×169
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×2
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×241
+      Empty            ×0 (absent)
+    [Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×611
+      Empty            ×0 (absent)
+    [Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×150
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×4
+      Crossover        ×0 (absent)
+      Double Step      ×16
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×159
+      Empty            ×0 (absent)
+    [Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×294
+      Empty            ×0 (absent)
+    [Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×337
+      Empty            ×0 (absent)
+    [No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×82
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×12
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×217
+      Empty            ×0 (absent)
+    [Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×146
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×203
+      Empty            ×0 (absent)
+    [Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×21
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×14
+      Crossover        ×0 (absent)
+      Double Step      ×9
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×219
+      Empty            ×0 (absent)
+    [Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×26
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×8
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×337
+      Empty            ×0 (absent)
+    [The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×291
+      Empty            ×0 (absent)
+    [Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×38
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×8
+      Crossover        ×0 (absent)
+      Double Step      ×48
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×261
+      Empty            ×0 (absent)
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 2000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence (all patterns):
+
+    Quad             ∅  (0/18 charts)  (never detected)
+    Hand             ∅  (0/18 charts)  (never detected)
+    Bracket          ∅  (0/18 charts)  (never detected)
+    Spin             ████████████  (12/18 charts)
+    Candle           ∅  (0/18 charts)  (never detected)
+    Gallop           ∅  (0/18 charts)  (never detected)
+    Jack             ███████  (7/18 charts)
+    Crossover        ∅  (0/18 charts)  (never detected)
+    Double Step      ████████████████  (16/18 charts)
+    Jump             █  (1/18 charts)
+    Footswitch       ██████████  (10/18 charts)
+    Stream           ████████████████  (16/18 charts)
+    Single Notes     ██████████████████  (18/18 charts)
+    Empty            ∅  (0/18 charts)  (never detected)
+
+  Per-chart patterns (all pattern types):
+
+    [Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×69
+      Jump             ×0 (absent)
+      Footswitch       ×124
+      Stream           ×124
+      Single Notes     ×227
+      Empty            ×0 (absent)
+    [Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×224
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×5
+      Crossover        ×0 (absent)
+      Double Step      ×323
+      Jump             ×0 (absent)
+      Footswitch       ×17
+      Stream           ×324
+      Single Notes     ×39
+      Empty            ×0 (absent)
+    [Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×127
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×134
+      Single Notes     ×219
+      Empty            ×0 (absent)
+    [Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×230
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×60
+      Crossover        ×0 (absent)
+      Double Step      ×190
+      Jump             ×8
+      Footswitch       ×7
+      Stream           ×184
+      Single Notes     ×8
+      Empty            ×0 (absent)
+    [Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×97
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×96
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×95
+      Single Notes     ×221
+      Empty            ×0 (absent)
+    [Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×4
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×180
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×178
+      Single Notes     ×89
+      Empty            ×0 (absent)
+    [Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×22
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×88
+      Crossover        ×0 (absent)
+      Double Step      ×138
+      Jump             ×0 (absent)
+      Footswitch       ×9
+      Stream           ×162
+      Single Notes     ×77
+      Empty            ×0 (absent)
+    [Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×361
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×5
+      Crossover        ×0 (absent)
+      Double Step      ×345
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×338
+      Single Notes     ×49
+      Empty            ×0 (absent)
+    [Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×681
+      Empty            ×0 (absent)
+    [Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×170
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×10
+      Crossover        ×0 (absent)
+      Double Step      ×272
+      Jump             ×0 (absent)
+      Footswitch       ×110
+      Stream           ×259
+      Single Notes     ×47
+      Empty            ×0 (absent)
+    [Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×125
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×128
+      Single Notes     ×189
+      Empty            ×0 (absent)
+    [Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×377
+      Empty            ×0 (absent)
+    [No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×206
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×198
+      Jump             ×0 (absent)
+      Footswitch       ×9
+      Stream           ×190
+      Single Notes     ×69
+      Empty            ×0 (absent)
+    [Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×154
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×210
+      Jump             ×0 (absent)
+      Footswitch       ×63
+      Stream           ×213
+      Single Notes     ×156
+      Empty            ×0 (absent)
+    [Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×62
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×28
+      Crossover        ×0 (absent)
+      Double Step      ×117
+      Jump             ×0 (absent)
+      Footswitch       ×15
+      Stream           ×122
+      Single Notes     ×103
+      Empty            ×0 (absent)
+    [Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×55
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×290
+      Jump             ×0 (absent)
+      Footswitch       ×239
+      Stream           ×285
+      Single Notes     ×72
+      Empty            ×0 (absent)
+    [The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×257
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×259
+      Single Notes     ×42
+      Empty            ×0 (absent)
+    [Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×109
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×16
+      Crossover        ×0 (absent)
+      Double Step      ×180
+      Jump             ×0 (absent)
+      Footswitch       ×20
+      Stream           ×131
+      Single Notes     ×156
+      Empty            ×0 (absent)
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 3000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence (all patterns):
+
+    Quad             ∅  (0/18 charts)  (never detected)
+    Hand             ∅  (0/18 charts)  (never detected)
+    Bracket          ∅  (0/18 charts)  (never detected)
+    Spin             ████████████  (12/18 charts)
+    Candle           ∅  (0/18 charts)  (never detected)
+    Gallop           ∅  (0/18 charts)  (never detected)
+    Jack             ███████  (7/18 charts)
+    Crossover        ∅  (0/18 charts)  (never detected)
+    Double Step      ██████████████████  (18/18 charts)
+    Jump             █  (1/18 charts)
+    Footswitch       ███████████████  (15/18 charts)
+    Stream           ██████████████████  (18/18 charts)
+    Single Notes     ██████████████████  (18/18 charts)
+    Empty            ∅  (0/18 charts)  (never detected)
+
+  Per-chart patterns (all pattern types):
+
+    [Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×192
+      Jump             ×0 (absent)
+      Footswitch       ×336
+      Stream           ×336
+      Single Notes     ×19
+      Empty            ×0 (absent)
+    [Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×288
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×8
+      Crossover        ×0 (absent)
+      Double Step      ×356
+      Jump             ×0 (absent)
+      Footswitch       ×23
+      Stream           ×366
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×195
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×257
+      Single Notes     ×96
+      Empty            ×0 (absent)
+    [Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×251
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×82
+      Crossover        ×0 (absent)
+      Double Step      ×175
+      Jump             ×10
+      Footswitch       ×3
+      Stream           ×234
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×99
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×101
+      Jump             ×0 (absent)
+      Footswitch       ×106
+      Stream           ×203
+      Single Notes     ×115
+      Empty            ×0 (absent)
+    [Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×8
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×190
+      Jump             ×0 (absent)
+      Footswitch       ×43
+      Stream           ×225
+      Single Notes     ×44
+      Empty            ×0 (absent)
+    [Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×40
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×110
+      Crossover        ×0 (absent)
+      Double Step      ×125
+      Jump             ×0 (absent)
+      Footswitch       ×2
+      Stream           ×214
+      Single Notes     ×63
+      Empty            ×0 (absent)
+    [Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×388
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×8
+      Crossover        ×0 (absent)
+      Double Step      ×387
+      Jump             ×0 (absent)
+      Footswitch       ×5
+      Stream           ×372
+      Single Notes     ×11
+      Empty            ×0 (absent)
+    [Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×196
+      Jump             ×0 (absent)
+      Footswitch       ×396
+      Stream           ×394
+      Single Notes     ×279
+      Empty            ×0 (absent)
+    [Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×178
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×18
+      Crossover        ×0 (absent)
+      Double Step      ×275
+      Jump             ×0 (absent)
+      Footswitch       ×124
+      Stream           ×295
+      Single Notes     ×28
+      Empty            ×0 (absent)
+    [Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×129
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×176
+      Single Notes     ×141
+      Empty            ×0 (absent)
+    [Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×153
+      Jump             ×0 (absent)
+      Footswitch       ×50
+      Stream           ×167
+      Single Notes     ×162
+      Empty            ×0 (absent)
+    [No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×264
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×214
+      Jump             ×0 (absent)
+      Footswitch       ×5
+      Stream           ×252
+      Single Notes     ×16
+      Empty            ×0 (absent)
+    [Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×160
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×250
+      Jump             ×0 (absent)
+      Footswitch       ×124
+      Stream           ×282
+      Single Notes     ×89
+      Empty            ×0 (absent)
+    [Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×107
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×42
+      Crossover        ×0 (absent)
+      Double Step      ×127
+      Jump             ×0 (absent)
+      Footswitch       ×10
+      Stream           ×164
+      Single Notes     ×61
+      Empty            ×0 (absent)
+    [Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×76
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×308
+      Jump             ×0 (absent)
+      Footswitch       ×285
+      Stream           ×364
+      Single Notes     ×6
+      Empty            ×0 (absent)
+    [The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×259
+      Jump             ×0 (absent)
+      Footswitch       ×0 (absent)
+      Stream           ×263
+      Single Notes     ×38
+      Empty            ×0 (absent)
+    [Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×190
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×24
+      Crossover        ×0 (absent)
+      Double Step      ×204
+      Jump             ×0 (absent)
+      Footswitch       ×12
+      Stream           ×213
+      Single Notes     ×110
+      Empty            ×0 (absent)
+
+====================================================================

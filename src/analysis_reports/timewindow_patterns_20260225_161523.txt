@@ -1,0 +1,468 @@
+====================================================================
+  DDR-STYLE TIME-WINDOW PATTERN ANALYSIS  [ORIGINAL-ALL]
+  Generated : 20260225_161523
+  Charts    : 104
+  Windows   : 1000ms, 2000ms
+====================================================================
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 1000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence:
+
+    Single Notes     ████████████████████████████████████████████████████████████████████████████████████████████████████████  (104/104 charts)
+    Jack             ████████████████████████████████████████████████████████████████████████████████████████████████  (96/104 charts)
+    Jump             █████████████████████████████████████████████████████████████████████████████████  (81/104 charts)
+    Double Step      ████████████████████████████████████████████████████████████████████████████████  (80/104 charts)
+    Spin             ██████████████████████████████████████████████████████████████████████████████  (78/104 charts)
+    Stream           ███████████████████████████████████████████████████████████████████  (67/104 charts)
+    Footswitch       ███████████████████████████████████████████████████████████████████  (67/104 charts)
+    Bracket          ██████████████████████████████████████████████████████  (54/104 charts)
+    Candle           █████████████████████████████████████████████  (45/104 charts)
+    Gallop           █████████████████████████████████████████████  (45/104 charts)
+    Quad             ██  (2/104 charts)
+    Hand             ██  (2/104 charts)
+
+  Per-chart top patterns:
+
+    [Bad Ketchup (Challenge)]
+      Double Step ×243   Stream ×211   Spin ×200   Jack ×167   Single Notes ×58   Jump ×31
+    [Bad Ketchup (Hard)]
+      Double Step ×174   Stream ×160   Jack ×124   Spin ×93   Single Notes ×61   Footswitch ×30
+    [Bad Ketchup (Beginner)]
+      Single Notes ×85   Jack ×12   Jump ×2
+    [Bad Ketchup (Easy)]
+      Single Notes ×94   Jack ×33   Jump ×9   Double Step ×7   Spin ×1   Stream ×1
+    [Bad Ketchup (Medium)]
+      Single Notes ×76   Double Step ×58   Jack ×46   Stream ×35   Jump ×25   Footswitch ×20
+    [Bitch Clap (Challenge)]
+      Jack ×204   Double Step ×200   Stream ×152   Spin ×136   Single Notes ×47   Jump ×40
+    [Bitch Clap (Hard)]
+      Double Step ×135   Jack ×113   Stream ×98   Spin ×68   Single Notes ×46   Footswitch ×25
+    [Bitch Clap (Medium)]
+      Single Notes ×73   Double Step ×64   Jack ×44   Spin ×29   Footswitch ×24   Stream ×16
+    [Bitch Clap (Easy)]
+      Single Notes ×74   Jack ×29   Double Step ×10   Spin ×3
+    [Bitch Clap (Beginner)]
+      Single Notes ×63   Jack ×16   Jump ×2
+    [Call Me Maybe (Remix) (Challenge)]
+      Double Step ×102   Single Notes ×70   Jack ×62   Jump ×62   Stream ×57   Spin ×45
+    [Call Me Maybe (Remix) (Hard)]
+      Single Notes ×72   Double Step ×66   Jack ×32   Spin ×19   Jump ×19   Footswitch ×15
+    [Call Me Maybe (Remix) (Medium)]
+      Single Notes ×84   Jack ×38   Double Step ×25   Jump ×19   Footswitch ×7   Spin ×7
+    [Call Me Maybe (Remix) (Easy)]
+      Single Notes ×70   Jack ×13   Double Step ×4
+    [Call Me Maybe (Remix) (Beginner)]
+      Single Notes ×59   Jack ×18   Jump ×3
+    [Dead Hollywood (Challenge)]
+      Jack ×192   Double Step ×146   Stream ×103   Spin ×91   Jump ×60   Single Notes ×41
+    [Dead Hollywood (Hard)]
+      Jack ×77   Single Notes ×58   Double Step ×54   Jump ×32   Spin ×21   Stream ×13
+    [Dead Hollywood (Medium)]
+      Single Notes ×54   Double Step ×53   Jack ×47   Jump ×15   Stream ×14   Spin ×14
+    [Dead Hollywood (Easy)]
+      Single Notes ×42   Double Step ×28   Jack ×16   Jump ×8   Spin ×2   Bracket ×2
+    [Dead Hollywood (Beginner)]
+      Single Notes ×63   Jack ×11   Jump ×1
+    [Deal With It (Challenge)]
+      Jack ×129   Double Step ×108   Stream ×65   Spin ×53   Jump ×41   Single Notes ×37
+    [Deal With It (Hard)]
+      Jack ×61   Single Notes ×54   Double Step ×52   Stream ×22   Spin ×18   Footswitch ×10
+    [Deal With It (Easy)]
+      Single Notes ×62   Jack ×21   Double Step ×2
+    [Deal With It (Medium)]
+      Jack ×57   Single Notes ×56   Double Step ×25   Footswitch ×11   Spin ×6   Jump ×6
+    [Deal With It (Beginner)]
+      Single Notes ×46   Jack ×20   Jump ×1
+    [Gangnam Style (Easy)]
+      Jump ×94   Single Notes ×77   Jack ×56   Bracket ×49   Double Step ×29   Spin ×22
+    [Gangnam Style (Challenge)]
+      Double Step ×129   Jack ×119   Spin ×94   Stream ×59   Single Notes ×53   Footswitch ×13
+    [Gangnam Style (Hard)]
+      Single Notes ×64   Double Step ×57   Jack ×36   Spin ×30   Stream ×22   Jump ×19
+    [Gangnam Style (Medium)]
+      Single Notes ×93   Jack ×11   Double Step ×10   Spin ×1
+    [Gangnam Style (Beginner)]
+      Single Notes ×66   Jack ×13
+    [Girls (Challenge)]
+      Jack ×150   Spin ×67   Double Step ×65   Jump ×62   Stream ×46   Single Notes ×40
+    [Girls (Hard)]
+      Jack ×88   Double Step ×58   Single Notes ×47   Spin ×36   Stream ×32   Jump ×14
+    [Girls (Beginner)]
+      Single Notes ×60   Jack ×22   Jump ×11
+    [Girls (Easy)]
+      Single Notes ×68   Double Step ×11   Jack ×10   Bracket ×2   Jump ×2   Spin ×1
+    [Girls (Medium)]
+      Single Notes ×61   Jack ×44   Double Step ×43   Spin ×20   Footswitch ×18   Stream ×14
+    [Goin' Under (Challenge)]
+      Double Step ×136   Jack ×96   Stream ×90   Spin ×78   Single Notes ×66   Footswitch ×9
+    [Goin' Under (Hard)]
+      Jack ×80   Double Step ×76   Single Notes ×74   Spin ×59   Stream ×31   Footswitch ×12
+    [Goin' Under (Medium)]
+      Single Notes ×67   Jack ×44   Double Step ×29   Spin ×14   Stream ×11   Footswitch ×10
+    [Goin' Under (Easy)]
+      Single Notes ×83   Jack ×18   Double Step ×6   Spin ×2   Footswitch ×1
+    [Goin' Under (Beginner)]
+      Single Notes ×75   Jack ×16   Jump ×2
+    [Goodbye (2012 Mix) (Edit)]
+      Double Step ×569   Stream ×553   Jump ×190   Jack ×132   Spin ×112   Gallop ×80
+    [Goodbye (2012 Mix) (Hard)]
+      Double Step ×94   Single Notes ×58   Stream ×53   Spin ×42   Jack ×36   Footswitch ×21
+    [Goodbye (2012 Mix) (Medium)]
+      Jack ×46   Single Notes ×45   Double Step ×27   Footswitch ×18   Spin ×12   Jump ×11
+    [Goodbye (2012 Mix) (Easy)]
+      Single Notes ×68   Jack ×18   Jump ×1   Spin ×1
+    [Goodbye (2012 Mix) (Beginner)]
+      Single Notes ×65   Jack ×12   Jump ×6
+    [Goodbye (2012 Mix) (Challenge)]
+      Double Step ×469   Stream ×441   Jump ×286   Gallop ×160   Candle ×159   Spin ×151
+    [Human Error (Challenge)]
+      Jack ×264   Double Step ×204   Stream ×149   Spin ×125   Single Notes ×36   Jump ×18
+    [Human Error (Hard)]
+      Double Step ×143   Spin ×116   Stream ×105   Single Notes ×78   Jack ×61   Footswitch ×4
+    [Human Error (Medium)]
+      Jack ×91   Single Notes ×82   Stream ×32   Double Step ×29   Spin ×23   Footswitch ×2
+    [Human Error (Easy)]
+      Single Notes ×60   Jack ×58   Double Step ×24   Spin ×20   Stream ×12   Footswitch ×5
+    [Human Error (Beginner)]
+      Single Notes ×78   Jump ×2
+    [Inner Universe (Extended Mix) (Challenge)]
+      Double Step ×463   Stream ×399   Spin ×322   Jack ×308   Jump ×98   Single Notes ×64
+    [Inner Universe (Extended Mix) (Hard)]
+      Jack ×341   Stream ×159   Double Step ×131   Spin ×104   Single Notes ×82   Jump ×22
+    [Inner Universe (Extended Mix) (Medium)]
+      Double Step ×243   Stream ×174   Spin ×142   Jack ×132   Single Notes ×66   Footswitch ×24
+    [Inner Universe (Extended Mix) (Easy)]
+      Double Step ×132   Single Notes ×83   Jack ×53   Stream ×48   Footswitch ×46   Spin ×21
+    [Inner Universe (Extended Mix) (Beginner)]
+      Single Notes ×141   Jack ×12   Jump ×2
+    [Inner Universe (Extended Mix) (Edit)]
+      Stream ×1627   Double Step ×1574   Spin ×509   Jump ×354   Candle ×205   Gallop ×205
+    [Love to Rise in the Summer Morning (Challenge)]
+      Double Step ×293   Spin ×195   Stream ×192   Jack ×152   Jump ×62   Single Notes ×46
+    [Love to Rise in the Summer Morning (Hard)]
+      Double Step ×114   Jack ×97   Single Notes ×62   Stream ×43   Spin ×42   Footswitch ×30
+    [Love to Rise in the Summer Morning (Medium)]
+      Single Notes ×66   Double Step ×37   Jump ×36   Candle ×23   Gallop ×23   Footswitch ×15
+    [Love to Rise in the Summer Morning (Easy)]
+      Single Notes ×67   Double Step ×18   Jack ×13   Spin ×4
+    [Love to Rise in the Summer Morning (Beginner)]
+      Single Notes ×68   Jack ×3   Jump ×2
+    [Named 'The Moon' (Challenge)]
+      Double Step ×220   Spin ×166   Jack ×132   Stream ×132   Single Notes ×56   Footswitch ×14
+    [Named 'The Moon' (Hard)]
+      Single Notes ×74   Double Step ×73   Jack ×64   Spin ×36   Stream ×27   Footswitch ×19
+    [Named 'The Moon' (Medium)]
+      Single Notes ×82   Jack ×44   Double Step ×36   Footswitch ×15   Spin ×11   Stream ×3
+    [Named 'The Moon' (Easy)]
+      Single Notes ×74   Jack ×36   Jump ×8   Bracket ×2
+    [Named 'The Moon' (Beginner)]
+      Single Notes ×64   Jump ×1
+    [Need Your Love -SF_Dubstep Mix- (Challenge)]
+      Jack ×164   Double Step ×155   Spin ×127   Stream ×125   Single Notes ×42   Jump ×21
+    [Need Your Love -SF_Dubstep Mix- (Hard)]
+      Double Step ×81   Single Notes ×65   Spin ×37   Jack ×31   Stream ×27   Footswitch ×15
+    [Need Your Love -SF_Dubstep Mix- (Medium)]
+      Single Notes ×73   Double Step ×47   Spin ×30   Jack ×29   Stream ×19   Footswitch ×11
+    [Need Your Love -SF_Dubstep Mix- (Easy)]
+      Single Notes ×72   Jack ×14   Double Step ×3
+    [Need Your Love -SF_Dubstep Mix- (Beginner)]
+      Single Notes ×58   Jack ×11   Jump ×1
+    [No Beginning (Challenge)]
+      Stream ×235   Jack ×178   Double Step ×172   Single Notes ×80   Spin ×47   Footswitch ×22
+    [No Beginning (Hard)]
+      Jack ×111   Double Step ×105   Spin ×89   Single Notes ×77   Stream ×77   Jump ×25
+    [No Beginning (Medium)]
+      Single Notes ×80   Double Step ×70   Spin ×34   Stream ×22   Jack ×19   Footswitch ×19
+    [No Beginning (Easy)]
+      Single Notes ×80   Jack ×23   Double Step ×20   Spin ×10
+    [No Beginning (Beginner)]
+      Single Notes ×81
+    [Pain Game (Challenge)]
+      Jack ×158   Double Step ×94   Spin ×93   Stream ×79   Single Notes ×48   Jump ×33
+    [Pain Game (Edit)]
+      Stream ×648   Double Step ×542   Spin ×363   Jack ×252   Jump ×60   Candle ×26
+    [Pain Game (Hard)]
+      Jack ×103   Single Notes ×46   Double Step ×39   Stream ×32   Jump ×30   Bracket ×18
+    [Pain Game (Medium)]
+      Single Notes ×52   Jack ×45   Double Step ×21   Jump ×21   Stream ×8   Bracket ×8
+    [Pain Game (Easy)]
+      Single Notes ×40   Jack ×32   Jump ×19   Double Step ×6   Spin ×5   Bracket ×4
+    [Pain Game (Beginner)]
+      Single Notes ×59   Jack ×10   Jump ×2
+    [Stamina (Challenge)]
+      Double Step ×140   Jack ×97   Stream ×78   Jump ×70   Spin ×59   Single Notes ×51
+    [Stamina (Hard)]
+      Double Step ×73   Jack ×70   Single Notes ×37   Spin ×35   Jump ×33   Stream ×29
+    [Stamina (Medium)]
+      Single Notes ×44   Jack ×40   Double Step ×29   Jump ×25   Spin ×12   Footswitch ×8
+    [Stamina (Easy)]
+      Single Notes ×60   Jack ×17   Jump ×3   Double Step ×1
+    [Stamina (Beginner)]
+      Single Notes ×59   Jump ×2
+    [Star Gear (Challenge)]
+      Jack ×128   Double Step ×114   Single Notes ×73   Stream ×70   Spin ×48   Footswitch ×18
+    [Star Gear (Hard)]
+      Jack ×108   Single Notes ×69   Double Step ×59   Stream ×48   Spin ×34   Footswitch ×13
+    [Star Gear (Medium)]
+      Double Step ×70   Single Notes ×66   Jack ×59   Footswitch ×24   Spin ×17   Stream ×9
+    [Star Gear (Easy)]
+      Single Notes ×69   Jack ×31   Spin ×10   Double Step ×9   Jump ×3
+    [Star Gear (Beginner)]
+      Single Notes ×72
+    [The Seconds (Edit)]
+      Jump ×279   Double Step ×181   Stream ×151   Jack ×150   Spin ×147   Candle ×130
+    [The Seconds (Challenge)]
+      Jack ×135   Jump ×90   Double Step ×53   Spin ×46   Candle ×38   Gallop ×38
+    [The Seconds (Hard)]
+      Double Step ×64   Single Notes ×62   Jack ×44   Spin ×25   Footswitch ×20   Stream ×17
+    [The Seconds (Medium)]
+      Single Notes ×60   Jack ×48   Jump ×20   Double Step ×17   Footswitch ×8   Candle ×7
+    [The Seconds (Easy)]
+      Single Notes ×35   Jump ×1
+    [The Seconds (Beginner)]
+      Single Notes ×65
+    [Turn Up (The Music) (Challenge)]
+      Double Step ×340   Jack ×329   Stream ×255   Spin ×207   Jump ×47   Footswitch ×33
+    [Turn Up (The Music) (Hard)]
+      Jack ×299   Double Step ×195   Stream ×182   Spin ×137   Single Notes ×45   Jump ×44
+    [Turn Up (The Music) (Medium)]
+      Single Notes ×75   Jump ×75   Jack ×73   Double Step ×39   Candle ×22   Gallop ×22
+    [Turn Up (The Music) (Easy)]
+      Single Notes ×138   Jack ×12   Spin ×1
+    [Turn Up (The Music) (Beginner)]
+      Single Notes ×84   Jump ×8
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 2000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence:
+
+    Single Notes     ██████████████████████████████████████████████████████████████████████████████████████████████████████  (102/104 charts)
+    Jack             █████████████████████████████████████████████████████████████████████████████████████████████████████  (101/104 charts)
+    Double Step      ████████████████████████████████████████████████████████████████████████████████████  (84/104 charts)
+    Spin             ███████████████████████████████████████████████████████████████████████████████████  (83/104 charts)
+    Stream           ███████████████████████████████████████████████████████████████████████████████████  (83/104 charts)
+    Jump             █████████████████████████████████████████████████████████████████████████████████  (81/104 charts)
+    Footswitch       ██████████████████████████████████████████████████████████████████████████████  (78/104 charts)
+    Candle           ███████████████████████████████████████████████████████  (55/104 charts)
+    Gallop           ███████████████████████████████████████████████████████  (55/104 charts)
+    Bracket          ██████████████████████████████████████████████████████  (54/104 charts)
+    Quad             ██  (2/104 charts)
+    Hand             ██  (2/104 charts)
+
+  Per-chart top patterns:
+
+    [Bad Ketchup (Challenge)]
+      Jack ×336   Spin ×279   Stream ×254   Double Step ×128   Jump ×39   Candle ×16
+    [Bad Ketchup (Hard)]
+      Jack ×233   Stream ×195   Spin ×132   Double Step ×108   Single Notes ×25   Jump ×23
+    [Bad Ketchup (Beginner)]
+      Single Notes ×79   Jack ×17   Jump ×3
+    [Bad Ketchup (Easy)]
+      Jack ×61   Double Step ×42   Single Notes ×30   Stream ×25   Jump ×13   Footswitch ×10
+    [Bad Ketchup (Medium)]
+      Double Step ×99   Stream ×77   Jack ×74   Jump ×44   Single Notes ×39   Candle ×31
+    [Bitch Clap (Challenge)]
+      Jack ×335   Spin ×225   Stream ×211   Double Step ×126   Jump ×69   Candle ×51
+    [Bitch Clap (Hard)]
+      Jack ×178   Stream ×160   Spin ×112   Double Step ×108   Single Notes ×22   Jump ×17
+    [Bitch Clap (Medium)]
+      Jack ×88   Double Step ×86   Spin ×82   Stream ×63   Single Notes ×24   Footswitch ×3
+    [Bitch Clap (Easy)]
+      Jack ×49   Double Step ×31   Single Notes ×28   Spin ×16   Footswitch ×11   Stream ×7
+    [Bitch Clap (Beginner)]
+      Single Notes ×57   Jack ×22   Jump ×2
+    [Call Me Maybe (Remix) (Challenge)]
+      Double Step ×136   Stream ×118   Jack ×110   Spin ×102   Jump ×86   Candle ×60
+    [Call Me Maybe (Remix) (Hard)]
+      Double Step ×110   Stream ×79   Jack ×59   Spin ×46   Jump ×30   Candle ×20
+    [Call Me Maybe (Remix) (Medium)]
+      Double Step ×85   Jack ×62   Stream ×40   Jump ×30   Spin ×28   Candle ×23
+    [Call Me Maybe (Remix) (Easy)]
+      Single Notes ×39   Jack ×27   Double Step ×14   Spin ×6   Stream ×5   Footswitch ×4
+    [Call Me Maybe (Remix) (Beginner)]
+      Single Notes ×58   Jack ×18   Jump ×4
+    [Dead Hollywood (Challenge)]
+      Jack ×295   Spin ×165   Stream ×165   Double Step ×93   Jump ×84   Candle ×64
+    [Dead Hollywood (Hard)]
+      Jack ×108   Double Step ×73   Stream ×43   Spin ×41   Jump ×36   Single Notes ×24
+    [Dead Hollywood (Medium)]
+      Jack ×86   Double Step ×66   Stream ×37   Spin ×33   Jump ×21   Single Notes ×17
+    [Dead Hollywood (Easy)]
+      Double Step ×42   Single Notes ×23   Jack ×22   Footswitch ×21   Spin ×10   Jump ×9
+    [Dead Hollywood (Beginner)]
+      Single Notes ×50   Jack ×23   Jump ×2
+    [Deal With It (Challenge)]
+      Jack ×206   Stream ×110   Spin ×104   Double Step ×75   Jump ×60   Candle ×21
+    [Deal With It (Hard)]
+      Jack ×93   Double Step ×61   Stream ×57   Spin ×50   Single Notes ×20   Bracket ×7
+    [Deal With It (Easy)]
+      Single Notes ×47   Jack ×31   Double Step ×4   Footswitch ×3   Stream ×2   Spin ×1
+    [Deal With It (Medium)]
+      Jack ×86   Double Step ×34   Stream ×31   Single Notes ×22   Spin ×15   Jump ×9
+    [Deal With It (Beginner)]
+      Single Notes ×46   Jack ×20   Jump ×1
+    [Gangnam Style (Easy)]
+      Jump ×129   Jack ×121   Bracket ×75   Spin ×48   Double Step ×38   Candle ×36
+    [Gangnam Style (Challenge)]
+      Jack ×217   Spin ×132   Stream ×97   Double Step ×73   Single Notes ×21   Jump ×20
+    [Gangnam Style (Hard)]
+      Double Step ×107   Stream ×60   Spin ×59   Jack ×51   Single Notes ×31   Jump ×31
+    [Gangnam Style (Medium)]
+      Double Step ×59   Stream ×37   Single Notes ×26   Jack ×24   Footswitch ×17   Spin ×4
+    [Gangnam Style (Beginner)]
+      Single Notes ×62   Jack ×17
+    [Girls (Challenge)]
+      Jack ×202   Spin ×100   Jump ×79   Stream ×75   Double Step ×50   Candle ×48
+    [Girls (Hard)]
+      Jack ×125   Spin ×67   Stream ×59   Double Step ×52   Single Notes ×27   Jump ×19
+    [Girls (Beginner)]
+      Single Notes ×36   Jack ×32   Jump ×15   Double Step ×12
+    [Girls (Easy)]
+      Double Step ×39   Single Notes ×18   Jack ×16   Footswitch ×16   Stream ×12   Spin ×11
+    [Girls (Medium)]
+      Double Step ×78   Jack ×68   Spin ×52   Stream ×51   Single Notes ×17   Jump ×10
+    [Goin' Under (Challenge)]
+      Jack ×227   Spin ×128   Stream ×125   Double Step ×59   Single Notes ×17   Jump ×12
+    [Goin' Under (Hard)]
+      Jack ×135   Spin ×90   Stream ×86   Double Step ×80   Single Notes ×25   Footswitch ×5
+    [Goin' Under (Medium)]
+      Jack ×76   Double Step ×51   Stream ×48   Spin ×41   Single Notes ×27   Jump ×11
+    [Goin' Under (Easy)]
+      Double Step ×45   Jack ×27   Footswitch ×25   Single Notes ×24   Stream ×23   Spin ×9
+    [Goin' Under (Beginner)]
+      Single Notes ×73   Jack ×16   Jump ×4
+    [Goodbye (2012 Mix) (Edit)]
+      Stream ×698   Double Step ×581   Jump ×324   Spin ×216   Candle ×206   Gallop ×206
+    [Goodbye (2012 Mix) (Hard)]
+      Double Step ×100   Stream ×88   Spin ×74   Jack ×72   Single Notes ×33   Jump ×26
+    [Goodbye (2012 Mix) (Medium)]
+      Jack ×80   Double Step ×33   Spin ×32   Stream ×31   Single Notes ×21   Jump ×16
+    [Goodbye (2012 Mix) (Easy)]
+      Single Notes ×33   Jack ×32   Double Step ×14   Spin ×11   Stream ×8   Footswitch ×3
+    [Goodbye (2012 Mix) (Beginner)]
+      Single Notes ×59   Jack ×17   Jump ×8
+    [Goodbye (2012 Mix) (Challenge)]
+      Stream ×613   Double Step ×485   Jump ×440   Candle ×322   Gallop ×322   Spin ×264
+    [Human Error (Challenge)]
+      Jack ×445   Spin ×195   Stream ×164   Double Step ×55   Jump ×37   Candle ×24
+    [Human Error (Hard)]
+      Spin ×156   Stream ×152   Double Step ×121   Jack ×119   Single Notes ×43   Footswitch ×6
+    [Human Error (Medium)]
+      Jack ×112   Stream ×83   Double Step ×67   Spin ×52   Single Notes ×33   Footswitch ×3
+    [Human Error (Easy)]
+      Jack ×88   Double Step ×41   Stream ×40   Spin ×38   Single Notes ×25   Footswitch ×1
+    [Human Error (Beginner)]
+      Single Notes ×72   Jack ×6   Jump ×2
+    [Inner Universe (Extended Mix) (Challenge)]
+      Jack ×563   Stream ×458   Spin ×417   Double Step ×270   Jump ×117   Candle ×62
+    [Inner Universe (Extended Mix) (Hard)]
+      Jack ×425   Stream ×202   Spin ×173   Double Step ×91   Single Notes ×47   Jump ×24
+    [Inner Universe (Extended Mix) (Medium)]
+      Jack ×236   Stream ×234   Spin ×223   Double Step ×174   Single Notes ×45   Footswitch ×15
+    [Inner Universe (Extended Mix) (Easy)]
+      Double Step ×163   Stream ×135   Jack ×88   Spin ×55   Single Notes ×51   Footswitch ×19
+    [Inner Universe (Extended Mix) (Beginner)]
+      Single Notes ×131   Jack ×22   Jump ×4
+    [Inner Universe (Extended Mix) (Edit)]
+      Stream ×1755   Double Step ×1502   Spin ×753   Jump ×480   Jack ×288   Candle ×246
+    [Love to Rise in the Summer Morning (Challenge)]
+      Jack ×329   Stream ×282   Spin ×216   Double Step ×160   Jump ×72   Candle ×58
+    [Love to Rise in the Summer Morning (Hard)]
+      Jack ×146   Double Step ×116   Stream ×81   Spin ×74   Single Notes ×25   Jump ×15
+    [Love to Rise in the Summer Morning (Medium)]
+      Double Step ×77   Jump ×52   Stream ×38   Single Notes ×36   Candle ×36   Gallop ×36
+    [Love to Rise in the Summer Morning (Easy)]
+      Single Notes ×45   Double Step ×32   Jack ×20   Spin ×17   Footswitch ×15   Stream ×5
+    [Love to Rise in the Summer Morning (Beginner)]
+      Single Notes ×63   Jack ×7   Jump ×3
+    [Named 'The Moon' (Challenge)]
+      Jack ×265   Spin ×246   Stream ×192   Double Step ×150   Jump ×24   Candle ×20
+    [Named 'The Moon' (Hard)]
+      Jack ×108   Double Step ×90   Spin ×75   Stream ×70   Single Notes ×33   Footswitch ×11
+    [Named 'The Moon' (Medium)]
+      Jack ×80   Double Step ×74   Spin ×47   Stream ×34   Footswitch ×22   Single Notes ×20
+    [Named 'The Moon' (Easy)]
+      Jack ×72   Double Step ×20   Single Notes ×19   Jump ×16   Footswitch ×14   Candle ×8
+    [Named 'The Moon' (Beginner)]
+      Single Notes ×64   Jump ×1
+    [Need Your Love -SF_Dubstep Mix- (Challenge)]
+      Jack ×286   Spin ×204   Stream ×188   Double Step ×76   Jump ×34   Candle ×26
+    [Need Your Love -SF_Dubstep Mix- (Hard)]
+      Double Step ×92   Jack ×64   Spin ×63   Stream ×62   Single Notes ×28   Jump ×18
+    [Need Your Love -SF_Dubstep Mix- (Medium)]
+      Double Step ×75   Spin ×69   Stream ×64   Jack ×62   Single Notes ×31   Footswitch ×5
+    [Need Your Love -SF_Dubstep Mix- (Easy)]
+      Single Notes ×45   Jack ×20   Double Step ×14   Spin ×7   Stream ×5   Footswitch ×3
+    [Need Your Love -SF_Dubstep Mix- (Beginner)]
+      Single Notes ×54   Jack ×15   Jump ×1
+    [No Beginning (Challenge)]
+      Jack ×334   Stream ×273   Spin ×93   Double Step ×73   Single Notes ×25   Jump ×17
+    [No Beginning (Hard)]
+      Jack ×196   Spin ×171   Stream ×128   Double Step ×70   Jump ×37   Single Notes ×30
+    [No Beginning (Medium)]
+      Double Step ×120   Stream ×90   Spin ×85   Jack ×46   Single Notes ×29   Footswitch ×5
+    [No Beginning (Easy)]
+      Double Step ×69   Jack ×40   Spin ×30   Stream ×26   Single Notes ×24   Footswitch ×14
+    [No Beginning (Beginner)]
+      Single Notes ×81
+    [Pain Game (Challenge)]
+      Jack ×253   Spin ×129   Stream ×117   Double Step ×52   Jump ×47   Candle ×31
+    [Pain Game (Edit)]
+      Stream ×729   Spin ×620   Double Step ×441   Jack ×375   Jump ×122   Candle ×86
+    [Pain Game (Hard)]
+      Jack ×145   Stream ×72   Double Step ×47   Jump ×43   Spin ×33   Bracket ×29
+    [Pain Game (Medium)]
+      Jack ×73   Stream ×40   Double Step ×38   Jump ×35   Spin ×26   Candle ×24
+    [Pain Game (Easy)]
+      Jack ×43   Jump ×25   Double Step ×21   Single Notes ×19   Spin ×17   Candle ×13
+    [Pain Game (Beginner)]
+      Single Notes ×56   Jack ×11   Jump ×4
+    [Stamina (Challenge)]
+      Jack ×187   Stream ×122   Double Step ×102   Spin ×95   Jump ×91   Candle ×68
+    [Stamina (Hard)]
+      Jack ×112   Stream ×79   Double Step ×71   Spin ×60   Jump ×49   Candle ×35
+    [Stamina (Medium)]
+      Jack ×73   Double Step ×45   Jump ×36   Spin ×29   Stream ×26   Single Notes ×18
+    [Stamina (Easy)]
+      Jack ×26   Double Step ×21   Single Notes ×20   Spin ×9   Footswitch ×7   Stream ×7
+    [Stamina (Beginner)]
+      Single Notes ×41   Jack ×18   Jump ×2
+    [Star Gear (Challenge)]
+      Jack ×196   Double Step ×109   Stream ×108   Spin ×67   Single Notes ×20   Jump ×19
+    [Star Gear (Hard)]
+      Jack ×170   Stream ×97   Spin ×78   Double Step ×40   Single Notes ×30   Footswitch ×5
+    [Star Gear (Medium)]
+      Jack ×92   Double Step ×85   Spin ×46   Stream ×40   Single Notes ×25   Footswitch ×14
+    [Star Gear (Easy)]
+      Double Step ×52   Jack ×46   Spin ×28   Stream ×27   Single Notes ×18   Footswitch ×6
+    [Star Gear (Beginner)]
+      Single Notes ×64   Jack ×8
+    [The Seconds (Edit)]
+      Jump ×363   Candle ×310   Gallop ×310   Stream ×284   Spin ×261   Jack ×254
+    [The Seconds (Challenge)]
+      Jack ×200   Jump ×122   Candle ×96   Gallop ×96   Spin ×88   Stream ×63
+    [The Seconds (Hard)]
+      Double Step ×81   Jack ×73   Spin ×63   Stream ×53   Single Notes ×31   Jump ×15
+    [The Seconds (Medium)]
+      Jack ×70   Double Step ×51   Jump ×31   Candle ×21   Gallop ×21   Single Notes ×20
+    [The Seconds (Easy)]
+      Single Notes ×28   Jack ×6   Jump ×2
+    [The Seconds (Beginner)]
+      Single Notes ×57   Jack ×8
+    [Turn Up (The Music) (Challenge)]
+      Jack ×488   Spin ×343   Stream ×325   Double Step ×215   Jump ×64   Candle ×55
+    [Turn Up (The Music) (Hard)]
+      Jack ×457   Stream ×199   Spin ×184   Double Step ×79   Jump ×55   Candle ×49
+    [Turn Up (The Music) (Medium)]
+      Jack ×129   Jump ×100   Double Step ×87   Candle ×84   Gallop ×84   Spin ×75
+    [Turn Up (The Music) (Easy)]
+      Double Step ×56   Jack ×45   Single Notes ×40   Footswitch ×18   Spin ×16   Stream ×9
+    [Turn Up (The Music) (Beginner)]
+      Single Notes ×80   Jump ×12
+
+====================================================================

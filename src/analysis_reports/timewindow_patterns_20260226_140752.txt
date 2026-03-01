@@ -1,0 +1,1427 @@
+====================================================================
+  DDR-STYLE TIME-WINDOW PATTERN ANALYSIS  [AI-TASK0005]
+  Generated : 20260226_140752
+  Charts    : 20
+  Windows   : 500ms, 1000ms, 2000ms, 3000ms
+====================================================================
+
+── SOURCE FILES USED ────────────────────────────────────────────────
+  Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv
+  Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv
+  Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv
+  Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv
+  Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv
+  Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv
+  Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv
+  Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goin' Under/Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv
+  Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv
+  Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv
+  Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv
+  Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv
+  Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv
+  Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv
+  No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv
+  Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv
+  Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv
+  Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv
+  The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv
+  Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv
+    → /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv
+────────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 500ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence (all patterns):
+
+    Quad             █████████  (9/20 charts)
+    Hand             █████████  (9/20 charts)
+    Bracket          ███████████████  (15/20 charts)
+    Spin             ██████████████  (14/20 charts)
+    Candle           ███████  (7/20 charts)
+    Gallop           ███████  (7/20 charts)
+    Jack             ████  (4/20 charts)
+    Crossover        ∅  (0/20 charts)  (never detected)
+    Double Step      ███████████  (11/20 charts)
+    Jump             ████████████████████  (20/20 charts)
+    Footswitch       ███████  (7/20 charts)
+    Stream           ████████████████  (16/20 charts)
+    Single Notes     ████████████████████  (20/20 charts)
+    Empty            ∅  (0/20 charts)  (never detected)
+
+  Per-chart patterns (all pattern types):
+
+    [Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×12
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×17
+      Empty            ×0 (absent)
+    [Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×6
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×18
+      Footswitch       ×0 (absent)
+      Stream           ×1
+      Single Notes     ×24
+      Empty            ×0 (absent)
+    [Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv
+      Quad             ×5
+      Hand             ×5
+      Bracket          ×25
+      Spin             ×8
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×6
+      Jump             ×45
+      Footswitch       ×0 (absent)
+      Stream           ×3
+      Single Notes     ×24
+      Empty            ×0 (absent)
+    [Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×16
+      Spin             ×10
+      Candle           ×12
+      Gallop           ×12
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×7
+      Jump             ×42
+      Footswitch       ×1
+      Stream           ×4
+      Single Notes     ×9
+      Empty            ×0 (absent)
+    [Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×8
+      Spin             ×3
+      Candle           ×4
+      Gallop           ×4
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×16
+      Footswitch       ×0 (absent)
+      Stream           ×5
+      Single Notes     ×10
+      Empty            ×0 (absent)
+    [Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv
+      Quad             ×14
+      Hand             ×14
+      Bracket          ×11
+      Spin             ×4
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×1
+      Crossover        ×0 (absent)
+      Double Step      ×6
+      Jump             ×47
+      Footswitch       ×3
+      Stream           ×3
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv
+      Quad             ×4
+      Hand             ×4
+      Bracket          ×11
+      Spin             ×5
+      Candle           ×2
+      Gallop           ×2
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×31
+      Footswitch       ×0 (absent)
+      Stream           ×2
+      Single Notes     ×8
+      Empty            ×0 (absent)
+    [Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goin' Under/Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×12
+      Footswitch       ×0 (absent)
+      Stream           ×3
+      Single Notes     ×16
+      Empty            ×0 (absent)
+    [Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv
+      Quad             ×58
+      Hand             ×65
+      Bracket          ×25
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×1
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×168
+      Footswitch       ×0 (absent)
+      Stream           ×26
+      Single Notes     ×30
+      Empty            ×0 (absent)
+    [Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×7
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×21
+      Empty            ×0 (absent)
+    [Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv
+      Quad             ×7
+      Hand             ×7
+      Bracket          ×12
+      Spin             ×4
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×14
+      Jump             ×26
+      Footswitch       ×3
+      Stream           ×12
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×8
+      Spin             ×5
+      Candle           ×5
+      Gallop           ×5
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×5
+      Jump             ×24
+      Footswitch       ×2
+      Stream           ×7
+      Single Notes     ×4
+      Empty            ×0 (absent)
+    [Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×7
+      Spin             ×4
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×8
+      Jump             ×12
+      Footswitch       ×0 (absent)
+      Stream           ×4
+      Single Notes     ×27
+      Empty            ×0 (absent)
+    [Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv
+      Quad             ×1
+      Hand             ×1
+      Bracket          ×5
+      Spin             ×9
+      Candle           ×6
+      Gallop           ×6
+      Jack             ×2
+      Crossover        ×0 (absent)
+      Double Step      ×9
+      Jump             ×26
+      Footswitch       ×1
+      Stream           ×1
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×22
+      Spin             ×5
+      Candle           ×6
+      Gallop           ×6
+      Jack             ×1
+      Crossover        ×0 (absent)
+      Double Step      ×3
+      Jump             ×24
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×4
+      Empty            ×0 (absent)
+    [Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv
+      Quad             ×6
+      Hand             ×6
+      Bracket          ×0 (absent)
+      Spin             ×4
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×3
+      Jump             ×24
+      Footswitch       ×3
+      Stream           ×5
+      Single Notes     ×1
+      Empty            ×0 (absent)
+    [Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×7
+      Spin             ×3
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×7
+      Jump             ×7
+      Footswitch       ×0 (absent)
+      Stream           ×6
+      Single Notes     ×12
+      Empty            ×0 (absent)
+    [Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×6
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×12
+      Footswitch       ×1
+      Stream           ×1
+      Single Notes     ×18
+      Empty            ×0 (absent)
+    [The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv
+      Quad             ×6
+      Hand             ×6
+      Bracket          ×6
+      Spin             ×2
+      Candle           ×2
+      Gallop           ×2
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×1
+      Jump             ×18
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×20
+      Empty            ×0 (absent)
+    [Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv
+      Quad             ×1
+      Hand             ×1
+      Bracket          ×6
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×42
+      Footswitch       ×0 (absent)
+      Stream           ×5
+      Single Notes     ×18
+      Empty            ×0 (absent)
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 1000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence (all patterns):
+
+    Quad             █████████  (9/20 charts)
+    Hand             █████████  (9/20 charts)
+    Bracket          ███████████████  (15/20 charts)
+    Spin             ███████████████████  (19/20 charts)
+    Candle           ███████  (7/20 charts)
+    Gallop           ███████  (7/20 charts)
+    Jack             ██████  (6/20 charts)
+    Crossover        ∅  (0/20 charts)  (never detected)
+    Double Step      ███████████████████  (19/20 charts)
+    Jump             ████████████████████  (20/20 charts)
+    Footswitch       ████████████  (12/20 charts)
+    Stream           ██████████████████  (18/20 charts)
+    Single Notes     ███████████████  (15/20 charts)
+    Empty            ∅  (0/20 charts)  (never detected)
+
+  Per-chart patterns (all pattern types):
+
+    [Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×11
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×4
+      Jump             ×20
+      Footswitch       ×0 (absent)
+      Stream           ×9
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×21
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×4
+      Crossover        ×0 (absent)
+      Double Step      ×30
+      Jump             ×29
+      Footswitch       ×4
+      Stream           ×26
+      Single Notes     ×5
+      Empty            ×0 (absent)
+    [Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv
+      Quad             ×9
+      Hand             ×9
+      Bracket          ×44
+      Spin             ×21
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×33
+      Jump             ×61
+      Footswitch       ×1
+      Stream           ×26
+      Single Notes     ×4
+      Empty            ×0 (absent)
+    [Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×24
+      Spin             ×31
+      Candle           ×30
+      Gallop           ×30
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×54
+      Jump             ×56
+      Footswitch       ×3
+      Stream           ×22
+      Single Notes     ×2
+      Empty            ×0 (absent)
+    [Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×16
+      Spin             ×14
+      Candle           ×10
+      Gallop           ×10
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×20
+      Jump             ×24
+      Footswitch       ×1
+      Stream           ×9
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv
+      Quad             ×22
+      Hand             ×22
+      Bracket          ×17
+      Spin             ×9
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×5
+      Crossover        ×0 (absent)
+      Double Step      ×15
+      Jump             ×53
+      Footswitch       ×0 (absent)
+      Stream           ×8
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv
+      Quad             ×8
+      Hand             ×8
+      Bracket          ×11
+      Spin             ×9
+      Candle           ×6
+      Gallop           ×6
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×11
+      Jump             ×35
+      Footswitch       ×4
+      Stream           ×8
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goin' Under/Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×8
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×19
+      Jump             ×22
+      Footswitch       ×5
+      Stream           ×25
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv
+      Quad             ×75
+      Hand             ×86
+      Bracket          ×33
+      Spin             ×3
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×5
+      Crossover        ×0 (absent)
+      Double Step      ×29
+      Jump             ×185
+      Footswitch       ×3
+      Stream           ×45
+      Single Notes     ×7
+      Empty            ×0 (absent)
+    [Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×14
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×17
+      Empty            ×0 (absent)
+    [Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv
+      Quad             ×7
+      Hand             ×7
+      Bracket          ×17
+      Spin             ×9
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×28
+      Jump             ×32
+      Footswitch       ×0 (absent)
+      Stream           ×29
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×11
+      Spin             ×11
+      Candle           ×11
+      Gallop           ×11
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×13
+      Jump             ×31
+      Footswitch       ×4
+      Stream           ×16
+      Single Notes     ×1
+      Empty            ×0 (absent)
+    [Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×11
+      Spin             ×10
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×22
+      Jump             ×20
+      Footswitch       ×9
+      Stream           ×26
+      Single Notes     ×8
+      Empty            ×0 (absent)
+    [Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv
+      Quad             ×1
+      Hand             ×1
+      Bracket          ×9
+      Spin             ×19
+      Candle           ×11
+      Gallop           ×11
+      Jack             ×6
+      Crossover        ×0 (absent)
+      Double Step      ×20
+      Jump             ×33
+      Footswitch       ×0 (absent)
+      Stream           ×8
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×28
+      Spin             ×15
+      Candle           ×11
+      Gallop           ×11
+      Jack             ×5
+      Crossover        ×0 (absent)
+      Double Step      ×8
+      Jump             ×28
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv
+      Quad             ×12
+      Hand             ×12
+      Bracket          ×0 (absent)
+      Spin             ×9
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×9
+      Jump             ×30
+      Footswitch       ×4
+      Stream           ×13
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×11
+      Spin             ×7
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×25
+      Jump             ×11
+      Footswitch       ×0 (absent)
+      Stream           ×21
+      Single Notes     ×4
+      Empty            ×0 (absent)
+    [Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×10
+      Spin             ×4
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×2
+      Crossover        ×0 (absent)
+      Double Step      ×9
+      Jump             ×18
+      Footswitch       ×11
+      Stream           ×8
+      Single Notes     ×4
+      Empty            ×0 (absent)
+    [The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv
+      Quad             ×12
+      Hand             ×12
+      Bracket          ×12
+      Spin             ×13
+      Candle           ×8
+      Gallop           ×8
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×21
+      Jump             ×31
+      Footswitch       ×4
+      Stream           ×7
+      Single Notes     ×1
+      Empty            ×0 (absent)
+    [Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv
+      Quad             ×1
+      Hand             ×1
+      Bracket          ×10
+      Spin             ×11
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×16
+      Jump             ×52
+      Footswitch       ×0 (absent)
+      Stream           ×13
+      Single Notes     ×3
+      Empty            ×0 (absent)
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 2000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence (all patterns):
+
+    Quad             █████████  (9/20 charts)
+    Hand             █████████  (9/20 charts)
+    Bracket          ███████████████  (15/20 charts)
+    Spin             ███████████████████  (19/20 charts)
+    Candle           ███████  (7/20 charts)
+    Gallop           ███████  (7/20 charts)
+    Jack             ███████  (7/20 charts)
+    Crossover        ∅  (0/20 charts)  (never detected)
+    Double Step      ████████████████████  (20/20 charts)
+    Jump             ████████████████████  (20/20 charts)
+    Footswitch       ███████  (7/20 charts)
+    Stream           ██████████████████  (18/20 charts)
+    Single Notes     █████████████  (13/20 charts)
+    Empty            ∅  (0/20 charts)  (never detected)
+
+  Per-chart patterns (all pattern types):
+
+    [Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×15
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×23
+      Jump             ×28
+      Footswitch       ×0 (absent)
+      Stream           ×13
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×37
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×5
+      Crossover        ×0 (absent)
+      Double Step      ×36
+      Jump             ×33
+      Footswitch       ×0 (absent)
+      Stream           ×40
+      Single Notes     ×5
+      Empty            ×0 (absent)
+    [Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv
+      Quad             ×15
+      Hand             ×15
+      Bracket          ×67
+      Spin             ×43
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×48
+      Jump             ×76
+      Footswitch       ×0 (absent)
+      Stream           ×48
+      Single Notes     ×2
+      Empty            ×0 (absent)
+    [Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×40
+      Spin             ×62
+      Candle           ×42
+      Gallop           ×42
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×60
+      Jump             ×61
+      Footswitch       ×0 (absent)
+      Stream           ×50
+      Single Notes     ×2
+      Empty            ×0 (absent)
+    [Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×29
+      Spin             ×25
+      Candle           ×18
+      Gallop           ×18
+      Jack             ×7
+      Crossover        ×0 (absent)
+      Double Step      ×21
+      Jump             ×29
+      Footswitch       ×0 (absent)
+      Stream           ×17
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv
+      Quad             ×29
+      Hand             ×29
+      Bracket          ×25
+      Spin             ×11
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×13
+      Crossover        ×0 (absent)
+      Double Step      ×8
+      Jump             ×60
+      Footswitch       ×0 (absent)
+      Stream           ×13
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv
+      Quad             ×13
+      Hand             ×13
+      Bracket          ×11
+      Spin             ×13
+      Candle           ×7
+      Gallop           ×7
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×21
+      Jump             ×43
+      Footswitch       ×1
+      Stream           ×12
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goin' Under/Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×15
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×27
+      Jump             ×25
+      Footswitch       ×0 (absent)
+      Stream           ×28
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv
+      Quad             ×109
+      Hand             ×128
+      Bracket          ×47
+      Spin             ×3
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×7
+      Crossover        ×0 (absent)
+      Double Step      ×47
+      Jump             ×208
+      Footswitch       ×3
+      Stream           ×57
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×15
+      Jump             ×22
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×7
+      Empty            ×0 (absent)
+    [Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv
+      Quad             ×7
+      Hand             ×7
+      Bracket          ×17
+      Spin             ×19
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×28
+      Jump             ×32
+      Footswitch       ×0 (absent)
+      Stream           ×29
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×11
+      Spin             ×20
+      Candle           ×22
+      Gallop           ×22
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×22
+      Jump             ×31
+      Footswitch       ×3
+      Stream           ×23
+      Single Notes     ×1
+      Empty            ×0 (absent)
+    [Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×19
+      Spin             ×18
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×40
+      Jump             ×36
+      Footswitch       ×8
+      Stream           ×39
+      Single Notes     ×2
+      Empty            ×0 (absent)
+    [Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv
+      Quad             ×1
+      Hand             ×1
+      Bracket          ×18
+      Spin             ×23
+      Candle           ×20
+      Gallop           ×20
+      Jack             ×15
+      Crossover        ×0 (absent)
+      Double Step      ×12
+      Jump             ×33
+      Footswitch       ×0 (absent)
+      Stream           ×21
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×29
+      Spin             ×28
+      Candle           ×20
+      Gallop           ×20
+      Jack             ×14
+      Crossover        ×0 (absent)
+      Double Step      ×10
+      Jump             ×29
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv
+      Quad             ×23
+      Hand             ×23
+      Bracket          ×0 (absent)
+      Spin             ×21
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×21
+      Jump             ×31
+      Footswitch       ×2
+      Stream           ×23
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×19
+      Spin             ×15
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×27
+      Jump             ×19
+      Footswitch       ×0 (absent)
+      Stream           ×28
+      Single Notes     ×4
+      Empty            ×0 (absent)
+    [Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×18
+      Spin             ×7
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×10
+      Crossover        ×0 (absent)
+      Double Step      ×13
+      Jump             ×26
+      Footswitch       ×9
+      Stream           ×16
+      Single Notes     ×4
+      Empty            ×0 (absent)
+    [The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv
+      Quad             ×20
+      Hand             ×20
+      Bracket          ×18
+      Spin             ×20
+      Candle           ×15
+      Gallop           ×15
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×26
+      Jump             ×40
+      Footswitch       ×1
+      Stream           ×17
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv
+      Quad             ×1
+      Hand             ×1
+      Bracket          ×18
+      Spin             ×11
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×31
+      Jump             ×61
+      Footswitch       ×0 (absent)
+      Stream           ×32
+      Single Notes     ×3
+      Empty            ×0 (absent)
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 3000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence (all patterns):
+
+    Quad             █████████  (9/20 charts)
+    Hand             █████████  (9/20 charts)
+    Bracket          ███████████████  (15/20 charts)
+    Spin             ███████████████████  (19/20 charts)
+    Candle           ███████  (7/20 charts)
+    Gallop           ███████  (7/20 charts)
+    Jack             ███████  (7/20 charts)
+    Crossover        ∅  (0/20 charts)  (never detected)
+    Double Step      ███████████████████  (19/20 charts)
+    Jump             ████████████████████  (20/20 charts)
+    Footswitch       ██████  (6/20 charts)
+    Stream           ██████████████████  (18/20 charts)
+    Single Notes     █████████████  (13/20 charts)
+    Empty            ∅  (0/20 charts)  (never detected)
+
+  Per-chart patterns (all pattern types):
+
+    [Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×15
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×23
+      Jump             ×29
+      Footswitch       ×0 (absent)
+      Stream           ×13
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×37
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×5
+      Crossover        ×0 (absent)
+      Double Step      ×36
+      Jump             ×33
+      Footswitch       ×0 (absent)
+      Stream           ×43
+      Single Notes     ×5
+      Empty            ×0 (absent)
+    [Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv
+      Quad             ×16
+      Hand             ×16
+      Bracket          ×70
+      Spin             ×56
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×54
+      Jump             ×76
+      Footswitch       ×0 (absent)
+      Stream           ×61
+      Single Notes     ×2
+      Empty            ×0 (absent)
+    [Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×52
+      Spin             ×62
+      Candle           ×50
+      Gallop           ×50
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×60
+      Jump             ×61
+      Footswitch       ×0 (absent)
+      Stream           ×58
+      Single Notes     ×2
+      Empty            ×0 (absent)
+    [Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×29
+      Spin             ×27
+      Candle           ×26
+      Gallop           ×26
+      Jack             ×7
+      Crossover        ×0 (absent)
+      Double Step      ×21
+      Jump             ×29
+      Footswitch       ×0 (absent)
+      Stream           ×21
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv
+      Quad             ×29
+      Hand             ×29
+      Bracket          ×34
+      Spin             ×11
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×21
+      Crossover        ×0 (absent)
+      Double Step      ×0 (absent)
+      Jump             ×60
+      Footswitch       ×0 (absent)
+      Stream           ×14
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv
+      Quad             ×13
+      Hand             ×13
+      Bracket          ×11
+      Spin             ×13
+      Candle           ×7
+      Gallop           ×7
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×21
+      Jump             ×44
+      Footswitch       ×0 (absent)
+      Stream           ×12
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goin' Under/Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×15
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×27
+      Jump             ×25
+      Footswitch       ×0 (absent)
+      Stream           ×28
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv
+      Quad             ×129
+      Hand             ×152
+      Bracket          ×52
+      Spin             ×3
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×7
+      Crossover        ×0 (absent)
+      Double Step      ×52
+      Jump             ×216
+      Footswitch       ×3
+      Stream           ×62
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×0 (absent)
+      Spin             ×0 (absent)
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×19
+      Jump             ×24
+      Footswitch       ×4
+      Stream           ×0 (absent)
+      Single Notes     ×7
+      Empty            ×0 (absent)
+    [Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv
+      Quad             ×7
+      Hand             ×7
+      Bracket          ×17
+      Spin             ×19
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×28
+      Jump             ×32
+      Footswitch       ×0 (absent)
+      Stream           ×29
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×11
+      Spin             ×20
+      Candle           ×30
+      Gallop           ×30
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×22
+      Jump             ×31
+      Footswitch       ×3
+      Stream           ×23
+      Single Notes     ×1
+      Empty            ×0 (absent)
+    [Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×27
+      Spin             ×26
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×40
+      Jump             ×43
+      Footswitch       ×0 (absent)
+      Stream           ×45
+      Single Notes     ×2
+      Empty            ×0 (absent)
+    [Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv
+      Quad             ×1
+      Hand             ×1
+      Bracket          ×27
+      Spin             ×23
+      Candle           ×28
+      Gallop           ×28
+      Jack             ×20
+      Crossover        ×0 (absent)
+      Double Step      ×7
+      Jump             ×33
+      Footswitch       ×0 (absent)
+      Stream           ×26
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×29
+      Spin             ×28
+      Candle           ×27
+      Gallop           ×27
+      Jack             ×20
+      Crossover        ×0 (absent)
+      Double Step      ×4
+      Jump             ×29
+      Footswitch       ×0 (absent)
+      Stream           ×0 (absent)
+      Single Notes     ×3
+      Empty            ×0 (absent)
+    [Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv
+      Quad             ×31
+      Hand             ×31
+      Bracket          ×0 (absent)
+      Spin             ×21
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×21
+      Jump             ×31
+      Footswitch       ×2
+      Stream           ×23
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×23
+      Spin             ×23
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×27
+      Jump             ×23
+      Footswitch       ×0 (absent)
+      Stream           ×28
+      Single Notes     ×4
+      Empty            ×0 (absent)
+    [Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv
+      Quad             ×0 (absent)
+      Hand             ×0 (absent)
+      Bracket          ×19
+      Spin             ×7
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×15
+      Crossover        ×0 (absent)
+      Double Step      ×8
+      Jump             ×27
+      Footswitch       ×9
+      Stream           ×24
+      Single Notes     ×4
+      Empty            ×0 (absent)
+    [The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv
+      Quad             ×28
+      Hand             ×28
+      Bracket          ×18
+      Spin             ×20
+      Candle           ×15
+      Gallop           ×15
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×26
+      Jump             ×40
+      Footswitch       ×1
+      Stream           ×17
+      Single Notes     ×0 (absent)
+      Empty            ×0 (absent)
+    [Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv]
+      file: /Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv
+      Quad             ×1
+      Hand             ×1
+      Bracket          ×26
+      Spin             ×11
+      Candle           ×0 (absent)
+      Gallop           ×0 (absent)
+      Jack             ×0 (absent)
+      Crossover        ×0 (absent)
+      Double Step      ×42
+      Jump             ×62
+      Footswitch       ×0 (absent)
+      Stream           ×40
+      Single Notes     ×3
+      Empty            ×0 (absent)
+
+====================================================================

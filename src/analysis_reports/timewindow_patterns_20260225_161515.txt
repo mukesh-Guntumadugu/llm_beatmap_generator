@@ -1,0 +1,128 @@
+====================================================================
+  DDR-STYLE TIME-WINDOW PATTERN ANALYSIS  [ORIGINAL-HARD]
+  Generated : 20260225_161515
+  Charts    : 20
+  Windows   : 1000ms, 2000ms
+====================================================================
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 1000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence:
+
+    Double Step      ████████████████████  (20/20 charts)
+    Stream           ████████████████████  (20/20 charts)
+    Jack             ████████████████████  (20/20 charts)
+    Spin             ████████████████████  (20/20 charts)
+    Single Notes     ████████████████████  (20/20 charts)
+    Footswitch       ████████████████████  (20/20 charts)
+    Jump             ████████████████  (16/20 charts)
+    Bracket          ███████████████  (15/20 charts)
+    Candle           █████████████  (13/20 charts)
+    Gallop           █████████████  (13/20 charts)
+
+  Per-chart top patterns:
+
+    [Bad Ketchup (Hard)]
+      Double Step ×174   Stream ×160   Jack ×124   Spin ×93   Single Notes ×61   Footswitch ×30
+    [Bitch Clap (Hard)]
+      Double Step ×135   Jack ×113   Stream ×98   Spin ×68   Single Notes ×46   Footswitch ×25
+    [Call Me Maybe (Remix) (Hard)]
+      Single Notes ×72   Double Step ×66   Jack ×32   Spin ×19   Jump ×19   Footswitch ×15
+    [Dead Hollywood (Hard)]
+      Jack ×77   Single Notes ×58   Double Step ×54   Jump ×32   Spin ×21   Stream ×13
+    [Deal With It (Hard)]
+      Jack ×61   Single Notes ×54   Double Step ×52   Stream ×22   Spin ×18   Footswitch ×10
+    [Gangnam Style (Hard)]
+      Single Notes ×64   Double Step ×57   Jack ×36   Spin ×30   Stream ×22   Jump ×19
+    [Girls (Hard)]
+      Jack ×88   Double Step ×58   Single Notes ×47   Spin ×36   Stream ×32   Jump ×14
+    [Goin' Under (Hard)]
+      Jack ×80   Double Step ×76   Single Notes ×74   Spin ×59   Stream ×31   Footswitch ×12
+    [Goodbye (2012 Mix) (Hard)]
+      Double Step ×94   Single Notes ×58   Stream ×53   Spin ×42   Jack ×36   Footswitch ×21
+    [Human Error (Hard)]
+      Double Step ×143   Spin ×116   Stream ×105   Single Notes ×78   Jack ×61   Footswitch ×4
+    [Inner Universe (Extended Mix) (Hard)]
+      Jack ×341   Stream ×159   Double Step ×131   Spin ×104   Single Notes ×82   Jump ×22
+    [Love to Rise in the Summer Morning (Hard)]
+      Double Step ×114   Jack ×97   Single Notes ×62   Stream ×43   Spin ×42   Footswitch ×30
+    [Named 'The Moon' (Hard)]
+      Single Notes ×74   Double Step ×73   Jack ×64   Spin ×36   Stream ×27   Footswitch ×19
+    [Need Your Love -SF_Dubstep Mix- (Hard)]
+      Double Step ×81   Single Notes ×65   Spin ×37   Jack ×31   Stream ×27   Footswitch ×15
+    [No Beginning (Hard)]
+      Jack ×111   Double Step ×105   Spin ×89   Single Notes ×77   Stream ×77   Jump ×25
+    [Pain Game (Hard)]
+      Jack ×103   Single Notes ×46   Double Step ×39   Stream ×32   Jump ×30   Bracket ×18
+    [Stamina (Hard)]
+      Double Step ×73   Jack ×70   Single Notes ×37   Spin ×35   Jump ×33   Stream ×29
+    [Star Gear (Hard)]
+      Jack ×108   Single Notes ×69   Double Step ×59   Stream ×48   Spin ×34   Footswitch ×13
+    [The Seconds (Hard)]
+      Double Step ×64   Single Notes ×62   Jack ×44   Spin ×25   Footswitch ×20   Stream ×17
+    [Turn Up (The Music) (Hard)]
+      Jack ×299   Double Step ×195   Stream ×182   Spin ×137   Single Notes ×45   Jump ×44
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 2000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence:
+
+    Jack             ████████████████████  (20/20 charts)
+    Stream           ████████████████████  (20/20 charts)
+    Spin             ████████████████████  (20/20 charts)
+    Double Step      ████████████████████  (20/20 charts)
+    Single Notes     ████████████████████  (20/20 charts)
+    Footswitch       ███████████████████  (19/20 charts)
+    Jump             ████████████████  (16/20 charts)
+    Bracket          ███████████████  (15/20 charts)
+    Candle           ██████████████  (14/20 charts)
+    Gallop           ██████████████  (14/20 charts)
+
+  Per-chart top patterns:
+
+    [Bad Ketchup (Hard)]
+      Jack ×233   Stream ×195   Spin ×132   Double Step ×108   Single Notes ×25   Jump ×23
+    [Bitch Clap (Hard)]
+      Jack ×178   Stream ×160   Spin ×112   Double Step ×108   Single Notes ×22   Jump ×17
+    [Call Me Maybe (Remix) (Hard)]
+      Double Step ×110   Stream ×79   Jack ×59   Spin ×46   Jump ×30   Candle ×20
+    [Dead Hollywood (Hard)]
+      Jack ×108   Double Step ×73   Stream ×43   Spin ×41   Jump ×36   Single Notes ×24
+    [Deal With It (Hard)]
+      Jack ×93   Double Step ×61   Stream ×57   Spin ×50   Single Notes ×20   Bracket ×7
+    [Gangnam Style (Hard)]
+      Double Step ×107   Stream ×60   Spin ×59   Jack ×51   Single Notes ×31   Jump ×31
+    [Girls (Hard)]
+      Jack ×125   Spin ×67   Stream ×59   Double Step ×52   Single Notes ×27   Jump ×19
+    [Goin' Under (Hard)]
+      Jack ×135   Spin ×90   Stream ×86   Double Step ×80   Single Notes ×25   Footswitch ×5
+    [Goodbye (2012 Mix) (Hard)]
+      Double Step ×100   Stream ×88   Spin ×74   Jack ×72   Single Notes ×33   Jump ×26
+    [Human Error (Hard)]
+      Spin ×156   Stream ×152   Double Step ×121   Jack ×119   Single Notes ×43   Footswitch ×6
+    [Inner Universe (Extended Mix) (Hard)]
+      Jack ×425   Stream ×202   Spin ×173   Double Step ×91   Single Notes ×47   Jump ×24
+    [Love to Rise in the Summer Morning (Hard)]
+      Jack ×146   Double Step ×116   Stream ×81   Spin ×74   Single Notes ×25   Jump ×15
+    [Named 'The Moon' (Hard)]
+      Jack ×108   Double Step ×90   Spin ×75   Stream ×70   Single Notes ×33   Footswitch ×11
+    [Need Your Love -SF_Dubstep Mix- (Hard)]
+      Double Step ×92   Jack ×64   Spin ×63   Stream ×62   Single Notes ×28   Jump ×18
+    [No Beginning (Hard)]
+      Jack ×196   Spin ×171   Stream ×128   Double Step ×70   Jump ×37   Single Notes ×30
+    [Pain Game (Hard)]
+      Jack ×145   Stream ×72   Double Step ×47   Jump ×43   Spin ×33   Bracket ×29
+    [Stamina (Hard)]
+      Jack ×112   Stream ×79   Double Step ×71   Spin ×60   Jump ×49   Candle ×35
+    [Star Gear (Hard)]
+      Jack ×170   Stream ×97   Spin ×78   Double Step ×40   Single Notes ×30   Footswitch ×5
+    [The Seconds (Hard)]
+      Double Step ×81   Jack ×73   Spin ×63   Stream ×53   Single Notes ×31   Jump ×15
+    [Turn Up (The Music) (Hard)]
+      Jack ×457   Stream ×199   Spin ×184   Double Step ×79   Jump ×55   Candle ×49
+
+====================================================================

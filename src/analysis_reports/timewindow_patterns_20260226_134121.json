@@ -1,0 +1,1771 @@
+{
+  "generated": "20260226_134121",
+  "source": "AI-task0003",
+  "window_sizes_ms": [
+    1000.0,
+    2000.0
+  ],
+  "charts_analyzed": 19,
+  "per_chart": {
+    "Bad Ketchup": {
+      "1000ms": [
+        [
+          "Jump",
+          345
+        ],
+        [
+          "Stream",
+          212
+        ],
+        [
+          "Footswitch",
+          135
+        ],
+        [
+          "Bracket",
+          70
+        ],
+        [
+          "Double Step",
+          64
+        ],
+        [
+          "Single Notes",
+          27
+        ],
+        [
+          "Spin",
+          21
+        ],
+        [
+          "Jack",
+          6
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          594
+        ],
+        [
+          "Stream",
+          556
+        ],
+        [
+          "Double Step",
+          433
+        ],
+        [
+          "Footswitch",
+          245
+        ],
+        [
+          "Bracket",
+          168
+        ],
+        [
+          "Spin",
+          83
+        ],
+        [
+          "Single Notes",
+          24
+        ],
+        [
+          "Jack",
+          10
+        ]
+      ]
+    },
+    "Bitch Clap": {
+      "1000ms": [
+        [
+          "Single Notes",
+          193
+        ],
+        [
+          "Jump",
+          147
+        ],
+        [
+          "Double Step",
+          99
+        ],
+        [
+          "Stream",
+          67
+        ],
+        [
+          "Jack",
+          52
+        ],
+        [
+          "Footswitch",
+          24
+        ],
+        [
+          "Candle",
+          19
+        ],
+        [
+          "Gallop",
+          19
+        ],
+        [
+          "Spin",
+          18
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          197
+        ],
+        [
+          "Jump",
+          179
+        ],
+        [
+          "Spin",
+          161
+        ],
+        [
+          "Double Step",
+          153
+        ],
+        [
+          "Jack",
+          102
+        ],
+        [
+          "Footswitch",
+          53
+        ],
+        [
+          "Candle",
+          32
+        ],
+        [
+          "Gallop",
+          32
+        ],
+        [
+          "Single Notes",
+          14
+        ]
+      ]
+    },
+    "Call Me Maybe (Remix)": {
+      "1000ms": [
+        [
+          "Single Notes",
+          328
+        ],
+        [
+          "Double Step",
+          230
+        ],
+        [
+          "Stream",
+          224
+        ],
+        [
+          "Spin",
+          200
+        ],
+        [
+          "Jump",
+          113
+        ],
+        [
+          "Footswitch",
+          35
+        ],
+        [
+          "Jack",
+          12
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          712
+        ],
+        [
+          "Double Step",
+          668
+        ],
+        [
+          "Spin",
+          352
+        ],
+        [
+          "Footswitch",
+          251
+        ],
+        [
+          "Jump",
+          184
+        ],
+        [
+          "Jack",
+          37
+        ],
+        [
+          "Single Notes",
+          27
+        ]
+      ]
+    },
+    "Dead Hollywood": {
+      "1000ms": [
+        [
+          "Single Notes",
+          338
+        ],
+        [
+          "Spin",
+          111
+        ],
+        [
+          "Stream",
+          15
+        ],
+        [
+          "Jump",
+          14
+        ],
+        [
+          "Quad",
+          12
+        ],
+        [
+          "Hand",
+          12
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          297
+        ],
+        [
+          "Double Step",
+          290
+        ],
+        [
+          "Footswitch",
+          170
+        ],
+        [
+          "Single Notes",
+          135
+        ],
+        [
+          "Spin",
+          133
+        ],
+        [
+          "Jack",
+          52
+        ],
+        [
+          "Quad",
+          20
+        ],
+        [
+          "Hand",
+          20
+        ],
+        [
+          "Jump",
+          20
+        ]
+      ]
+    },
+    "Deal With It": {
+      "1000ms": [
+        [
+          "Single Notes",
+          295
+        ],
+        [
+          "Double Step",
+          65
+        ],
+        [
+          "Jack",
+          51
+        ],
+        [
+          "Spin",
+          28
+        ],
+        [
+          "Footswitch",
+          20
+        ],
+        [
+          "Jump",
+          19
+        ],
+        [
+          "Stream",
+          13
+        ],
+        [
+          "Candle",
+          4
+        ],
+        [
+          "Gallop",
+          4
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          222
+        ],
+        [
+          "Stream",
+          216
+        ],
+        [
+          "Jack",
+          154
+        ],
+        [
+          "Footswitch",
+          139
+        ],
+        [
+          "Spin",
+          116
+        ],
+        [
+          "Jump",
+          34
+        ],
+        [
+          "Single Notes",
+          30
+        ],
+        [
+          "Candle",
+          10
+        ],
+        [
+          "Gallop",
+          10
+        ]
+      ]
+    },
+    "Gangnam Style": {
+      "1000ms": [
+        [
+          "Jump",
+          267
+        ],
+        [
+          "Double Step",
+          198
+        ],
+        [
+          "Stream",
+          167
+        ],
+        [
+          "Single Notes",
+          162
+        ],
+        [
+          "Footswitch",
+          160
+        ],
+        [
+          "Spin",
+          58
+        ],
+        [
+          "Candle",
+          55
+        ],
+        [
+          "Gallop",
+          55
+        ],
+        [
+          "Jack",
+          30
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          459
+        ],
+        [
+          "Jump",
+          417
+        ],
+        [
+          "Double Step",
+          411
+        ],
+        [
+          "Spin",
+          155
+        ],
+        [
+          "Footswitch",
+          141
+        ],
+        [
+          "Candle",
+          93
+        ],
+        [
+          "Gallop",
+          93
+        ],
+        [
+          "Jack",
+          84
+        ],
+        [
+          "Single Notes",
+          7
+        ]
+      ]
+    },
+    "Girls": {
+      "1000ms": [
+        [
+          "Stream",
+          154
+        ],
+        [
+          "Single Notes",
+          150
+        ],
+        [
+          "Double Step",
+          145
+        ],
+        [
+          "Spin",
+          112
+        ],
+        [
+          "Jump",
+          93
+        ],
+        [
+          "Candle",
+          48
+        ],
+        [
+          "Gallop",
+          48
+        ],
+        [
+          "Jack",
+          37
+        ],
+        [
+          "Footswitch",
+          17
+        ],
+        [
+          "Bracket",
+          10
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          302
+        ],
+        [
+          "Double Step",
+          285
+        ],
+        [
+          "Spin",
+          232
+        ],
+        [
+          "Jump",
+          101
+        ],
+        [
+          "Jack",
+          97
+        ],
+        [
+          "Candle",
+          68
+        ],
+        [
+          "Gallop",
+          68
+        ],
+        [
+          "Footswitch",
+          50
+        ],
+        [
+          "Single Notes",
+          31
+        ],
+        [
+          "Bracket",
+          14
+        ]
+      ]
+    },
+    "Goin' Under": {
+      "1000ms": [
+        [
+          "Double Step",
+          281
+        ],
+        [
+          "Stream",
+          253
+        ],
+        [
+          "Spin",
+          160
+        ],
+        [
+          "Single Notes",
+          67
+        ],
+        [
+          "Footswitch",
+          28
+        ],
+        [
+          "Jack",
+          19
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          396
+        ],
+        [
+          "Double Step",
+          394
+        ],
+        [
+          "Spin",
+          220
+        ],
+        [
+          "Footswitch",
+          49
+        ],
+        [
+          "Jack",
+          41
+        ],
+        [
+          "Single Notes",
+          4
+        ]
+      ]
+    },
+    "Goodbye (2012 Mix)": {
+      "1000ms": [
+        [
+          "Single Notes",
+          49
+        ],
+        [
+          "Jump",
+          35
+        ],
+        [
+          "Double Step",
+          22
+        ],
+        [
+          "Stream",
+          18
+        ],
+        [
+          "Spin",
+          18
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          54
+        ],
+        [
+          "Stream",
+          44
+        ],
+        [
+          "Jump",
+          43
+        ],
+        [
+          "Spin",
+          36
+        ],
+        [
+          "Single Notes",
+          31
+        ],
+        [
+          "Footswitch",
+          1
+        ]
+      ]
+    },
+    "Human Error": {
+      "1000ms": [
+        [
+          "Single Notes",
+          412
+        ],
+        [
+          "Jack",
+          141
+        ],
+        [
+          "Double Step",
+          10
+        ],
+        [
+          "Spin",
+          9
+        ],
+        [
+          "Jump",
+          9
+        ],
+        [
+          "Footswitch",
+          2
+        ],
+        [
+          "Stream",
+          1
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jack",
+          292
+        ],
+        [
+          "Stream",
+          252
+        ],
+        [
+          "Single Notes",
+          193
+        ],
+        [
+          "Spin",
+          68
+        ],
+        [
+          "Double Step",
+          41
+        ],
+        [
+          "Footswitch",
+          14
+        ],
+        [
+          "Jump",
+          12
+        ]
+      ]
+    },
+    "Inner Universe (Extended Mix)": {
+      "1000ms": [
+        [
+          "Single Notes",
+          329
+        ],
+        [
+          "Double Step",
+          271
+        ],
+        [
+          "Jump",
+          60
+        ],
+        [
+          "Bracket",
+          24
+        ],
+        [
+          "Candle",
+          19
+        ],
+        [
+          "Gallop",
+          19
+        ],
+        [
+          "Spin",
+          15
+        ],
+        [
+          "Jack",
+          4
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          617
+        ],
+        [
+          "Stream",
+          605
+        ],
+        [
+          "Jump",
+          84
+        ],
+        [
+          "Candle",
+          76
+        ],
+        [
+          "Gallop",
+          76
+        ],
+        [
+          "Spin",
+          54
+        ],
+        [
+          "Bracket",
+          40
+        ],
+        [
+          "Single Notes",
+          17
+        ],
+        [
+          "Jack",
+          16
+        ],
+        [
+          "Footswitch",
+          11
+        ]
+      ]
+    },
+    "Love to Rise in the Summer Morning": {
+      "1000ms": [
+        [
+          "Double Step",
+          172
+        ],
+        [
+          "Jump",
+          157
+        ],
+        [
+          "Stream",
+          139
+        ],
+        [
+          "Single Notes",
+          131
+        ],
+        [
+          "Spin",
+          108
+        ],
+        [
+          "Footswitch",
+          76
+        ],
+        [
+          "Candle",
+          33
+        ],
+        [
+          "Gallop",
+          33
+        ],
+        [
+          "Jack",
+          24
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          363
+        ],
+        [
+          "Double Step",
+          319
+        ],
+        [
+          "Jump",
+          254
+        ],
+        [
+          "Spin",
+          237
+        ],
+        [
+          "Footswitch",
+          92
+        ],
+        [
+          "Candle",
+          81
+        ],
+        [
+          "Gallop",
+          81
+        ],
+        [
+          "Jack",
+          48
+        ],
+        [
+          "Single Notes",
+          32
+        ]
+      ]
+    },
+    "Named 'The Moon'": {
+      "1000ms": [
+        [
+          "Single Notes",
+          198
+        ],
+        [
+          "Double Step",
+          114
+        ],
+        [
+          "Jack",
+          66
+        ],
+        [
+          "Spin",
+          41
+        ],
+        [
+          "Footswitch",
+          24
+        ],
+        [
+          "Stream",
+          24
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          256
+        ],
+        [
+          "Double Step",
+          174
+        ],
+        [
+          "Footswitch",
+          142
+        ],
+        [
+          "Jack",
+          122
+        ],
+        [
+          "Spin",
+          119
+        ],
+        [
+          "Single Notes",
+          10
+        ]
+      ]
+    },
+    "Need Your Love -SF_Dubstep Mix-": {
+      "1000ms": [
+        [
+          "Single Notes",
+          339
+        ],
+        [
+          "Double Step",
+          57
+        ],
+        [
+          "Spin",
+          44
+        ],
+        [
+          "Footswitch",
+          36
+        ],
+        [
+          "Stream",
+          14
+        ],
+        [
+          "Jack",
+          6
+        ],
+        [
+          "Jump",
+          3
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          336
+        ],
+        [
+          "Stream",
+          306
+        ],
+        [
+          "Spin",
+          157
+        ],
+        [
+          "Footswitch",
+          112
+        ],
+        [
+          "Single Notes",
+          73
+        ],
+        [
+          "Jack",
+          12
+        ],
+        [
+          "Jump",
+          5
+        ]
+      ]
+    },
+    "Pain Game": {
+      "1000ms": [
+        [
+          "Jump",
+          262
+        ],
+        [
+          "Stream",
+          198
+        ],
+        [
+          "Jack",
+          105
+        ],
+        [
+          "Single Notes",
+          93
+        ],
+        [
+          "Candle",
+          90
+        ],
+        [
+          "Gallop",
+          90
+        ],
+        [
+          "Double Step",
+          75
+        ],
+        [
+          "Footswitch",
+          50
+        ],
+        [
+          "Spin",
+          6
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          438
+        ],
+        [
+          "Jump",
+          381
+        ],
+        [
+          "Double Step",
+          241
+        ],
+        [
+          "Jack",
+          225
+        ],
+        [
+          "Candle",
+          165
+        ],
+        [
+          "Gallop",
+          165
+        ],
+        [
+          "Spin",
+          28
+        ],
+        [
+          "Footswitch",
+          22
+        ],
+        [
+          "Single Notes",
+          17
+        ]
+      ]
+    },
+    "Stamina": {
+      "1000ms": [
+        [
+          "Single Notes",
+          289
+        ],
+        [
+          "Double Step",
+          125
+        ],
+        [
+          "Spin",
+          114
+        ],
+        [
+          "Stream",
+          102
+        ],
+        [
+          "Jack",
+          44
+        ],
+        [
+          "Footswitch",
+          3
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          410
+        ],
+        [
+          "Stream",
+          369
+        ],
+        [
+          "Footswitch",
+          321
+        ],
+        [
+          "Spin",
+          176
+        ],
+        [
+          "Jack",
+          94
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ]
+    },
+    "Star Gear": {
+      "1000ms": [
+        [
+          "Double Step",
+          218
+        ],
+        [
+          "Jump",
+          177
+        ],
+        [
+          "Stream",
+          165
+        ],
+        [
+          "Single Notes",
+          119
+        ],
+        [
+          "Footswitch",
+          81
+        ],
+        [
+          "Spin",
+          61
+        ],
+        [
+          "Candle",
+          10
+        ],
+        [
+          "Gallop",
+          10
+        ],
+        [
+          "Bracket",
+          10
+        ],
+        [
+          "Jack",
+          4
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          361
+        ],
+        [
+          "Stream",
+          335
+        ],
+        [
+          "Jump",
+          234
+        ],
+        [
+          "Spin",
+          147
+        ],
+        [
+          "Footswitch",
+          144
+        ],
+        [
+          "Candle",
+          20
+        ],
+        [
+          "Gallop",
+          20
+        ],
+        [
+          "Bracket",
+          18
+        ],
+        [
+          "Jack",
+          12
+        ],
+        [
+          "Single Notes",
+          7
+        ]
+      ]
+    },
+    "The Seconds": {
+      "1000ms": [
+        [
+          "Double Step",
+          253
+        ],
+        [
+          "Stream",
+          238
+        ],
+        [
+          "Single Notes",
+          142
+        ],
+        [
+          "Jump",
+          113
+        ],
+        [
+          "Footswitch",
+          108
+        ],
+        [
+          "Candle",
+          53
+        ],
+        [
+          "Gallop",
+          53
+        ],
+        [
+          "Spin",
+          37
+        ],
+        [
+          "Jack",
+          3
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          369
+        ],
+        [
+          "Double Step",
+          367
+        ],
+        [
+          "Jump",
+          187
+        ],
+        [
+          "Candle",
+          127
+        ],
+        [
+          "Gallop",
+          127
+        ],
+        [
+          "Spin",
+          113
+        ],
+        [
+          "Footswitch",
+          78
+        ],
+        [
+          "Single Notes",
+          73
+        ],
+        [
+          "Jack",
+          7
+        ]
+      ]
+    },
+    "Turn Up (The Music)": {
+      "1000ms": [
+        [
+          "Jump",
+          471
+        ],
+        [
+          "Candle",
+          285
+        ],
+        [
+          "Gallop",
+          285
+        ],
+        [
+          "Stream",
+          252
+        ],
+        [
+          "Double Step",
+          220
+        ],
+        [
+          "Single Notes",
+          94
+        ],
+        [
+          "Footswitch",
+          64
+        ],
+        [
+          "Jack",
+          6
+        ],
+        [
+          "Spin",
+          3
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          676
+        ],
+        [
+          "Double Step",
+          670
+        ],
+        [
+          "Jump",
+          526
+        ],
+        [
+          "Candle",
+          383
+        ],
+        [
+          "Gallop",
+          383
+        ],
+        [
+          "Footswitch",
+          83
+        ],
+        [
+          "Jack",
+          14
+        ],
+        [
+          "Spin",
+          7
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ]
+    }
+  },
+  "cross_chart_prevalence": {
+    "1000ms": {
+      "Single Notes": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Spin": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Stream": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Double Step": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Jack": {
+        "songs": 17,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Jump": {
+        "songs": 16,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Footswitch": {
+        "songs": 16,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Human Error",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Candle": {
+        "songs": 10,
+        "song_list": [
+          "Bitch Clap",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Pain Game",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Gallop": {
+        "songs": 10,
+        "song_list": [
+          "Bitch Clap",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Pain Game",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Bracket": {
+        "songs": 4,
+        "song_list": [
+          "Bad Ketchup",
+          "Girls",
+          "Inner Universe (Extended Mix)",
+          "Star Gear"
+        ]
+      },
+      "Quad": {
+        "songs": 1,
+        "song_list": [
+          "Dead Hollywood"
+        ]
+      },
+      "Hand": {
+        "songs": 1,
+        "song_list": [
+          "Dead Hollywood"
+        ]
+      }
+    },
+    "2000ms": {
+      "Stream": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Double Step": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Footswitch": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Spin": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Single Notes": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Jack": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goin' Under",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Named 'The Moon'",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Stamina",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Jump": {
+        "songs": 16,
+        "song_list": [
+          "Bad Ketchup",
+          "Bitch Clap",
+          "Call Me Maybe (Remix)",
+          "Dead Hollywood",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Goodbye (2012 Mix)",
+          "Human Error",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Need Your Love -SF_Dubstep Mix-",
+          "Pain Game",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Candle": {
+        "songs": 10,
+        "song_list": [
+          "Bitch Clap",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Pain Game",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Gallop": {
+        "songs": 10,
+        "song_list": [
+          "Bitch Clap",
+          "Deal With It",
+          "Gangnam Style",
+          "Girls",
+          "Inner Universe (Extended Mix)",
+          "Love to Rise in the Summer Morning",
+          "Pain Game",
+          "Star Gear",
+          "The Seconds",
+          "Turn Up (The Music)"
+        ]
+      },
+      "Bracket": {
+        "songs": 4,
+        "song_list": [
+          "Bad Ketchup",
+          "Girls",
+          "Inner Universe (Extended Mix)",
+          "Star Gear"
+        ]
+      },
+      "Quad": {
+        "songs": 1,
+        "song_list": [
+          "Dead Hollywood"
+        ]
+      },
+      "Hand": {
+        "songs": 1,
+        "song_list": [
+          "Dead Hollywood"
+        ]
+      }
+    }
+  }
+}

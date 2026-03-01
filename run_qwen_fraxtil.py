@@ -6,6 +6,7 @@ import json
 import datetime
 import librosa
 from src.qwen_interface import setup_qwen, generate_beatmap_with_qwen
+from src.beatmap_prompt import build_qwen_prompt
 
 DIFFICULTY = "Medium"
 MODEL_NAME = "Qwen2-Audio-7B-Instruct"
@@ -67,34 +68,10 @@ def process_song(audio_path, task_id: int):
 
     try:
         duration = librosa.get_duration(path=audio_path)
-        expected_commas = int(duration)
         print(f"  Duration: {duration:.1f}s")
 
-        prompt_text = (
-            f"The audio is {duration:.1f} seconds long. You MUST generate chart data for the ENTIRE duration.\n"
-            f"Target: approximately {expected_commas} measure separators (commas) — one for roughly every second of audio.\n\n"
-            f"Listen to the audio and generate StepMania chart rows for a {DIFFICULTY} difficulty. "
-            "Output a continuous sequence of 4-character strings covering the entire audio duration. "
-            "Each string represents a row in the chart (Left, Down, Up, Right). "
-            "Use '0000' for empty rows to maintain correct timing and rhythm (e.g., 4 rows per beat). "
-            "IMPORTANT: Separate measures with a comma ',' on its own line/entry. A measure usually has 4/4 beats, 8.\n"
-            "Use the following note codes:\n"
-            " in one second you can have 4 lines are 8 lines are 16 lines are 12, 32"
-            "0: Empty\n"
-            "1: Tap\n"
-            "2: Hold Head\n"
-            "3: Hold End\n"
-            "4: Roll Head\n"
-            ",: Measure Separator\n\n"
-            "Example Sequence:\n"
-            "1000\n"
-            "4020\n"
-            "1001\n"
-            "0130\n"
-            ",\n"
-            "0010\n"
-            "...\n"
-        )
+        # ── Same prompt as Gemini (imported from src/beatmap_prompt.py) ──────
+        prompt_text = build_qwen_prompt(DIFFICULTY, duration)
 
         print(f"  Sending to Qwen ({MODEL_NAME})...")
         response_text = generate_beatmap_with_qwen(audio_path, prompt=prompt_text)
@@ -103,16 +80,27 @@ def process_song(audio_path, task_id: int):
             print("  ❌ No output generated.")
             return
 
-        # Filename: SongName_Difficulty_ModelName_taskXXXX_timestamp.txt
-        timestamp   = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename    = f"{name_no_ext}_{DIFFICULTY}_{safe_model}_{task_tag}_{timestamp}.txt"
-        output_path = os.path.join(dirname, filename)
+        # Filename: SongName_Difficulty_ModelName_taskXXXX_timestamp
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        base = f"{name_no_ext}_{DIFFICULTY}_{safe_model}_{task_tag}_{timestamp}"
 
-        with open(output_path, 'w', encoding='utf-8') as f:
+        # ── File 1: raw .txt (full model response) ──────────────────────────
+        txt_path = os.path.join(dirname, f"{base}.txt")
+        with open(txt_path, 'w', encoding='utf-8') as f:
             f.write(response_text)
+        print(f"  Raw TXT  → {base}.txt")
 
-        print(f"  Beatmap → {filename}")
+        # ── File 2: .csv with header matching Gemini format ─────────────────
+        csv_path = os.path.join(dirname, f"{base}.csv")
+        with open(csv_path, 'w', encoding='utf-8') as f:
+            f.write("time_ms,beat_position,notes,placement_type,note_type,confidence,instrument\n")
+            for line in response_text.splitlines():
+                line = line.strip()
+                if line:
+                    f.write(line + "\n")
+        print(f"  Full CSV → {base}.csv")
         print("  ✅ Done.")
+
 
     except Exception as e:
         print(f"  ❌ Error: {e}")

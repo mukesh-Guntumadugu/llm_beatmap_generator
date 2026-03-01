@@ -1,0 +1,279 @@
+======================================================================
+  BEATMAP PATTERN ANALYSIS REPORT
+  Generated : 20260225_155913
+  N-gram N  : 3
+  Songs     : 18
+======================================================================
+
+── TOP 30 GLOBALLY COMMON NOTE SEQUENCES ──
+   1. 0000 → 0001 → 0000                                            ×308
+   2. 0000 → 0010 → 0000                                            ×304
+   3. 0000 → 0000 → 0000                                            ×303
+   4. 0000 → 0100 → 0000                                            ×299
+   5. 0100 → 0010 → 0001                                            ×292
+   6. 1000 → 0100 → 0010                                            ×278
+   7. 0000 → 1000 → 0000                                            ×277
+   8. 0010 → 0001 → 1000                                            ×250
+   9. 0001 → 1000 → 0100                                            ×217
+  10. 0100 → 0000 → 0010                                            ×180
+  11. 0001 → 0010 → 1000                                            ×178
+  12. 1000 → 0000 → 0001                                            ×161
+  13. 0001 → 0000 → 0100                                            ×160
+  14. 0001 → 0100 → 1000                                            ×155
+  15. 0010 → 0000 → 1000                                            ×154
+  16. 0100 → 0001 → 0010                                            ×145
+  17. 0010 → 1000 → 0100                                            ×138
+  18. 1000 → 0010 → 0100                                            ×133
+  19. 1000 → 0001 → 0100                                            ×127
+  20. 0010 → 0100 → 0001                                            ×126
+  21. 0010 → 0001 → 0100                                            ×111
+  22. 1000 → 0100 → 0001                                            ×101
+  23. 0010 → 1000 → 0001                                            ×99
+  24. 0100 → 1000 → 0001                                            ×94
+  25. 0001 → 0100 → 0010                                            ×92
+  26. 0001 → 1000 → 0010                                            ×92
+  27. 1000 → 0001 → 0010                                            ×85
+  28. 0100 → 0010 → 1000                                            ×80
+  29. 0100 → 1000 → 0010                                            ×78
+  30. 1000 → 0000 → 0000                                            ×75
+
+── SEQUENCES APPEARING IN > 9 SONGS (WIDESPREAD) ──
+   1. 0000 → 0001 → 0000                                            in 16/18 songs
+   2. 0000 → 1000 → 0000                                            in 16/18 songs
+   3. 0000 → 0010 → 0000                                            in 15/18 songs
+   4. 0000 → 0000 → 0000                                            in 15/18 songs
+   5. 0000 → 0100 → 0000                                            in 15/18 songs
+   6. 1000 → 0100 → 0010                                            in 10/18 songs
+   7. 0010 → 0001 → 1000                                            in 10/18 songs
+   8. 0100 → 0010 → 0001                                            in 10/18 songs
+
+── MOST SIMILAR SONG PAIRS (note vocabulary overlap) ──
+  1.000  Bad Ketchup ↔ Bitch Clap
+  1.000  Bad Ketchup ↔ Dead Hollywood
+  1.000  Bad Ketchup ↔ Gangnam Style
+  1.000  Bad Ketchup ↔ Girls
+  1.000  Bad Ketchup ↔ Goodbye (2012 Mix)
+  1.000  Bad Ketchup ↔ Human Error
+  1.000  Bad Ketchup ↔ Inner Universe (Extended Mix)
+  1.000  Bad Ketchup ↔ Love to Rise in the Summer Morning
+  1.000  Bad Ketchup ↔ Named 'The Moon'
+  1.000  Bad Ketchup ↔ Need Your Love -SF_Dubstep Mix-
+  1.000  Bad Ketchup ↔ No Beginning
+  1.000  Bad Ketchup ↔ Pain Game
+  1.000  Bad Ketchup ↔ Stamina
+  1.000  Bad Ketchup ↔ Star Gear
+  1.000  Bad Ketchup ↔ The Seconds
+
+── MOST DISSIMILAR SONG PAIRS ──
+  0.833  Bad Ketchup ↔ Deal With It
+  0.833  Bitch Clap ↔ Deal With It
+  0.833  Dead Hollywood ↔ Deal With It
+  0.833  Deal With It ↔ Gangnam Style
+  0.833  Deal With It ↔ Girls
+  0.833  Deal With It ↔ Goodbye (2012 Mix)
+  0.833  Deal With It ↔ Human Error
+  0.833  Deal With It ↔ Inner Universe (Extended Mix)
+  0.833  Deal With It ↔ Love to Rise in the Summer Morning
+  0.833  Deal With It ↔ Named 'The Moon'
+
+── PER-SONG SUMMARY ──
+
+  [Bad Ketchup]
+    File        : Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019_sorted.csv
+    Total rows  : 356
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0000 → 0001  ×29
+      0000 → 0001 → 0000  ×29
+      0001 → 0000 → 0100  ×29
+      0000 → 0100 → 0000  ×29
+      0100 → 0000 → 0010  ×29
+
+  [Bitch Clap]
+    File        : Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718_sorted.csv
+    Total rows  : 376
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0010 → 0100  ×23
+      0010 → 0100 → 0001  ×23
+      0001 → 1000 → 0100  ×22
+      1000 → 0100 → 0010  ×20
+      0100 → 0010 → 0001  ×20
+
+  [Dead Hollywood]
+    File        : Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743_sorted.csv
+    Total rows  : 356
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0100 → 0010  ×32
+      0100 → 0010 → 0001  ×32
+      0010 → 0001 → 1000  ×32
+      0001 → 1000 → 0100  ×30
+      0000 → 0000 → 0000  ×25
+
+  [Deal With It]
+    File        : Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011_sorted.csv
+    Total rows  : 284
+    Unique notes: 6
+    Top 5 3-grams:
+      1000 → 0100 → 0001  ×45
+      0100 → 0001 → 0010  ×43
+      0010 → 1000 → 0100  ×30
+      0001 → 0010 → 1000  ×21
+      0000 → 0000 → 0000  ×12
+
+  [Gangnam Style]
+    File        : Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640_sorted.csv
+    Total rows  : 324
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0000 → 0001  ×28
+      0000 → 0001 → 0000  ×28
+      0000 → 1000 → 0000  ×27
+      0001 → 0000 → 0100  ×27
+      0000 → 0100 → 0000  ×27
+
+  [Girls]
+    File        : Girls_Beginner_gemini-pro-latest_task0001_20260224_013337_sorted.csv
+    Total rows  : 276
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0100 → 0010  ×45
+      0100 → 0010 → 0001  ×45
+      0010 → 0001 → 1000  ×45
+      0001 → 1000 → 0100  ×43
+      1000 → 0000 → 0001  ×12
+
+  [Goodbye (2012 Mix)]
+    File        : Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645_sorted.csv
+    Total rows  : 316
+    Unique notes: 5
+    Top 5 3-grams:
+      0100 → 0010 → 0001  ×25
+      0010 → 0001 → 1000  ×23
+      0001 → 1000 → 0010  ×21
+      0000 → 0000 → 0000  ×18
+      1000 → 0010 → 0100  ×16
+
+  [Human Error]
+    File        : Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710_sorted.csv
+    Total rows  : 416
+    Unique notes: 5
+    Top 5 3-grams:
+      0100 → 1000 → 0001  ×43
+      1000 → 0001 → 0010  ×43
+      0001 → 0010 → 1000  ×43
+      0010 → 1000 → 0100  ×42
+      1000 → 0100 → 0010  ×42
+
+  [Inner Universe (Extended Mix)]
+    File        : Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032_sorted.csv
+    Total rows  : 684
+    Unique notes: 5
+    Top 5 3-grams:
+      0000 → 0000 → 0000  ×71
+      0000 → 0010 → 0000  ×68
+      0000 → 1000 → 0000  ×68
+      0000 → 0001 → 0000  ×67
+      0000 → 0100 → 0000  ×67
+
+  [Love to Rise in the Summer Morning]
+    File        : Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049_sorted.csv
+    Total rows  : 344
+    Unique notes: 5
+    Top 5 3-grams:
+      0010 → 0001 → 0100  ×22
+      0001 → 0100 → 1000  ×22
+      0100 → 1000 → 0010  ×22
+      1000 → 0010 → 0100  ×19
+      0010 → 0100 → 0001  ×19
+
+  [Named 'The Moon']
+    File        : Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324_sorted.csv
+    Total rows  : 320
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0100 → 0010  ×32
+      0100 → 0010 → 0001  ×32
+      0010 → 0001 → 1000  ×32
+      0001 → 1000 → 0100  ×31
+      0000 → 0000 → 0000  ×24
+
+  [Need Your Love -SF_Dubstep Mix-]
+    File        : Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043_sorted.csv
+    Total rows  : 380
+    Unique notes: 5
+    Top 5 3-grams:
+      0000 → 0000 → 0000  ×41
+      0000 → 0001 → 0000  ×37
+      0000 → 0100 → 0000  ×37
+      0000 → 0010 → 0000  ×37
+      0000 → 1000 → 0000  ×37
+
+  [No Beginning]
+    File        : No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338_sorted.csv
+    Total rows  : 324
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0001 → 0100  ×22
+      0001 → 0010 → 1000  ×22
+      1000 → 0010 → 0100  ×21
+      0010 → 0100 → 0001  ×21
+      0100 → 0001 → 0010  ×20
+
+  [Pain Game]
+    File        : Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426_sorted.csv
+    Total rows  : 376
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0100 → 0001  ×37
+      0100 → 0001 → 0010  ×37
+      0001 → 0010 → 1000  ×37
+      0010 → 1000 → 0100  ×35
+      0000 → 0000 → 0000  ×25
+
+  [Stamina]
+    File        : Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026_sorted.csv
+    Total rows  : 276
+    Unique notes: 5
+    Top 5 3-grams:
+      0000 → 0001 → 0000  ×13
+      0000 → 0100 → 0000  ×13
+      0000 → 0010 → 0000  ×13
+      0000 → 1000 → 0000  ×13
+      1000 → 0001 → 0010  ×12
+
+  [Star Gear]
+    File        : Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139_sorted.csv
+    Total rows  : 372
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0010 → 0100  ×37
+      0010 → 0100 → 0001  ×37
+      1000 → 0001 → 0100  ×34
+      0010 → 1000 → 0001  ×33
+      0001 → 1000 → 0010  ×30
+
+  [The Seconds]
+    File        : The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405_sorted.csv
+    Total rows  : 304
+    Unique notes: 5
+    Top 5 3-grams:
+      1000 → 0100 → 0010  ×65
+      0100 → 0010 → 0001  ×65
+      0010 → 0001 → 1000  ×65
+      0001 → 1000 → 0100  ×64
+      0000 → 0000 → 0000  ×11
+
+  [Turn Up (The Music)]
+    File        : Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459_sorted.csv
+    Total rows  : 380
+    Unique notes: 5
+    Top 5 3-grams:
+      0000 → 0000 → 0000  ×23
+      0000 → 0001 → 0000  ×18
+      0000 → 0100 → 0000  ×18
+      0000 → 0010 → 0000  ×17
+      0000 → 1000 → 0000  ×14
+
+======================================================================

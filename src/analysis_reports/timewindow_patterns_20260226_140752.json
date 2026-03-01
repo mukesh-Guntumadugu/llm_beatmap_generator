@@ -1,0 +1,3460 @@
+{
+  "generated": "20260226_140752",
+  "source": "AI-task0005",
+  "window_sizes_ms": [
+    500.0,
+    1000.0,
+    2000.0,
+    3000.0
+  ],
+  "charts_analyzed": 20,
+  "source_files": {
+    "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+    "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+    "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+    "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+    "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Deal With It/Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+    "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Gangnam Style/Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+    "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Girls/Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+    "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goin' Under/Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+    "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Goodbye (2012 Mix)/Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+    "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Human Error/Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+    "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+    "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Love to Rise in the Summer Morning/Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+    "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Named 'The Moon'/Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+    "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Need Your Love -SF_Dubstep Mix-/Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+    "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/No Beginning/No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+    "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Pain Game/Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+    "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Stamina/Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+    "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Star Gear/Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+    "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/The Seconds/The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+    "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv": "/Users/mukeshguntumadugu/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+  },
+  "per_chart": {
+    "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          17
+        ],
+        [
+          "Jump",
+          12
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          20
+        ],
+        [
+          "Spin",
+          11
+        ],
+        [
+          "Stream",
+          9
+        ],
+        [
+          "Double Step",
+          4
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          28
+        ],
+        [
+          "Double Step",
+          23
+        ],
+        [
+          "Spin",
+          15
+        ],
+        [
+          "Stream",
+          13
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          29
+        ],
+        [
+          "Double Step",
+          23
+        ],
+        [
+          "Spin",
+          15
+        ],
+        [
+          "Stream",
+          13
+        ]
+      ]
+    },
+    "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          24
+        ],
+        [
+          "Jump",
+          18
+        ],
+        [
+          "Spin",
+          6
+        ],
+        [
+          "Stream",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Double Step",
+          30
+        ],
+        [
+          "Jump",
+          29
+        ],
+        [
+          "Stream",
+          26
+        ],
+        [
+          "Spin",
+          21
+        ],
+        [
+          "Single Notes",
+          5
+        ],
+        [
+          "Jack",
+          4
+        ],
+        [
+          "Footswitch",
+          4
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          40
+        ],
+        [
+          "Spin",
+          37
+        ],
+        [
+          "Double Step",
+          36
+        ],
+        [
+          "Jump",
+          33
+        ],
+        [
+          "Jack",
+          5
+        ],
+        [
+          "Single Notes",
+          5
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          43
+        ],
+        [
+          "Spin",
+          37
+        ],
+        [
+          "Double Step",
+          36
+        ],
+        [
+          "Jump",
+          33
+        ],
+        [
+          "Jack",
+          5
+        ],
+        [
+          "Single Notes",
+          5
+        ]
+      ]
+    },
+    "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          45
+        ],
+        [
+          "Bracket",
+          25
+        ],
+        [
+          "Single Notes",
+          24
+        ],
+        [
+          "Spin",
+          8
+        ],
+        [
+          "Double Step",
+          6
+        ],
+        [
+          "Quad",
+          5
+        ],
+        [
+          "Hand",
+          5
+        ],
+        [
+          "Stream",
+          3
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          61
+        ],
+        [
+          "Bracket",
+          44
+        ],
+        [
+          "Double Step",
+          33
+        ],
+        [
+          "Stream",
+          26
+        ],
+        [
+          "Spin",
+          21
+        ],
+        [
+          "Quad",
+          9
+        ],
+        [
+          "Hand",
+          9
+        ],
+        [
+          "Single Notes",
+          4
+        ],
+        [
+          "Footswitch",
+          1
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          76
+        ],
+        [
+          "Bracket",
+          67
+        ],
+        [
+          "Double Step",
+          48
+        ],
+        [
+          "Stream",
+          48
+        ],
+        [
+          "Spin",
+          43
+        ],
+        [
+          "Quad",
+          15
+        ],
+        [
+          "Hand",
+          15
+        ],
+        [
+          "Single Notes",
+          2
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          76
+        ],
+        [
+          "Bracket",
+          70
+        ],
+        [
+          "Stream",
+          61
+        ],
+        [
+          "Spin",
+          56
+        ],
+        [
+          "Double Step",
+          54
+        ],
+        [
+          "Quad",
+          16
+        ],
+        [
+          "Hand",
+          16
+        ],
+        [
+          "Single Notes",
+          2
+        ]
+      ]
+    },
+    "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          42
+        ],
+        [
+          "Bracket",
+          16
+        ],
+        [
+          "Candle",
+          12
+        ],
+        [
+          "Gallop",
+          12
+        ],
+        [
+          "Spin",
+          10
+        ],
+        [
+          "Single Notes",
+          9
+        ],
+        [
+          "Double Step",
+          7
+        ],
+        [
+          "Stream",
+          4
+        ],
+        [
+          "Footswitch",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          56
+        ],
+        [
+          "Double Step",
+          54
+        ],
+        [
+          "Spin",
+          31
+        ],
+        [
+          "Candle",
+          30
+        ],
+        [
+          "Gallop",
+          30
+        ],
+        [
+          "Bracket",
+          24
+        ],
+        [
+          "Stream",
+          22
+        ],
+        [
+          "Footswitch",
+          3
+        ],
+        [
+          "Single Notes",
+          2
+        ]
+      ],
+      "2000ms": [
+        [
+          "Spin",
+          62
+        ],
+        [
+          "Jump",
+          61
+        ],
+        [
+          "Double Step",
+          60
+        ],
+        [
+          "Stream",
+          50
+        ],
+        [
+          "Candle",
+          42
+        ],
+        [
+          "Gallop",
+          42
+        ],
+        [
+          "Bracket",
+          40
+        ],
+        [
+          "Single Notes",
+          2
+        ]
+      ],
+      "3000ms": [
+        [
+          "Spin",
+          62
+        ],
+        [
+          "Jump",
+          61
+        ],
+        [
+          "Double Step",
+          60
+        ],
+        [
+          "Stream",
+          58
+        ],
+        [
+          "Bracket",
+          52
+        ],
+        [
+          "Candle",
+          50
+        ],
+        [
+          "Gallop",
+          50
+        ],
+        [
+          "Single Notes",
+          2
+        ]
+      ]
+    },
+    "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          16
+        ],
+        [
+          "Single Notes",
+          10
+        ],
+        [
+          "Bracket",
+          8
+        ],
+        [
+          "Stream",
+          5
+        ],
+        [
+          "Candle",
+          4
+        ],
+        [
+          "Gallop",
+          4
+        ],
+        [
+          "Spin",
+          3
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          24
+        ],
+        [
+          "Double Step",
+          20
+        ],
+        [
+          "Bracket",
+          16
+        ],
+        [
+          "Spin",
+          14
+        ],
+        [
+          "Candle",
+          10
+        ],
+        [
+          "Gallop",
+          10
+        ],
+        [
+          "Stream",
+          9
+        ],
+        [
+          "Single Notes",
+          3
+        ],
+        [
+          "Footswitch",
+          1
+        ]
+      ],
+      "2000ms": [
+        [
+          "Bracket",
+          29
+        ],
+        [
+          "Jump",
+          29
+        ],
+        [
+          "Spin",
+          25
+        ],
+        [
+          "Double Step",
+          21
+        ],
+        [
+          "Candle",
+          18
+        ],
+        [
+          "Gallop",
+          18
+        ],
+        [
+          "Stream",
+          17
+        ],
+        [
+          "Jack",
+          7
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ],
+      "3000ms": [
+        [
+          "Bracket",
+          29
+        ],
+        [
+          "Jump",
+          29
+        ],
+        [
+          "Spin",
+          27
+        ],
+        [
+          "Candle",
+          26
+        ],
+        [
+          "Gallop",
+          26
+        ],
+        [
+          "Stream",
+          21
+        ],
+        [
+          "Double Step",
+          21
+        ],
+        [
+          "Jack",
+          7
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ]
+    },
+    "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          47
+        ],
+        [
+          "Quad",
+          14
+        ],
+        [
+          "Hand",
+          14
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Double Step",
+          6
+        ],
+        [
+          "Spin",
+          4
+        ],
+        [
+          "Footswitch",
+          3
+        ],
+        [
+          "Stream",
+          3
+        ],
+        [
+          "Single Notes",
+          3
+        ],
+        [
+          "Jack",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          53
+        ],
+        [
+          "Quad",
+          22
+        ],
+        [
+          "Hand",
+          22
+        ],
+        [
+          "Bracket",
+          17
+        ],
+        [
+          "Double Step",
+          15
+        ],
+        [
+          "Spin",
+          9
+        ],
+        [
+          "Stream",
+          8
+        ],
+        [
+          "Jack",
+          5
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          60
+        ],
+        [
+          "Quad",
+          29
+        ],
+        [
+          "Hand",
+          29
+        ],
+        [
+          "Bracket",
+          25
+        ],
+        [
+          "Stream",
+          13
+        ],
+        [
+          "Jack",
+          13
+        ],
+        [
+          "Spin",
+          11
+        ],
+        [
+          "Double Step",
+          8
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          60
+        ],
+        [
+          "Bracket",
+          34
+        ],
+        [
+          "Quad",
+          29
+        ],
+        [
+          "Hand",
+          29
+        ],
+        [
+          "Jack",
+          21
+        ],
+        [
+          "Stream",
+          14
+        ],
+        [
+          "Spin",
+          11
+        ]
+      ]
+    },
+    "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          31
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Single Notes",
+          8
+        ],
+        [
+          "Spin",
+          5
+        ],
+        [
+          "Quad",
+          4
+        ],
+        [
+          "Hand",
+          4
+        ],
+        [
+          "Stream",
+          2
+        ],
+        [
+          "Candle",
+          2
+        ],
+        [
+          "Gallop",
+          2
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          35
+        ],
+        [
+          "Double Step",
+          11
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Spin",
+          9
+        ],
+        [
+          "Stream",
+          8
+        ],
+        [
+          "Quad",
+          8
+        ],
+        [
+          "Hand",
+          8
+        ],
+        [
+          "Candle",
+          6
+        ],
+        [
+          "Gallop",
+          6
+        ],
+        [
+          "Footswitch",
+          4
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          43
+        ],
+        [
+          "Double Step",
+          21
+        ],
+        [
+          "Spin",
+          13
+        ],
+        [
+          "Quad",
+          13
+        ],
+        [
+          "Hand",
+          13
+        ],
+        [
+          "Stream",
+          12
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Candle",
+          7
+        ],
+        [
+          "Gallop",
+          7
+        ],
+        [
+          "Footswitch",
+          1
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          44
+        ],
+        [
+          "Double Step",
+          21
+        ],
+        [
+          "Spin",
+          13
+        ],
+        [
+          "Quad",
+          13
+        ],
+        [
+          "Hand",
+          13
+        ],
+        [
+          "Stream",
+          12
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Candle",
+          7
+        ],
+        [
+          "Gallop",
+          7
+        ]
+      ]
+    },
+    "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          16
+        ],
+        [
+          "Jump",
+          12
+        ],
+        [
+          "Stream",
+          3
+        ]
+      ],
+      "1000ms": [
+        [
+          "Stream",
+          25
+        ],
+        [
+          "Jump",
+          22
+        ],
+        [
+          "Double Step",
+          19
+        ],
+        [
+          "Spin",
+          8
+        ],
+        [
+          "Footswitch",
+          5
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          28
+        ],
+        [
+          "Double Step",
+          27
+        ],
+        [
+          "Jump",
+          25
+        ],
+        [
+          "Spin",
+          15
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          28
+        ],
+        [
+          "Double Step",
+          27
+        ],
+        [
+          "Jump",
+          25
+        ],
+        [
+          "Spin",
+          15
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ]
+    },
+    "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          168
+        ],
+        [
+          "Hand",
+          65
+        ],
+        [
+          "Quad",
+          58
+        ],
+        [
+          "Single Notes",
+          30
+        ],
+        [
+          "Stream",
+          26
+        ],
+        [
+          "Bracket",
+          25
+        ],
+        [
+          "Jack",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          185
+        ],
+        [
+          "Hand",
+          86
+        ],
+        [
+          "Quad",
+          75
+        ],
+        [
+          "Stream",
+          45
+        ],
+        [
+          "Bracket",
+          33
+        ],
+        [
+          "Double Step",
+          29
+        ],
+        [
+          "Single Notes",
+          7
+        ],
+        [
+          "Jack",
+          5
+        ],
+        [
+          "Spin",
+          3
+        ],
+        [
+          "Footswitch",
+          3
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          208
+        ],
+        [
+          "Hand",
+          128
+        ],
+        [
+          "Quad",
+          109
+        ],
+        [
+          "Stream",
+          57
+        ],
+        [
+          "Bracket",
+          47
+        ],
+        [
+          "Double Step",
+          47
+        ],
+        [
+          "Jack",
+          7
+        ],
+        [
+          "Spin",
+          3
+        ],
+        [
+          "Footswitch",
+          3
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          216
+        ],
+        [
+          "Hand",
+          152
+        ],
+        [
+          "Quad",
+          129
+        ],
+        [
+          "Stream",
+          62
+        ],
+        [
+          "Bracket",
+          52
+        ],
+        [
+          "Double Step",
+          52
+        ],
+        [
+          "Jack",
+          7
+        ],
+        [
+          "Spin",
+          3
+        ],
+        [
+          "Footswitch",
+          3
+        ]
+      ]
+    },
+    "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          21
+        ],
+        [
+          "Jump",
+          7
+        ]
+      ],
+      "1000ms": [
+        [
+          "Single Notes",
+          17
+        ],
+        [
+          "Jump",
+          14
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          22
+        ],
+        [
+          "Double Step",
+          15
+        ],
+        [
+          "Single Notes",
+          7
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          24
+        ],
+        [
+          "Double Step",
+          19
+        ],
+        [
+          "Single Notes",
+          7
+        ],
+        [
+          "Footswitch",
+          4
+        ]
+      ]
+    },
+    "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          26
+        ],
+        [
+          "Double Step",
+          14
+        ],
+        [
+          "Stream",
+          12
+        ],
+        [
+          "Bracket",
+          12
+        ],
+        [
+          "Quad",
+          7
+        ],
+        [
+          "Hand",
+          7
+        ],
+        [
+          "Spin",
+          4
+        ],
+        [
+          "Footswitch",
+          3
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          32
+        ],
+        [
+          "Stream",
+          29
+        ],
+        [
+          "Double Step",
+          28
+        ],
+        [
+          "Bracket",
+          17
+        ],
+        [
+          "Spin",
+          9
+        ],
+        [
+          "Quad",
+          7
+        ],
+        [
+          "Hand",
+          7
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          32
+        ],
+        [
+          "Stream",
+          29
+        ],
+        [
+          "Double Step",
+          28
+        ],
+        [
+          "Spin",
+          19
+        ],
+        [
+          "Bracket",
+          17
+        ],
+        [
+          "Quad",
+          7
+        ],
+        [
+          "Hand",
+          7
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          32
+        ],
+        [
+          "Stream",
+          29
+        ],
+        [
+          "Double Step",
+          28
+        ],
+        [
+          "Spin",
+          19
+        ],
+        [
+          "Bracket",
+          17
+        ],
+        [
+          "Quad",
+          7
+        ],
+        [
+          "Hand",
+          7
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ]
+    },
+    "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          24
+        ],
+        [
+          "Bracket",
+          8
+        ],
+        [
+          "Stream",
+          7
+        ],
+        [
+          "Spin",
+          5
+        ],
+        [
+          "Double Step",
+          5
+        ],
+        [
+          "Candle",
+          5
+        ],
+        [
+          "Gallop",
+          5
+        ],
+        [
+          "Single Notes",
+          4
+        ],
+        [
+          "Footswitch",
+          2
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          31
+        ],
+        [
+          "Stream",
+          16
+        ],
+        [
+          "Double Step",
+          13
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Spin",
+          11
+        ],
+        [
+          "Candle",
+          11
+        ],
+        [
+          "Gallop",
+          11
+        ],
+        [
+          "Footswitch",
+          4
+        ],
+        [
+          "Single Notes",
+          1
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          31
+        ],
+        [
+          "Stream",
+          23
+        ],
+        [
+          "Double Step",
+          22
+        ],
+        [
+          "Candle",
+          22
+        ],
+        [
+          "Gallop",
+          22
+        ],
+        [
+          "Spin",
+          20
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Footswitch",
+          3
+        ],
+        [
+          "Single Notes",
+          1
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          31
+        ],
+        [
+          "Candle",
+          30
+        ],
+        [
+          "Gallop",
+          30
+        ],
+        [
+          "Stream",
+          23
+        ],
+        [
+          "Double Step",
+          22
+        ],
+        [
+          "Spin",
+          20
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Footswitch",
+          3
+        ],
+        [
+          "Single Notes",
+          1
+        ]
+      ]
+    },
+    "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          27
+        ],
+        [
+          "Jump",
+          12
+        ],
+        [
+          "Double Step",
+          8
+        ],
+        [
+          "Bracket",
+          7
+        ],
+        [
+          "Stream",
+          4
+        ],
+        [
+          "Spin",
+          4
+        ]
+      ],
+      "1000ms": [
+        [
+          "Stream",
+          26
+        ],
+        [
+          "Double Step",
+          22
+        ],
+        [
+          "Jump",
+          20
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Spin",
+          10
+        ],
+        [
+          "Footswitch",
+          9
+        ],
+        [
+          "Single Notes",
+          8
+        ]
+      ],
+      "2000ms": [
+        [
+          "Double Step",
+          40
+        ],
+        [
+          "Stream",
+          39
+        ],
+        [
+          "Jump",
+          36
+        ],
+        [
+          "Bracket",
+          19
+        ],
+        [
+          "Spin",
+          18
+        ],
+        [
+          "Footswitch",
+          8
+        ],
+        [
+          "Single Notes",
+          2
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          45
+        ],
+        [
+          "Jump",
+          43
+        ],
+        [
+          "Double Step",
+          40
+        ],
+        [
+          "Bracket",
+          27
+        ],
+        [
+          "Spin",
+          26
+        ],
+        [
+          "Single Notes",
+          2
+        ]
+      ]
+    },
+    "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          26
+        ],
+        [
+          "Spin",
+          9
+        ],
+        [
+          "Double Step",
+          9
+        ],
+        [
+          "Candle",
+          6
+        ],
+        [
+          "Gallop",
+          6
+        ],
+        [
+          "Bracket",
+          5
+        ],
+        [
+          "Single Notes",
+          3
+        ],
+        [
+          "Jack",
+          2
+        ],
+        [
+          "Footswitch",
+          1
+        ],
+        [
+          "Stream",
+          1
+        ],
+        [
+          "Quad",
+          1
+        ],
+        [
+          "Hand",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          33
+        ],
+        [
+          "Double Step",
+          20
+        ],
+        [
+          "Spin",
+          19
+        ],
+        [
+          "Candle",
+          11
+        ],
+        [
+          "Gallop",
+          11
+        ],
+        [
+          "Bracket",
+          9
+        ],
+        [
+          "Stream",
+          8
+        ],
+        [
+          "Jack",
+          6
+        ],
+        [
+          "Quad",
+          1
+        ],
+        [
+          "Hand",
+          1
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          33
+        ],
+        [
+          "Spin",
+          23
+        ],
+        [
+          "Stream",
+          21
+        ],
+        [
+          "Candle",
+          20
+        ],
+        [
+          "Gallop",
+          20
+        ],
+        [
+          "Bracket",
+          18
+        ],
+        [
+          "Jack",
+          15
+        ],
+        [
+          "Double Step",
+          12
+        ],
+        [
+          "Quad",
+          1
+        ],
+        [
+          "Hand",
+          1
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          33
+        ],
+        [
+          "Candle",
+          28
+        ],
+        [
+          "Gallop",
+          28
+        ],
+        [
+          "Bracket",
+          27
+        ],
+        [
+          "Stream",
+          26
+        ],
+        [
+          "Spin",
+          23
+        ],
+        [
+          "Jack",
+          20
+        ],
+        [
+          "Double Step",
+          7
+        ],
+        [
+          "Quad",
+          1
+        ],
+        [
+          "Hand",
+          1
+        ]
+      ]
+    },
+    "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          24
+        ],
+        [
+          "Bracket",
+          22
+        ],
+        [
+          "Candle",
+          6
+        ],
+        [
+          "Gallop",
+          6
+        ],
+        [
+          "Spin",
+          5
+        ],
+        [
+          "Single Notes",
+          4
+        ],
+        [
+          "Double Step",
+          3
+        ],
+        [
+          "Jack",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Bracket",
+          28
+        ],
+        [
+          "Jump",
+          28
+        ],
+        [
+          "Spin",
+          15
+        ],
+        [
+          "Candle",
+          11
+        ],
+        [
+          "Gallop",
+          11
+        ],
+        [
+          "Double Step",
+          8
+        ],
+        [
+          "Jack",
+          5
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ],
+      "2000ms": [
+        [
+          "Bracket",
+          29
+        ],
+        [
+          "Jump",
+          29
+        ],
+        [
+          "Spin",
+          28
+        ],
+        [
+          "Candle",
+          20
+        ],
+        [
+          "Gallop",
+          20
+        ],
+        [
+          "Jack",
+          14
+        ],
+        [
+          "Double Step",
+          10
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ],
+      "3000ms": [
+        [
+          "Bracket",
+          29
+        ],
+        [
+          "Jump",
+          29
+        ],
+        [
+          "Spin",
+          28
+        ],
+        [
+          "Candle",
+          27
+        ],
+        [
+          "Gallop",
+          27
+        ],
+        [
+          "Jack",
+          20
+        ],
+        [
+          "Double Step",
+          4
+        ],
+        [
+          "Single Notes",
+          3
+        ]
+      ]
+    },
+    "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          24
+        ],
+        [
+          "Quad",
+          6
+        ],
+        [
+          "Hand",
+          6
+        ],
+        [
+          "Stream",
+          5
+        ],
+        [
+          "Spin",
+          4
+        ],
+        [
+          "Footswitch",
+          3
+        ],
+        [
+          "Double Step",
+          3
+        ],
+        [
+          "Single Notes",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          30
+        ],
+        [
+          "Stream",
+          13
+        ],
+        [
+          "Quad",
+          12
+        ],
+        [
+          "Hand",
+          12
+        ],
+        [
+          "Spin",
+          9
+        ],
+        [
+          "Double Step",
+          9
+        ],
+        [
+          "Footswitch",
+          4
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          31
+        ],
+        [
+          "Stream",
+          23
+        ],
+        [
+          "Quad",
+          23
+        ],
+        [
+          "Hand",
+          23
+        ],
+        [
+          "Spin",
+          21
+        ],
+        [
+          "Double Step",
+          21
+        ],
+        [
+          "Footswitch",
+          2
+        ]
+      ],
+      "3000ms": [
+        [
+          "Quad",
+          31
+        ],
+        [
+          "Hand",
+          31
+        ],
+        [
+          "Jump",
+          31
+        ],
+        [
+          "Stream",
+          23
+        ],
+        [
+          "Spin",
+          21
+        ],
+        [
+          "Double Step",
+          21
+        ],
+        [
+          "Footswitch",
+          2
+        ]
+      ]
+    },
+    "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          12
+        ],
+        [
+          "Double Step",
+          7
+        ],
+        [
+          "Bracket",
+          7
+        ],
+        [
+          "Jump",
+          7
+        ],
+        [
+          "Stream",
+          6
+        ],
+        [
+          "Spin",
+          3
+        ]
+      ],
+      "1000ms": [
+        [
+          "Double Step",
+          25
+        ],
+        [
+          "Stream",
+          21
+        ],
+        [
+          "Bracket",
+          11
+        ],
+        [
+          "Jump",
+          11
+        ],
+        [
+          "Spin",
+          7
+        ],
+        [
+          "Single Notes",
+          4
+        ]
+      ],
+      "2000ms": [
+        [
+          "Stream",
+          28
+        ],
+        [
+          "Double Step",
+          27
+        ],
+        [
+          "Bracket",
+          19
+        ],
+        [
+          "Jump",
+          19
+        ],
+        [
+          "Spin",
+          15
+        ],
+        [
+          "Single Notes",
+          4
+        ]
+      ],
+      "3000ms": [
+        [
+          "Stream",
+          28
+        ],
+        [
+          "Double Step",
+          27
+        ],
+        [
+          "Bracket",
+          23
+        ],
+        [
+          "Jump",
+          23
+        ],
+        [
+          "Spin",
+          23
+        ],
+        [
+          "Single Notes",
+          4
+        ]
+      ]
+    },
+    "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          18
+        ],
+        [
+          "Jump",
+          12
+        ],
+        [
+          "Bracket",
+          6
+        ],
+        [
+          "Footswitch",
+          1
+        ],
+        [
+          "Stream",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          18
+        ],
+        [
+          "Footswitch",
+          11
+        ],
+        [
+          "Bracket",
+          10
+        ],
+        [
+          "Double Step",
+          9
+        ],
+        [
+          "Stream",
+          8
+        ],
+        [
+          "Spin",
+          4
+        ],
+        [
+          "Single Notes",
+          4
+        ],
+        [
+          "Jack",
+          2
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          26
+        ],
+        [
+          "Bracket",
+          18
+        ],
+        [
+          "Stream",
+          16
+        ],
+        [
+          "Double Step",
+          13
+        ],
+        [
+          "Jack",
+          10
+        ],
+        [
+          "Footswitch",
+          9
+        ],
+        [
+          "Spin",
+          7
+        ],
+        [
+          "Single Notes",
+          4
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          27
+        ],
+        [
+          "Stream",
+          24
+        ],
+        [
+          "Bracket",
+          19
+        ],
+        [
+          "Jack",
+          15
+        ],
+        [
+          "Footswitch",
+          9
+        ],
+        [
+          "Double Step",
+          8
+        ],
+        [
+          "Spin",
+          7
+        ],
+        [
+          "Single Notes",
+          4
+        ]
+      ]
+    },
+    "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv": {
+      "500ms": [
+        [
+          "Single Notes",
+          20
+        ],
+        [
+          "Jump",
+          18
+        ],
+        [
+          "Bracket",
+          6
+        ],
+        [
+          "Quad",
+          6
+        ],
+        [
+          "Hand",
+          6
+        ],
+        [
+          "Candle",
+          2
+        ],
+        [
+          "Gallop",
+          2
+        ],
+        [
+          "Spin",
+          2
+        ],
+        [
+          "Double Step",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          31
+        ],
+        [
+          "Double Step",
+          21
+        ],
+        [
+          "Spin",
+          13
+        ],
+        [
+          "Bracket",
+          12
+        ],
+        [
+          "Quad",
+          12
+        ],
+        [
+          "Hand",
+          12
+        ],
+        [
+          "Candle",
+          8
+        ],
+        [
+          "Gallop",
+          8
+        ],
+        [
+          "Stream",
+          7
+        ],
+        [
+          "Footswitch",
+          4
+        ],
+        [
+          "Single Notes",
+          1
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          40
+        ],
+        [
+          "Double Step",
+          26
+        ],
+        [
+          "Spin",
+          20
+        ],
+        [
+          "Quad",
+          20
+        ],
+        [
+          "Hand",
+          20
+        ],
+        [
+          "Bracket",
+          18
+        ],
+        [
+          "Stream",
+          17
+        ],
+        [
+          "Candle",
+          15
+        ],
+        [
+          "Gallop",
+          15
+        ],
+        [
+          "Footswitch",
+          1
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          40
+        ],
+        [
+          "Quad",
+          28
+        ],
+        [
+          "Hand",
+          28
+        ],
+        [
+          "Double Step",
+          26
+        ],
+        [
+          "Spin",
+          20
+        ],
+        [
+          "Bracket",
+          18
+        ],
+        [
+          "Stream",
+          17
+        ],
+        [
+          "Candle",
+          15
+        ],
+        [
+          "Gallop",
+          15
+        ],
+        [
+          "Footswitch",
+          1
+        ]
+      ]
+    },
+    "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv": {
+      "500ms": [
+        [
+          "Jump",
+          42
+        ],
+        [
+          "Single Notes",
+          18
+        ],
+        [
+          "Bracket",
+          6
+        ],
+        [
+          "Stream",
+          5
+        ],
+        [
+          "Quad",
+          1
+        ],
+        [
+          "Hand",
+          1
+        ]
+      ],
+      "1000ms": [
+        [
+          "Jump",
+          52
+        ],
+        [
+          "Double Step",
+          16
+        ],
+        [
+          "Stream",
+          13
+        ],
+        [
+          "Spin",
+          11
+        ],
+        [
+          "Bracket",
+          10
+        ],
+        [
+          "Single Notes",
+          3
+        ],
+        [
+          "Quad",
+          1
+        ],
+        [
+          "Hand",
+          1
+        ]
+      ],
+      "2000ms": [
+        [
+          "Jump",
+          61
+        ],
+        [
+          "Stream",
+          32
+        ],
+        [
+          "Double Step",
+          31
+        ],
+        [
+          "Bracket",
+          18
+        ],
+        [
+          "Spin",
+          11
+        ],
+        [
+          "Single Notes",
+          3
+        ],
+        [
+          "Quad",
+          1
+        ],
+        [
+          "Hand",
+          1
+        ]
+      ],
+      "3000ms": [
+        [
+          "Jump",
+          62
+        ],
+        [
+          "Double Step",
+          42
+        ],
+        [
+          "Stream",
+          40
+        ],
+        [
+          "Bracket",
+          26
+        ],
+        [
+          "Spin",
+          11
+        ],
+        [
+          "Single Notes",
+          3
+        ],
+        [
+          "Quad",
+          1
+        ],
+        [
+          "Hand",
+          1
+        ]
+      ]
+    }
+  },
+  "cross_chart_prevalence": {
+    "500ms": {
+      "Single Notes": {
+        "songs": 20,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Jump": {
+        "songs": 20,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Stream": {
+        "songs": 16,
+        "song_list": [
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Bracket": {
+        "songs": 15,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Spin": {
+        "songs": 14,
+        "song_list": [
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Double Step": {
+        "songs": 11,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Quad": {
+        "songs": 9,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Hand": {
+        "songs": 9,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Candle": {
+        "songs": 7,
+        "song_list": [
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Gallop": {
+        "songs": 7,
+        "song_list": [
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Footswitch": {
+        "songs": 7,
+        "song_list": [
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv"
+        ]
+      },
+      "Jack": {
+        "songs": 4,
+        "song_list": [
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv"
+        ]
+      }
+    },
+    "1000ms": {
+      "Jump": {
+        "songs": 20,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Spin": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Double Step": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Stream": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Single Notes": {
+        "songs": 15,
+        "song_list": [
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Bracket": {
+        "songs": 15,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Footswitch": {
+        "songs": 12,
+        "song_list": [
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Quad": {
+        "songs": 9,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Hand": {
+        "songs": 9,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Candle": {
+        "songs": 7,
+        "song_list": [
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Gallop": {
+        "songs": 7,
+        "song_list": [
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Jack": {
+        "songs": 6,
+        "song_list": [
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv"
+        ]
+      }
+    },
+    "2000ms": {
+      "Jump": {
+        "songs": 20,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Double Step": {
+        "songs": 20,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Spin": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Stream": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Bracket": {
+        "songs": 15,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Single Notes": {
+        "songs": 13,
+        "song_list": [
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Quad": {
+        "songs": 9,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Hand": {
+        "songs": 9,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Jack": {
+        "songs": 7,
+        "song_list": [
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv"
+        ]
+      },
+      "Candle": {
+        "songs": 7,
+        "song_list": [
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Gallop": {
+        "songs": 7,
+        "song_list": [
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Footswitch": {
+        "songs": 7,
+        "song_list": [
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      }
+    },
+    "3000ms": {
+      "Jump": {
+        "songs": 20,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Double Step": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Spin": {
+        "songs": 19,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Stream": {
+        "songs": 18,
+        "song_list": [
+          "Bad Ketchup_Hard_gemini-3-flash-preview_task0005_20260224_131934_sorted.csv",
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Bracket": {
+        "songs": 15,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Single Notes": {
+        "songs": 13,
+        "song_list": [
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Goin' Under_Hard_gemini-3-flash-preview_task0005_20260224_132143_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Named 'The Moon'_Hard_gemini-3-flash-preview_task0005_20260224_131957_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Stamina_Hard_gemini-3-flash-preview_task0005_20260224_132221_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Quad": {
+        "songs": 9,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Hand": {
+        "songs": 9,
+        "song_list": [
+          "Call Me Maybe (Remix)_Hard_gemini-3-flash-preview_task0005_20260224_132441_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Inner Universe (Extended Mix)_Hard_gemini-3-flash-preview_task0005_20260224_132327_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv",
+          "Turn Up (The Music)_Hard_gemini-3-flash-preview_task0005_20260224_132121_sorted.csv"
+        ]
+      },
+      "Jack": {
+        "songs": 7,
+        "song_list": [
+          "Bitch Clap_Hard_gemini-3-flash-preview_task0005_20260224_132204_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Gangnam Style_Hard_gemini-3-flash-preview_task0005_20260224_132025_sorted.csv",
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv"
+        ]
+      },
+      "Candle": {
+        "songs": 7,
+        "song_list": [
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Gallop": {
+        "songs": 7,
+        "song_list": [
+          "Dead Hollywood_Hard_gemini-3-flash-preview_task0005_20260224_132518_sorted.csv",
+          "Deal With It_Hard_gemini-3-flash-preview_task0005_20260224_132621_sorted.csv",
+          "Girls_Hard_gemini-3-flash-preview_task0005_20260224_131800_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Need Your Love -SF_Dubstep Mix-_Hard_gemini-3-flash-preview_task0005_20260224_132052_sorted.csv",
+          "No Beginning_Hard_gemini-3-flash-preview_task0005_20260224_132638_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      },
+      "Footswitch": {
+        "songs": 6,
+        "song_list": [
+          "Goodbye (2012 Mix)_Hard_gemini-3-flash-preview_task0005_20260224_131918_sorted.csv",
+          "Human Error_Hard_gemini-3-flash-preview_task0005_20260224_132603_sorted.csv",
+          "Love to Rise in the Summer Morning_Hard_gemini-3-flash-preview_task0005_20260224_131735_sorted.csv",
+          "Pain Game_Hard_gemini-3-flash-preview_task0005_20260224_132253_sorted.csv",
+          "Star Gear_Hard_gemini-3-flash-preview_task0005_20260224_132536_sorted.csv",
+          "The Seconds_Hard_gemini-3-flash-preview_task0005_20260224_132355_sorted.csv"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,194 @@
+====================================================================
+  DDR-STYLE TIME-WINDOW PATTERN ANALYSIS  [AI-TASK0005]
+  Generated : 20260226_134206
+  Charts    : 20
+  Windows   : 500ms, 1000ms, 2000ms
+====================================================================
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 500ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence:
+
+    Single Notes     ████████████████████  (20/20 charts)
+    Jump             ████████████████████  (20/20 charts)
+    Stream           ████████████████  (16/20 charts)
+    Bracket          ███████████████  (15/20 charts)
+    Spin             ██████████████  (14/20 charts)
+    Double Step      ███████████  (11/20 charts)
+    Quad             █████████  (9/20 charts)
+    Hand             █████████  (9/20 charts)
+    Candle           ███████  (7/20 charts)
+    Gallop           ███████  (7/20 charts)
+    Footswitch       ███████  (7/20 charts)
+    Jack             ████  (4/20 charts)
+
+  Per-chart top patterns:
+
+    [Bad Ketchup]
+      Single Notes ×17   Jump ×12
+    [Bitch Clap]
+      Single Notes ×24   Jump ×18   Spin ×6   Stream ×1
+    [Call Me Maybe (Remix)]
+      Jump ×45   Bracket ×25   Single Notes ×24   Spin ×8   Double Step ×6   Quad ×5
+    [Dead Hollywood]
+      Jump ×42   Bracket ×16   Candle ×12   Gallop ×12   Spin ×10   Single Notes ×9
+    [Deal With It]
+      Jump ×16   Single Notes ×10   Bracket ×8   Stream ×5   Candle ×4   Gallop ×4
+    [Gangnam Style]
+      Jump ×47   Quad ×14   Hand ×14   Bracket ×11   Double Step ×6   Spin ×4
+    [Girls]
+      Jump ×31   Bracket ×11   Single Notes ×8   Spin ×5   Quad ×4   Hand ×4
+    [Goin' Under]
+      Single Notes ×16   Jump ×12   Stream ×3
+    [Goodbye (2012 Mix)]
+      Jump ×168   Hand ×65   Quad ×58   Single Notes ×30   Stream ×26   Bracket ×25
+    [Human Error]
+      Single Notes ×21   Jump ×7
+    [Inner Universe (Extended Mix)]
+      Jump ×26   Double Step ×14   Stream ×12   Bracket ×12   Quad ×7   Hand ×7
+    [Love to Rise in the Summer Morning]
+      Jump ×24   Bracket ×8   Stream ×7   Spin ×5   Double Step ×5   Candle ×5
+    [Named 'The Moon']
+      Single Notes ×27   Jump ×12   Double Step ×8   Bracket ×7   Stream ×4   Spin ×4
+    [Need Your Love -SF_Dubstep Mix-]
+      Jump ×26   Spin ×9   Double Step ×9   Candle ×6   Gallop ×6   Bracket ×5
+    [No Beginning]
+      Jump ×24   Bracket ×22   Candle ×6   Gallop ×6   Spin ×5   Single Notes ×4
+    [Pain Game]
+      Jump ×24   Quad ×6   Hand ×6   Stream ×5   Spin ×4   Footswitch ×3
+    [Stamina]
+      Single Notes ×12   Double Step ×7   Bracket ×7   Jump ×7   Stream ×6   Spin ×3
+    [Star Gear]
+      Single Notes ×18   Jump ×12   Bracket ×6   Footswitch ×1   Stream ×1
+    [The Seconds]
+      Single Notes ×20   Jump ×18   Bracket ×6   Quad ×6   Hand ×6   Candle ×2
+    [Turn Up (The Music)]
+      Jump ×42   Single Notes ×18   Bracket ×6   Stream ×5   Quad ×1   Hand ×1
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 1000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence:
+
+    Jump             ████████████████████  (20/20 charts)
+    Spin             ███████████████████  (19/20 charts)
+    Double Step      ███████████████████  (19/20 charts)
+    Stream           ██████████████████  (18/20 charts)
+    Single Notes     ███████████████  (15/20 charts)
+    Bracket          ███████████████  (15/20 charts)
+    Footswitch       ████████████  (12/20 charts)
+    Quad             █████████  (9/20 charts)
+    Hand             █████████  (9/20 charts)
+    Candle           ███████  (7/20 charts)
+    Gallop           ███████  (7/20 charts)
+    Jack             ██████  (6/20 charts)
+
+  Per-chart top patterns:
+
+    [Bad Ketchup]
+      Jump ×20   Spin ×11   Stream ×9   Double Step ×4
+    [Bitch Clap]
+      Double Step ×30   Jump ×29   Stream ×26   Spin ×21   Single Notes ×5   Jack ×4
+    [Call Me Maybe (Remix)]
+      Jump ×61   Bracket ×44   Double Step ×33   Stream ×26   Spin ×21   Quad ×9
+    [Dead Hollywood]
+      Jump ×56   Double Step ×54   Spin ×31   Candle ×30   Gallop ×30   Bracket ×24
+    [Deal With It]
+      Jump ×24   Double Step ×20   Bracket ×16   Spin ×14   Candle ×10   Gallop ×10
+    [Gangnam Style]
+      Jump ×53   Quad ×22   Hand ×22   Bracket ×17   Double Step ×15   Spin ×9
+    [Girls]
+      Jump ×35   Double Step ×11   Bracket ×11   Spin ×9   Stream ×8   Quad ×8
+    [Goin' Under]
+      Stream ×25   Jump ×22   Double Step ×19   Spin ×8   Footswitch ×5   Single Notes ×3
+    [Goodbye (2012 Mix)]
+      Jump ×185   Hand ×86   Quad ×75   Stream ×45   Bracket ×33   Double Step ×29
+    [Human Error]
+      Single Notes ×17   Jump ×14
+    [Inner Universe (Extended Mix)]
+      Jump ×32   Stream ×29   Double Step ×28   Bracket ×17   Spin ×9   Quad ×7
+    [Love to Rise in the Summer Morning]
+      Jump ×31   Stream ×16   Double Step ×13   Bracket ×11   Spin ×11   Candle ×11
+    [Named 'The Moon']
+      Stream ×26   Double Step ×22   Jump ×20   Bracket ×11   Spin ×10   Footswitch ×9
+    [Need Your Love -SF_Dubstep Mix-]
+      Jump ×33   Double Step ×20   Spin ×19   Candle ×11   Gallop ×11   Bracket ×9
+    [No Beginning]
+      Bracket ×28   Jump ×28   Spin ×15   Candle ×11   Gallop ×11   Double Step ×8
+    [Pain Game]
+      Jump ×30   Stream ×13   Quad ×12   Hand ×12   Spin ×9   Double Step ×9
+    [Stamina]
+      Double Step ×25   Stream ×21   Bracket ×11   Jump ×11   Spin ×7   Single Notes ×4
+    [Star Gear]
+      Jump ×18   Footswitch ×11   Bracket ×10   Double Step ×9   Stream ×8   Spin ×4
+    [The Seconds]
+      Jump ×31   Double Step ×21   Spin ×13   Bracket ×12   Quad ×12   Hand ×12
+    [Turn Up (The Music)]
+      Jump ×52   Double Step ×16   Stream ×13   Spin ×11   Bracket ×10   Single Notes ×3
+
+────────────────────────────────────────────────────────────────────
+  WINDOW SIZE: 2000ms
+────────────────────────────────────────────────────────────────────
+
+  Cross-chart pattern prevalence:
+
+    Jump             ████████████████████  (20/20 charts)
+    Double Step      ████████████████████  (20/20 charts)
+    Spin             ███████████████████  (19/20 charts)
+    Stream           ██████████████████  (18/20 charts)
+    Bracket          ███████████████  (15/20 charts)
+    Single Notes     █████████████  (13/20 charts)
+    Quad             █████████  (9/20 charts)
+    Hand             █████████  (9/20 charts)
+    Jack             ███████  (7/20 charts)
+    Candle           ███████  (7/20 charts)
+    Gallop           ███████  (7/20 charts)
+    Footswitch       ███████  (7/20 charts)
+
+  Per-chart top patterns:
+
+    [Bad Ketchup]
+      Jump ×28   Double Step ×23   Spin ×15   Stream ×13
+    [Bitch Clap]
+      Stream ×40   Spin ×37   Double Step ×36   Jump ×33   Jack ×5   Single Notes ×5
+    [Call Me Maybe (Remix)]
+      Jump ×76   Bracket ×67   Double Step ×48   Stream ×48   Spin ×43   Quad ×15
+    [Dead Hollywood]
+      Spin ×62   Jump ×61   Double Step ×60   Stream ×50   Candle ×42   Gallop ×42
+    [Deal With It]
+      Bracket ×29   Jump ×29   Spin ×25   Double Step ×21   Candle ×18   Gallop ×18
+    [Gangnam Style]
+      Jump ×60   Quad ×29   Hand ×29   Bracket ×25   Stream ×13   Jack ×13
+    [Girls]
+      Jump ×43   Double Step ×21   Spin ×13   Quad ×13   Hand ×13   Stream ×12
+    [Goin' Under]
+      Stream ×28   Double Step ×27   Jump ×25   Spin ×15   Single Notes ×3
+    [Goodbye (2012 Mix)]
+      Jump ×208   Hand ×128   Quad ×109   Stream ×57   Bracket ×47   Double Step ×47
+    [Human Error]
+      Jump ×22   Double Step ×15   Single Notes ×7
+    [Inner Universe (Extended Mix)]
+      Jump ×32   Stream ×29   Double Step ×28   Spin ×19   Bracket ×17   Quad ×7
+    [Love to Rise in the Summer Morning]
+      Jump ×31   Stream ×23   Double Step ×22   Candle ×22   Gallop ×22   Spin ×20
+    [Named 'The Moon']
+      Double Step ×40   Stream ×39   Jump ×36   Bracket ×19   Spin ×18   Footswitch ×8
+    [Need Your Love -SF_Dubstep Mix-]
+      Jump ×33   Spin ×23   Stream ×21   Candle ×20   Gallop ×20   Bracket ×18
+    [No Beginning]
+      Bracket ×29   Jump ×29   Spin ×28   Candle ×20   Gallop ×20   Jack ×14
+    [Pain Game]
+      Jump ×31   Stream ×23   Quad ×23   Hand ×23   Spin ×21   Double Step ×21
+    [Stamina]
+      Stream ×28   Double Step ×27   Bracket ×19   Jump ×19   Spin ×15   Single Notes ×4
+    [Star Gear]
+      Jump ×26   Bracket ×18   Stream ×16   Double Step ×13   Jack ×10   Footswitch ×9
+    [The Seconds]
+      Jump ×40   Double Step ×26   Spin ×20   Quad ×20   Hand ×20   Bracket ×18
+    [Turn Up (The Music)]
+      Jump ×61   Stream ×32   Double Step ×31   Bracket ×18   Spin ×11   Single Notes ×3
+
+====================================================================
