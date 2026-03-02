@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 """
-Beatmap Alignment Visualizer
-Creates an interactive HTML timeline showing audio onsets/beats
-and overlays the step placements from generated beatmaps.
+Beatmap Alignment Report — plain-text percentage summary.
 
 Usage:
   python3 src/analysis/visualize_alignment.py \
     --audio "path/to/song.ogg" \
-    --beatmaps "path/to/gemini.txt" "path/to/qwen.txt" "path/to/original.txt" \
-    --output "alignment_compare.html"
+    --beatmaps "path/to/gemini.csv" "path/to/qwen.csv" \
+    --output "report.txt"   # optional
 """
 
 import os
@@ -20,118 +18,94 @@ if _PROJECT_ROOT not in sys.path:
 
 import argparse
 import numpy as np
-import plotly.graph_objects as go
+import librosa
 from src.analysis.beatmap_validator import detect_onsets, detect_beats, load_beatmap_measures, get_step_times
 
-# Color palette for different beatmaps
-COLORS = ['#EF553B', '#00CC96', '#AB63FA', '#FFA15A', '#19D3F3', '#FF6692']
 
-def visualize_alignment(audio_path, beatmap_paths, output_html, bpm=120.0, offset=0.0):
-    print(f"Visualizing alignment to: {os.path.basename(audio_path)}")
-    
-    # 1. Detect Audio Features
-    print("Detecting onsets...")
+def _nearest(step_times, ref_times):
+    """Distance from each step to its nearest reference time."""
+    if len(ref_times) == 0:
+        return np.full(len(step_times), np.inf)
+    dists = []
+    for t in step_times:
+        idx = np.searchsorted(ref_times, t)
+        d = np.inf
+        if idx > 0:       d = min(d, abs(t - ref_times[idx - 1]))
+        if idx < len(ref_times): d = min(d, abs(t - ref_times[idx]))
+        dists.append(d)
+    return np.array(dists)
+
+
+def visualize_alignment(audio_path, beatmap_paths, output_path, bpm=120.0, offset=0.0, tol_ms=50.0):
+    lines = []
+
+    def p(s=""): lines.append(s); print(s)
+
+    p(f"Audio    : {os.path.basename(audio_path)}")
+    p(f"Tolerance: {tol_ms:.0f} ms")
+    p("=" * 56)
+
+    # Detect audio features once
     onset_times, sr = detect_onsets(audio_path)
-    print(f"  Found {len(onset_times)} onsets")
-    
-    print("Detecting beats...")
     beat_times, tempo = detect_beats(audio_path, start_bpm=bpm)
-    print(f"  Found {len(beat_times)} beats (estimated tempo: {tempo:.1f})")
 
-    fig = go.Figure()
+    y, _ = librosa.load(audio_path, sr=sr)
+    y_perc = librosa.effects.hpss(y)[1]
+    perc_frames = librosa.onset.onset_detect(y=y_perc, sr=sr, backtrack=True)
+    perc_times = librosa.frames_to_time(perc_frames, sr=sr)
+    duration = librosa.get_duration(y=y, sr=sr)
 
-    # 2. Add Audio Features as background lines
-    fig.add_trace(go.Scatter(
-        x=onset_times,
-        y=[-1] * len(onset_times),
-        mode='markers',
-        marker=dict(symbol='line-ns-open', size=15, color='rgba(200, 200, 200, 0.4)', line=dict(width=2)),
-        name='Audio Onsets',
-        hoverinfo='x',
-        hovertemplate="Onset: %{x:.3f}s<extra></extra>"
-    ))
-    
-    fig.add_trace(go.Scatter(
-        x=beat_times,
-        y=[-2] * len(beat_times),
-        mode='markers',
-        marker=dict(symbol='line-ns-open', size=15, color='rgba(150, 150, 255, 0.5)', line=dict(width=2)),
-        name='Audio Beats',
-        hoverinfo='x',
-        hovertemplate="Beat: %{x:.3f}s<extra></extra>"
-    ))
+    p(f"Onsets   : {len(onset_times)}")
+    p(f"Beats    : {len(beat_times)}  (tempo: {tempo:.1f} BPM)")
+    p(f"Duration : {duration:.1f}s")
+    p()
 
-    # 3. Process each Beatmap
-    for i, bp_path in enumerate(beatmap_paths):
+    tol = tol_ms / 1000.0
+
+    for bp_path in beatmap_paths:
         if not os.path.exists(bp_path):
-            print(f"⚠️ Warning: Missing beatmap {bp_path}")
+            p(f"Missing  : {bp_path}")
             continue
-            
-        name = os.path.basename(bp_path).replace('.txt', '').replace('.csv', '')
-        # Shorten giant generated names for the legend
-        if "gemini-pro" in name or "gemini-3" in name:
-            display_name = f"Gemini ({name.split('_')[-1]})"
-        elif "Qwen" in name:
-            display_name = f"Qwen ({name.split('_')[-2]})"
-        elif "original" in name.lower() or ".ssc" in bp_path.lower():
-            display_name = "Original Chart"
-        else:
-            display_name = name[:20]
 
-        print(f"Processing {display_name}...")
+        name = os.path.basename(bp_path)
+        p("-" * 56)
+        p(f"Beatmap  : {name}")
+
         measures = load_beatmap_measures(bp_path, "Hard")
-        step_times, total_n, indices, contents, partials = get_step_times(measures, bpm, offset)
-        
-        y_pos = i  # Stack them correctly
-        
-        # Add as scatter points
-        fig.add_trace(go.Scatter(
-            x=step_times,
-            y=[y_pos] * len(step_times),
-            mode='markers',
-            marker=dict(
-                symbol='circle',
-                size=10, 
-                color=COLORS[i % len(COLORS)],
-                line=dict(color='white', width=1)
-            ),
-            name=display_name,
-            text=[f"Row: {c}<br>Snap: {p}" for c, p in zip(contents, partials)],
-            hovertemplate=(
-                "<b>%{fullData.name}</b><br>"
-                "Time: %{x:.3f}s<br>"
-                "%{text}"
-                "<extra></extra>"
-            )
-        ))
+        step_times, total_arrows, _, _, _ = get_step_times(measures, bpm, offset)
 
-    # 4. Configure Layout
-    fig.update_layout(
-        title="Beatmap Sync Alignment (Zoom in to see exact ms offsets)",
-        xaxis=dict(
-            title="Time (seconds)",
-            showgrid=True,
-            gridcolor='rgba(255, 255, 255, 0.1)',
-            zeroline=False
-        ),
-        yaxis=dict(
-            title="Beatmap",
-            tickvals=list(range(-2, len(beatmap_paths))),
-            ticktext=['Audio Beats', 'Audio Onsets'] + [os.path.basename(p)[:15] for p in beatmap_paths],
-            showgrid=False,
-            zeroline=False
-        ),
-        plot_bgcolor='#1E1E1E',
-        paper_bgcolor='#1E1E1E',
-        font=dict(color='white'),
-        hovermode="x unified",
-        height=400 + (len(beatmap_paths) * 100),
-        margin=dict(l=10, r=10, t=50, b=10)
-    )
+        if len(step_times) == 0:
+            p("  (no steps found)")
+            p()
+            continue
 
-    # Save
-    fig.write_html(output_html)
-    print(f"\n✅ Visualization built! Open {output_html} in your browser.")
+        valid = step_times[step_times <= duration]
+        oob   = len(step_times) - len(valid)
+
+        d_onset = _nearest(valid, onset_times)
+        d_beat  = _nearest(valid, beat_times)
+        d_perc  = _nearest(valid, perc_times)
+
+        n = len(valid)
+        on_onset = int((d_onset <= tol).sum())
+        on_beat  = int((d_beat  <= tol).sum())
+        on_perc  = int((d_perc  <= tol).sum())
+
+        p(f"  Steps (valid)    : {n}  |  arrows: {total_arrows}" + (f"  |  out-of-bounds: {oob}" if oob else ""))
+        p(f"  Onset alignment  : {on_onset}/{n}  →  {on_onset/n*100:.1f}%")
+        p(f"  Beat  alignment  : {on_beat}/{n}  →  {on_beat/n*100:.1f}%")
+        p(f"  Perc. alignment  : {on_perc}/{n}  →  {on_perc/n*100:.1f}%")
+        p(f"  Mean dist onset  : {np.mean(d_onset)*1000:.1f} ms")
+        p(f"  Mean dist beat   : {np.mean(d_beat)*1000:.1f} ms")
+        p()
+
+    p("=" * 56)
+
+    if output_path:
+        out = os.path.splitext(output_path)[0] + ".txt"
+        with open(out, "w") as f:
+            f.write("\n".join(lines))
+        print(f"Saved to: {out}")
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Visualize AI Beatmap Alignment")
