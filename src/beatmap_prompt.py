@@ -55,13 +55,21 @@ BEATMAP_SYSTEM_INSTRUCTION = (
 )
 
 # ── Per-song dynamic part (same text for both models) ─────────────────────────
-def build_per_song_prompt(difficulty: str, duration: float) -> str:
+def build_per_song_prompt(difficulty: str, duration: float, bpm: float = None) -> str:
     """Returns the short per-song instruction appended after the system instruction."""
-    return (
+    prompt = (
         f"Difficulty: {difficulty}\n"
-        f"The audio is {duration:.1f} seconds long. "
-        f"Generate a {difficulty} difficulty StepMania beatmap for the ENTIRE duration."
+        f"The audio is {duration:.1f} seconds long.\n"
     )
+    if bpm and bpm > 0:
+        measure_duration = 240.0 / bpm
+        prompt += (
+            f"The underlying BPM of the song is roughly {bpm:.1f}. "
+            f"Therefore, a single measure (4 beats) lasts exactly {measure_duration:.3f} seconds.\n"
+            f"Please ensure your comma ',' separators appear roughly every {measure_duration:.3f} seconds.\n"
+        )
+    prompt += f"Generate a {difficulty} difficulty StepMania beatmap for the ENTIRE duration."
+    return prompt
 
 # ── Qwen addendum: since Qwen has no response_schema, guide its output format ─
 QWEN_OUTPUT_ADDENDUM = (
@@ -78,10 +86,10 @@ QWEN_OUTPUT_ADDENDUM = (
     "Start immediately with the first CSV row, nothing else before it:\n"
 )
 
-def build_qwen_prompt(difficulty: str, duration: float) -> str:
+def build_qwen_prompt(difficulty: str, duration: float, bpm: float = None) -> str:
     """Full prompt for Qwen: same system instruction as Gemini + CSV output guide."""
     return (
         BEATMAP_SYSTEM_INSTRUCTION
-        + build_per_song_prompt(difficulty, duration)
+        + build_per_song_prompt(difficulty, duration, bpm)
         + QWEN_OUTPUT_ADDENDUM
     )

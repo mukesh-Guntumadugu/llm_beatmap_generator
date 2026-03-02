@@ -1,0 +1,16 @@
+Audio    : Bad Ketchup.ogg
+Tolerance: 50 ms
+========================================================
+Onsets   : 559
+Beats    : 270  (tempo: 120.2 BPM)
+Duration : 142.4s
+
+--------------------------------------------------------
+Beatmap  : Bad Ketchup_Medium_gemini-pro-latest_task0003_20260224_034040.csv
+  (no steps found)
+
+--------------------------------------------------------
+Beatmap  : Bad Ketchup_Medium_Qwen2-Audio-7B_task0008_20260301_115326.csv
+  (no steps found)
+
+========================================================

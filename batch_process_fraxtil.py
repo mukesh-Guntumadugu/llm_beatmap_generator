@@ -53,6 +53,22 @@ def get_target_files(base_dir):
     return audio_files
 
 
+def parse_sm_metadata(sm_file: str) -> float:
+    """Parses the reference .sm or .ssc file to get the base BPM."""
+    try:
+        with open(sm_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                if line.strip().startswith("#BPMS:"):
+                    # Format: #BPMS:0.000=150.000;
+                    val = line.split(":")[1].split(";")[0].strip()
+                    first_bpm = val.split(",")[0]
+                    bpm_val = first_bpm.split("=")[1]
+                    return float(bpm_val)
+    except Exception:
+        pass
+    return None
+
+
 def process_song(audio_path, task_id: int, cached_content_name=None):
     print(f"Processing: {os.path.basename(audio_path)}")
 
@@ -71,7 +87,19 @@ def process_song(audio_path, task_id: int, cached_content_name=None):
 
     try:
         duration = librosa.get_duration(path=audio_path)
-        print(f"  Duration: {duration:.1f}s")
+        
+        # Try to find the corresponding .sm or .ssc file for the BPM
+        bpm = None
+        for ext in [".ssc", ".sm"]:
+            sm_file = os.path.join(dirname, name_no_ext + ext)
+            if os.path.exists(sm_file):
+                bpm = parse_sm_metadata(sm_file)
+                break
+
+        if bpm:
+            print(f"  Duration: {duration:.1f}s  |  BPM: {bpm:.1f}")
+        else:
+            print(f"  Duration: {duration:.1f}s")
 
         cache_status = "cached prompt" if cached_content_name else "full prompt"
         print(f"  Sending to Gemini ({DIFFICULTY}, {MODEL_NAME}, {cache_status})...")
@@ -81,7 +109,8 @@ def process_song(audio_path, task_id: int, cached_content_name=None):
             difficulty=DIFFICULTY,
             model_name=MODEL_NAME,
             chunk_duration=CHUNK_DURATION,
-            cached_content_name=cached_content_name
+            cached_content_name=cached_content_name,
+            bpm=bpm
         )
 
         if not rows:

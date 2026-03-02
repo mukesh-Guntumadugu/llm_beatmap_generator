@@ -214,7 +214,7 @@ def create_beatmap_prompt_cache(difficulty: str = "Hard", model_name: str = "gem
         cached = _client.caches.create(
             model=model_name,
             config={
-                "system_instruction": _BEATMAP_SYSTEM_INSTRUCTION + f"\nDifficulty: {difficulty}",
+                "system_instruction": _BEATMAP_SYSTEM_INSTRUCTION,
                 "ttl": f"{ttl_seconds}s",
             }
         )
@@ -229,7 +229,8 @@ def generate_beatmap_csv(
     duration: float,
     difficulty: str = "Hard",  #
     model_name: str = "gemini-2.0-flash-001",
-    cached_content_name: str | None = None
+    cached_content_name: str | None = None,
+    bpm: float = None
 ) -> list[BeatCSV]:
     """
     Uploads audio to Gemini and returns structured CSV beatmap rows.
@@ -247,11 +248,8 @@ def generate_beatmap_csv(
         else:
             raise ValueError("Gemini client not initialized. Call setup_gemini first.")
 
-    # Per-song dynamic part (short — audio duration changes per song)
-    per_song_prompt = (
-        f"The audio is {duration:.1f} seconds long. "
-        f"Generate a {difficulty} difficulty StepMania beatmap for the ENTIRE duration."
-    )
+    from src.beatmap_prompt import build_per_song_prompt
+    per_song_prompt = build_per_song_prompt(difficulty, duration, bpm)
 
     try:
         # Upload audio
@@ -346,7 +344,8 @@ def generate_beatmap_csv_chunked(
     difficulty: str = "Hard",
     model_name: str = "gemini-2.0-flash-001",
     chunk_duration: float = 30.0,
-    cached_content_name: str | None = None
+    cached_content_name: str | None = None,
+    bpm: float = None
 ) -> list[BeatCSV]:
     """
     Splits the audio into chunks and generates BeatCSV rows for each chunk
@@ -383,6 +382,7 @@ def generate_beatmap_csv_chunked(
                 difficulty=difficulty,
                 model_name=model_name,
                 cached_content_name=cached_content_name,
+                bpm=bpm
             )
 
             if chunk_rows:
