@@ -4,15 +4,15 @@
 #SBATCH --gres=gpu:A6000:1          # 1x A6000 GPU (48GB VRAM — fits Mistral-7B fp16 ~14GB)
 #SBATCH --cpus-per-task=8
 #SBATCH --time=12:00:00             # 12 hours max
-#SBATCH --output=/data/mg546924/logs/mistral_beatmap_%j.out
-#SBATCH --error=/data/mg546924/logs/mistral_beatmap_%j.err
+#SBATCH --output=logs/mistral_beatmap_%j.out
+#SBATCH --error=logs/mistral_beatmap_%j.err
 
 # ── Setup ─────────────────────────────────────────────────────────────────────
 echo "Job started: $(date)"
 echo "Node: $(hostname)"
 echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 
-mkdir -p /data/mg546924/logs
+mkdir -p logs
 
 # Activate Python venv — falls back to --user install if venv not found
 VENV_PATH="/data/mg546924/envs/mistral_env"
@@ -29,6 +29,7 @@ else
 fi
 
 cd /data/mg546924/llm_beatmap_generator
+export PYTHONPATH="/data/mg546924/llm_beatmap_generator:$PYTHONPATH"
 
 MODEL_DIR="/data/mg546924/models/Mistral-7B-Instruct-v0.3"
 SERVER_PORT=8001
