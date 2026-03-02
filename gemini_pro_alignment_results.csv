@@ -1,0 +1,101 @@
+Song Index,Song Name,Difficulty,Onset_Alignment_Pct,Beat_Alignment_Pct,File_Used
+1,Bad Ketchup,Beginner,39.9%,100.0%,Bad Ketchup_Beginner_gemini-pro-latest_task0001_20260224_014019.csv
+1,Bad Ketchup,Easy,-,-,No file found
+1,Bad Ketchup,Medium,37.8%,100.0%,Bad Ketchup_Medium_gemini-pro-latest_task0003_20260224_034040.csv
+1,Bad Ketchup,Hard,40.7%,100.0%,Bad Ketchup_Hard_gemini-pro-latest_20260219_060905.csv
+1,Bad Ketchup,Challenge,-,-,No file found
+2,Bitch Clap,Beginner,54.0%,100.0%,Bitch Clap_Beginner_gemini-pro-latest_task0001_20260224_020718.csv
+2,Bitch Clap,Easy,-,-,No file found
+2,Bitch Clap,Medium,54.8%,100.0%,Bitch Clap_Medium_gemini-pro-latest_task0003_20260224_040946.csv
+2,Bitch Clap,Hard,55.7%,100.0%,Bitch Clap_Hard_gemini-pro-latest_20260219_065826.csv
+2,Bitch Clap,Challenge,-,-,No file found
+3,Call Me Maybe (Remix),Beginner,-,-,No file found
+3,Call Me Maybe (Remix),Easy,-,-,No file found
+3,Call Me Maybe (Remix),Medium,38.7%,90.0%,Call Me Maybe (Remix)_Medium_gemini-pro-latest_task0003_20260224_043625.csv
+3,Call Me Maybe (Remix),Hard,40.9%,87.3%,Call Me Maybe (Remix)_Hard_gemini-pro-latest_20260219_134240.csv
+3,Call Me Maybe (Remix),Challenge,-,-,No file found
+4,Dead Hollywood,Beginner,19.3%,100.0%,Dead Hollywood_Beginner_gemini-pro-latest_task0001_20260224_023743.csv
+4,Dead Hollywood,Easy,-,-,No file found
+4,Dead Hollywood,Medium,20.5%,100.0%,Dead Hollywood_Medium_gemini-pro-latest_task0003_20260224_044132.csv
+4,Dead Hollywood,Hard,24.1%,100.0%,Dead Hollywood_Hard_gemini-pro-latest_20260219_135027.csv
+4,Dead Hollywood,Challenge,-,-,No file found
+5,Deal With It,Beginner,35.6%,90.1%,Deal With It_Beginner_gemini-pro-latest_task0001_20260224_025011.csv
+5,Deal With It,Easy,-,-,No file found
+5,Deal With It,Medium,35.3%,88.1%,Deal With It_Medium_gemini-pro-latest_task0003_20260224_050040.csv
+5,Deal With It,Hard,34.2%,99.8%,Deal With It_Hard_gemini-pro-latest_20260219_140855.csv
+5,Deal With It,Challenge,-,-,No file found
+6,Gangnam Style,Beginner,65.7%,100.0%,Gangnam Style_Beginner_gemini-pro-latest_task0001_20260224_014640.csv
+6,Gangnam Style,Easy,-,-,No file found
+6,Gangnam Style,Medium,67.5%,100.0%,Gangnam Style_Medium_gemini-pro-latest_task0003_20260224_035037.csv
+6,Gangnam Style,Hard,38.0%,98.7%,Gangnam Style_Hard_gemini-pro-latest_20260219_062618.csv
+6,Gangnam Style,Challenge,-,-,No file found
+7,Girls,Beginner,47.5%,82.7%,Girls_Beginner_gemini-pro-latest_task0001_20260224_013337.csv
+7,Girls,Easy,-,-,No file found
+7,Girls,Medium,48.6%,83.5%,Girls_Medium_gemini-pro-latest_task0003_20260224_033308.csv
+7,Girls,Hard,46.3%,83.7%,Girls_Hard_gemini-pro-latest_20260219_054654.csv
+7,Girls,Challenge,-,-,No file found
+8,Goin' Under,Beginner,-,-,No file found
+8,Goin' Under,Easy,-,-,No file found
+8,Goin' Under,Medium,58.6%,100.0%,Goin' Under_Medium_gemini-pro-latest_task0003_20260224_040452.csv
+8,Goin' Under,Hard,58.6%,100.0%,Goin' Under_Hard_gemini-pro-latest_20260219_065331.csv
+8,Goin' Under,Challenge,-,-,No file found
+9,Goodbye (2012 Mix),Beginner,45.8%,100.0%,Goodbye (2012 Mix)_Beginner_gemini-pro-latest_task0001_20260224_013645.csv
+9,Goodbye (2012 Mix),Easy,-,-,No file found
+9,Goodbye (2012 Mix),Medium,41.7%,100.0%,Goodbye (2012 Mix)_Medium_gemini-pro-latest_task0003_20260224_033443.csv
+9,Goodbye (2012 Mix),Hard,44.7%,100.0%,Goodbye (2012 Mix)_Hard_gemini-pro-latest_20260219_055614.csv
+9,Goodbye (2012 Mix),Challenge,-,-,No file found
+10,Human Error,Beginner,61.0%,100.0%,Human Error_Beginner_gemini-pro-latest_task0001_20260224_024710.csv
+10,Human Error,Easy,-,-,No file found
+10,Human Error,Medium,63.6%,100.0%,Human Error_Medium_gemini-pro-latest_task0003_20260224_045457.csv
+10,Human Error,Hard,72.3%,100.0%,Human Error_Hard_gemini-pro-latest_20260219_140317.csv
+10,Human Error,Challenge,-,-,No file found
+11,Inner Universe (Extended Mix),Beginner,35.8%,100.0%,Inner Universe (Extended Mix)_Beginner_gemini-pro-latest_task0001_20260224_022032.csv
+11,Inner Universe (Extended Mix),Easy,-,-,No file found
+11,Inner Universe (Extended Mix),Medium,34.2%,100.0%,Inner Universe (Extended Mix)_Medium_gemini-pro-latest_task0003_20260224_042506.csv
+11,Inner Universe (Extended Mix),Hard,37.2%,100.0%,Inner Universe (Extended Mix)_Hard_gemini-pro-latest_20260219_133049.csv
+11,Inner Universe (Extended Mix),Challenge,-,-,No file found
+12,Love to Rise in the Summer Morning,Beginner,45.5%,95.1%,Love to Rise in the Summer Morning_Beginner_gemini-pro-latest_task0001_20260224_013049.csv
+12,Love to Rise in the Summer Morning,Easy,-,-,No file found
+12,Love to Rise in the Summer Morning,Medium,43.2%,90.6%,Love to Rise in the Summer Morning_Medium_gemini-pro-latest_task0003_20260224_032842.csv
+12,Love to Rise in the Summer Morning,Hard,44.0%,95.5%,Love to Rise in the Summer Morning_Hard_gemini-pro-latest_20260219_053846.csv
+12,Love to Rise in the Summer Morning,Challenge,-,-,No file found
+13,Named 'The Moon',Beginner,61.6%,79.9%,Named 'The Moon'_Beginner_gemini-pro-latest_task0001_20260224_014324.csv
+13,Named 'The Moon',Easy,-,-,No file found
+13,Named 'The Moon',Medium,94.3%,100.0%,Named 'The Moon'_Medium_gemini-pro-latest_task0003_20260224_034429.csv
+13,Named 'The Moon',Hard,57.9%,84.5%,Named 'The Moon'_Hard_gemini-pro-latest_20260219_061827.csv
+13,Named 'The Moon',Challenge,-,-,No file found
+14,Need Your Love -SF_Dubstep Mix-,Beginner,59.3%,97.9%,Need Your Love -SF_Dubstep Mix-_Beginner_gemini-pro-latest_task0001_20260224_015043.csv
+14,Need Your Love -SF_Dubstep Mix-,Easy,-,-,No file found
+14,Need Your Love -SF_Dubstep Mix-,Medium,61.3%,89.6%,Need Your Love -SF_Dubstep Mix-_Medium_gemini-pro-latest_task0003_20260224_035437.csv
+14,Need Your Love -SF_Dubstep Mix-,Hard,56.7%,98.2%,Need Your Love -SF_Dubstep Mix-_Hard_gemini-pro-latest_20260219_054008.csv
+14,Need Your Love -SF_Dubstep Mix-,Challenge,-,-,No file found
+15,No Beginning,Beginner,57.4%,100.0%,No Beginning_Beginner_gemini-pro-latest_task0001_20260224_025338.csv
+15,No Beginning,Easy,-,-,No file found
+15,No Beginning,Medium,-,-,No file found
+15,No Beginning,Hard,53.3%,100.0%,No Beginning_Hard_gemini-pro-latest_20260219_141757.csv
+15,No Beginning,Challenge,-,-,No file found
+16,Pain Game,Beginner,30.9%,79.6%,Pain Game_Beginner_gemini-pro-latest_task0001_20260224_021426.csv
+16,Pain Game,Easy,-,-,No file found
+16,Pain Game,Medium,30.5%,94.4%,Pain Game_Medium_gemini-pro-latest_task0003_20260224_041858.csv
+16,Pain Game,Hard,30.7%,80.2%,Pain Game_Hard_gemini-pro-latest_20260219_132328.csv
+16,Pain Game,Challenge,-,-,No file found
+17,Stamina,Beginner,58.6%,60.8%,Stamina_Beginner_gemini-pro-latest_task0001_20260224_021026.csv
+17,Stamina,Easy,-,-,No file found
+17,Stamina,Medium,52.4%,72.0%,Stamina_Medium_gemini-pro-latest_task0003_20260224_041427.csv
+17,Stamina,Hard,54.4%,64.5%,Stamina_Hard_gemini-pro-latest_20260219_070326.csv
+17,Stamina,Challenge,-,-,No file found
+18,Star Gear,Beginner,34.4%,86.9%,Star Gear_Beginner_gemini-pro-latest_task0001_20260224_024139.csv
+18,Star Gear,Easy,-,-,No file found
+18,Star Gear,Medium,35.2%,81.7%,Star Gear_Medium_gemini-pro-latest_task0003_20260224_044637.csv
+18,Star Gear,Hard,32.8%,84.2%,Star Gear_Hard_gemini-pro-latest_20260219_135945.csv
+18,Star Gear,Challenge,-,-,No file found
+19,The Seconds,Beginner,37.6%,100.0%,The Seconds_Beginner_gemini-pro-latest_task0001_20260224_022405.csv
+19,The Seconds,Easy,-,-,No file found
+19,The Seconds,Medium,36.9%,100.0%,The Seconds_Medium_gemini-pro-latest_task0003_20260224_042935.csv
+19,The Seconds,Hard,33.0%,85.1%,The Seconds_Hard_gemini-pro-latest_20260219_133632.csv
+19,The Seconds,Challenge,-,-,No file found
+20,Turn Up (The Music),Beginner,60.3%,100.0%,Turn Up (The Music)_Beginner_gemini-pro-latest_task0001_20260224_015459.csv
+20,Turn Up (The Music),Easy,-,-,No file found
+20,Turn Up (The Music),Medium,56.8%,100.0%,Turn Up (The Music)_Medium_gemini-pro-latest_task0003_20260224_040031.csv
+20,Turn Up (The Music),Hard,62.0%,100.0%,Turn Up (The Music)_Hard_gemini-pro-latest_20260219_064424.csv
+20,Turn Up (The Music),Challenge,-,-,No file found
