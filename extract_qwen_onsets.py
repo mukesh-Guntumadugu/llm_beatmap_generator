@@ -32,23 +32,20 @@ BASE_DIR = os.path.join(
 
 def build_onset_prompt(duration_sec: float) -> str:
     """
-    Returns a concise prompt that asks Qwen to list onset times in milliseconds.
-    Instructs it to output ONLY numbers — one per line — so parsing is reliable.
+    Returns a prompt that asks Qwen to list onset times in milliseconds.
+    Designed to be resilient: accepts both bare numbers and JSON.
+    Qwen tends to wrap output in JSON / markdown — the parser handles both.
     """
     return (
         f"The audio is {duration_sec:.1f} seconds long.\n\n"
-        "Your task: listen to the audio and identify every significant musical onset "
-        "(transients, drum hits, melodic note starts, rhythmic events).\n\n"
-        "Output ONLY a list of onset times in milliseconds (ms), one value per line. "
-        "Do NOT include any text, explanations, headers, or units — just plain numbers.\n\n"
-        "Example output:\n"
-        "120\n"
-        "480\n"
-        "960\n"
-        "1440\n"
-        "...\n\n"
-        "Now generate the complete list for the entire song from start to finish. "
-        "DO NOT STOP EARLY."
+        "Listen to the audio carefully. Identify every significant musical onset: "
+        "drum hits, note attacks, rhythmic events, transients.\n\n"
+        "Output format: a JSON array of onset times in milliseconds (integers or floats). "
+        "Each entry is just a number. Cover the full duration from start to finish.\n\n"
+        "Example output (use this exact format):\n"
+        "[0, 125, 250, 500, 750, 1000, 1250, ...]\n\n"
+        "Output ONLY the JSON array. No explanation, no text, no headers. "
+        "DO NOT STOP EARLY — include onsets for the entire song."
     )
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -63,22 +60,68 @@ def find_audio_file(song_dir: str) -> Optional[str]:
 
 def parse_onsets_from_response(response_text: str) -> List[float]:
     """
-    Extract numeric values from the model's response.
-    Accepts integers or floats, ignoring any surrounding text.
+    Extract onset times in milliseconds from Qwen's response.
+
+    Handles three output formats (tried in order):
+      1. JSON objects with a 'time_ms' key  (e.g. {"time_ms": 500.0, ...})
+      2. A bare/JSON array of numbers       (e.g. [0, 125, 250, 500])
+      3. Numbers scattered in plain text    (fallback regex scan)
+
+    Values outside [0, 600_000] ms (0 – 10 min) are discarded as noise.
     """
-    # Match any standalone number (int or float), possibly with comma/dot as decimal
-    numbers = re.findall(r"\b(\d+(?:[.,]\d+)?)\b", response_text)
-    onsets = []
+    import json
+
+    text = response_text.strip()
+    # Strip markdown code fences (```json ... ``` etc.)
+    text_clean = re.sub(r"```[\w]*\n?", "", text).strip()
+
+    onsets: List[float] = []
+
+    # ── Strategy 1: JSON objects with time_ms key ─────────────────────────────
+    try:
+        json_objects = re.findall(r'\{[^{}]+\}', text_clean)
+        for obj_str in json_objects:
+            try:
+                obj = json.loads(obj_str)
+                if 'time_ms' in obj:
+                    ms = float(obj['time_ms'])
+                    if 0.0 <= ms <= 600_000:
+                        onsets.append(round(ms, 2))
+            except (json.JSONDecodeError, ValueError, TypeError):
+                pass
+        if onsets:
+            return sorted(set(onsets))
+    except Exception:
+        pass
+
+    # ── Strategy 2: JSON / bare array of numbers ──────────────────────────────
+    try:
+        match = re.search(r'\[([\d.,\s]+)\]', text_clean)
+        if match:
+            arr_str = '[' + match.group(1) + ']'
+            arr = json.loads(arr_str)
+            for val in arr:
+                ms = float(val)
+                if 0.0 <= ms <= 600_000:
+                    onsets.append(round(ms, 2))
+            if onsets:
+                return sorted(set(onsets))
+    except Exception:
+        pass
+
+    # ── Strategy 3: Regex scan for bare numbers (fallback) ────────────────────
+    numbers = re.findall(r'\b(\d+(?:[.,]\d+)?)\b', text_clean)
     for n in numbers:
-        n = n.replace(",", ".")  # normalise European decimal separator
+        n = n.replace(',', '.')
         try:
             ms = float(n)
-            # Sanity check: ignore values that seem like year numbers, etc.
-            if 0.0 <= ms <= 600_000:   # ≤ 10 minutes in ms
+            if 0.0 <= ms <= 600_000:
                 onsets.append(round(ms, 2))
         except ValueError:
             pass
-    return sorted(set(onsets))   # deduplicate and sort
+
+    return sorted(set(onsets))
+
 
 
 def save_onsets_csv(onset_ms: List[float], song_name: str, out_dir: str) -> str:
