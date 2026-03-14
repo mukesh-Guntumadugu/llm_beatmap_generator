@@ -10,9 +10,8 @@ import librosa
 
 from src.gemini import setup_gemini, generate_beatmap_csv_chunked, create_beatmap_prompt_cache
 
-DIFFICULTY    = "Hard"
-MODEL_NAME    =  "gemini-3-flash-preview"
-CHUNK_DURATION = 30.0  # seconds per chunk — keeps output tokens well within limits
+MODEL_NAME    = "gemini-3-flash-preview"
+CHUNK_DURATION = 30.0  # seconds per chunk — Flash has smaller context, so we chunk and combine
 
 # ── Task ID registry ──────────────────────────────────────────────────────────
 _REGISTRY_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".task_registry.json")
@@ -30,13 +29,13 @@ def save_registry(registry: dict):
     with open(_REGISTRY_FILE, "w") as f:
         json.dump(registry, f, indent=2)
 
-def create_new_task(registry: dict) -> int:
+def create_new_task(registry: dict, difficulty: str) -> int:
     """Increments the task counter and registers a new task. Returns the new task ID."""
     new_id = registry["last_task_id"] + 1
     registry["last_task_id"] = new_id
     registry["tasks"][str(new_id)] = {
         "created": datetime.datetime.now().isoformat(),
-        "difficulty": DIFFICULTY,
+        "difficulty": difficulty,
         "model": MODEL_NAME,
     }
     save_registry(registry)
@@ -69,7 +68,7 @@ def parse_sm_metadata(sm_file: str) -> float:
     return None
 
 
-def process_song(audio_path, task_id: int, cached_content_name=None):
+def process_song(audio_path, task_id: int, difficulty: str, cached_content_name=None):
     print(f"Processing: {os.path.basename(audio_path)}")
 
     dirname = os.path.dirname(audio_path)
@@ -79,7 +78,7 @@ def process_song(audio_path, task_id: int, cached_content_name=None):
     # Skip if this song was already done under the same task ID
     existing = [
         f for f in os.listdir(dirname)
-        if f.startswith(f"{name_no_ext}_{DIFFICULTY}_{task_tag}_") and f.endswith(".txt")
+        if f.startswith(f"{name_no_ext}_{difficulty}_{task_tag}_") and f.endswith(".txt")
     ]
     if existing:
         print(f"  Skipping — already generated (task {task_id}): {existing[0]}")
@@ -102,11 +101,11 @@ def process_song(audio_path, task_id: int, cached_content_name=None):
             print(f"  Duration: {duration:.1f}s")
 
         cache_status = "cached prompt" if cached_content_name else "full prompt"
-        print(f"  Sending to Gemini ({DIFFICULTY}, {MODEL_NAME}, {cache_status})...")
+        print(f"  Sending chunked to Gemini ({difficulty}, {MODEL_NAME}, {cache_status})...")
         rows = generate_beatmap_csv_chunked(
             audio_path=audio_path,
             duration=duration,
-            difficulty=DIFFICULTY,
+            difficulty=difficulty,
             model_name=MODEL_NAME,
             chunk_duration=CHUNK_DURATION,
             cached_content_name=cached_content_name,
@@ -119,7 +118,7 @@ def process_song(audio_path, task_id: int, cached_content_name=None):
 
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         # Filename format: SongName_Beginner_task0003_20260224_012345
-        base = f"{name_no_ext}_{DIFFICULTY}_{MODEL_NAME}_{task_tag}_{timestamp}"
+        base = f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_{timestamp}"
 
         # ── File 1: plain beatmap .txt ─────────────────────────────────────
         beatmap_path = os.path.join(dirname, f"{base}.txt")
@@ -168,7 +167,9 @@ def main():
     parser = __import__('argparse').ArgumentParser()
     parser.add_argument("task_id", nargs="?", type=int)
     parser.add_argument("--song", default=None, help="Test with one song (partial name, e.g. 'Bad Ketchup')")
+    parser.add_argument("--difficulty", default="Hard", choices=["Beginner", "Easy", "Medium", "Hard", "Challenge"], help="Difficulty level to generate")
     args = parser.parse_args()
+    difficulty = args.difficulty
 
     if args.task_id:
         task_id = args.task_id
@@ -177,15 +178,15 @@ def main():
             return
         print(f"▶  Resuming Task ID: {task_id:04d}  (skipping already-processed songs)")
     else:
-        task_id = create_new_task(registry)
+        task_id = create_new_task(registry, difficulty)
         print(f"▶  New Task ID: {task_id:04d}  (saved to .task_registry.json)")
 
-    print(f"   Difficulty : {DIFFICULTY}")
+    print(f"   Difficulty : {difficulty}")
     print(f"   Model      : {MODEL_NAME}\n")
 
     # ── Create prompt cache ONCE for the entire batch run ─────────────────
     cache_name = create_beatmap_prompt_cache(
-        difficulty=DIFFICULTY,
+        difficulty=difficulty,
         model_name=MODEL_NAME,
         ttl_seconds=3600
     )
@@ -211,7 +212,7 @@ def main():
 
     for i, audio_file in enumerate(target_files):
         print(f"[{i+1}/{len(target_files)}] ", end="")
-        process_song(audio_file, task_id=task_id, cached_content_name=cache_name)
+        process_song(audio_file, task_id=task_id, difficulty=difficulty, cached_content_name=cache_name)
         time.sleep(2)  # Rate limiting pause
 
 if __name__ == "__main__":

@@ -15,6 +15,16 @@ print("Listing supported models...")
 try:
     models = client.models.list()
     for m in models:
-        print(f"Name: {m.name}")
+        pass
+        # print(f"Name: {m.name}") # Commenting to reduce noise
+    print("✅ Gemini API connected successfully")
 except Exception as e:
-    print(f"Error listing models: {e}")
+    print(f"❌ Error listing Gemini models: {e}")
+
+print("\nChecking Qwen local setup...")
+try:
+    from src.qwen_interface import DEFAULT_MODEL_ID
+    print(f"✅ Qwen interface is available. Default model: {DEFAULT_MODEL_ID}")
+    print("   (Run `setup_qwen()` in qwen_interface to fully load the transformers model into VRAM)")
+except ImportError:
+    print("❌ Error: qwen_interface could not be imported")

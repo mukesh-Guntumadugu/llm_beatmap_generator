@@ -19,6 +19,11 @@ from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_excep
 __version__ = "0.2.2"
 __author__ = "Mukesh Guntumadugu"
 
+import sys
+import os
+# Add project root to path so we can run this script directly and still resolve `src.*` imports
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from src.beatmap_prompt import BEATMAP_SYSTEM_INSTRUCTION as _BEATMAP_SYSTEM_INSTRUCTION
 
 _client: genai.Client | None = None
@@ -228,7 +233,7 @@ def generate_beatmap_csv(
     audio_path: str,
     duration: float,
     difficulty: str = "Hard",  #
-    model_name: str = "gemini-2.0-flash-001",
+    model_name: str = "gemini-3-flash-preview",
     cached_content_name: str | None = None,
     bpm: float = None
 ) -> list[BeatCSV]:
@@ -342,7 +347,7 @@ def generate_beatmap_csv_chunked(
     audio_path: str,
     duration: float,
     difficulty: str = "Hard",
-    model_name: str = "gemini-2.0-flash-001",
+    model_name: str = "gemini-3-flash-preview",
     chunk_duration: float = 30.0,
     cached_content_name: str | None = None,
     bpm: float = None
