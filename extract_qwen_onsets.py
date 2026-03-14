@@ -15,6 +15,7 @@ import sys
 import time
 import datetime
 import librosa
+from typing import Optional, List
 
 # Ensure project root is on the path so `src` imports work
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -52,7 +53,7 @@ def build_onset_prompt(duration_sec: float) -> str:
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
-def find_audio_file(song_dir: str) -> str | None:
+def find_audio_file(song_dir: str) -> Optional[str]:
     """Return the first .ogg/.mp3/.wav found in a song directory."""
     for f in os.listdir(song_dir):
         if f.lower().endswith((".ogg", ".mp3", ".wav")):
@@ -60,7 +61,7 @@ def find_audio_file(song_dir: str) -> str | None:
     return None
 
 
-def parse_onsets_from_response(response_text: str) -> list[float]:
+def parse_onsets_from_response(response_text: str) -> List[float]:
     """
     Extract numeric values from the model's response.
     Accepts integers or floats, ignoring any surrounding text.
@@ -80,7 +81,7 @@ def parse_onsets_from_response(response_text: str) -> list[float]:
     return sorted(set(onsets))   # deduplicate and sort
 
 
-def save_onsets_csv(onset_ms: list[float], song_name: str, out_dir: str) -> str:
+def save_onsets_csv(onset_ms: List[float], song_name: str, out_dir: str) -> str:
     """Save onsets to a CSV file and return the file path."""
     timestamp = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
     safe_name = song_name.replace(" ", "_").replace("/", "-")

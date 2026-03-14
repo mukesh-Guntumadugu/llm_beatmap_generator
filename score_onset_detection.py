@@ -28,6 +28,7 @@ import glob
 import argparse
 import datetime
 import numpy as np
+from typing import Optional, List
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
@@ -53,7 +54,7 @@ def load_onsets_csv(csv_path: str) -> np.ndarray:
     return np.array(sorted(onsets))
 
 
-def find_latest_file(directory: str, pattern: str) -> str | None:
+def find_latest_file(directory: str, pattern: str) -> Optional[str]:
     """Return the most recently created file matching a glob pattern."""
     matches = glob.glob(os.path.join(directory, pattern))
     if not matches:

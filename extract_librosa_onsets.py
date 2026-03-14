@@ -13,6 +13,7 @@ import csv
 import datetime
 import librosa
 import numpy as np
+from typing import Optional, List
 
 # ── Configuration ────────────────────────────────────────────────────────────
 
@@ -23,7 +24,7 @@ BASE_DIR = os.path.join(
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
-def find_audio_file(song_dir: str) -> str | None:
+def find_audio_file(song_dir: str) -> Optional[str]:
     """Return the first .ogg/.mp3/.wav found in a song directory."""
     for f in os.listdir(song_dir):
         if f.lower().endswith((".ogg", ".mp3", ".wav")):
@@ -31,7 +32,7 @@ def find_audio_file(song_dir: str) -> str | None:
     return None
 
 
-def detect_onsets_ms(audio_path: str) -> list[float]:
+def detect_onsets_ms(audio_path: str) -> List[float]:
     """
     Load an audio file and return onset times in milliseconds.
     Uses librosa's onset_detect with backtracking for precision.
@@ -49,7 +50,7 @@ def detect_onsets_ms(audio_path: str) -> list[float]:
     return onset_ms
 
 
-def save_onsets_csv(onset_ms: list[float], song_name: str, out_dir: str) -> str:
+def save_onsets_csv(onset_ms: List[float], song_name: str, out_dir: str) -> str:
     """Save onsets to a CSV file and return the file path."""
     timestamp = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
     # Sanitise song name for filesystem
