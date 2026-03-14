@@ -6,7 +6,7 @@ load_dotenv()
 
 api_key = os.environ.get("GOOGLE_API_KEY")
 if not api_key:
-    print("GOOGLE_API_KEY not set")
+    print("GOOGLE_API_KEY not set. ") 
     exit(1)
 
 client = genai.Client(api_key=api_key)
