@@ -1,0 +1,10 @@
+{
+  "last_task_id": 1,
+  "tasks": {
+    "1": {
+      "created": "2026-03-12T14:47:53.066257",
+      "difficulty": "Medium",
+      "model": "Qwen2-Audio-7B-Instruct"
+    }
+  }
+}

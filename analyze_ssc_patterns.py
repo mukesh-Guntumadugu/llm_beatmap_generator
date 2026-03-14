@@ -11,7 +11,7 @@ Enter the TARGET/TRUTH .text/.ssc file path (to compare against): /Users/mukeshg
 
 """
 
-
+  
 def analyze_patterns(file_path):
     # Determine file type
     is_ssc = file_path.lower().endswith('.ssc')

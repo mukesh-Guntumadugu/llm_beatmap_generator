@@ -1,0 +1,35 @@
+{
+    "python.defaultInterpreterPath": "/Users/mukeshguntumadugu/.pyenv/versions/3.12.2/bin/python3",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/src"
+    ],
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.diagnosticMode": "off",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportMissingModuleSource": "none",
+        "reportGeneralTypeIssues": "none",
+        "reportOptionalMemberAccess": "none",
+        "reportAttributeAccessIssue": "none",
+        "reportOperatorIssue": "none",
+        "reportOptionalSubscript": "none",
+        "reportIndexIssue": "none",
+        "reportReturnType": "none",
+        "reportArgumentType": "none",
+        "reportCallIssue": "none",
+        "reportAssignmentType": "none",
+        "reportOptionalCall": "none",
+        "reportOptionalIterable": "none",
+        "reportOptionalContextManager": "none",
+        "reportOptionalOperand": "none",
+        "reportTypedDictNotRequiredAccess": "none",
+        "reportPrivateImportUsage": "none",
+        "reportUnboundVariable": "none",
+        "reportUnusedImport": "none",
+        "reportUndefinedVariable": "none"
+    },
+    "python.linting.enabled": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false
+}

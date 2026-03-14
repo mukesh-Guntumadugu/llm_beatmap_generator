@@ -1,0 +1,17 @@
+{
+  "pythonVersion": "3.12",
+  "pythonPlatform": "Darwin",
+  "venvPath": "/Users/mukeshguntumadugu/.pyenv/versions",
+  "venv": "3.12.2",
+  "typeCheckingMode": "off",
+  "useLibraryCodeForTypes": true,
+  "reportMissingImports": false,
+  "reportMissingModuleSource": false,
+  "reportGeneralTypeIssues": false,
+  "reportOptionalMemberAccess": false,
+  "reportOptionalSubscript": false,
+  "reportIndexIssue": false,
+  "reportAttributeAccessIssue": false,
+  "reportReturnType": false,
+  "reportArgumentType": false
+}
