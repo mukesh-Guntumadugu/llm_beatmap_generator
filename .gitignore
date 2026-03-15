@@ -28,3 +28,8 @@ src/.gemini_usage.json
 audio_representation.npy
 wandb/
 
+# Environment / secrets — NEVER commit API keys
+.env
+.env.*
+!.env.example
+

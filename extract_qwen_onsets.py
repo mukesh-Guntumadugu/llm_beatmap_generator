@@ -112,7 +112,7 @@ def find_audio_file(song_dir: str) -> Optional[str]:
     return None
 
 
-def parse_onsets_from_response(response_text: str) -> List[float]:
+def parse_onsets_from_response(response_text: str, duration_sec: float) -> List[float]:
     """
     Extract onset times in milliseconds from Qwen's response.
 
@@ -144,7 +144,11 @@ def parse_onsets_from_response(response_text: str) -> List[float]:
             except (json.JSONDecodeError, ValueError, TypeError):
                 pass
         if onsets:
-            return sorted(set(onsets))
+            onsets = sorted(set(onsets))
+            if onsets and max(onsets) <= duration_sec * 1.5:
+                # Qwen outputted seconds instead of milliseconds. Auto-scale it.
+                onsets = [round(ms * 1000, 2) for ms in onsets]
+            return onsets
     except Exception:
         pass
 
@@ -159,7 +163,10 @@ def parse_onsets_from_response(response_text: str) -> List[float]:
                 if 0.0 <= ms <= 600_000:
                     onsets.append(round(ms, 2))
             if onsets:
-                return sorted(set(onsets))
+                onsets = sorted(set(onsets))
+                if onsets and max(onsets) <= duration_sec * 1.5:
+                    onsets = [round(ms * 1000, 2) for ms in onsets]
+                return onsets
     except Exception:
         pass
 
@@ -174,7 +181,11 @@ def parse_onsets_from_response(response_text: str) -> List[float]:
         except ValueError:
             pass
 
-    return sorted(set(onsets))
+    onsets = sorted(set(onsets))
+    if onsets and max(onsets) <= duration_sec * 1.5:
+        onsets = [round(ms * 1000, 2) for ms in onsets]
+        
+    return onsets
 
 
 
@@ -239,7 +250,7 @@ def main():
                 print(f"\n  ⚠️  Empty response for '{song_name}'")
                 continue
 
-            onset_ms = parse_onsets_from_response(response)
+            onset_ms = parse_onsets_from_response(response, duration_sec)
 
             if not onset_ms:
                 print(f"\n  ⚠️  No parseable onsets in response for '{song_name}'")

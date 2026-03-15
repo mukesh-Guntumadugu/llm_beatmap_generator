@@ -439,6 +439,14 @@ def main():
         "--no-cache", action="store_true",
         help="Disable context caching (send full prompt each time)"
     )
+    parser.add_argument(
+        "--start", type=int, default=1,
+        help="1-based index of first song to process (default: 1)"
+    )
+    parser.add_argument(
+        "--end", type=int, default=None,
+        help="1-based index of last song to process (default: last song)"
+    )
     args = parser.parse_args()
 
     # Initialise Gemini client
@@ -458,8 +466,13 @@ def main():
         and not d.startswith("_") and not d.startswith(".")
     ])
 
+    # Apply --start / --end slice (1-based, inclusive)
+    start_idx = max(0, args.start - 1)
+    end_idx   = args.end if args.end is not None else len(song_dirs)
+    song_dirs = song_dirs[start_idx:end_idx]
+
     print(f"\nModel  : {args.model}")
-    print(f"Songs  : {len(song_dirs)}")
+    print(f"Songs  : {len(song_dirs)} (songs {start_idx+1}–{start_idx+len(song_dirs)} of full list)")
     print(f"Delay  : {args.delay:.0f}s between songs | Initial wait: {args.initial_wait:.0f}s")
     print(f"Cache  : {'disabled (--no-cache)' if args.no_cache else 'enabled (system instruction)'} ")
     print(f"Output : Gemini_onsets_<SongName>_<timestamp>.csv\n")
