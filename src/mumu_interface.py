@@ -23,7 +23,7 @@ def setup_mumu():
     print("Loading MuMu-LLaMA model... (Requires 13GB LLaMA-2 weights downloaded first)")
     
     # Check if the repository exists on the cluster
-    mumu_dir = os.path.expanduser("~/MuMu-LLaMA")
+    mumu_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "MuMu-LLaMA")
     if not os.path.exists(mumu_dir):
         print(f"❌ MuMu-LLaMA repository not found at {mumu_dir}")
         print("Please clone it and download the weights first.")
