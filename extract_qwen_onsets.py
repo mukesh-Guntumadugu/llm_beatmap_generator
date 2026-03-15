@@ -36,7 +36,8 @@ def build_onset_prompt(duration_sec: float) -> str:
     Uses the same detailed instruction as Gemini for fair model comparison.
     """
     system_instruction = (
-        "You are an expert music analyst and audio engineer specializing in precise "
+        f"The provided audio file is {duration_sec:.1f} seconds long.\n\n"
+        "Listen to the audio carefully. You are an expert music analyst and audio engineer specializing in precise "
         "onset detection for rhythm game chart generation.\n\n"
 
         "## What is an Onset?\n"
