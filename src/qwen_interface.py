@@ -23,6 +23,11 @@ def setup_qwen(model_id=DEFAULT_MODEL_ID, device=None):
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
+    if device == "cpu":
+        print("⚠️  WARNING: No GPU detected. Running Qwen on CPU will be extremely slow.")
+        print("   Submit a SLURM GPU job instead:  sbatch run_qwen.sh")
+        raise RuntimeError("No CUDA GPU available. Refusing to run on CPU for performance reasons.")
+
     dtype = torch.float16 if device == "cuda" else torch.float32
     print(f"Loading Qwen2-Audio model: {model_id}...")
     print(f"  Device: {device} | dtype: {dtype}")
@@ -52,14 +57,9 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
     # Preprocess Audio
     # Qwen2Audio expects raw audio data or path?
     # The processor can handle audio arrays.
-    # Let's load it to ensure correct sampling rate.
-    
-    # Note: Qwen2-Audio usually expects 16kHz? Processor handles resampling if we pass array + sampling_rate?
-    # HuggingFace documentation says input can be file path or array.
-    # Let's try passing the waveform array.
-    
-    y, sr = librosa.load(audio_path, sr=_processor.feature_extractor.sampling_rate)
-    
+    target_sr = _processor.feature_extractor.sampling_rate
+    y, sr = librosa.load(audio_path, sr=target_sr)
+
     # Prepare Conversation using standard Chat Template
     # Qwen2-Audio-Instruct expects a specific format
     conversation = [
@@ -71,18 +71,12 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
             ]
         }
     ]
-    
+
     # Apply template
-    # Note: Qwen2 processor handles audio token insertion if we use apply_chat_template correctly
     text = _processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
-    
-    # Load and process Audio
-    audios = []
-    # If using local file, we load it. librosa ensures sampling rate matches
-    y, sr = librosa.load(audio_path, sr=_processor.feature_extractor.sampling_rate)
-    audios.append(y)
-    
-    inputs = _processor(text=text, audios=audios, return_tensors="pt", padding=True)
+
+    # Pass audio with explicit sampling_rate to suppress the warning
+    inputs = _processor(text=text, audios=[y], sampling_rate=target_sr, return_tensors="pt", padding=True)
     inputs = inputs.to(_model.device)
 
     # Generate
