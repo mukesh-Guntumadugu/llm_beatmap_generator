@@ -1,7 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=qwen_onsets
-#SBATCH --gres=gpu:1
-#SBATCH --mem=20G
+#SBATCH --gres=gpu:A6000:1
 #SBATCH --time=06:00:00
 #SBATCH --output=qwen_log_%j.txt
 
