@@ -1,0 +1,5 @@
+model,song,n_ref,n_pred,tp,fp,fn,precision_pct,recall_pct,f1_pct,tolerance_ms,ref_file,pred_file
+Gemini,Bad Ketchup,559,1425,524,901,35,36.77,93.74,52.82,50.0,original_onsets_Bad_Ketchup_15032026143021.csv,Gemini_onsets_Bad_Ketchup_15032026142217.csv
+Gemini,Bitch Clap,803,747,408,339,395,54.62,50.81,52.65,50.0,original_onsets_Bitch_Clap_15032026143022.csv,Gemini_onsets_Bitch_Clap_15032026142706.csv
+Gemini,Call Me Maybe (Remix),585,1307,460,847,125,35.2,78.63,48.63,50.0,original_onsets_Call_Me_Maybe_(Remix)_15032026143022.csv,Gemini_onsets_Call_Me_Maybe_(Remix)_15032026143344.csv
+Gemini,Dead Hollywood,259,492,95,397,164,19.31,36.68,25.3,50.0,original_onsets_Dead_Hollywood_15032026143022.csv,Gemini_onsets_Dead_Hollywood_15032026144556.csv
