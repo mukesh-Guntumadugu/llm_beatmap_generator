@@ -61,12 +61,15 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
     y, sr = librosa.load(audio_path, sr=target_sr)
 
     # Prepare Conversation using standard Chat Template
-    # Qwen2-Audio-Instruct expects a specific format
+    # Qwen2-Audio-Instruct expects a file:// URI for local audio files.
+    # A bare file path causes the processor to silently skip audio embedding,
+    # making the model respond: "I cannot access audio files."
+    audio_uri = f"file://{os.path.abspath(audio_path)}"
     conversation = [
         {
             "role": "user",
             "content": [
-                {"type": "audio", "audio_url": audio_path},
+                {"type": "audio", "audio_url": audio_uri},
                 {"type": "text", "text": prompt}
             ]
         }
