@@ -195,4 +195,7 @@ def generate_beatmap_with_mumu(audio_path: str, prompt: str) -> str:
         )
 
     # result is [decoded_text] or [decoded_text, {'aud': [...]}]
+    print(f"  [DEBUG] Raw MuMu-LLaMA output type: {type(result)}")
+    print(f"  [DEBUG] Raw MuMu-LLaMA output content: {result}")
+    
     return result[0] if isinstance(result, list) else str(result)
