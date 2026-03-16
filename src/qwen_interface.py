@@ -79,7 +79,7 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
     text = _processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
 
     # Pass audio with explicit sampling_rate to suppress the warning
-    inputs = _processor(text=text, audios=[y], sampling_rate=target_sr, return_tensors="pt", padding=True)
+    inputs = _processor(text=text, audio=[y], sampling_rate=target_sr, return_tensors="pt", padding=True)
     inputs = inputs.to(_model.device)
 
     # Generate

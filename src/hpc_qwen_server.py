@@ -87,7 +87,7 @@ def generate(req: GenerateRequest):
         # Pass audio array + sampling_rate explicitly
         inputs = _processor(
             text=text,
-            audios=[y],
+            audio=[y],
             sampling_rate=target_sr,
             return_tensors="pt",
             padding=True,

@@ -31,6 +31,9 @@ import librosa
 
 from src.beatmap_prompt import build_qwen_prompt
 import re
+import soundfile as sf
+import tempfile
+import math
 
 
 DIFFICULTIES = ["Beginner", "Easy", "Medium", "Hard", "Challenge"]
@@ -211,7 +214,8 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
         return
 
     try:
-        duration = librosa.get_duration(path=audio_path)
+        audio_data, sr = librosa.load(audio_path, sr=None, mono=True)
+        duration = librosa.get_duration(y=audio_data, sr=sr)
         
         # Try to find the corresponding .sm or .ssc file for the BPM
         bpm = None
@@ -220,63 +224,100 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
             if os.path.exists(sm_file):
                 bpm = parse_sm_metadata(sm_file)
                 break
+
+        print(f"  Duration: {duration:.1f}s  |  BPM: {bpm if bpm else 'Unknown'}  |  Chunking into 20s slices...")
+
+        chunk_size_sec = 20.0
+        num_chunks = math.ceil(duration / chunk_size_sec)
+        
+        all_parsed_rows = []
+
+        for i in range(num_chunks):
+            start_sec = i * chunk_size_sec
+            end_sec = min((i + 1) * chunk_size_sec, duration)
+            chunk_duration = end_sec - start_sec
+            
+            start_sample = int(start_sec * sr)
+            end_sample = int(end_sec * sr)
+            chunk_audio = audio_data[start_sample:end_sample]
+
+            with tempfile.NamedTemporaryFile(suffix=".ogg", delete=False) as tmp:
+                tmp_path = tmp.name
                 
-        if bpm:
-            print(f"  Duration: {duration:.1f}s  |  BPM: {bpm:.1f}  |  Encoding audio...")
-        else:
-            print(f"  Duration: {duration:.1f}s  |  Encoding audio...")
+            try:
+                sf.write(tmp_path, chunk_audio, sr)
+                audio_b64 = audio_to_b64(tmp_path)
+                
+                prompt = build_prompt(chunk_duration, difficulty, bpm)
 
-        audio_b64 = audio_to_b64(audio_path)
-        prompt    = build_prompt(duration, difficulty, bpm)
+                print(f"  [{i+1}/{num_chunks}] Sending {chunk_duration:.1f}s chunk to server...")
+                resp = requests.post(
+                    f"{server_url}/generate",
+                    json={
+                        "audio_b64":      audio_b64,
+                        "audio_filename": os.path.basename(audio_path),
+                        "prompt":         prompt,
+                        "max_new_tokens": 8192,
+                    },
+                    timeout=600,
+                )
+                resp.raise_for_status()
+                text = resp.json()["text"]
 
-        print(f"  Sending to local Qwen server ({server_url})...")
-        resp = requests.post(
-            f"{server_url}/generate",
-            json={
-                "audio_b64":      audio_b64,
-                "audio_filename": os.path.basename(audio_path),
-                "prompt":         prompt,
-                "max_new_tokens": 8192,
-            },
-            timeout=600,  # 10-minute timeout per song
-        )
-        resp.raise_for_status()
-        text = resp.json()["text"]
+                if not text.strip():
+                    print(f"  [{i+1}/{num_chunks}] No output from model.")
+                    continue
 
-        if not text.strip():
-            print("  No output from model.")
+                parsed_rows = _parse_qwen_output(text)
+                
+                if not parsed_rows:
+                    print(f"  [{i+1}/{num_chunks}] ⚠️ No valid rows parsed. Saving RAW...")
+                    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+                    raw_path = os.path.join(dirname, f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_chunk{i+1}_{timestamp}_RAW.txt")
+                    with open(raw_path, "w", encoding="utf-8") as f:
+                        f.write(text)
+                    continue
+                
+                # Adjust time_ms and beat_position relative to the chunk start
+                chunk_start_ms = start_sec * 1000.0
+                chunk_start_beat = (start_sec / 60.0) * bpm if bpm else 0.0
+                
+                for row in parsed_rows:
+                    row["time_ms"] += chunk_start_ms
+                    row["beat_position"] += chunk_start_beat
+                    all_parsed_rows.append(row)
+
+            finally:
+                if os.path.exists(tmp_path):
+                    os.remove(tmp_path)
+
+        if not all_parsed_rows:
+            print("  ⚠️ No valid rows found across any chunks.")
             return
 
-        # ── Parse Qwen response (handles JSON, markdown, plain text) ──────
-        parsed_rows = _parse_qwen_output(text)
-        if not parsed_rows:
-            print("  ⚠️  No valid rows parsed. Saving raw response as .txt for inspection.")
-            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            raw_path = os.path.join(dirname, f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_{timestamp}_RAW.txt")
-            with open(raw_path, "w", encoding="utf-8") as f:
-                f.write(text)
-            return
+        # Sort the combined rows by timestamp just in case
+        all_parsed_rows.sort(key=lambda x: x["time_ms"])
 
         # ── Save files ────────────────────────────────────────────────────
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         base      = f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_{timestamp}"
 
-        # Plain beatmap .txt (just the notes column, same as Gemini .txt)
+        # Plain beatmap .txt (just the notes column)
         txt_path = os.path.join(dirname, f"{base}.txt")
         with open(txt_path, "w", encoding="utf-8") as f:
-            for row in parsed_rows:
+            for row in all_parsed_rows:
                 f.write(f"{row['notes']}\n")
         print(f"  Beatmap → {os.path.basename(txt_path)}")
 
-        # Structured CSV matching Gemini output format exactly
+        # Structured CSV matching Gemini output format
         csv_path = os.path.join(dirname, f"{base}.csv")
         with open(csv_path, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(["time_ms", "beat_position", "notes",
                              "placement_type", "note_type", "confidence", "instrument"])
-            for row in parsed_rows:
+            for row in all_parsed_rows:
                 writer.writerow([
-                    row["time_ms"], f"{row['beat_position']:.3f}",
+                    f"{row['time_ms']:.1f}", f"{row['beat_position']:.3f}",
                     row["notes"], row["placement_type"], row["note_type"],
                     f"{row['confidence']:.3f}", row["instrument"]
                 ])
