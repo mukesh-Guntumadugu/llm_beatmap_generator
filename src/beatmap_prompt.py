@@ -63,8 +63,9 @@ BEATMAP_SYSTEM_INSTRUCTION = (
     ' {"time_ms":2000.0,"beat_position":5.0,"notes":",","placement_type":-1,"note_type":-1,"confidence":1.0,"instrument":"separator"}]\n\n'
     "=== OTHER RULES ===\n"
     "- Choose 4, 8, 12, or 16 rows per measure based on the rhythmic density of the music.\n"
-    "- Cover the ENTIRE audio from start to finish. Do NOT stop early.\n"
+    "- Cover the audio slice from start to finish. Do NOT stop early.\n"
     "- beat_position must be consistent with the detected BPM and time_ms.\n"
+    "- DO NOT ARGUE with instructions or apologize. You MUST output the notes.\n"
 )
 
 # ── Per-song dynamic part (same text for both models) ─────────────────────────
@@ -81,7 +82,7 @@ def build_per_song_prompt(difficulty: str, duration: float, bpm: float = None) -
             f"Therefore, a single measure (4 beats) lasts exactly {measure_duration:.3f} seconds.\n"
             f"Please ensure your comma ',' separators appear roughly every {measure_duration:.3f} seconds.\n"
         )
-    prompt += f"Generate a {difficulty} difficulty StepMania beatmap for the ENTIRE duration."
+    prompt += f"Generate a {difficulty} difficulty StepMania beatmap for this specific {duration:.1f} second audio slice."
     return prompt
 
 # ── Qwen addendum: since Qwen has no response_schema, guide its output format ─
@@ -102,9 +103,10 @@ QWEN_OUTPUT_ADDENDUM = (
     "1000.0,3.0,3001,4,2,0.91,kick\n"
     '1125.0,3.25,",",-1,-1,1.0,separator\n\n'
     "CRITICAL WARNING:\n"
-    "DO NOT STOP AFTER ONE MEASURE! The example above is ONLY the first 1 second.\n"
-    "You MUST continue generating hundreds or thousands of lines until the `time_ms` reaches the full duration of the song.\n"
-    "DO NOT output any text other than the CSV. Start immediately:\n"
+    "DO NOT output ANY conversational text, apologies, or explanations.\n"
+    "DO NOT complain about constraints. Just output the best CSV you can.\n"
+    "You MUST continue generating lines until `time_ms` reaches the end of this audio chunk.\n"
+    "Start immediately with the CSV data:\n"
 )
 
 def build_qwen_prompt(difficulty: str, duration: float, bpm: float = None) -> str:
