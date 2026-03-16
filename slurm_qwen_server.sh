@@ -4,7 +4,7 @@
 #SBATCH --gres=gpu:A6000:1          # 1x A6000 GPU (48GB VRAM — plenty for Qwen2-Audio-7B)
 #SBATCH --cpus-per-task=8
 #SBATCH --time=12:00:00             # 12 hours per array task (20 songs × ~10 min = ~3.5 hrs)
-#SBATCH --array=0-0                 # TEST MODE: only Beginner (change to 0-4 for all difficulties)
+#SBATCH --array=1-1                 # TEST MODE: only Easy (change to 0-4 for all difficulties)
 #SBATCH --output=logs/qwen_beatmap_%A_%a.out
 #SBATCH --error=logs/qwen_beatmap_%A_%a.err
 
