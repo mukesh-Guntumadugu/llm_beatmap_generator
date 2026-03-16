@@ -95,7 +95,12 @@ def generate(req: GenerateRequest):
 
         with torch.no_grad():
             generated_ids = _model.generate(
-                **inputs, max_new_tokens=req.max_new_tokens
+                **inputs, 
+                max_new_tokens=req.max_new_tokens,
+                do_sample=True,
+                temperature=0.7,
+                top_p=0.9,
+                repetition_penalty=1.05
             )
 
         # Strip the input tokens from the output
