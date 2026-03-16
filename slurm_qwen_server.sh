@@ -24,6 +24,7 @@ mkdir -p logs
 # Use the conda env that already has all packages installed (same as run_qwen.sh)
 CONDA_PYTHON="/data/mg546924/conda_envs/qwenenv/bin/python"
 CONDA_BIN="/data/mg546924/conda_envs/qwenenv/bin"
+CONDA_PIP="/data/mg546924/conda_envs/qwenenv/bin/pip"
 
 if [ -f "$CONDA_PYTHON" ]; then
     echo "Using conda env: $CONDA_BIN"
@@ -33,6 +34,11 @@ else
     echo "❌ Conda env not found at $CONDA_BIN — aborting."
     exit 1
 fi
+
+# ── Install any missing packages directly into the conda env ─────────────────
+echo "Ensuring required packages are installed in conda env..."
+$CONDA_PIP install --quiet uvicorn fastapi pydantic soundfile librosa requests
+echo "✅ Package check done."
 
 # Go to project directory
 cd /data/mg546924/llm_beatmap_generator
