@@ -1,0 +1,89 @@
+Here's a JSON array of objects that match the required format:
+```css
+[
+    {
+        "time_ms": 0,
+        "beat_position": 1,
+        "notes": "1000",
+        "placement_type": 4,
+        "note_type": 2,
+        "confidence": 0.95,
+        "instrument": "kick"
+    },
+    {
+        "time_ms": 125,
+        "beat_position": 1.25,
+        "notes": "0000",
+        "placement_type": 0,
+        "note_type": 3,
+        "confidence": 1.0,
+        "instrument": "unknown"
+    },
+    {
+        "time_ms": 250,
+        "beat_position": 1.5,
+        "notes": "0010",
+        "placement_type": 4,
+        "note_type": 3,
+        "confidence": 0.88,
+        "instrument": "snare"
+    },
+    {
+        "time_ms": 375,
+        "beat_position": 1.75,
+        "notes": "0000",
+        "placement_type": 0,
+        "note_type": 3,
+        "confidence": 1.0,
+        "instrument": "unknown"
+    },
+    {
+        "time_ms": 500,
+        "beat_position": 2.0,
+        "notes": "2000",
+        "placement_type": 4,
+        "note_type": 2,
+        "confidence": 1.0,
+        "instrument": "bass"
+    },
+    {
+        "time_ms": 625,
+        "beat_position": 2.25,
+        "notes": "0000",
+        "placement_type": 0,
+        "note_type": 3,
+        "confidence": 1.0,
+        "instrument": "unknown"
+    },
+    {
+        "time_ms": 750,
+        "beat_position": 2.5,
+        "notes": "0100",
+        "placement_type": 4,
+        "note_type": 3,
+        "confidence": 0.82,
+        "instrument": "snare"
+    },
+    {
+        "time_ms": 875,
+        "beat_position": 2.75,
+        "notes": "0000",
+        "placement_type": 0,
+        "note_type": 3,
+        "confidence": 1.0,
+        "instrument": "unknown"
+    },
+    {
+        "time_ms": 1000,
+        "beat_position": 3.0,
+        "notes": "3001",
+        "placement_type": 4,
+        "note_type": 2,
+        "confidence": 0.91,
+        "instrument": "kick"
+    },
+    {
+        "time_ms": 1125,
+        "beat_position": 3.25,
+        "notes": "",
+```

@@ -1,0 +1,76 @@
+Here's the StepMania beatmap for the given 20-second audio slice:
+```css
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,-1,-1,1.0,separator
+1664.58,8.45,2000,4,2,0.97,bass
+1750.0,8.65,0000,0,3,1.0,unknown
+1829.23,9.04,0010,4,3,0.85,snare
+1904.37,9.37,0000,0,3,1.0,unknown
+1977.60,9.60,0010,4,3,0.82,snare
+2000.0,9.92,3001,4,2,0.91,kick
+2001.27,10.00,,-1,-1,1.0,separator
+2002.50,10.33,2000,4,2,0.87,bass
+2004.74,10.57,0010,4,3,0.80,snare
+2007.03,10.84,0000,0,3,1.0,unknown
+2008.33,11.12,0010,4,3,0.77,snare
+2010.59,11.40,0000,0,3,1.0,unknown
+2012.91,11.67,0010,4,3,0.75,snare
+2014.20,11.94,0000,0,3,1.0,unknown
+2015.48,12.21,0010,4,3,0.72,snare
+2016.83,12.49,0000,0,3,1.0,unknown
+2018.18,12.75,0010,4,3,0.69,snare
+2020.00,13.00,-1,-1,1.0,separator
+2021.26,13.33,2000,4,2,0.89,bass
+2023.63,13.60,0010,4,3,0.80,snare
+2025.94,13.87,0000,0,3,1.0,unknown
+2027.31,14.14,0010,4,3,0.76,snare
+2028.68,14.42,0000,0,3,1.0,unknown
+2030.05,14.69,0010,4,3,0.73,snare
+2031.42,15.00,-1,-1,1.0,separator
+2032.67,15.33,2000,4,2,0.89,bass
+2034.05,15.59,0010,4,3,0.80,snare
+2035.43,15.86,0000,0,3,1.0,unknown
+2036.78,16.14,0010,4,3,0.76,snare
+2038.14,16.42,0000,0,3,1.0,unknown
+2039.42,16.70,0010,4,3,0.73,snare
+2040.80,17.00,-1,-1,1.0,separator
+2042.10,17.33,2000,4,2,0.89,bass
+2044.35,17.60,0010,4,3,0.80,snare
+2046.72,17.87,0000,0,3,1.0,unknown
+2048.08,18.14,0010,4,3,0.76,snare
+2049.45,18.42,0000,0,3,1.0,unknown
+2051.00,18.70,-1,-1,1.0,separator
+2052.40,19.00,2000,4,2,0.89,bass
+2054.74,19.33,0010,4,3,0.80,snare
+2057.09,19.69,0000,0,3,1.0,unknown
+2058.48,19.97,0010,4,3,0.76,snare
+2060.00,20.00,-1,-1,1.0,separator
+```
+
+
+  * `time_ms` represents the time in milliseconds since the beginning of the song
+  * `beat_position` represents the current beat position in the song, starting at 1.0
+  * `notes` represents the notes played in the current lane, separated by spaces. The notes are ordered from left to right, then up to down, and finally to the rightmost lane. For example, a row of notes might look like `0000`, which would indicate that the first lane has no notes, the second lane has one note, the third lane has two notes, and the fourth lane has three notes.
+  * `placement_type` represents the type of note placement in the lane. 0 = empty slot, 1 = standard tap note, 2 = hold note start, 3 = hold note end, 4 = percussive
+  * `note_type` represents the type of note played. 0 = whole note, 1 = half note, 2 = quarter note, 3 = eighth note
+  * `confidence` represents the confidence of the note placement. A value of 0.95 indicates a very high confidence that the note was placed correctly.
+  * `instrument` represents the instrument used to play the note. In this case, the instrument is either kick or snare.
+
+The `separator` row indicates that a new measure has begun. It contains the same values as the previous row, except for `notes`, which is set to `-1` and `instrument`, which is set to `-1`.
+I hope this helps! Let me know if you have any questions.

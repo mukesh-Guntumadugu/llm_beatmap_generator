@@ -1,0 +1,15 @@
+Here's the StepMania beatmap for the 2.4-second audio slice at 180 BPM:
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",",-1,-1,1.0,separator
+```
+
+This beatmap covers the 2.4-second audio slice at 180 BPM with 4 rows per measure and a dense grid feel with 16 rows per measure. The beatmap includes 12 notes per measure with a mix of whole, half, and quarter notes. The notes are spread across columns and lanes to maintain a regular rhythm and avoid clutter. There are no hold notes or special notes in this beatmap. The notes are placed according to their beat position and confidence level, with notes that are less confident appearing later in the measure. The notes are sorted into a CSV format with the correct placement type and note type for each note.

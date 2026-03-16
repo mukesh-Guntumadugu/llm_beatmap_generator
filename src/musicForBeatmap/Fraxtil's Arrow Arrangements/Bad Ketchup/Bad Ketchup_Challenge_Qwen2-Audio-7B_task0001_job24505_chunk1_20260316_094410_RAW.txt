@@ -1,0 +1,22 @@
+Here is the generated StepMania beatmap for the given audio in CSV format:
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",",-1,-1,1.0,separator
+1250.0,3.50,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.00,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.50,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.00,0000,0,2,1.0,separator
+```
+
+Note: The values in the CSV format represent the information you provided about the beatmap. The first column represents the timestamp in milliseconds, the second column represents the beat position in the song, the third column represents the notes played in a row (in the format 'X0000' where X is a note type), the fourth column represents the placement type (0=unsure, 1=onset, 2=beat, 3=grid, 4=percussive, 5=unaligned, -1=separator), the fifth column represents the note type (0=whole, 1=half, 2=quarter, 3=eighth, 4=extended, -1=separator), the sixth column represents the confidence value (0.0-1.0), the seventh column represents the instrument used (kick/snare/bass/melody/guitar/synth/unknown or 'separator'), and the eighth column represents the separator row (0000=empty slot, 0010=hold note start, 0000=hold note end, 3001=hold note end with release).

@@ -1,0 +1,30 @@
+Here is the StepMania beatmap for the provided audio file:
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",",-1,-1,1.0,separator
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,0000,",",-1,-1,1.0,separator
+```
+
+The beatmap is in CSV format, with each row representing a beat in the audio. The columns represent the following information:
+- `time_ms`: the timestamp of the beat in milliseconds
+- `beat_position`: the position of the beat in the measure (1-based)
+- `notes`: a row of notes separated by spaces indicating which notes are played at this beat (16 rows per measure)
+- `placement_type`: the type of note placement for each note (0=unsure, 1=onset, 2=beat, 3=grid, 4=percussive, 5=unaligned, -1=separator)
+- `note_type`: the type of note played at this beat (0=whole, 1=half, 2=quarter, 3=eighth, 4=extended, -1=separator)
+- `confidence`: the confidence level of the beat (0.0-1.0)
+- `instrument`: the instrument used to play this beat (kick/snare/bass/melody/guitar/synth/unknown or 'separator')
+The `time_ms` and `beat_position` values are based on the BPM and the time signature of the audio file. The notes, placement types, and note types are generated based on the hold notes (freeze arrows) rule set out in the prompt.

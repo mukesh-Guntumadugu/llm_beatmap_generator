@@ -1,0 +1,1739 @@
+[
+  {
+    "time_ms": 125.0,
+    "beat_position": 1.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 208.98,
+    "beat_position": 1.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.88,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 375.0,
+    "beat_position": 1.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 625.0,
+    "beat_position": 2.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 750.0,
+    "beat_position": 2.5,
+    "notes": "0100",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 875.0,
+    "beat_position": 2.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 1125.0,
+    "beat_position": 3.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 1250.0,
+    "beat_position": 3.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 1375.0,
+    "beat_position": 3.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 1500.0,
+    "beat_position": 4.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 1625.0,
+    "beat_position": 4.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 1750.0,
+    "beat_position": 4.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.79,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 1875.0,
+    "beat_position": 4.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 2972.15,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 3215.96,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 3982.22,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 4226.03,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 4527.89,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 5154.83,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 5665.67,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 5828.21,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 6234.56,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 7488.44,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 8045.71,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 8219.86,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 8370.79,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 8649.43,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 9009.34,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 9322.81,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 9578.23,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 9822.04,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 9961.36,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 10251.61,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 10507.03,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 10832.11,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 11006.26,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 11122.36,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 11331.34,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 11493.88,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 11586.76,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 11737.69,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 11900.23,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 11993.11,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 12167.26,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 12329.8,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 12492.34,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 12573.61,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 12666.49,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 12829.02,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 12921.9,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 12991.56,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 13130.88,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 13165.71,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 13641.72,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 13746.21,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 13827.48,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 14071.29,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 14245.44,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 14582.13,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 14709.84,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 14756.28,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 14791.11,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 15162.63,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 15209.07,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 15336.78,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 15499.32,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 15580.59,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 15743.13,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 15917.28,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 15998.55,
+    "beat_position": 1.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 20125.0,
+    "beat_position": 61.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 20250.0,
+    "beat_position": 61.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.88,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 20375.0,
+    "beat_position": 61.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 20500.0,
+    "beat_position": 62.0,
+    "notes": "2000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "bass"
+  },
+  {
+    "time_ms": 20625.0,
+    "beat_position": 62.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 20758.64,
+    "beat_position": 62.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 20875.0,
+    "beat_position": 62.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 20990.84,
+    "beat_position": 63.0,
+    "notes": "3001",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.91,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 21125.0,
+    "beat_position": 63.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 21250.0,
+    "beat_position": 63.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 21375.0,
+    "beat_position": 63.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 21500.0,
+    "beat_position": 64.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 21625.0,
+    "beat_position": 64.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 0.79,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 21745.49,
+    "beat_position": 64.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.87,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 21875.0,
+    "beat_position": 64.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 40333.06,
+    "beat_position": 121.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 40402.72,
+    "beat_position": 121.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 40576.87,
+    "beat_position": 122.0,
+    "notes": "2000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "bass"
+  },
+  {
+    "time_ms": 40658.14,
+    "beat_position": 122.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 40751.02,
+    "beat_position": 123.0,
+    "notes": "3001",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.91,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 40820.68,
+    "beat_position": 123.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 40901.95,
+    "beat_position": 124.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 40994.83,
+    "beat_position": 124.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.79,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 41168.98,
+    "beat_position": 125.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 41296.69,
+    "beat_position": 125.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 41331.52,
+    "beat_position": 126.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 41494.06,
+    "beat_position": 126.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.88,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 41575.33,
+    "beat_position": 127.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 41656.6,
+    "beat_position": 127.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 41726.26,
+    "beat_position": 128.0,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.85,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 41819.14,
+    "beat_position": 128.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 41900.41,
+    "beat_position": 129.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 41993.29,
+    "beat_position": 129.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 42132.61,
+    "beat_position": 130.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 42167.44,
+    "beat_position": 130.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 44988.66,
+    "beat_position": 131.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 45069.93,
+    "beat_position": 131.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 45162.81,
+    "beat_position": 132.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 45232.47,
+    "beat_position": 132.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 45313.74,
+    "beat_position": 133.0,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.85,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 45406.62,
+    "beat_position": 133.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 45487.89,
+    "beat_position": 134.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 45580.77,
+    "beat_position": 134.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 45673.65,
+    "beat_position": 135.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 45836.19,
+    "beat_position": 135.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 45998.73,
+    "beat_position": 136.0,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.85,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 46161.270000000004,
+    "beat_position": 136.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 46230.93,
+    "beat_position": 137.0,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 46312.2,
+    "beat_position": 137.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 46405.08,
+    "beat_position": 138.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 46497.96,
+    "beat_position": 138.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 46567.62,
+    "beat_position": 139.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 46648.89,
+    "beat_position": 139.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 46799.82,
+    "beat_position": 140.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 100125.0,
+    "beat_position": 301.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 100250.0,
+    "beat_position": 301.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.88,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 100375.0,
+    "beat_position": 301.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 100625.0,
+    "beat_position": 302.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 100750.0,
+    "beat_position": 302.5,
+    "notes": "0100",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 100875.0,
+    "beat_position": 302.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 101125.0,
+    "beat_position": 303.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 101250.0,
+    "beat_position": 303.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 101375.0,
+    "beat_position": 303.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 101500.0,
+    "beat_position": 304.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 101625.0,
+    "beat_position": 304.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 101750.0,
+    "beat_position": 304.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.79,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 101875.0,
+    "beat_position": 304.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 120174.88,
+    "beat_position": 361.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 120488.34,
+    "beat_position": 361.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 120581.22,
+    "beat_position": 362.0,
+    "notes": "2000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "bass"
+  },
+  {
+    "time_ms": 120662.49,
+    "beat_position": 362.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 120825.03,
+    "beat_position": 363.0,
+    "notes": "3001",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.91,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 120906.3,
+    "beat_position": 363.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 120975.96,
+    "beat_position": 364.0,
+    "notes": ",",
+    "placement_type": -1,
+    "note_type": -1,
+    "confidence": 1.0,
+    "instrument": "separator"
+  },
+  {
+    "time_ms": 122322.72,
+    "beat_position": 364.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 122485.26,
+    "beat_position": 365.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 122659.41,
+    "beat_position": 365.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 122984.49,
+    "beat_position": 366.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 123483.72,
+    "beat_position": 366.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 123994.56,
+    "beat_position": 367.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 124157.1,
+    "beat_position": 367.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 124830.48,
+    "beat_position": 368.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 125155.56,
+    "beat_position": 368.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 125364.54,
+    "beat_position": 369.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 125654.78,
+    "beat_position": 369.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 125991.47,
+    "beat_position": 370.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 126258.5,
+    "beat_position": 370.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 126409.43,
+    "beat_position": 371.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 126664.85,
+    "beat_position": 371.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 127001.54,
+    "beat_position": 372.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 127140.86,
+    "beat_position": 372.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 127245.35,
+    "beat_position": 373.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 127303.4,
+    "beat_position": 373.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 127640.09,
+    "beat_position": 374.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 127837.46,
+    "beat_position": 374.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 127953.56,
+    "beat_position": 375.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 128081.27,
+    "beat_position": 375.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 128406.35,
+    "beat_position": 376.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 128499.23,
+    "beat_position": 376.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 128743.04000000001,
+    "beat_position": 377.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 128905.58,
+    "beat_position": 377.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 129056.51,
+    "beat_position": 378.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 129242.27,
+    "beat_position": 378.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 129311.93,
+    "beat_position": 379.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 129880.82,
+    "beat_position": 379.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 129996.92,
+    "beat_position": 380.0,
+    "notes": ",",
+    "placement_type": -1,
+    "note_type": -1,
+    "confidence": 1.0,
+    "instrument": "separator"
+  },
+  {
+    "time_ms": 140039.55,
+    "beat_position": 421.0,
+    "notes": "1000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.95,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 140125.0,
+    "beat_position": 421.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 140250.0,
+    "beat_position": 421.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.88,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 140375.0,
+    "beat_position": 421.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 140500.0,
+    "beat_position": 422.0,
+    "notes": "2000",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "bass"
+  },
+  {
+    "time_ms": 140625.0,
+    "beat_position": 422.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 140750.0,
+    "beat_position": 422.5,
+    "notes": "0100",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.82,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 140875.0,
+    "beat_position": 422.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 141000.0,
+    "beat_position": 423.0,
+    "notes": "3001",
+    "placement_type": 4,
+    "note_type": 2,
+    "confidence": 0.91,
+    "instrument": "kick"
+  },
+  {
+    "time_ms": 141125.0,
+    "beat_position": 423.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 141250.0,
+    "beat_position": 423.5,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 141375.0,
+    "beat_position": 423.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 141500.0,
+    "beat_position": 424.0,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 2,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 141625.0,
+    "beat_position": 424.25,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 141750.0,
+    "beat_position": 424.5,
+    "notes": "0010",
+    "placement_type": 4,
+    "note_type": 3,
+    "confidence": 0.79,
+    "instrument": "snare"
+  },
+  {
+    "time_ms": 141875.0,
+    "beat_position": 424.75,
+    "notes": "0000",
+    "placement_type": 0,
+    "note_type": 3,
+    "confidence": 1.0,
+    "instrument": "unknown"
+  },
+  {
+    "time_ms": 142000.0,
+    "beat_position": 425.0,
+    "notes": ",",
+    "placement_type": -1,
+    "note_type": -1,
+    "confidence": 1.0,
+    "instrument": "separator"
+  }
+]

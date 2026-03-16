@@ -1,0 +1,15 @@
+Sure, I can help you generate a StepMania beatmap for the provided audio. Here's the CSV data for the 20-second audio slice you've described:
+
+|time_ms| beat_position| notes| placement_type| note_type| confidence| instrument|
+|---|---|---|---|---|---|---|
+|0.00| 1.00| 1000| 4| 2| 0.95| kick|
+|125.00| 1.25| 0000| 0| 3| 1.00| unknown|
+|250.00| 1.50| 0010| 4| 3| 0.88| snare|
+|375.00| 1.75| 0000| 0| 3| 1.00| unknown|
+|500.00| 2.00| 2000| 4| 2| 1.00| bass|
+|625.00| 2.25| 0000| 0| 3| 1.00| unknown|
+|750.00| 2.50| 0100| 4| 3| 0.82| snare|
+|875.00| 2.75| 0000| 0| 3| 1.00| unknown|
+|1000.00| 3.00| 3001| 4| 2| 0.91| kick|
+|1125.00| 3.25| ,|-1|-1| 1.00| separator|
+I hope this helps! Let me know if you have any further questions or need more information.

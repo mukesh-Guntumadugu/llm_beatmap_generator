@@ -1,0 +1,15 @@
+Here is the StepMania beatmap generated for the provided audio:
+```yaml
+0,0,1000,4,2,0.95,kick
+125,0.25,0000,0,3,1.0,unknown
+250,0.5,0010,4,3,0.88,snare
+375,0.75,0000,0,3,1.0,unknown
+500,1.0,2000,4,2,1.0,bass
+625,1.25,0000,0,3,1.0,unknown
+750,1.5,0100,4,3,0.82,snare
+875,1.75,0000,0,3,1.0,unknown
+1000,2.0,3001,4,2,0.91,kick
+1125,2.25,",",-1,-1,1.0,separator
+```
+
+The beatmap includes a 16-row measure with 4 notes per beat, including a hold note head and tail. The notes range from standard taps to hold notes and freezing arrows. There are also notes that indicate the end of a measure. The notes are placed based on the beat position and the instrument used.
