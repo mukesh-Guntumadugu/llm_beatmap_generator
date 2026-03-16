@@ -2,15 +2,14 @@
 generate_qwen_beatmap.py
 ========================
 Reads pre-detected onset timestamps from `original_onsets_*.csv` files (produced
-by librosa) and asks Qwen2-Audio to SELECT which onsets deserve a note and how
-wide that note row should be (4 / 8 / 12 / 16 columns).
+by librosa) and asks Qwen2-Audio to SELECT which onsets deserve a note and generate
+a full 7-column BeatCSV format (time, beat, notes, etc).
 
-The model is NOT asked to detect onsets (already done) and NOT given note patterns
-(left/right/up/down). It only decides:
-  - Which of the provided onset timestamps to activate
-  - What row width (4, 8, 12, or 16) to assign to each activated onset
+The model is NOT asked to find onsets blindly — it is given the exact ms timestamps.
+It must output CSV rows mimicking the Gemini beatmap format.
 
-Output per file: CSV with columns  time_ms , note_row_width
+Output per file: 7-column CSV 
+  time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
 
 Run per song × difficulty × 6 repetitions = 30 files / song, 600 total.
 
@@ -112,34 +111,38 @@ def build_beatmap_prompt(onsets_ms: List[float], difficulty: str) -> str:
         f"## Your Task\n"
         f"Create a **{difficulty.upper()}** chart with approximately **{target_pct}%** of these "
         f"onsets activated ({desc}).\n\n"
-        f"For each onset you choose to place a note on, output exactly ONE line:\n"
-        f"  time_ms , note_row_width\n\n"
-
-        f"## Note Row Width Rules\n"
-        f"The `note_row_width` determines the rhythmic resolution of the note grid at that moment:\n"
-        f"- **4**  = quarter note (1 beat in 4/4 time) — use for slow, heavy hits\n"
-        f"- **8**  = eighth note (half a beat) — use for moderate rhythm patterns\n"
-        f"- **12** = eighth-note triplet — use for triplet or swing rhythms\n"
-        f"- **16** = sixteenth note (quarter of a beat) — use for very fast passages\n\n"
-        f"Assign the width that best reflects the rhythmic feel of that moment, "
-        f"consistent with the surrounding musical context.\n\n"
-
-        f"## Output Format Rules\n"
-        f"- Output ONLY the selected note lines, one per line\n"
-        f"- Each line: `<time_ms> , <note_row_width>` (number, space, comma, space, number)\n"
-        f"- Lines must be sorted by time_ms ascending\n"
-        f"- Do NOT include headers, explanations, markdown, or any other text\n"
-        f"- Only use widths from: 4, 8, 12, 16\n\n"
-
-        f"## Example Output (first few lines of a hypothetical chart)\n"
-        f"500.00 , 8\n"
-        f"750.00 , 8\n"
-        f"1000.00 , 4\n"
-        f"1125.00 , 16\n"
-        f"1250.00 , 16\n"
-        f"1500.00 , 8\n\n"
-
-        f"Now generate the {difficulty.upper()} chart:"
+        
+        "=== MEASURE STRUCTURE — READ CAREFULLY ===\n"
+        "A measure is a group of rows ended by a separator row (notes=',').\n"
+        "EACH measure MUST contain EXACTLY 4, 8, 12, or 16 note rows before the ','.\n"
+        "  - 4 rows  = quarter note grid   → 1 row per beat (sparse / slow music)\n"
+        "  - 8 rows  = eighth note grid    → 2 rows per beat (moderate density)\n"
+        "  - 12 rows = triplet grid        → 3 rows per beat (triplet feel)\n"
+        "  - 16 rows = sixteenth note grid → 4 rows per beat (dense / fast music)\n"
+        "For every subdivision slot that has NO note, you MUST output '0000'.\n\n"
+        
+        "=== OUTPUT FORMAT ===\n"
+        "Output ONLY plain CSV rows (no header, no extra JSON wrapping, no explanations).\n"
+        "Each line MUST exactly match this 7-column format:\n"
+        "time_ms,beat_position,notes,placement_type,note_type,confidence,instrument\n\n"
+        
+        "For note rows:   time_ms,beat_position,1000,4,2,0.95,kick\n"
+        "For empty rows:  time_ms,beat_position,0000,0,3,1.0,unknown\n"
+        'For separators:  time_ms,beat_position,",",-1,-1,1.0,separator\n\n'
+        
+        "Example output (copy this format exactly):\n"
+        "0.0,1.0,1000,4,2,0.95,kick\n"
+        "125.0,1.25,0000,0,3,1.0,unknown\n"
+        "250.0,1.5,0010,4,3,0.88,snare\n"
+        "375.0,1.75,0000,0,3,1.0,unknown\n"
+        "500.0,2.0,2000,4,2,1.0,bass\n"
+        "625.0,2.25,0000,0,3,1.0,unknown\n"
+        "750.0,2.5,0100,4,3,0.82,snare\n"
+        "875.0,2.75,0000,0,3,1.0,unknown\n"
+        "1000.0,3.0,3001,4,2,0.91,kick\n"
+        '1125.0,3.25,",",-1,-1,1.0,separator\n\n'
+        
+        f"Now generate the {difficulty.upper()} CSV chart:"
     )
 
 # ── Response parser ───────────────────────────────────────────────────────────
@@ -148,49 +151,54 @@ def parse_beatmap_response(
     response_text: str,
     valid_onsets: List[float],
     tolerance_ms: float = 50.0
-) -> List[Tuple[float, int]]:
+) -> List[Tuple]:
     """
-    Parse lines of the form `time_ms , note_row_width` from model output.
-    Only keeps entries whose time_ms is within `tolerance_ms` of a valid onset.
-    Returns sorted list of (time_ms, note_row_width).
+    Parse the 7-column CSV output from Qwen:
+    time_ms,beat_pos,notes,placement,note_type,conf,inst
     """
-    valid_set = set(valid_onsets)
-    results: List[Tuple[float, int]] = []
+    results = []
 
-    # Match: number, comma, integer
-    # e.g., "500.00 , 8"
-    pattern = re.compile(r'([\d.]+)\s*,\s*(\d+)')
-    matches = pattern.findall(response_text)
-    
-    for t_str, w_str in matches:
+    for line in response_text.splitlines():
+        line = line.strip()
+        if not line or line.startswith('time_ms') or "```" in line:
+            continue
+            
+        parts = line.split(',')
+        # Handle the separator note which is "," inside quotes, or unquoted
+        if len(parts) >= 7 and parts[2] in ('"', '","', '', ' '):
+            parts[2] = ','
+            # Shift parts back if they got split by the note comma
+            if len(parts) > 7:
+                parts = [parts[0], parts[1], ',', parts[4], parts[5], parts[6], parts[7]]
+        
+        if len(parts) < 7:
+            continue
+            
         try:
-            t_ms = float(t_str)
-            width = int(w_str)
+            t_ms = float(parts[0])
+            beat = float(parts[1])
+            notes = parts[2].strip(' "')
+            place = int(parts[3])
+            ntype = int(parts[4])
+            conf = float(parts[5])
+            inst = parts[6].strip(' "')
+            
+            # If it's an actual note hitting, try to snap it to a valid onset
+            if notes != ',' and notes != '0000':
+                nearest = min(valid_onsets, key=lambda v: abs(v - t_ms))
+                if abs(nearest - t_ms) <= tolerance_ms:
+                    t_ms = nearest
+                    
+            results.append((t_ms, beat, notes, place, ntype, conf, inst))
         except ValueError:
             continue
 
-        if width not in VALID_WIDTHS:
-            continue
-
-        # Snap to nearest valid onset within tolerance
-        nearest = min(valid_onsets, key=lambda v: abs(v - t_ms))
-        if abs(nearest - t_ms) <= tolerance_ms:
-            results.append((nearest, width))
-
-    # Deduplicate by time (keep first occurrence)
-    seen = set()
-    deduped = []
-    for t, w in sorted(results):
-        if t not in seen:
-            seen.add(t)
-            deduped.append((t, w))
-
-    return deduped
+    return results
 
 # ── CSV saver ─────────────────────────────────────────────────────────────────
 
 def save_beatmap_csv(
-    entries: List[Tuple[float, int]],
+    entries: List[Tuple],
     song_name: str,
     difficulty: str,
     run_num: int,
@@ -202,9 +210,9 @@ def save_beatmap_csv(
     fpath = os.path.join(out_dir, fname)
     with open(fpath, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(["time_ms", "note_row_width"])
-        for t, w in entries:
-            writer.writerow([t, w])
+        writer.writerow(["time_ms", "beat_position", "notes", "placement_type", "note_type", "confidence", "instrument"])
+        for row in entries:
+            writer.writerow(row)
     return fpath
 
 # ── Main ──────────────────────────────────────────────────────────────────────
