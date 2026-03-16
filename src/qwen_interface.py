@@ -87,7 +87,7 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
     with torch.no_grad():
         generated_ids = _model.generate(
             **inputs, 
-            max_new_tokens=8192,
+            max_new_tokens=32768,
             do_sample=False,             # Greedy decoding for strict formatting
             repetition_penalty=1.05      # Slight penalty to prevent infinite repeating loops
         )
