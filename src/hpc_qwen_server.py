@@ -38,7 +38,7 @@ class GenerateResponse(BaseModel):
 def load_model(model_dir: str):
     global _model, _processor
     print(f"Loading model from: {model_dir}")
-    _processor = AutoProcessor.from_pretrained(model_dir, trust_remote_code=True)
+    _processor = AutoProcessor.from_pretrained(model_dir, trust_remote_code=True, fix_mistral_regex=True)
     _model = Qwen2AudioForConditionalGeneration.from_pretrained(
         model_dir,
         device_map="cuda:0",   # pin to first GPU — avoids psutil/accelerate memory calc
