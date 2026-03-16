@@ -9,6 +9,8 @@ echo "Job ID: $SLURM_JOB_ID"
 echo "Node: $SLURMD_NODENAME"
 echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 echo "============================================="
+# Force Python to ignore ~/.local site-packages (prevents AWS PyTorch 2.1.0 conflict)
+export PYTHONNOUSERSITE=1
 
 # Use the conda env's Python directly (most reliable in SLURM batch scripts)
 /home/mg546924/.conda/envs/qwenenv/bin/python extract_qwen_onsets.py
