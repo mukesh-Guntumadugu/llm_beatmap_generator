@@ -12,10 +12,8 @@ echo "==========================================="
 
 cd /data/mg546924/llm_beatmap_generator
 
-# Load conda via the cluster module system
-module load anaconda3/2024.06
-
-# Activate MuMu-LLaMA conda environment
+# Initialize conda using the cluster's exact installation path
+source /opt/shared/apps/anaconda3/2024.06/etc/profile.d/conda.sh
 conda activate mumullama
 
 python3 extract_mumu_onsets.py
