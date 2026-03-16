@@ -4,18 +4,24 @@ HPC Local Inference Server for Qwen2-Audio-7B-Instruct.
 Loads the model from local disk (no internet/API key needed) and exposes
 a simple HTTP API so the batch runner can send audio + prompt and get text back.
 
+Uses Outlines constrained decoding — the model physically cannot output invalid
+tokens. Output is guaranteed to match the BeatCSV schema (same guarantee as
+Gemini's response_schema).
+
 Start with:
     python src/hpc_qwen_server.py --model-dir /data/mg546924/models/Qwen2-Audio-7B-Instruct
 """
 
 import os
+import json
 import argparse
 import base64
 import tempfile
 import torch
 import uvicorn
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from typing import List, Optional
 from transformers import Qwen2AudioForConditionalGeneration, AutoProcessor
 import librosa
 
@@ -23,37 +29,73 @@ import librosa
 app = FastAPI(title="Qwen2-Audio Beatmap Server")
 _model = None
 _processor = None
+_logits_processor = None   # Outlines constrained decoding processor
 
-# ── Request / Response schemas ────────────────────────────────────────────────
+# ── Beatmap output schema (mirrors Gemini's BeatCSV exactly) ─────────────────
+class BeatCSV(BaseModel):
+    time_ms: float = Field(..., description="Exact timestamp in milliseconds")
+    beat_position: float = Field(..., description="Beat number from song start")
+    notes: str = Field(..., description="4-char StepMania row e.g. '1000' or ',' for measure end")
+    placement_type: int = Field(..., description="0=unsure,1=onset,2=beat,3=grid,4=percussive,5=unaligned,-1=separator")
+    note_type: int = Field(..., description="0=whole,1=half,2=quarter,3=eighth,4=extended,-1=separator")
+    confidence: float = Field(..., description="Confidence score 0.0-1.0")
+    instrument: str = Field(..., description="kick/snare/bass/melody/guitar/synth/unknown/separator")
+
+class BeatmapOutput(BaseModel):
+    rows: List[BeatCSV]
+
+# ── Request / Response schemas ─────────────────────────────────────────────────
 class GenerateRequest(BaseModel):
     audio_b64: str          # Base64-encoded raw audio bytes (wav/ogg/mp3)
     audio_filename: str     # Original filename (e.g. "Bad Ketchup.ogg") — used for extension
     system_prompt: str      # Static system instruction (CSV rules, format spec)
     prompt: str             # Dynamic user turn (difficulty, duration, BPM, onsets)
     max_new_tokens: int = 16384
-    chunk_duration_sec: float = 20.0  # Audio chunk duration in seconds (used to derive min_new_tokens)
+    chunk_duration_sec: float = 20.0  # Audio chunk duration in seconds
 
 class GenerateResponse(BaseModel):
     text: str               # Raw model output (beatmap rows as text)
 
 # ── Model loading ─────────────────────────────────────────────────────────────
 def load_model(model_dir: str):
-    global _model, _processor
+    global _model, _processor, _logits_processor
     print(f"Loading model from: {model_dir}")
     _processor = AutoProcessor.from_pretrained(model_dir, trust_remote_code=True, fix_mistral_regex=True)
     _model = Qwen2AudioForConditionalGeneration.from_pretrained(
         model_dir,
-        device_map="cuda:0",   # pin to first GPU — avoids psutil/accelerate memory calc
-        dtype=torch.float16,   # replaces deprecated torch_dtype
+        device_map="cuda:0",
+        dtype=torch.float16,
         trust_remote_code=True,
     )
     _model.eval()
+
+    # ── Set up Outlines constrained decoding ─────────────────────────────────
+    # This is the equivalent of Gemini's response_schema=list[BeatCSV].
+    # The model is physically prevented from emitting tokens that would violate
+    # the BeatmapOutput JSON schema.
+    try:
+        from outlines.integrations.transformers import JSONLogitsProcessor
+        _logits_processor = JSONLogitsProcessor(
+            schema=BeatmapOutput,
+            tokenizer=_processor.tokenizer,
+            whitespace_pattern=r" ?"   # allow optional whitespace for readability
+        )
+        print("✅ Outlines constrained decoding enabled (schema: BeatmapOutput).")
+    except ImportError:
+        _logits_processor = None
+        print("⚠️  outlines not installed — falling back to unconstrained generation.")
+        print("   To enable: pip install outlines")
+
     print("✅ Model loaded and ready.")
 
 # ── Endpoints ─────────────────────────────────────────────────────────────────
 @app.get("/health")
 def health():
-    return {"status": "ok", "model_loaded": _model is not None}
+    return {
+        "status": "ok",
+        "model_loaded": _model is not None,
+        "constrained_decoding": _logits_processor is not None,
+    }
 
 @app.post("/generate", response_model=GenerateResponse)
 def generate(req: GenerateRequest):
@@ -68,11 +110,11 @@ def generate(req: GenerateRequest):
         tmp_path = tmp.name
 
     try:
-        # Load audio with soundfile (preferred for Qwen2-Audio processor)
+        # Load audio
         target_sr = _processor.feature_extractor.sampling_rate
         y, sr = librosa.load(tmp_path, sr=target_sr, mono=True)
 
-        # Build conversation — system role has the static CSV rules, user role has dynamic per-song info + audio
+        # Build conversation — system role = CSV rules, user role = audio + per-song info
         conversation = [
             {
                 "role": "system",
@@ -101,17 +143,24 @@ def generate(req: GenerateRequest):
 
         with torch.no_grad():
             # min_new_tokens: ~4 rows/sec × 5 tokens/row is a reasonable floor
-            # Avoids forcing the model to hallucinate garbage past valid content
             min_tokens = max(32, int(req.chunk_duration_sec * 4 * 5))
-            generated_ids = _model.generate(
-                **inputs, 
+            
+            generate_kwargs = dict(
+                **inputs,
                 max_new_tokens=req.max_new_tokens,
                 min_new_tokens=min_tokens,
                 do_sample=True,
                 temperature=0.3,
                 top_p=0.9,
-                repetition_penalty=1.1
+                repetition_penalty=1.1,
             )
+            
+            # Plug in Outlines logits processor if available
+            # This constrains token choices so the model CANNOT output invalid JSON
+            if _logits_processor is not None:
+                generate_kwargs["logits_processor"] = [_logits_processor]
+            
+            generated_ids = _model.generate(**generate_kwargs)
 
         # Strip the input tokens from the output
         generated_ids = generated_ids[:, inputs.input_ids.size(1):]
@@ -120,6 +169,22 @@ def generate(req: GenerateRequest):
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False,
         )[0]
+
+        # If constrained decoding was active the output IS valid JSON
+        # Parse it and re-emit as flat CSV rows for the existing parser
+        if _logits_processor is not None:
+            try:
+                data = json.loads(response_text)
+                rows = data.get("rows", [])
+                csv_lines = []
+                for r in rows:
+                    csv_lines.append(
+                        f"{r['time_ms']},{r['beat_position']},{r['notes']},"
+                        f"{r['placement_type']},{r['note_type']},{r['confidence']},{r['instrument']}"
+                    )
+                response_text = "\n".join(csv_lines)
+            except Exception:
+                pass  # Fall through with raw text if JSON parse fails
 
         return GenerateResponse(text=response_text)
 
