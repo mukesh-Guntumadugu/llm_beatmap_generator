@@ -242,8 +242,8 @@ def main():
     parser.add_argument("--difficulty", type=str, default=None,
                         choices=DIFFICULTIES,
                         help="Only process this difficulty level")
-    parser.add_argument("--runs", type=int, default=6,
-                        help="Number of generation runs per song × difficulty (default: 6)")
+    parser.add_argument("--runs", type=int, default=1,
+                        help="Number of generation runs per song × difficulty (default: 1)")
     parser.add_argument("--job-id", type=str, default="",
                         help="Optional SLURM Job ID to include in the output filename")
     args = parser.parse_args()
