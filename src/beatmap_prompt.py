@@ -86,17 +86,25 @@ def build_per_song_prompt(difficulty: str, duration: float, bpm: float = None) -
     prompt += f"Generate a {difficulty} difficulty StepMania beatmap for this specific {duration:.1f} second audio slice."
     return prompt
 
-# ── Qwen addendum: reinforce the strictly CSV format ─────────────────────────
+# ── Qwen addendum: reinforce the strictly JSON/CSV format ─────────────────────
 QWEN_OUTPUT_ADDENDUM = (
     "\n\n=== STRICT OUTPUT RULES ===\n"
-    "You MUST output ONLY valid CSV rows with exactly 7 columns.\n"
-    "DO NOT output JSON.\n"
+    "You are generating a StepMania BEATMAP, NOT a music transcription or MIDI file.\n"
+    "DO NOT output any of these MIDI-style fields: 'time', 'note_name', 'velocity', 'pitch', 'duration', 'frequency'.\n"
     "DO NOT include markdown, explanations, apologies, or conversational text.\n"
     "DO NOT write 'Here is your CSV:' or similar phrases.\n"
-    "Do NOT stop early. Keep generating CSV rows until time_ms reaches the end of the audio chunk.\n"
-    "Each row must look like this: time_ms,beat_position,notes,placement_type,note_type,confidence,instrument\n"
-    'For measure separators, use: time_ms,beat_position,",",-1,-1,1.0,separator\n\n'
-    "Output the CSV data immediately, starting directly with the first row:\n"
+    "Do NOT stop early. Keep generating rows until time_ms reaches the end of the audio chunk.\n\n"
+    "You MUST output a JSON object with a 'rows' array. Each element in 'rows' MUST have EXACTLY these 7 fields:\n"
+    '  {"time_ms": <float>, "beat_position": <float>, "notes": "<4-char string>", '
+    '"placement_type": <int>, "note_type": <int>, "confidence": <float>, "instrument": "<string>"}\n\n'
+    "EXAMPLE of correct output format:\n"
+    '{"rows": [\n'
+    '  {"time_ms": 0.0, "beat_position": 1.0, "notes": "1000", "placement_type": 4, "note_type": 2, "confidence": 0.95, "instrument": "kick"},\n'
+    '  {"time_ms": 125.0, "beat_position": 1.25, "notes": "0000", "placement_type": 0, "note_type": 3, "confidence": 1.0, "instrument": "unknown"},\n'
+    '  {"time_ms": 250.0, "beat_position": 1.5, "notes": "0010", "placement_type": 4, "note_type": 3, "confidence": 0.88, "instrument": "snare"},\n'
+    '  {"time_ms": 500.0, "beat_position": 2.0, "notes": ",", "placement_type": -1, "note_type": -1, "confidence": 1.0, "instrument": "separator"}\n'
+    "]}\n\n"
+    "Output the JSON object immediately, starting with '{\"rows\": [':\n"
 )
 
 def build_qwen_prompt(difficulty: str, duration: float, bpm: float = None) -> str:
