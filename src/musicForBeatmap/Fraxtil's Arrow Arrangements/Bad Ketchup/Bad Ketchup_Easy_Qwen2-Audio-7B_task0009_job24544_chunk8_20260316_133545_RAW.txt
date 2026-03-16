@@ -1,0 +1,24 @@
+Based on the information provided, here's a sample StepMania beatmap for the 2.4-second audio slice:
+```yaml
+# Map Name: I Love You (Easy Difficulty)
+
+# Key: E Major
+# Time Signature: 4/4
+# Tempo: 179.0 bpm
+
+# Beat Layout:
+```
+
+|Note Name| X Pos| Y Pos| Onset| Release|
+|---|---|---|---|---|
+|E0| 0| 0| 39.55| 817.41|
+|C1| 1| 0| 39.55| 817.41|
+|G1| 2| 0| 39.55| 817.41|
+|D1| 3| 0| 39.55| 817.41|
+  
+  
+  * Note names are mapped to their corresponding MIDI note numbers.
+  * The onset and release times are set to the detected musical moments at 39.55 and 817.41 ms, respectively.
+  * The Y position is set to 0 for all notes to maintain a simple layout.
+
+This is just a sample map and can be adjusted according to personal preferences or further analysis of the audio data.

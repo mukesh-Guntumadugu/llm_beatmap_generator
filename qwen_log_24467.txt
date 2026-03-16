@@ -1,0 +1,19 @@
+=== Starting Qwen2-Audio Onset Detection ===
+Job ID: 24467
+Node: node002
+GPU: NVIDIA RTX A6000
+=============================================
+/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading Qwen2-Audio model: Qwen/Qwen2-Audio-7B-Instruct...
+  Device: cuda | dtype: torch.float16
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Fetching 5 files:  20%|██        | 1/5 [00:35<02:22, 35.50s/it]Fetching 5 files:  40%|████      | 2/5 [00:35<00:44, 14.86s/it]Fetching 5 files:  60%|██████    | 3/5 [00:55<00:33, 16.82s/it]Fetching 5 files: 100%|██████████| 5/5 [00:55<00:00, 11.01s/it]
+❌ Failed to load Qwen2-Audio: No module named 'psutil'
+❌ Failed to load Qwen model: No module named 'psutil'
+=== Qwen Onset Detection Finished ===

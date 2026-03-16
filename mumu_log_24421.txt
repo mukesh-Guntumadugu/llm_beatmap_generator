@@ -1,0 +1,12 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24421
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================
+Loading MuMu-LLaMA checkpoint: /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/ckpts/MuMu-LLaMA-MusicGen/checkpoint.pth
+LLaMA directory:               /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/ckpts/LLaMA
+❌ Failed to setup MuMu-LLaMA interface: Could not import MuMu-LLaMA model class: No module named 'model'
+Make sure you are running from inside the conda 'mumullama' environment
+and that /data/mg546924/llm_beatmap_generator/MuMu-LLaMA contains the MuMu-LLaMA source code.
+
+=== MuMu-LLaMA Onset Detection Finished ===

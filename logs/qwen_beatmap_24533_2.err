@@ -1,0 +1,15 @@
+ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: '/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/jsonpath_ng/_ply/__init__.py'
+
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:02,  2.51it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:02,  2.12it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  2.05it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  2.03it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  2.05it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:02<00:00,  2.06it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  2.25it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.62it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.29it/s]
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/src/hpc_qwen_server.py", line 206, in <module>
+    load_model(args.model_dir)
+  File "/data/mg546924/llm_beatmap_generator/src/hpc_qwen_server.py", line 77, in load_model
+    from outlines.integrations.transformers import JSONLogitsProcessor
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/outlines/__init__.py", line 5, in <module>
+    from outlines import inputs as inputs
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/outlines/inputs.py", line 75, in <module>
+    class Chat:
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/outlines/inputs.py", line 149, in Chat
+    def add_system_message(self, content: str | List[Any]):
+TypeError: unsupported operand type(s) for |: 'type' and '_GenericAlias'

@@ -1,0 +1,67 @@
+=== Starting Qwen2-Audio Onset Detection ===
+Job ID: 24468
+Node: node002
+GPU: NVIDIA RTX A6000
+=============================================
+/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading Qwen2-Audio model: Qwen/Qwen2-Audio-7B-Instruct...
+  Device: cuda | dtype: torch.float16
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:03<00:15,  3.81s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:07<00:11,  3.83s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:11<00:07,  3.82s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:14<00:03,  3.69s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:16<00:00,  2.79s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:16<00:00,  3.23s/it]
+✅ Qwen2-Audio loaded successfully on cuda.
+
+Found 20 song folders. Starting Qwen onset detection...
+
+Song                                           # Qwen Onsets  Output file
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  [1/20] Processing: Bad Ketchup ...Keyword argument `audios` is not a valid argument for this processor and will be ignored.
+Generating with Qwen2-Audio...
+  ✅ Bad Ketchup                                              6  Bad Ketchup/Qwen_onsets_Bad_Ketchup_15032026214939.csv
+  [2/20] Processing: Bitch Clap ...Generating with Qwen2-Audio...
+  ✅ Bitch Clap                                               6  Bitch Clap/Qwen_onsets_Bitch_Clap_15032026214948.csv
+  [3/20] Processing: Call Me Maybe (Remix) ...Generating with Qwen2-Audio...
+  ✅ Call Me Maybe (Remix)                                    1  Call Me Maybe (Remix)/Qwen_onsets_Call_Me_Maybe_(Remix)_15032026215010.csv
+  [4/20] Processing: Dead Hollywood ...Generating with Qwen2-Audio...
+  ✅ Dead Hollywood                                           7  Dead Hollywood/Qwen_onsets_Dead_Hollywood_15032026215020.csv
+  [5/20] Processing: Deal With It ...Generating with Qwen2-Audio...
+  ✅ Deal With It                                             7  Deal With It/Qwen_onsets_Deal_With_It_15032026215030.csv
+  [6/20] Processing: Gangnam Style ...Generating with Qwen2-Audio...
+  ✅ Gangnam Style                                            5  Gangnam Style/Qwen_onsets_Gangnam_Style_15032026215041.csv
+  [7/20] Processing: Girls ...Generating with Qwen2-Audio...
+  ✅ Girls                                                    7  Girls/Qwen_onsets_Girls_15032026215050.csv
+  [8/20] Processing: Goin' Under ...Generating with Qwen2-Audio...
+  ✅ Goin' Under                                              4  Goin' Under/Qwen_onsets_Goin'_Under_15032026215057.csv
+  [9/20] Processing: Goodbye (2012 Mix) ...Generating with Qwen2-Audio...
+  ✅ Goodbye (2012 Mix)                                       4  Goodbye (2012 Mix)/Qwen_onsets_Goodbye_(2012_Mix)_15032026215105.csv
+  [10/20] Processing: Human Error ...Generating with Qwen2-Audio...
+  ✅ Human Error                                              5  Human Error/Qwen_onsets_Human_Error_15032026215113.csv
+  [11/20] Processing: Inner Universe (Extended Mix) ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable onsets in response for 'Inner Universe (Extended Mix)'
+     Raw response saved to: /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Inner Universe (Extended Mix)/Qwen_onsets_RAW_Inner_Universe_(Extended_Mix)_15032026215116.txt
+  [12/20] Processing: Love to Rise in the Summer Morning ...Generating with Qwen2-Audio...
+  ✅ Love to Rise in the Summer Morning                       5  Love to Rise in the Summer Morning/Qwen_onsets_Love_to_Rise_in_the_Summer_Morning_15032026215123.csv
+  [13/20] Processing: Named 'The Moon' ...Generating with Qwen2-Audio...
+  ✅ Named 'The Moon'                                         6  Named 'The Moon'/Qwen_onsets_Named_'The_Moon'_15032026215133.csv
+  [14/20] Processing: Need Your Love -SF_Dubstep Mix- ...Generating with Qwen2-Audio...
+  ✅ Need Your Love -SF_Dubstep Mix-                          7  Need Your Love -SF_Dubstep Mix-/Qwen_onsets_Need_Your_Love_-SF_Dubstep_Mix-_15032026215143.csv
+  [15/20] Processing: No Beginning ...Generating with Qwen2-Audio...
+  ✅ No Beginning                                             6  No Beginning/Qwen_onsets_No_Beginning_15032026215151.csv
+  [16/20] Processing: Pain Game ...Generating with Qwen2-Audio...
+  ✅ Pain Game                                                6  Pain Game/Qwen_onsets_Pain_Game_15032026215201.csv
+  [17/20] Processing: Stamina ...Generating with Qwen2-Audio...
+  ✅ Stamina                                                  7  Stamina/Qwen_onsets_Stamina_15032026215210.csv
+  [18/20] Processing: Star Gear ...Generating with Qwen2-Audio...
+  ✅ Star Gear                                                8  Star Gear/Qwen_onsets_Star_Gear_15032026215221.csv
+  [19/20] Processing: The Seconds ...Generating with Qwen2-Audio...
+  ✅ The Seconds                                              6  The Seconds/Qwen_onsets_The_Seconds_15032026215229.csv
+  [20/20] Processing: Turn Up (The Music) ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable onsets in response for 'Turn Up (The Music)'
+     Raw response saved to: /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Turn Up (The Music)/Qwen_onsets_RAW_Turn_Up_(The_Music)_15032026215232.txt
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+✅  Completed 18/20 songs.
+
+=== Qwen Onset Detection Finished ===

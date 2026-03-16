@@ -1,0 +1,362 @@
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 0.73
+  * Beat position: 1.0
+  * Notes: 1000
+  * Placement type: 4
+  * Note type: 2
+  * Confidence: 0.95
+  * Instrument: kick
+  * Next separator: 125.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 708.93
+  * Beat position: 1.75
+  * Notes: 0010
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.88
+  * Instrument: snare
+  * Next separator: 250.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 929.52
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 1660.95
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 1916.37
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 1955.12
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 1984.18
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 1999.37
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 1999.83
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 1999.91
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 2000.00
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time ms: 2000.00
+  * Beat position: 2.75
+  * Notes: 0100
+  * Placement type: 4
+  * Note type: 3
+  * Confidence: 0.82
+  * Instrument: snare
+  * Next separator: 375.0
+
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"",-1,-1,1.0,separator
+```
+
+
+  * Time.

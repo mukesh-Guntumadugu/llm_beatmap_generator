@@ -1,0 +1,11 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24410
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================
+/var/spool/slurmd/job24410/slurm_script: line 19: conda: command not found
+/var/spool/slurmd/job24410/slurm_script: line 22: conda: command not found
+❌ Failed to setup MuMu-LLaMA interface: MuMu-LLaMA checkpoint not found at:
+  /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/ckpts/MuMu-LLaMA/checkpoint.pth
+Download from HuggingFace: M2UGen/M2UGen-MusicGen-medium
+=== MuMu-LLaMA Onset Detection Finished ===

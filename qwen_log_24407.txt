@@ -1,0 +1,84 @@
+=== Starting Qwen2-Audio Onset Detection ===
+Job ID: 24407
+Node: node002
+GPU: NVIDIA RTX A6000
+=============================================
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading Qwen2-Audio model: Qwen/Qwen2-Audio-7B-Instruct...
+  Device: cuda | dtype: torch.float16
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:05<00:20,  5.04s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:10<00:15,  5.04s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:15<00:09,  4.99s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:19<00:04,  4.79s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:21<00:00,  3.66s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:21<00:00,  4.23s/it]
+✅ Qwen2-Audio loaded successfully on cuda.
+
+Found 20 song folders. Starting Qwen onset detection...
+
+Song                                           # Qwen Onsets  Output file
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  [1/20] Processing: Bad Ketchup ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+Generating with Qwen2-Audio...
+  ✅ Bad Ketchup                                             10  Bad Ketchup/Qwen_onsets_Bad_Ketchup_15032026164206.csv
+  [2/20] Processing: Bitch Clap ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Bitch Clap                                               9  Bitch Clap/Qwen_onsets_Bitch_Clap_15032026164211.csv
+  [3/20] Processing: Call Me Maybe (Remix) ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Call Me Maybe (Remix)                                    4  Call Me Maybe (Remix)/Qwen_onsets_Call_Me_Maybe_(Remix)_15032026164220.csv
+  [4/20] Processing: Dead Hollywood ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+
+  ⚠️  No parseable onsets in response for 'Dead Hollywood'
+     Raw response saved to: /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Dead Hollywood/Qwen_onsets_RAW_Dead_Hollywood_15032026164230.txt
+  [5/20] Processing: Deal With It ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Deal With It                                             9  Deal With It/Qwen_onsets_Deal_With_It_15032026164233.csv
+  [6/20] Processing: Gangnam Style ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Gangnam Style                                            1  Gangnam Style/Qwen_onsets_Gangnam_Style_15032026164243.csv
+  [7/20] Processing: Girls ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Girls                                                   37  Girls/Qwen_onsets_Girls_15032026164256.csv
+  [8/20] Processing: Goin' Under ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Goin' Under                                            219  Goin' Under/Qwen_onsets_Goin'_Under_15032026164409.csv
+  [9/20] Processing: Goodbye (2012 Mix) ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Goodbye (2012 Mix)                                       8  Goodbye (2012 Mix)/Qwen_onsets_Goodbye_(2012_Mix)_15032026164412.csv
+  [10/20] Processing: Human Error ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Human Error                                             11  Human Error/Qwen_onsets_Human_Error_15032026164417.csv
+  [11/20] Processing: Inner Universe (Extended Mix) ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Inner Universe (Extended Mix)                            8  Inner Universe (Extended Mix)/Qwen_onsets_Inner_Universe_(Extended_Mix)_15032026164422.csv
+  [12/20] Processing: Love to Rise in the Summer Morning ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Love to Rise in the Summer Morning                       9  Love to Rise in the Summer Morning/Qwen_onsets_Love_to_Rise_in_the_Summer_Morning_15032026164426.csv
+  [13/20] Processing: Named 'The Moon' ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Named 'The Moon'                                         6  Named 'The Moon'/Qwen_onsets_Named_'The_Moon'_15032026164435.csv
+  [14/20] Processing: Need Your Love -SF_Dubstep Mix- ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Need Your Love -SF_Dubstep Mix-                          8  Need Your Love -SF_Dubstep Mix-/Qwen_onsets_Need_Your_Love_-SF_Dubstep_Mix-_15032026164440.csv
+  [15/20] Processing: No Beginning ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ No Beginning                                             9  No Beginning/Qwen_onsets_No_Beginning_15032026164444.csv
+  [16/20] Processing: Pain Game ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Pain Game                                               30  Pain Game/Qwen_onsets_Pain_Game_15032026164453.csv
+  [17/20] Processing: Stamina ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Stamina                                                  1  Stamina/Qwen_onsets_Stamina_15032026164503.csv
+  [18/20] Processing: Star Gear ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Star Gear                                                7  Star Gear/Qwen_onsets_Star_Gear_15032026164515.csv
+  [19/20] Processing: The Seconds ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ The Seconds                                              7  The Seconds/Qwen_onsets_The_Seconds_15032026164526.csv
+  [20/20] Processing: Turn Up (The Music) ...It is strongly recommended to pass the `sampling_rate` argument to this function. Failing to do so can result in silent errors that might be hard to debug.
+Generating with Qwen2-Audio...
+  ✅ Turn Up (The Music)                                      9  Turn Up (The Music)/Qwen_onsets_Turn_Up_(The_Music)_15032026164531.csv
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+✅  Completed 19/20 songs.
+
+=== Qwen Onset Detection Finished ===

@@ -1,0 +1,53 @@
+Job started: Mon Mar 16 09:42:43 AM PDT 2026
+Node: node003
+Array task: 0  →  Difficulty: Beginner
+GPU: NVIDIA RTX A6000
+Using conda env: /data/mg546924/conda_envs/qwenenv/bin
+Ensuring required packages are installed in conda env...
+✅ Package check done.
+
+=== Starting Qwen2-Audio Server (port 8000) ===
+Server PID: 96362
+Waiting for server to become healthy...
+  Still loading... (attempt 1/120)
+Loading model from: /data/mg546924/models/Qwen2-Audio-7B-Instruct
+  Still loading... (attempt 2/120)
+  Still loading... (attempt 3/120)
+  Still loading... (attempt 4/120)
+  Still loading... (attempt 5/120)
+  Still loading... (attempt 6/120)
+  Still loading... (attempt 7/120)
+  Still loading... (attempt 8/120)
+  Still loading... (attempt 9/120)
+  Still loading... (attempt 10/120)
+✅ Model loaded and ready.
+INFO:     127.0.0.1:44472 - "GET /health HTTP/1.1" 200 OK
+✅ Server is ready! (waited 11x5s)
+
+=== Starting Batch Runner (Difficulty: Beginner) ===
+INFO:     127.0.0.1:44480 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44492 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51096 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48162 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38602 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33904 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33304 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50122 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53710 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43462 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43466 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58168 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49174 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46344 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52636 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33708 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44094 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35184 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38780 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34648 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50190 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39592 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51584 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53282 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57628 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49818 - "POST /generate HTTP/1.1" 200 OK

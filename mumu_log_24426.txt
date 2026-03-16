@@ -1,0 +1,11 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24426
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================
+Loading MuMu-LLaMA checkpoint: /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/ckpts/MuMu-LLaMA-MusicGen/checkpoint.pth
+LLaMA directory:               /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/ckpts/LLaMA
+Source directory on path:      /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/MuMu-LLaMA
+❌ Failed to setup MuMu-LLaMA interface: Failed to load MuMu-LLaMA: Failed to import transformers.generation.utils because of the following error (look up to see its traceback):
+cannot import name 'split_torch_state_dict_into_shards' from 'huggingface_hub' (/home/mg546924/.conda/envs/mumullama/lib/python3.9/site-packages/huggingface_hub/__init__.py)
+=== MuMu-LLaMA Onset Detection Finished ===

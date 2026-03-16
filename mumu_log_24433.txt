@@ -1,0 +1,5 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24433
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================

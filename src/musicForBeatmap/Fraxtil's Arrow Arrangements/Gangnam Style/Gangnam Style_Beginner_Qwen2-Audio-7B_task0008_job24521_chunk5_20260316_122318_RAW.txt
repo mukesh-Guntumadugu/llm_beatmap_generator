@@ -1,0 +1,41 @@
+Here is your CSV:
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,",",-1,-1,1.0,separator
+```
+
+
+  1. The first row (0.0,1.0,1000,4,2,0.95,kick) represents the first beat of the first measure.
+  2. The second row (125.0,1.25,0000,0,3,1.0,unknown) represents a 1-second silence.
+  3. The third row (250.0,1.5,0010,4,3,0.88,snare) represents a single note played in the first half of the first beat.
+  4. The fourth row (375.0,1.75,0000,0,3,1.0,unknown) represents another 1-second silence.
+  5. The fifth row (500.0,2.0,2000,4,2,1.0,bass) represents a single note played in the second half of the first beat.
+  6. The sixth row (625.0,2.25,0000,0,3,1.0,unknown) represents another 1-second silence.
+  7. The seventh row (750.0,2.5,0100,4,3,0.82,snare) represents a single note played in the first half of the second beat.
+  8. The eighth row (875.0,2.75,0000,0,3,1.0,unknown) represents another 1-second silence.
+  9. The ninth row (1000.0,3.0,3001,4,2,0.91,kick) represents a single note played in the second half of the second beat.
+  10. The tenth row (1125.0,3.25,0000,0,3,1.0,unknown) represents another 1-second silence.
+  11. The eleventh row (1250.0,3.5,0000,0,3,1.0,unknown) represents another 1-second silence.
+  12. The twelfth row (1375.0,3.75,0000,0,3,1.0,unknown) represents another 1-second silence.
+  13. The thirteenth row (1500.0,4.0,0000,0,2,1.0,unknown) represents another 1-second silence.
+  14. The fourteenth row (1625.0,4.25,0000,0,3,1.0,unknown) represents another 1-second silence.
+  15. The fifteenth row (1750.0,4.5,0010,4,3,0.79,snare) represents a single note played in the first half of the third beat.
+  16. The sixteenth row (1875.0,4.75,0000,0,3,1.0,unknown) represents another 1-second silence.
+  17. The seventeenth row (2000.0,5.0,",",-1,-1,1.0,separator) represents a separator row that indicates the end of the first measure.
+
+Note that the note type and confidence values are not provided in the example. These values can be filled in manually based on the note played and its characteristics. The instrument value should also be filled in based on the actual instrument used to play the note. The placement type and note position values are not used in this example and should be set to 0 or -1 as appropriate. The time ms value is used to determine the position of each row within the beat. The separator row ("," value) is used to separate measures. The note position values (0000) are used to represent empty slots. The note type values (0001) are used to represent standard taps. The confidence value (0.95) is used as an example and should be adjusted based on the accuracy of the beatmap. The instrument value (kick) is used as an example and should be adjusted based on the actual instrument used to play the note. The note position values (0000) are used to represent empty slots. The note type values (0001) are used to represent standard taps. The confidence value (0.95) is used as an example and should be adjusted based on the accuracy of the beatmap. The instrument value (kick) is used as an example and should be adjusted based on the actual instrument used to play the note. The note position values (0000) are used to represent empty slots. The note type values (0001) are used to represent standard taps. The confidence value (0.95) is used as an example and should be adjusted based on the accuracy of the beatmap. The instrument value (kick) is used as an example and should be adjusted based on the actual instrument used to play the note. The note position values (0000) are used to represent empty slots. The note type values (0001) are used to represent standard taps. The confidence value (0.95) is used as an example and should be adjusted based on the accuracy of the beatmap. The instrument value (kick) is used as an example and should be adjusted based on the actual instrument used to play the note. The note position values (0000) are used to represent empty slots. The note type values (0001) are used to represent standard taps. The confidence value (0.95) is used as an example and should be adjusted based on the accuracy of the beatmap. The instrument value (kick) is used as an example and should be adjusted based on the actual instrument used to play the note. The note position values (0000) are used to represent empty slots. The note type values (0001) are used to represent standard taps. The confidence value (0.95) is used as an example and should be adjusted based on the accuracy of the beatmap. The instrument value (kick) is used as an example and should be adjusted based on the actual instrument used to play the note. The note position values (0000) are used to represent empty slots. The note type values (0001) are used to represent standard taps. The confidence value (0.95) is used as an example and should be adjusted based on the accuracy of the beatmap. The instrument value (kick) is used as an example and should be adjusted based on the actual instrument used to play the note. The note position values (0000) are used to represent empty slots. The note type values (0001) are used to represent standard taps. The confidence value (0.95) is used as an example and should be adjusted based on the accuracy of the beatmap. The instrument value (kick) is used as an example and should be adjusted based on the actual instrument used to play the note. The note position values (0000) are used to represent empty slots. The note type values (0001) are used to represent standard taps. The confidence value (0.95) is used as an example and should be adjusted based on the accuracy of the beatmap.

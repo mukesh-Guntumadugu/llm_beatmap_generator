@@ -1,0 +1,32 @@
+Here is a list of 30 steps for a 16-step map with a 120 BPM tempo and a 16-beat grid:
+
+  1. Start with a 16-beat grid at 120 BPM.
+  2. For the first step, use a standard tap note (1000) on the left column.
+  3. For the second step, use a hold note on the left column (2000).
+  4. For the third step, use a standard tap note on the left column.
+  5. For the fourth step, use a hold note on the left column (3000).
+  6. For the fifth step, use a standard tap note on the left column.
+  7. For the sixth step, use a hold note on the left column (4000).
+  8. For the seventh step, use a standard tap note on the left column.
+  9. For the eighth step, use a hold note on the left column (5000).
+  10. For the ninth step, use a standard tap note on the left column.
+  11. For the tenth step, use a hold note on the left column (6000).
+  12. For the eleventh step, use a standard tap note on the left column.
+  13. For the twelfth step, use a hold note on the left column (7000).
+  14. For the thirteenth step, use a standard tap note on the left column.
+  15. For the fourteenth step, use a hold note on the left column (8000).
+  16. For the fifteenth step, use a standard tap note on the left column.
+  17. For the sixteenth step, use a hold note on the left column (9000).
+  18. For the seventeenth step, use a standard tap note on the left column.
+  19. For the eighteenth step, use a hold note on the left column (10000).
+  20. For the nineteenth step, use a standard tap note on the left column.
+  21. For the twentieth step, use a hold note on the left column (11000).
+  22. For the twenty-first step, use a standard tap note on the left column.
+  23. For the twenty-second step, use a hold note on the left column (12000).
+  24. For the twenty-third step, use a standard tap note on the left column.
+  25. For the twenty-fourth step, use a hold note on the left column (13000).
+  26. For the twenty-fifth step, use a standard tap note on the left column.
+  27. For the twenty-sixth step, use a hold note on the left column (14000).
+  28. For the twenty-seventh step, use a standard tap note on the left column.
+  29. For the twenty-eighth step, use a hold note on the left column (15000).
+  30. For the twenty-ninth step, use a standard tap note on the left column.

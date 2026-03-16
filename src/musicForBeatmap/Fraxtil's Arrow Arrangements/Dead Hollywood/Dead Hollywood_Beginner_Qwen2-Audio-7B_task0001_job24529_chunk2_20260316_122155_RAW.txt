@@ -1,0 +1,117 @@
+Here is your CSV:
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,-1,-1,1.0,separator
+```
+
+
+  * The first row corresponds to the first beat of the audio clip at time 0.00
+  * The second row corresponds to the second beat of the audio clip at time 125.00
+  * The third row corresponds to the third beat of the audio clip at time 250.00
+  * The fourth row corresponds to the fourth beat of the audio clip at time 375.00
+  * The fifth row corresponds to the fifth beat of the audio clip at time 500.00
+  * The sixth row corresponds to the sixth beat of the audio clip at time 625.00
+  * The seventh row corresponds to the seventh beat of the audio clip at time 750.00
+  * The eighth row corresponds to the eighth beat of the audio clip at time 875.00
+  * The ninth row corresponds to the ninth beat of the audio clip at time 1000.00
+  * The tenth row corresponds to the tenth beat of the audio clip at time 1125.00
+  * The eleventh row corresponds to the eleventh beat of the audio clip at time 1250.00
+  * The twelfth row corresponds to the twelfth beat of the audio clip at time 1375.00
+  * The thirteenth row corresponds to the thirteenth beat of the audio clip at time 1500.00
+  * The fourteenth row corresponds to the fourteenth beat of the audio clip at time 1625.00
+  * The fifteenth row corresponds to the fifteenth beat of the audio clip at time 1750.00
+  * The sixteenth row corresponds to the sixteenth beat of the audio clip at time 1875.00
+  * The seventeenth row corresponds to the seventeenth beat of the audio clip at time 2000.00
+  * The eighteenth row corresponds to the eighteenth beat of the audio clip at time 2000.00
+  * The nineteenth row corresponds to the nineteenth beat of the audio clip at time 2000.00
+  * The twentieth row corresponds to the twentieth beat of the audio clip at time 2000.00
+  * The twenty-first row corresponds to the twenty-first beat of the audio clip at time 2000.00
+  * The twenty-second row corresponds to the twenty-second beat of the audio clip at time 2000.00
+  * The twenty-third row corresponds to the twenty-third beat of the audio clip at time 2000.00
+  * The twenty-fourth row corresponds to the twenty-fourth beat of the audio clip at time 2000.00
+  * The twenty-fifth row corresponds to the twenty-fifth beat of the audio clip at time 2000.00
+  * The twenty-sixth row corresponds to the twenty-sixth beat of the audio clip at time 2000.00
+  * The twenty-seventh row corresponds to the twenty-seventh beat of the audio clip at time 2000.00
+  * The twenty-eighth row corresponds to the twenty-eighth beat of the audio clip at time 2000.00
+  * The twenty-ninth row corresponds to the twenty-ninth beat of the audio clip at time 2000.00
+  * The thirty-first row corresponds to the thirty-first beat of the audio clip at time 2000.00
+  * The thirty-second row corresponds to the thirty-second beat of the audio clip at time 2000.00
+  * The thirty-third row corresponds to the thirty-third beat of the audio clip at time 2000.00
+  * The thirty-fourth row corresponds to the thirty-fourth beat of the audio clip at time 2000.00
+  * The thirty-fifth row corresponds to the thirty-fifth beat of the audio clip at time 2000.00
+  * The thirty-sixth row corresponds to the thirty-sixth beat of the audio clip at time 2000.00
+  * The thirty-seventh row corresponds to the thirty-seventh beat of the audio clip at time 2000.00
+  * The thirty-eighth row corresponds to the thirty-eighth beat of the audio clip at time 2000.00
+  * The thirty-ninth row corresponds to the thirty-ninth beat of the audio clip at time 2000.00
+  * The fortieth row corresponds to the fortieth beat of the audio clip at time 2000.00
+  * The forty-first row corresponds to the forty-first beat of the audio clip at time 2000.00
+  * The forty-second row corresponds to the forty-second beat of the audio clip at time 2000.00
+  * The forty-third row corresponds to the forty-third beat of the audio clip at time 2000.00
+  * The forty-fourth row corresponds to the forty-fourth beat of the audio clip at time 2000.00
+  * The forty-fifth row corresponds to the forty-fifth beat of the audio clip at time 2000.00
+  * The forty-sixth row corresponds to the forty-sixth beat of the audio clip at time 2000.00
+  * The forty-seventh row corresponds to the forty-seventh beat of the audio clip at time 2000.00
+  * The forty-eighth row corresponds to the forty-eighth beat of the audio clip at time 2000.00
+  * The forty-ninth row corresponds to the forty-ninth beat of the audio clip at time 2000.00
+  * The fifty-first row corresponds to the fifty-first beat of the audio clip at time 2000.00
+  * The fifty-second row corresponds to the fifty-second beat of the audio clip at time 2000.00
+  * The fifty-third row corresponds to the fifty-third beat of the audio clip at time 2000.00
+  * The fifty-fourth row corresponds to the fifty-fourth beat of the audio clip at time 2000.00
+  * The fifty-fifth row corresponds to the fifty-fifth beat of the audio clip at time 2000.00
+  * The fifty-sixth row corresponds to the fifty-sixth beat of the audio clip at time 2000.00
+  * The fifty-seventh row corresponds to the fifty-seventh beat of the audio clip at time 2000.00
+  * The fifty-eighth row corresponds to the fifty-eighth beat of the audio clip at time 2000.00
+  * The fifty-ninth row corresponds to the fifty-ninth beat of the audio clip at time 2000.00
+  * The sixty-first row corresponds to the sixty-first beat of the audio clip at time 2000.00
+  * The sixty-second row corresponds to the sixty-second beat of the audio clip at time 2000.00
+  * The sixty-third row corresponds to the sixty-third beat of the audio clip at time 2000.00
+  * The sixty-fourth row corresponds to the sixty-fourth beat of the audio clip at time 2000.00
+  * The sixty-fifth row corresponds to the sixty-fifth beat of the audio clip at time 2000.00
+  * The sixty-sixth row corresponds to the sixty-sixth beat of the audio clip at time 2000.00
+  * The sixty-seventh row corresponds to the sixty-seventh beat of the audio clip at time 2000.00
+  * The sixty-eighth row corresponds to the sixty-eighth beat of the audio clip at time 2000.00
+  * The sixty-ninth row corresponds to the sixty-ninth beat of the audio clip at time 2000.00
+  * The seventy-first row corresponds to the seventy-first beat of the audio clip at time 2000.00
+  * The seventy-second row corresponds to the seventy-second beat of the audio clip at time 2000.00
+  * The seventy-third row corresponds to the seventy-third beat of the audio clip at time 2000.00
+  * The seventy-fourth row corresponds to the seventy-fourth beat of the audio clip at time 2000.00
+  * The seventy-fifth row corresponds to the seventy-fifth beat of the audio clip at time 2000.00
+  * The seventy-sixth row corresponds to the seventy-sixth beat of the audio clip at time 2000.00
+  * The seventy-seventh row corresponds to the seventy-seventh beat of the audio clip at time 2000.00
+  * The seventy-eighth row corresponds to the seventy-eighth beat of the audio clip at time 2000.00
+  * The seventy-ninth row corresponds to the seventy-ninth beat of the audio clip at time 2000.00
+  * The eighty-first row corresponds to the eighty-first beat of the audio clip at time 2000.00
+  * The eighty-second row corresponds to the eighty-second beat of the audio clip at time 2000.00
+  * The eighty-third row corresponds to the eighty-third beat of the audio clip at time 2000.00
+  * The eighty-fourth row corresponds to the eighty-fourth beat of the audio clip at time 2000.00
+  * The eighty-fifth row corresponds to the eighty-fifth beat of the audio clip at time 2000.00
+  * The eighty-sixth row corresponds to the eighty-sixth beat of the audio clip at time 2000.00
+  * The eighty-seventh row corresponds to the eighty-seventh beat of the audio clip at time 2000.00
+  * The eighty-eighth row corresponds to the eighty-eighth beat of the audio clip at time 2000.00
+  * The eighty-ninth row corresponds to the eighty-ninth beat of the audio clip at time 2000.00
+  * The ninety-first row corresponds to the ninety-first beat of the audio clip at time 2000.00
+  * The ninety-second row corresponds to the ninety-second beat of the audio clip at time 2000.00
+  * The ninety-third row corresponds to the ninety-third beat of the audio clip at time 2000.00
+  * The ninety-fourth row corresponds to the ninety-fourth beat of the audio clip at time 2000.00
+  * The ninety-fifth row corresponds to the ninety-fifth beat of the audio clip at time 2000.00
+  * The ninety-sixth row corresponds to the ninety-sixth beat of the audio clip at time 2000.00
+  * The ninety-seventh row corresponds to the ninety-seventh beat of the audio clip at time 2000.00
+  * The ninety-eighth row corresponds to the ninety-eighth beat of the audio clip at time 2000.00
+  * The ninety-ninth row corresponds to the ninety-ninth beat of the audio clip at time 2000.00
+  * The hundredth row corresponds to the hundredth beat of the audio clip at time 2000.00

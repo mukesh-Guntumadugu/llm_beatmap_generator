@@ -1,0 +1,27 @@
+=== Starting Qwen2-Audio Onset Detection ===
+Job ID: 24464
+Node: node002
+GPU: NVIDIA RTX A6000
+=============================================
+Traceback (most recent call last):
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/torch/__init__.py", line 226, in _load_global_deps
+    ctypes.CDLL(global_deps_lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/ctypes/__init__.py", line 382, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: libcudart.so.12: cannot open shared object file: No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/extract_qwen_onsets.py", line 22, in <module>
+    from src.qwen_interface import setup_qwen, generate_beatmap_with_qwen
+  File "/data/mg546924/llm_beatmap_generator/src/qwen_interface.py", line 3, in <module>
+    import torch
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/torch/__init__.py", line 289, in <module>
+    _load_global_deps()
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/torch/__init__.py", line 247, in _load_global_deps
+    _preload_cuda_deps(lib_folder, lib_name)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/torch/__init__.py", line 169, in _preload_cuda_deps
+    raise ValueError(f"{lib_name} not found in the system path {sys.path}")
+ValueError: libcublas.so.*[0-9] not found in the system path ['/data/mg546924/llm_beatmap_generator', '/data/mg546924/llm_beatmap_generator', '/datapool001/data/mg546924/.local/lib/python3.9/site-packages', '/data/mg546924/llm_beatmap_generator', '/data/mg546924/conda_envs/qwenenv/lib/python39.zip', '/data/mg546924/conda_envs/qwenenv/lib/python3.9', '/data/mg546924/conda_envs/qwenenv/lib/python3.9/lib-dynload', '/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages']
+=== Qwen Onset Detection Finished ===

@@ -1,0 +1,71 @@
+Sure, here is the generated StepMania beatmap for the 20-second audio slice you provided:
+```csv
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.00,1.00,1000,4,2,0.95,kick
+195.00,1.95,0000,0,3,1.0,unknown
+228.57,2.48,0000,0,3,1.0,unknown
+495.60,4.85,0000,0,3,1.0,unknown
+623.31,6.23,0000,0,3,1.0,unknown
+716.19,7.16,0000,0,3,1.0,unknown
+820.68,8.21,0000,0,3,1.0,unknown
+971.61,9.72,0000,0,3,1.0,unknown
+1076.10,10.76,0000,0,3,1.0,unknown
+1180.59,11.81,0000,0,3,1.0,unknown
+1424.40,14.24,0000,0,3,1.0,unknown
+1656.60,16.57,0000,0,3,1.0,unknown
+2097.78,20.98,0000,0,3,1.0,unknown
+3026.58,30.27,0000,0,3,1.0,unknown
+5348.57,53.48,0000,0,3,1.0,unknown
+5789.75,57.90,0000,0,3,1.0,unknown
+6033.56,60.33,0000,0,3,1.0,unknown
+6497.96,64.98,0000,0,3,1.0,unknown
+6718.55,67.18,0000,0,3,1.0,unknown
+6950.75,69.51,0000,0,3,1.0,unknown
+7299.05,72.99,0000,0,3,1.0,unknown
+7426.76,74.27,0000,0,3,1.0,unknown
+7531.25,75.31,0000,0,3,1.0,unknown
+7612.52,76.13,0000,0,3,1.0,unknown
+7879.55,78.79,0000,0,3,1.0,unknown
+8088.53,80.88,0000,0,3,1.0,unknown
+8204.63,82.05,0000,0,3,1.0,unknown
+8355.56,83.56,0000,0,3,1.0,unknown
+8448.44,84.48,0000,0,3,1.0,unknown
+8541.32,85.41,0000,0,3,1.0,unknown
+8808.34,88.08,0000,0,3,1.0,unknown
+9481.72,94.81,0000,0,3,1.0,unknown
+10189.93,101.90,0000,0,3,1.0,unknown
+10410.52,104.10,0000,0,3,1.0,unknown
+11107.12,111.07,0000,0,3,1.0,unknown
+11304.49,113.04,0000,0,3,1.0,unknown
+11571.52,115.71,0000,0,3,1.0,unknown
+11803.72,118.03,0000,0,3,1.0,unknown
+11896.60,118.96,0000,0,3,1.0,unknown
+12047.53,120.47,0000,0,3,1.0,unknown
+12140.41,121.40,0000,0,3,1.0,unknown
+12256.51,122.56,0000,0,3,1.0,unknown
+12500.32,125.00,0000,0,3,1.0,unknown
+12697.69,126.97,0000,0,3,1.0,unknown
+13173.70,131.73,0000,0,3,1.0,unknown
+13661.32,136.61,0000,0,3,1.0,unknown
+13881.90,138.81,0000,0,3,1.0,unknown
+14102.49,141.02,0000,0,3,1.0,unknown
+14334.69,143.34,0000,0,3,1.0,unknown
+15019.68,150.19,0000,0,3,1.0,unknown
+15507.30,155.07,0000,0,3,1.0,unknown
+15739.50,157.39,0000,0,3,1.0,unknown
+15948.48,159.48,0000,0,3,1.0,unknown
+17794.47,17.94,0000,0,3,1.0,unknown
+18711.66,18.71,0000,0,3,1.0,unknown
+19199.27,19.19,0000,0,3,1.0,unknown
+```
+
+
+  * The first row contains the time in milliseconds and the corresponding beat position on the song.
+  * The next 6 rows represent the notes played in the first 6 bars of the song.
+  * The notes are represented by a combination of letters, numbers, and symbols that indicate their type and properties. For example, '1000' represents a standard tap note played on the kick drum at the 1000th millisecond of the bar.
+  * The placement type indicates how the note was placed on the grid. For example, '2000' indicates that the note was played on the left side of the 2nd bar, while '3000' indicates that it was played on the right side of the 3rd bar.
+  * The note type indicates the type of note played. For example, '2' represents a whole note, while '3' represents a quarter note.
+  * The confidence value indicates the accuracy with which the note was played.
+  * The instrument indicates the instrument used to play the note. For example, 'kick' represents the kick drum, while 'snare' represents the snare drum.
+
+I hope this helps! Let me know if you have any further questions.

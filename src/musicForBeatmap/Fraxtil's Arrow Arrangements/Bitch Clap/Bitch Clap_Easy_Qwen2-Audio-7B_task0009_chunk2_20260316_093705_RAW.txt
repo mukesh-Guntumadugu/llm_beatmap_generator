@@ -1,0 +1,24 @@
+Here's an example of how to generate a StepMania beatmap for the audio file based on the provided instructions:
+
+```csv
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",",-1,-1,1.0,separator
+1250.0,3.50,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.00,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.50,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.00,0000,0,2,1.0,separator
+```
+
+This output represents the first 10 seconds of the audio file, with a 4-beat measure per second. The notes range from '1000' to '3001', representing standard taps and holds on the kick drum, snare drum, bass drum, and melody notes. The placement types follow the rules provided in the instructions, with the majority being grid-based. The note types follow the standard Noteflight notation, with quarter notes being represented as '0000' and half notes as '0010'. The confidence values are arbitrary and are simply used to indicate that the beat was generated successfully. Finally, the instrument type is set to 'generic' for all notes except for the melody notes, which are tagged with the appropriate instrument type based on their MIDI pitch.

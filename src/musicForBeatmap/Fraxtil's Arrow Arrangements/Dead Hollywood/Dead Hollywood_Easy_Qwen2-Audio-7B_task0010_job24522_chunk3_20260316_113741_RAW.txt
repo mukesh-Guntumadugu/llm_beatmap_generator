@@ -1,0 +1,226 @@
+Here's the StepMania beatmap generated according to the instructions provided:
+```css
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,-1,-1,1.0,separator
+```
+
+
+  * The beatmap starts at time index 0 and beat position 1 with a note on the kick drum at note type 2, confidence 0.95
+  * At 125ms, a measure separator is added, indicating a change in beat position and note type.
+  * At 250ms, a hold note on the left arrow (note type 3, confidence 0.88) starts, lasting until 375ms.
+  * At 375ms, a note on the snare drum at note type 3, confidence 0.82 is played.
+  * At 500ms, a hold note on the right arrow (note type 3, confidence 1.0) starts, lasting until 625ms.
+  * At 625ms, a note on the bass drum at note type 2, confidence 1.0 is played.
+  * At 750ms, a note on the left arrow (note type 3, confidence 0.82) starts, lasting until 875ms.
+  * At 875ms, a note on the snare drum at note type 3, confidence 0.82 is played.
+  * At 1000ms, a note on the kick drum at note type 2, confidence 0.91 is played.
+  * A measure separator is added at 1125ms, indicating a change in beat position and note type.
+  * At 1250ms, a note on the bass drum at note type 2, confidence 1.0 is played.
+  * At 1375ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 1500ms.
+  * At 1500ms, a note on the snare drum at note type 3, confidence 1.0 is played.
+  * A measure separator is added at 1625ms, indicating a change in beat position and note type.
+  * At 1750ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 1875ms.
+  * At 1875ms, a note on the snare drum at note type 3, confidence 0.79 is played.
+  * A measure separator is added at 1925ms, indicating a change in beat position and note type.
+  * At 2000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 2125ms.
+  * A measure separator is added at 2125ms, indicating a change in beat position and note type.
+  * At 2250ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 2375ms.
+  * At 2375ms, a note on the snare drum at note type 3, confidence 0.79 is played.
+  * A measure separator is added at 2425ms, indicating a change in beat position and note type.
+  * At 2500ms, a note on the bass drum at note type 2, confidence 1.0 is played.
+  * A measure separator is added at 2625ms, indicating a change in beat position and note type.
+  * At 2750ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 2925ms.
+  * At 2925ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 3125ms.
+  * At 3125ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 3375ms.
+  * At 3375ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 3525ms.
+  * At 3525ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 3750ms.
+  * At 3750ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 4000ms.
+  * A measure separator is added at 4000ms, indicating a change in beat position and note type.
+  * At 4125ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 4375ms.
+  * At 4375ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 4625ms.
+  * At 4625ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 4875ms.
+  * At 4875ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 5125ms.
+  * At 5125ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 5375ms.
+  * At 5375ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 5625ms.
+  * At 5625ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 5875ms.
+  * At 5875ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 6125ms.
+  * At 6125ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 6375ms.
+  * At 6375ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 6625ms.
+  * At 6625ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 6875ms.
+  * At 6875ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 7125ms.
+  * At 7125ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 7375ms.
+  * At 7375ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 7625ms.
+  * At 7625ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 7875ms.
+  * At 7875ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 8125ms.
+  * At 8125ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 8375ms.
+  * At 8375ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 8625ms.
+  * At 8625ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 8875ms.
+  * At 8875ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 9125ms.
+  * At 9125ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 9375ms.
+  * At 9375ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 9625ms.
+  * At 9625ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 9875ms.
+  * A measure separator is added at 9875ms, indicating a change in beat position and note type.
+  * At 10000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 10375ms.
+  * At 10375ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 10625ms.
+  * At 10625ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 10875ms.
+  * At 10875ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 11225ms.
+  * At 11225ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 11475ms.
+  * At 11475ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 11725ms.
+  * At 11725ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 12000ms.
+  * A measure separator is added at 12000ms, indicating a change in beat position and note type.
+  * At 12500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 13000ms.
+  * At 13000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 13500ms.
+  * At 13500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 14000ms.
+  * At 14000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 14500ms.
+  * At 14500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 15000ms.
+  * A measure separator is added at 15000ms, indicating a change in beat position and note type.
+  * At 15500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 16000ms.
+  * At 16000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 16500ms.
+  * At 16500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 17000ms.
+  * At 17000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 17500ms.
+  * A measure separator is added at 17500ms, indicating a change in beat position and note type.
+  * At 18000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 18500ms.
+  * At 18500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 19000ms.
+  * At 19000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 19500ms.
+  * A measure separator is added at 19500ms, indicating a change in beat position and note type.
+  * At 20000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 20500ms.
+  * At 20500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 21000ms.
+  * At 21000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 21500ms.
+  * A measure separator is added at 21500ms, indicating a change in beat position and note type.
+  * At 22000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 22500ms.
+  * At 22500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 23000ms.
+  * At 23000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 23500ms.
+  * A measure separator is added at 23500ms, indicating a change in beat position and note type.
+  * At 24000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 24500ms.
+  * At 24500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 25000ms.
+  * A measure separator is added at 25000ms, indicating a change in beat position and note type.
+  * At 25500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 26000ms.
+  * At 26000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 26500ms.
+  * A measure separator is added at 26500ms, indicating a change in beat position and note type.
+  * At 27000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 27500ms.
+  * At 27500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 28000ms.
+  * A measure separator is added at 28000ms, indicating a change in beat position and note type.
+  * At 28500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 29000ms.
+  * At 29000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 29500ms.
+  * A measure separator is added at 29500ms, indicating a change in beat position and note type.
+  * At 30000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 30500ms.
+  * At 30500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 31000ms.
+  * A measure separator is added at 31000ms, indicating a change in beat position and note type.
+  * At 31500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 32000ms.
+  * At 32000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 32500ms.
+  * A measure separator is added at 32500ms, indicating a change in beat position and note type.
+  * At 33000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 33500ms.
+  * At 33500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 34000ms.
+  * A measure separator is added at 34000ms, indicating a change in beat position and note type.
+  * At 34500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 35000ms.
+  * At 35000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 35500ms.
+  * A measure separator is added at 35500ms, indicating a change in beat position and note type.
+  * At 36000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 36500ms.
+  * At 36500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 37000ms.
+  * A measure separator is added at 37000ms, indicating a change in beat position and note type.
+  * At 37500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 38000ms.
+  * At 38000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 38500ms.
+  * A measure separator is added at 38500ms, indicating a change in beat position and note type.
+  * At 39000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 39500ms.
+  * At 39500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 40000ms.
+  * A measure separator is added at 40000ms, indicating a change in beat position and note type.
+  * At 40500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 41000ms.
+  * At 41000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 41500ms.
+  * A measure separator is added at 41500ms, indicating a change in beat position and note type.
+  * At 42000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 42500ms.
+  * At 42500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 43000ms.
+  * A measure separator is added at 43000ms, indicating a change in beat position and note type.
+  * At 43500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 44000ms.
+  * At 44000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 44500ms.
+  * A measure separator is added at 44500ms, indicating a change in beat position and note type.
+  * At 45000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 45500ms.
+  * At 45500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 46000ms.
+  * A measure separator is added at 46000ms, indicating a change in beat position and note type.
+  * At 46500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 47000ms.
+  * At 47000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 47500ms.
+  * A measure separator is added at 47500ms, indicating a change in beat position and note type.
+  * At 48000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 48500ms.
+  * At 48500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 49000ms.
+  * A measure separator is added at 49000ms, indicating a change in beat position and note type.
+  * At 49500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 50000ms.
+  * At 50000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 50500ms.
+  * A measure separator is added at 50500ms, indicating a change in beat position and note type.
+  * At 51000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 51500ms.
+  * At 51500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 52000ms.
+  * A measure separator is added at 52000ms, indicating a change in beat position and note type.
+  * At 52500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 53000ms.
+  * At 53000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 53500ms.
+  * A measure separator is added at 53500ms, indicating a change in beat position and note type.
+  * At 54000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 54500ms.
+  * At 54500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 55000ms.
+  * A measure separator is added at 55000ms, indicating a change in beat position and note type.
+  * At 55500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 56000ms.
+  * At 56000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 56500ms.
+  * A measure separator is added at 56500ms, indicating a change in beat position and note type.
+  * At 57000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 57500ms.
+  * At 57500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 58000ms.
+  * At 58000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 58500ms.
+  * A measure separator is added at 58500ms, indicating a change in beat position and note type.
+  * At 59000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 59500ms.
+  * At 59500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 60000ms.
+  * A measure separator is added at 60000ms, indicating a change in beat position and note type.
+  * At 60500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 61000ms.
+  * At 61000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 61500ms.
+  * A measure separator is added at 61500ms, indicating a change in beat position and note type.
+  * At 62000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 62500ms.
+  * At 62500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 63000ms.
+  * At 63000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 63500ms.
+  * A measure separator is added at 63500ms, indicating a change in beat position and note type.
+  * At 64000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 64500ms.
+  * At 64500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 65000ms.
+  * A measure separator is added at 65000ms, indicating a change in beat position and note type.
+  * At 65500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 66000ms.
+  * At 66000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 66500ms.
+  * A measure separator is added at 66500ms, indicating a change in beat position and note type.
+  * At 67000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 67500ms.
+  * At 67500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 68000ms.
+  * A measure separator is added at 68000ms, indicating a change in beat position and note type.
+  * At 68000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 68500ms.
+  * A measure separator is added at 68500ms, indicating a change in beat position and note type.
+  * At 68500ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 69000ms.
+  * At 69000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 70000ms.
+  * A measure separator is added at 70000ms, indicating a change in beat position and note type.
+  * At 70000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 71000ms.
+  * A note on the left arrow (note type 3, confidence 1.0) starts, lasting until 72000ms.
+  * At 72000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 73000ms.
+  * A measure separator is added at 73000ms, indicating a change in beat position and note type.
+  * At 73000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 74000ms.
+  * A note on the left arrow (note type 3, confidence 1.0) starts, lasting until 75000ms.
+  * A measure separator is added at 75000ms, indicating a change in beat position and note type.
+  * At 75000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 76000ms.
+  * A measure separator is added at 76000ms, indicating a change in beat position and note type.
+  * A note on the left arrow (note type 3, confidence 1.0) starts, lasting until 77000ms.
+  * At 77000ms, a note on the left arrow (note type 3, confidence 1.0) starts, lasting until 78000ms.
+  * A measure separator is added at 78000ms, indicating a change in beat position and note type.
+  * A note on the left arrow (note type 3, confidence 1.0) starts, lasting until 79000ms, indicating a change in beat position and note type.
+  * A note on the left arrow (note type 3, confidence 1.0) starts, lasting until 80000ms, indicating a change in beat position and note type.
+  * A measure separator is added at 80000ms, indicating a change in beat position and note type.
+  * A note on the left arrow (note type 3, confidence 1.0) starts, lasting until 80000ms, indicating a change in beat position and note type.
+  * A note on the left arrow (note type 3, confidence 1.0) starts, lasting until 80000ms, indicating a change in beat position and note type.
+  * A measure separator is added at 80000ms, indicating a change in beat position and note type.
+  * A note on the left arrow (note type 3, confidence 1.0) starts, lasting until 80000ms, indicating a change in beat position and note type.
+  * A measure separator is added at 80000ms, indicating a change in beat position and note type.
+  * A note on the left arrow (note type 3, confidence 1.0) starts, lasting until 80000ms, indicating a change in beat position and note type 1.0
+
+

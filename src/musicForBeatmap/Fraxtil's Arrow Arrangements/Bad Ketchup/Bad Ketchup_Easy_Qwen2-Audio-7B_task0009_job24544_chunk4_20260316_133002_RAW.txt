@@ -1,0 +1,429 @@
+```json
+{
+  "name": "Easy difficulty StepMania beatmap",
+  "description": "This beatmap is designed for an Easy difficulty level on the popular dance video game StepMania.",
+  "music_key": "F# minor",
+  "time_signature": "4/4",
+  "tempo_bpm": "180.0 bpm",
+  "available_onset_timestamps": [
+    [313.83, 662.13],
+    [6664.49, 6792.20],
+    [7047.62, 7175.33],
+    [7233.38, 7326.26],
+    [7465.58, 7709.39],
+    [7999.64, 8127.35],
+    [8371.16, 8568.53],
+    [8661.41, 8789.12],
+    [9044.54, 9334.78],
+    [9381.22, 9520.54],
+    [9903.67, 9984.94],
+    [10124.26, 10356.46],
+    [10774.42, 11029.84],
+    [11320.09, 11575.51],
+    [11819.32, 11993.47],
+    [12132.79, 12248.89],
+    [12492.70, 12666.85],
+    [13154.47, 13467.94],
+    [13804.63, 14245.80],
+    [14489.61, 15000.45],
+    [15197.82, 16300.77],
+    [16579.41, 16660.68],
+    [16997.37, 17171.52],
+    [17241.18, 17334.06],
+    [17508.21, 17670.75],
+    [17995.83, 18158.37],
+    [18251.25, 18332.52],
+    [18506.67, 18657.60],
+    [18831.75, 18994.29],
+    [19249.71, 19330.98],
+    [19493.51, 19667.66],
+    [19830.20, 19911.47]
+  ],
+  "beats": [
+    {
+      "time_ms": 313.83,
+      "note_name": "F#1",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 662.13,
+      "note_name": "F#1",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 6664.49,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 6792.20,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 7047.62,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 7175.33,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 7233.38,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 7326.26,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 7465.58,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 7709.39,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 7999.64,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 8127.35,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 8371.16,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 8568.53,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 8661.41,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 8789.12,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 9044.54,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 9334.78,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 9381.22,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 9520.54,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 9903.67,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 9984.94,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 10124.26,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 10356.46,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 10774.42,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 11029.84,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 11320.09,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 11575.51,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 11819.32,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 11993.47,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 12132.79,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 12248.89,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 12492.70,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 12666.85,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 13154.47,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 13467.94,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 13804.63,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 14245.80,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 14489.61,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 15000.45,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 15197.82,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 16300.77,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 16579.41,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 16660.68,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 16997.37,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 17171.52,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 17241.18,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 17334.06,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 17508.21,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 17670.75,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 17995.83,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 18158.37,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 18251.25,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 18332.52,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 18506.67,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 18657.60,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 18831.75,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 18994.29,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 19249.71,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 19330.98,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 19493.51,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 19667.66,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 19830.20,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    },
+    {
+      "time_ms": 19911.47,
+      "note_name": "C2",
+      "confidence": 0.95,
+      "instrument": "bass"
+    }
+  ]
+}
+```

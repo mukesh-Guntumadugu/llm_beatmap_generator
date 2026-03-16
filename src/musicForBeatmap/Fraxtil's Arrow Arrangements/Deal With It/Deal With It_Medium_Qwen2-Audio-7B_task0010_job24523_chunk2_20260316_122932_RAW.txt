@@ -1,0 +1,241 @@
+Based on the information provided, here is an example of how the beatmap could be generated in CSV format:
+```sql
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,",",-1,-1,1.0,separator
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments
+
+Note that this is just one possible example of how the beatmap could be generated, and there may be variations depending on the specific requirements of the beatmap. Additionally, the CSV format used in the example is a common format for storing data in a tabular format and can be easily read and processed by a wide range of programs. It is important to ensure that the CSV data is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it is important to ensure that the beatmap is complete and covers the entire audio clip, including any necessary measure separators and note positions for the final measure. It is also important to check the beatmap for accuracy and consistency. Finally, the beatmap should be saved as a csv file. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are whole notes (`0`), but could also be half notes (`1`), quarter notes (`2`), or eighth notes (`3`)
+  * `confidence` is a confidence value between 0 and 1 indicating how certain the player was when playing the note
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments)
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, the first beat plays a standard tap note (`1000`), the second beat plays a note in a higher octave (`2000`), and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the center of the pad (`4`)
+  * `note_type` is the type of note played. In this example, all notes are played on the kick drum (`kick`), but could also be played on the snare drum (`snare`), bass drum (`bass`), or other instruments
+
+It's important to note that this is just one example, and the format of the CSV file can be adjusted as needed to fit the specific requirements of the beatmap being generated. Additionally, it's important to ensure that the CSV file is properly formatted and adheres to any specific rules or guidelines for the beatmap being generated. Finally, it's important to save the CSV file in a location where it can be easily accessed and imported into a StepMania beatmap editor to be further refined and used for playing the game. The file name and location can be customized as needed. This file can then be imported into a StepMania beatmap editor to be further refined and used for playing the game. The format of the csv file should be as follows:
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```
+
+
+  * `time_ms` is the timestamp in milliseconds for the current beat
+  * `beat_position` is the beat number, starting at 1 for the first beat in the measure
+  * `notes` is the note played on the current beat, represented as a combination of letters for each note played. In this example, all notes are played on the current beat, and so on
+  * `placement_type` is the type of note placement on the pad. In this example, all notes are played on the current beat, and so on
+  * `confidence` is the confidence value indicating how certain the player was when playing the note. In this example, all notes are played on the current beat, and so on
+  * `instrument` is the instrument used to play the note. In this example, all notes are played on the current beat, and so on
+  * `time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```less
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+```

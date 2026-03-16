@@ -1,0 +1,125 @@
+Here's a sample StepMania beatmap for the given audio slice:
+```yaml
+# StepMania Beatmap
+version: 3
+name: I Love You So Much
+description: A simple beatmap for a romantic sentiment
+music_key: A major
+time_signature: 4/4
+tempo: 180.0 bpm
+onsets:
+  - type: note
+    position: 39.55
+    length: 4
+    note: A3
+    confidence: 1.0
+    instrument: bass
+    velocity: 100
+  - type: note
+    position: 43.88
+    length: 4
+    note: E4
+    confidence: 1.0
+    instrument: snare
+    velocity: 100
+  - type: note
+    position: 47.21
+    length: 4
+    note: F4
+    confidence: 1.0
+    instrument: kick
+    velocity: 100
+  - type: note
+    position: 50.44
+    length: 4
+    note: G4
+    confidence: 1.0
+    instrument: hihat
+    velocity: 100
+  - type: note
+    position: 54.77
+    length: 4
+    note: C4
+    confidence: 1.0
+    instrument: synth_lead
+    velocity: 100
+  - type: note
+    position: 58.00
+    length: 4
+    note: D4
+    confidence: 1.0
+    instrument: synth_lead
+    velocity: 100
+  - type: note
+    position: 61.33
+    length: 4
+    note: E4
+    confidence: 1.0
+    instrument: snare
+    velocity: 100
+  - type: note
+    position: 64.66
+    length: 4
+    note: F4
+    confidence: 1.0
+    instrument: kick
+    velocity: 100
+  - type: note
+    position: 68.99
+    length: 4
+    note: G4
+    confidence: 1.0
+    instrument: hihat
+    velocity: 100
+  - type: note
+    position: 72.32
+    length: 4
+    note: C4
+    confidence: 1.0
+    instrument: synth_lead
+    velocity: 100
+  - type: note
+    position: 75.65
+    length: 4
+    note: D4
+    confidence: 1.0
+    instrument: synth_lead
+    velocity: 100
+  - type: note
+    position: 79.98
+    length: 4
+    note: E4
+    confidence: 1.0
+    instrument: snare
+    velocity: 100
+  - type: note
+    position: 84.31
+    length: 4
+    note: F4
+    confidence: 1.0
+    instrument: kick
+    velocity: 100
+  - type: note
+    position: 88.64
+    length: 4
+    note: G4
+    confidence: 1.0
+    instrument: hihat
+    velocity: 100
+  - type: note
+    position: 93.01
+    length: 4
+    note: C4
+    confidence: 1.0
+    instrument: synth_lead
+    velocity: 100
+  - type: note
+    position: 97.34
+    length: 4
+    note: D4
+    confidence: 1.0
+    instrument: synth_lead
+    velocity: 100
+```
+
+This map includes 16 notes spread across the four bars of the audio slice, with each bar containing four notes. The notes range from A3 to G4, and all instruments are represented.

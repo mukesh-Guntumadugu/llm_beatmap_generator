@@ -1,0 +1,112 @@
+Here is your CSV:
+```css
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,"-",1,-1,1.0,separator
+```
+
+
+  * The first row contains the timestamp, beat position, and notes for the first beat of the audio.
+  * The second row contains the timestamp, beat position, and notes for the second beat of the audio.
+  * The third row contains the timestamp, beat position, and notes for the third beat of the audio.
+  * The fourth row contains the timestamp, beat position, and notes for the fourth beat of the audio.
+  * The fifth row contains the timestamp, beat position, and notes for the fifth beat of the audio.
+  * The sixth row contains the timestamp, beat position, and notes for the sixth beat of the audio.
+  * The seventh row contains the timestamp, beat position, and notes for the seventh beat of the audio.
+  * The eighth row contains the timestamp, beat position, and notes for the eighth beat of the audio.
+  * The ninth row contains the timestamp, beat position, and notes for the ninth beat of the audio.
+  * The tenth row contains the timestamp, beat position, and notes for the tenth beat of the audio.
+  * The eleventh row contains the timestamp, beat position, and notes for the eleventh beat of the audio.
+  * The twelfth row contains the timestamp, beat position, and notes for the twelfth beat of the audio.
+  * The thirteenth row contains the timestamp, beat position, and notes for the thirteenth beat of the audio.
+  * The fourteenth row contains the timestamp, beat position, and notes for the fourteenth beat of the audio.
+  * The fifteenth row contains the timestamp, beat position, and notes for the fifteenth beat of the audio.
+  * The sixteenth row contains the timestamp, beat position, and notes for the sixteenth beat of the audio.
+  * The seventeenth row contains the timestamp, beat position, and notes for the seventeenth beat of the audio.
+  * The eighteenth row contains the timestamp, beat position, and notes for the eighteenth beat of the audio.
+  * The nineteenth row contains the timestamp, beat position, and notes for the nineteenth beat of the audio.
+  * The twentieth row contains the timestamp, beat position, and notes for the twentieth beat of the audio.
+  * The twenty-first row contains the timestamp, beat position, and notes for the twenty-first beat of the audio.
+  * The twenty-second row contains the timestamp, beat position, and notes for the twenty-second beat of the audio.
+  * The twenty-third row contains the timestamp, beat position, and notes for the twenty-third beat of the audio.
+  * The twenty-fourth row contains the timestamp, beat position, and notes for the twenty-fourth beat of the audio.
+  * The twenty-fifth row contains the timestamp, beat position, and notes for the twenty-fifth beat of the audio.
+  * The twenty-sixth row contains the timestamp, beat position, and notes for the twenty-sixth beat of the audio.
+  * The twenty-seventh row contains the timestamp, beat position, and notes for the twenty-seventh beat of the audio.
+  * The twenty-eighth row contains the timestamp, beat position, and notes for the twenty-eighth beat of the audio.
+  * The twenty-ninth row contains the timestamp, beat position, and notes for the twenty-ninth beat of the audio.
+  * The thirty-second row contains the timestamp, beat position, and notes for the thirty-second beat of the audio.
+  * The thirty-third row contains the timestamp, beat position, and notes for the thirty-third beat of the audio.
+  * The thirty-fourth row contains the timestamp, beat position, and notes for the thirty-fourth beat of the audio.
+  * The thirty-fifth row contains the timestamp, beat position, and notes for the thirty-fifth beat of the audio.
+  * The thirty-sixth row contains the timestamp, beat position, and notes for the thirty-sixth beat of the audio.
+  * The thirty-seventh row contains the timestamp, beat position, and notes for the thirty-seventh beat of the audio.
+  * The thirty-eighth row contains the timestamp, beat position, and notes for the thirty-eighth beat of the audio.
+  * The thirty-ninth row contains the timestamp, beat position, and notes for the thirty-ninth beat of the audio.
+  * The fortieth row contains the timestamp, beat position, and notes for the fortieth beat of the audio.
+  * The forty-first row contains the timestamp, beat position, and notes for the forty-first beat of the audio.
+  * The forty-second row contains the timestamp, beat position, and notes for the forty-second beat of the audio.
+  * The forty-third row contains the timestamp, beat position, and notes for the forty-third beat of the audio.
+  * The forty-fourth row contains the timestamp, beat position, and notes for the forty-fourth beat of the audio.
+  * The forty-fifth row contains the timestamp, beat position, and notes for the forty-fifth beat of the audio.
+  * The forty-sixth row contains the timestamp, beat position, and notes for the forty-sixth beat of the audio.
+  * The forty-seventh row contains the timestamp, beat position, and notes for the forty-seventh beat of the audio.
+  * The forty-eighth row contains the timestamp, beat position, and notes for the forty-eighth beat of the audio.
+  * The forty-ninth row contains the timestamp, beat position, and notes for the forty-ninth beat of the audio.
+  * The fifty-first row contains the timestamp, beat position, and notes for the fifty-first beat of the audio.
+  * The fifty-second row contains the timestamp, beat position, and notes for the fifty-second beat of the audio.
+  * The fifty-third row contains the timestamp, beat position, and notes for the fifty-third beat of the audio.
+  * The fifty-fourth row contains the timestamp, beat position, and notes for the fifty-fourth beat of the audio.
+  * The fifty-fifth row contains the timestamp, beat position, and notes for the fifty-fifth beat of the audio.
+  * The fifty-sixth row contains the timestamp, beat position, and notes for the fifty-sixth beat of the audio.
+  * The fifty-seventh row contains the timestamp, beat position, and notes for the fifty-seventh beat of the audio.
+  * The fifty-eighth row contains the timestamp, beat position, and notes for the fifty-eighth beat of the audio.
+  * The fifty-ninth row contains the timestamp, beat position, and notes for the fifty-ninth beat of the audio.
+  * The sixty-second row contains the timestamp, beat position, and notes for the sixty-second beat of the audio.
+  * The sixty-third row contains the timestamp, beat position, and notes for the sixty-third beat of the audio.
+  * The sixty-fourth row contains the timestamp, beat position, and notes for the sixty-fourth beat of the audio.
+  * The sixty-fifth row contains the timestamp, beat position, and notes for the sixty-fifth beat of the audio.
+  * The sixty-sixth row contains the timestamp, beat position, and notes for the sixty-sixth beat of the audio.
+  * The sixty-seventh row contains the timestamp, beat position, and notes for the sixty-seventh beat of the audio.
+  * The sixty-eighth row contains the timestamp, beat position, and notes for the sixty-eighth beat of the audio.
+  * The sixty-ninth row contains the timestamp, beat position, and notes for the sixty-ninth beat of the audio.
+  * The seventy-second row contains the timestamp, beat position, and notes for the seventy-second beat of the audio.
+  * The seventy-third row contains the timestamp, beat position, and notes for the seventy-third beat of the audio.
+  * The seventy-fourth row contains the timestamp, beat position, and notes for the seventy-fourth beat of the audio.
+  * The seventy-fifth row contains the timestamp, beat position, and notes for the seventy-fifth beat of the audio.
+  * The seventy-sixth row contains the timestamp, beat position, and notes for the seventy-sixth beat of the audio.
+  * The seventy-seventh row contains the timestamp, beat position, and notes for the seventy-seventh beat of the audio.
+  * The seventy-eighth row contains the timestamp, beat position, and notes for the seventy-eighth beat of the audio.
+  * The seventy-ninth row contains the timestamp, beat position, and notes for the seventy-ninth beat of the audio.
+  * The eighty-second row contains the timestamp, beat position, and notes for the eighty-second beat of the audio.
+  * The eighty-third row contains the timestamp, beat position, and notes for the eighty-third beat of the audio.
+  * The eighty-fourth row contains the timestamp, beat position, and notes for the eighty-fourth beat of the audio.
+  * The eighty-fifth row contains the timestamp, beat position, and notes for the eighty-fifth beat of the audio.
+  * The eighty-sixth row contains the timestamp, beat position, and notes for the eighty-sixth beat of the audio.
+  * The eighty-seventh row contains the timestamp, beat position, and notes for the eighty-seventh beat of the audio.
+  * The eighty-eighth row contains the timestamp, beat position, and notes for the eighty-eighth beat of the audio.
+  * The eighty-ninth row contains the timestamp, beat position, and notes for the eighty-ninth beat of the audio.
+  * The ninety-second row contains the timestamp, beat position, and notes for the ninety-second beat of the audio.
+  * The ninety-third row contains the timestamp, beat position, and notes for the ninety-third beat of the audio.
+  * The ninety-fourth row contains the timestamp, beat position, and notes for the ninety-fourth beat of the audio.
+  * The ninety-fifth row contains the timestamp, beat position, and notes for the ninety-fifth beat of the audio.
+  * The ninety-sixth row contains the timestamp, beat position, and notes for the ninety-sixth beat of the audio.
+  * The ninety-seventh row contains the timestamp, beat position, and notes for the ninety-seventh beat of the audio.
+  * The ninety-eighth row contains the timestamp, beat position, and notes for the ninety-eighth beat of the audio.
+  * The ninety-ninth row contains the timestamp, beat position, and notes for the ninety-ninth beat of the audio.
+  * The hundredth row contains the timestamp, beat position, and notes for the hundredth beat of the audio.

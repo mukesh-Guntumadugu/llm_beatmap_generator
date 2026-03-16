@@ -1,0 +1,72 @@
+Based on the provided information, here's an example of how you could generate a StepMania beatmap for this audio slice:
+```yaml
+# Map Name: My Map
+# Artist: Me
+# Version: 1.0
+# Time Signature: 4/4
+# Tempo: 180.0 bpm
+
+# Onsets
+ons:
+- type: note
+  args:
+    note: C♯1
+    onset: 208.98
+    length: 1
+    velocity: 100
+    pitch: 
+    attributes:
+      - name: mode
+        value: cymbal
+
+- type: note
+  args:
+    note: F♯1
+    onset: 2972.15
+    length: 1
+    velocity: 100
+    pitch: 
+    attributes:
+      - name: mode
+        value: cymbal
+
+- type: note
+  args:
+    note: G1
+    onset: 3215.96
+    length: 1
+    velocity: 100
+    pitch: 
+    attributes:
+      - name: mode
+        value: cymbal
+
+- type: note
+  args:
+    note: A1
+    onset: 3982.22
+    length: 1
+    velocity: 100
+    pitch: 
+    attributes:
+      - name: mode
+        value: cymbal
+
+- type: note
+  args:
+    note: B1
+    onset: 4226.03
+    length: 1
+    velocity: 100
+    pitch: 
+    attributes:
+      - name: mode
+        value: cymbal
+
+- type: note
+  args:
+    note: E1
+    onset: 4527.89
+    length: 1
+    velocity: 100
+    pitch: 

@@ -1,0 +1,401 @@
+Here's the StepMania beatmap for the provided 20-second audio slice with Easy difficulty and the specified format:
+```yaml
+# Easy difficulty StepMania beatmap for a 20-second audio slice of a fast-paced techno track
+# Key: F minor; Time Signature: 4/4; Tempo: 180.0 bpm
+# Note: The audio contains a complex chord progression with periods of silence and sparse notes
+#       Please ensure notes are placed on the detected musical moments (see available onset timestamps)
+
+# Define global settings
+global:
+  mode: easy
+  maxNote: 127
+  minNote: 1
+  maxBPM: 180
+  minBPM: 1
+  maxOnset: 10000
+  minOnset: 0
+  maxNoteLength: 4
+  minNoteLength: 1
+
+# Define map information
+map:
+  name: 20-second techno track
+  author: Your Name
+  version: 1.0
+  description: A fast-paced techno track with a complex chord progression
+
+# Define notes
+notes:
+  - type: fill
+    color: yellow
+    x: 208.98
+    y: 0
+    length: 4
+    velocity: 100
+  - type: hold
+    color: red
+    x: 2972.15
+    y: 0
+    duration: 1
+    velocity: 100
+  - type: note
+    color: green
+    x: 3215.96
+    y: 0
+    noteName: F7
+    velocity: 100
+  - type: note
+    color: blue
+    x: 3982.22
+    y: 0
+    noteName: F8
+    velocity: 100
+  - type: note
+    color: purple
+    x: 4226.03
+    y: 0
+    noteName: F9
+    velocity: 100
+  - type: note
+    color: orange
+    x: 4527.89
+    y: 0
+    noteName: G7
+    velocity: 100
+  - type: note
+    color: brown
+    x: 5154.83
+    y: 0
+    noteName: G8
+    velocity: 100
+  - type: note
+    color: gray
+    x: 5665.67
+    y: 0
+    noteName: G9
+    velocity: 100
+  - type: note
+    color: black
+    x: 5828.21
+    y: 0
+    noteName: G10
+    velocity: 100
+  - type: note
+    color: white
+    x: 6234.56
+    y: 0
+    noteName: A7
+    velocity: 100
+  - type: note
+    color: pink
+    x: 7488.44
+    y: 0
+    noteName: A8
+    velocity: 100
+  - type: note
+    color: yellow
+    x: 8045.71
+    y: 0
+    noteName: A9
+    velocity: 100
+  - type: note
+    color: green
+    x: 8219.86
+    y: 0
+    noteName: A10
+    velocity: 100
+  - type: note
+    color: blue
+    x: 8370.79
+    y: 0
+    noteName: A11
+    velocity: 100
+  - type: note
+    color: purple
+    x: 8649.43
+    y: 0
+    noteName: A12
+    velocity: 100
+  - type: note
+    color: orange
+    x: 9009.34
+    y: 0
+    noteName: B7
+    velocity: 100
+  - type: note
+    color: brown
+    x: 9322.81
+    y: 0
+    noteName: B8
+    velocity: 100
+  - type: note
+    color: gray
+    x: 9578.23
+    y: 0
+    noteName: B9
+    velocity: 100
+  - type: note
+    color: black
+    x: 9822.04
+    y: 0
+    noteName: B10
+    velocity: 100
+  - type: note
+    color: white
+    x: 9961.36
+    y: 0
+    noteName: B11
+    velocity: 100
+  - type: note
+    color: pink
+    x: 10251.61
+    y: 0
+    noteName: B12
+    velocity: 100
+  - type: note
+    color: yellow
+    x: 10507.03
+    y: 0
+    noteName: C7
+    velocity: 100
+  - type: note
+    color: green
+    x: 10832.11
+    y: 0
+    noteName: C8
+    velocity: 100
+  - type: note
+    color: blue
+    x: 11006.26
+    y: 0
+    noteName: C9
+    velocity: 100
+  - type: note
+    color: purple
+    x: 11122.36
+    y: 0
+    noteName: C10
+    velocity: 100
+  - type: note
+    color: orange
+    x: 11331.34
+    y: 0
+    noteName: C11
+    velocity: 100
+  - type: note
+    color: brown
+    x: 11493.88
+    y: 0
+    noteName: C12
+    velocity: 100
+  - type: note
+    color: gray
+    x: 11586.76
+    y: 0
+    noteName: C13
+    velocity: 100
+  - type: note
+    color: black
+    x: 11737.69
+    y: 0
+    noteName: C14
+    velocity: 100
+  - type: note
+    color: white
+    x: 11900.23
+    y: 0
+    noteName: C15
+    velocity: 100
+  - type: note
+    color: pink
+    x: 12167.26
+    y: 0
+    noteName: C16
+    velocity: 100
+  - type: note
+    color: yellow
+    x: 12329.80
+    y: 0
+    noteName: C17
+    velocity: 100
+  - type: note
+    color: green
+    x: 12492.34
+    y: 0
+    noteName: C18
+    velocity: 100
+  - type: note
+    color: blue
+    x: 12573.61
+    y: 0
+    noteName: C19
+    velocity: 100
+  - type: note
+    color: purple
+    x: 12666.49
+    y: 0
+    noteName: C20
+    velocity: 100
+  - type: note
+    color: orange
+    x: 12829.02
+    y: 0
+    noteName: C21
+    velocity: 100
+  - type: note
+    color: brown
+    x: 12921.90
+    y: 0
+    noteName: C22
+    velocity: 100
+  - type: note
+    color: gray
+    x: 12991.56
+    y: 0
+    noteName: C23
+    velocity: 100
+  - type: note
+    color: black
+    x: 13130.88
+    y: 0
+    noteName: C24
+    velocity: 100
+  - type: note
+    color: white
+    x: 13165.71
+    y: 0
+    noteName: C25
+    velocity: 100
+  - type: note
+    color: pink
+    x: 13641.72
+    y: 0
+    noteName: C26
+    velocity: 100
+  - type: note
+    color: yellow
+    x: 13746.21
+    y: 0
+    noteName: C27
+    velocity: 100
+  - type: note
+    color: green
+    x: 13827.48
+    y: 0
+    noteName: C28
+    velocity: 100
+  - type: note
+    color: blue
+    x: 14071.29
+    y: 0
+    noteName: C29
+    velocity: 100
+  - type: note
+    color: purple
+    x: 14245.44
+    y: 0
+    noteName: C30
+    velocity: 100
+  - type: note
+    color: orange
+    x: 14582.13
+    y: 0
+    noteName: C31
+    velocity: 100
+  - type: note
+    color: brown
+    x: 14709.84
+    y: 0
+    noteName: C32
+    velocity: 100
+  - type: note
+    color: gray
+    x: 14756.28
+    y: 0
+    noteName: C33
+    velocity: 100
+  - type: note
+    color: black
+    x: 14791.11
+    y: 0
+    noteName: C34
+    velocity: 100
+  - type: note
+    color: white
+    x: 15162.63
+    y: 0
+    noteName: C35
+    velocity: 100
+  - type: note
+    color: pink
+    x: 15209.07
+    y: 0
+    noteName: C36
+    velocity: 100
+  - type: note
+    color: yellow
+    x: 15336.78
+    y: 0
+    noteName: C37
+    velocity: 100
+  - type: note
+    color: green
+    x: 15499.32
+    y: 0
+    noteName: C38
+    velocity: 100
+  - type: note
+    color: blue
+    x: 15666.49
+    y: 0
+    noteName: C39
+    velocity: 100
+  - type: note
+    color: purple
+    x: 15834.47
+    y: 0
+    noteName: C40
+    velocity: 100
+  - type: note
+    color: orange
+    x: 15917.28
+    y: 0
+    noteName: C41
+    velocity: 100
+  - type: note
+    color: brown
+    x: 15998.55
+    y: 0
+    noteName: C42
+    velocity: 100
+  - type: note
+    color: gray
+    x: 16172.70
+    y: 0
+    noteName: C43
+    velocity: 100
+  - type: note
+    color: black
+    x: 16335.24
+    y: 0
+    noteName: C44
+    velocity: 100
+  - type: note
+    color: white
+    x: 16497.78
+    y: 0
+    noteName: C45
+    velocity: 100
+  - type: note
+    color: pink
+    x: 16660.32
+    y: 0
+    noteName: C46
+    velocity: 100
+  - type: note
+    color: yellow
+    x: 16834.47
+    y: 0
+    noteName: C47
+    velocity: 100
+```

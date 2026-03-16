@@ -1,0 +1,31 @@
+Sure, here's a sample beatmap in CSV format for the given audio:
+```yaml
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",",-1,-1,1.0,separator
+1250.0,3.50,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.00,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.50,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.00,0000,0,2,1.0,unknown
+```
+
+This beatmap covers a 20-second audio slice at a tempo of 124 BPM and includes 4-beat measures with a quarter note grid structure. It uses 2000 as the note type for standard taps, 0010 for hold notes, and 3001 for a tap note in the last beat of the measure. The notes are spread across the columns as follows:
+
+  * Column 1: Time in seconds (0.00-20.00)
+  * Column 2: Beat position in the current measure (1.00-5.00)
+  * Column 3: Note type (1000-3001)
+  * Column 4: Placement type (4 for quarter notes, 2 for half notes, 3 for eighth notes, 8 for sixteenth notes)
+  * Column 5: Confidence (0.0-1.0)
+  * Column 6: Instrument (kick, snare, bass, melody, guitar, synth, unknown)
+
+Note that the beatmap includes separator rows (column 6: separator) to indicate the end of each measure.

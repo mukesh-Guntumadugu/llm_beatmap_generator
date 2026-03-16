@@ -1,0 +1,6 @@
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:02,  2.71it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:02,  2.21it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  2.09it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  2.05it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  2.06it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:02<00:00,  2.06it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  2.25it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.63it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.31it/s]
+INFO:     Started server process [4163465]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+slurmstepd-node001: error: *** JOB 24513 ON node001 CANCELLED AT 2026-03-16T10:28:41 ***

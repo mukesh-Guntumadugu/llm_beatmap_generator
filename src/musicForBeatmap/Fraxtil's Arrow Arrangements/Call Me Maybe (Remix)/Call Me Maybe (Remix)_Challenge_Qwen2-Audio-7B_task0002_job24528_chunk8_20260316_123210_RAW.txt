@@ -1,0 +1,34 @@
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,",",-1,-1,1.0,separator
+```
+
+
+  * The first row corresponds to the starting time and beat position of the audio clip.
+  * The next 4 rows correspond to a quarter note grid, with 4 notes per beat.
+  * The next 4 rows correspond to an eighth note grid, with 2 notes per beat.
+  * The next 4 rows correspond to a triplet grid, with 3 notes per beat.
+  * The final row is a separator row with all zeros.
+
+The notes in each row are represented as a combination of letters indicating which lane the note should be played in, and the note itself. For example, "1000" indicates that the note should be played in lane 1 with a value of 1000.
+The placement_type field indicates whether the note should be placed on the beat (0), on the grid (1), or at the end of the measure (2).
+The note_type field indicates the type of note being played, such as a whole note (0), a half note (1), a quarter note (2), an eighth note (3), or a triplet note (4).
+The confidence field indicates the confidence level of the beatmap. A value of 1.0 indicates perfect confidence, while a value of 0.0 indicates no confidence.
+The instrument field indicates the instrument used to play the note. This could be a drum name, such as "kick" or "snare", or a more general instrument name, such as "bass" or "guitar". If the instrument is not recognized, the value should be "unknown".
+The separator field indicates a separator row, which is indicated by a value of -1 and a note type of "separator". The separator row contains only zeros and is used to separate measures. The separator row should be placed after the last row of a measure and before the first row of the next measure. It should be placed on the beat with a value of 0.0. The separator row should not be included in the output CSV file. If there are no notes in the last measure, the separator row should still be included. It should be placed on the beat with a value of 0.0. The separator row should not be included in the output CSV file if the audio clip is shorter than 10 seconds. If the audio clip is longer than 10 seconds, the separator row should be included in the output CSV file.
+The confidence field should always be set to 1.0 for the separator row. The instrument field should always be set to "separator".

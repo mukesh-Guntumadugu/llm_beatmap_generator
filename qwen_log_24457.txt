@@ -1,0 +1,9 @@
+=== Starting Qwen2-Audio Onset Detection ===
+Job ID: 24457
+Node: node002
+GPU: NVIDIA RTX A6000
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/extract_qwen_onsets.py", line 17, in <module>
+    import librosa
+ModuleNotFoundError: No module named 'librosa'
+=== Qwen Onset Detection Finished ===

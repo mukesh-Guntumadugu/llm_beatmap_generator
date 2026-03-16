@@ -1,0 +1,196 @@
+Here's a sample StepMania beatmap for the provided 20-second audio slice with a Hard difficulty setting:
+```yaml
+# General settings
+name = "Hard 20s Audio Slice"
+version = "1.0"
+author = "Your Name Here"
+description = "StepMania beatmap for a 20-second slice of a hard difficulty audio track."
+
+# Key and time signature
+key = "F# minor"
+time_signature = "4/4"
+
+# Difficulty settings
+max_bpm = 180.0
+min_bpm = 180.0
+tempo-synced = true
+
+# Beatmap settings
+precision = 3
+show_hihat = false
+show踩镲 = false
+show踩镲延迟 = false
+show踩镲混响 = false
+show军鼓延迟 = false
+show军鼓混响 = false
+show小军鼓 = false
+show大鼓 = false
+show重击 = false
+show开放帽 = false
+show拍手 = false
+show滑音 = false
+show连击 = false
+show脚步声 = false
+show乐谱 = false
+
+# Maps
+maps = [
+    {
+        name = "Main Map",
+        type = "Standard",
+        area_size = 1,
+        column_count = 4,
+        column_width = 120,
+        beat_length = 1.333,
+        notes = [
+            { note = "C♯1", x = 120, y = 120 },
+            { note = "C♯2", x = 120, y = 120 },
+            { note = "C♯3", x = 120, y = 120 },
+            { note = "C♯4", x = 120, y = 120 },
+            { note = "D1", x = 120, y = 120 },
+            { note = "D2", x = 120, y = 120 },
+            { note = "D3", x = 120, y = 120 },
+            { note = "D4", x = 120, y = 120 },
+            { note = "E1", x = 120, y = 120 },
+            { note = "E2", x = 120, y = 120 },
+            { note = "E3", x = 120, y = 120 },
+            { note = "E4", x = 120, y = 120 },
+            { note = "F1", x = 120, y = 120 },
+            { note = "F2", x = 120, y = 120 },
+            { note = "F3", x = 120, y = 120 },
+            { note = "F4", x = 120, y = 120 },
+            { note = "G1", x = 120, y = 120 },
+            { note = "G2", x = 120, y = 120 },
+            { note = "G3", x = 120, y = 120 },
+            { note = "G4", x = 120, y = 120 },
+            { note = "A1", x = 120, y = 120 },
+            { note = "A2", x = 120, y = 120 },
+            { note = "A3", x = 120, y = 120 },
+            { note = "A4", x = 120, y = 120 },
+            { note = "B1", x = 120, y = 120 },
+            { note = "B2", x = 120, y = 120 },
+            { note = "B3", x = 120, y = 120 },
+            { note = "B4", x = 120, y = 120 },
+            { note = "C♯5", x = 120, y = 120 },
+            { note = "C♯6", x = 120, y = 120 },
+            { note = "C♯7", x = 120, y = 120 },
+            { note = "C♯8", x = 120, y = 120 },
+            { note = "C♯9", x = 120, y = 120 },
+            { note = "C♯10", x = 120, y = 120 },
+            { note = "C♯11", x = 120, y = 120 },
+            { note = "C♯12", x = 120, y = 120 },
+            { note = "C♯13", x = 120, y = 120 },
+            { note = "C♯14", x = 120, y = 120 },
+            { note = "C♯15", x = 120, y = 120 },
+            { note = "C♯16", x = 120, y = 120 },
+            { note = "C♯17", x = 120, y = 120 },
+            { note = "C♯18", x = 120, y = 120 },
+            { note = "C♯19", x = 120, y = 120 },
+            { note = "C♯20", x = 120, y = 120 },
+            { note = "C♯21", x = 120, y = 120 },
+            { note = "C♯22", x = 120, y = 120 },
+            { note = "C♯23", x = 120, y = 120 },
+            { note = "C♯24", x = 120, y = 120 },
+            { note = "C♯25", x = 120, y = 120 },
+            { note = "C♯26", x = 120, y = 120 },
+            { note = "C♯27", x = 120, y = 120 },
+            { note = "C♯28", x = 120, y = 120 },
+            { note = "C♯29", x = 120, y = 120 },
+            { note = "C♯30", x = 120, y = 120 },
+            { note = "C♯31", x = 120, y = 120 },
+            { note = "C♯32", x = 120, y = 120 },
+            { note = "C♯33", x = 120, y = 120 },
+            { note = "C♯34", x = 120, y = 120 },
+            { note = "C♯35", x = 120, y = 120 },
+            { note = "C♯36", x = 120, y = 120 },
+            { note = "C♯37", x = 120, y = 120 },
+            { note = "C♯38", x = 120, y = 120 },
+            { note = "C♯39", x = 120, y = 120 },
+            { note = "C♯40", x = 120, y = 120 },
+            { note = "C♯41", x = 120, y = 120 },
+            { note = "C♯42", x = 120, y = 120 },
+            { note = "C♯43", x = 120, y = 120 },
+            { note = "C♯44", x = 120, y = 120 },
+            { note = "C♯45", x = 120, y = 120 },
+            { note = "C♯46", x = 120, y = 120 },
+            { note = "C♯47", x = 120, y = 120 },
+            { note = "C♯48", x = 120, y = 120 },
+            { note = "C♯49", x = 120, y = 120 },
+            { note = "C♯50", x = 120, y = 120 },
+            { note = "C♯51", x = 120, y = 120 },
+            { note = "C♯52", x = 120, y = 120 },
+            { note = "C♯53", x = 120, y = 120 },
+            { note = "C♯54", x = 120, y = 120 },
+            { note = "C♯55", x = 120, y = 120 },
+            { note = "C♯56", x = 120, y = 120 },
+            { note = "C♯57", x = 120, y = 120 },
+            { note = "C♯58", x = 120, y = 120 },
+            { note = "C♯59", x = 120, y = 120 },
+            { note = "C♯60", x = 120, y = 120 },
+            { note = "C♯61", x = 120, y = 120 },
+            { note = "C♯62", x = 120, y = 120 },
+            { note = "C♯63", x = 120, y = 120 },
+            { note = "C♯64", x = 120, y = 120 },
+            { note = "C♯65", x = 120, y = 120 },
+            { note = "C♯66", x = 120, y = 120 },
+            { note = "C♯67", x = 120, y = 120 },
+            { note = "C♯68", x = 120, y = 120 },
+            { note = "C♯69", x = 120, y = 120 },
+            { note = "C♯70", x = 120, y = 120 },
+            { note = "C♯71", x = 120, y = 120 },
+            { note = "C♯72", x = 120, y = 120 },
+            { note = "C♯73", x = 120, y = 120 },
+            { note = "C♯74", x = 120, y = 120 },
+            { note = "C♯75", x = 120, y = 120 },
+            { note = "C♯76", x = 120, y = 120 },
+            { note = "C♯77", x = 120, y = 120 },
+            { note = "C♯78", x = 120, y = 120 },
+            { note = "C♯79", x = 120, y = 120 },
+            { note = "C♯80", x = 120, y = 120 },
+            { note = "C♯81", x = 120, y = 120 },
+            { note = "C♯82", x = 120, y = 120 },
+            { note = "C♯83", x = 120, y = 120 },
+            { note = "C♯84", x = 120, y = 120 },
+            { note = "C♯85", x = 120, y = 120 },
+            { note = "C♯86", x = 120, y = 120 },
+            { note = "C♯87", x = 120, y = 120 },
+            { note = "C♯88", x = 120, y = 120 },
+            { note = "C♯89", x = 120, y = 120 },
+            { note = "C♯90", x = 120, y = 120 },
+            { note = "C♯91", x = 120, y = 120 },
+            { note = "C♯92", x = 120, y = 120 },
+            { note = "C♯93", x = 120, y = 120 },
+            { note = "C♯94", x = 120, y = 120 },
+            { note = "C♯95", x = 120, y = 120 },
+            { note = "C♯96", x = 120, y = 120 },
+            { note = "C♯97", x = 120, y = 120 },
+            { note = "C♯98", x = 120, y = 120 },
+            { note = "C♯99", x = 120, y = 120 },
+            { note = "C♯100", x = 120, y = 120 },
+            { note = "C♯101", x = 120, y = 120 },
+            { note = "C♯102", x = 120, y = 120 },
+            { note = "C♯103", x = 120, y = 120 },
+            { note = "C♯104", x = 120, y = 120 },
+            { note = "C♯105", x = 120, y = 120 },
+            { note = "C♯106", x = 120, y = 120 },
+            { note = "C♯107", x = 120, y = 120 },
+            { note = "C♯108", x = 120, y = 120 },
+            { note = "C♯109", x = 120, y = 120 },
+            { note = "C♯110", x = 120, y = 120 },
+            { note = "C♯111", x = 120, y = 120 },
+            { note = "C♯112", x = 120, y = 120 },
+            { note = "C♯113", x = 120, y = 120 },
+            { note = "C♯114", x = 120, y = 120 },
+            { note = "C♯115", x = 120, y = 120 },
+            { note = "C♯116", x = 120, y = 120 },
+            { note = "C♯117", x = 120, y = 120 },
+            { note = "C♯118", x = 120, y = 120 },
+            { note = "C♯119", x = 120, y = 120 },
+            { note = "C♯120", x = 120, y = 120 }
+        ]
+    ],
+    { name = "Main Map", type = "Standard", area_size = 1, column_count = 4, column_width = 120, beat_length = 1.333, notes = [ ... ] }
+]
+```
+
+This is just an example of how you could generate a beatmap for a 20-second audio slice using the provided guidelines. Feel free to adjust the settings and notes to your liking.

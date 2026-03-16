@@ -1,0 +1,10 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24442
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/extract_mumu_onsets.py", line 17, in <module>
+    import librosa
+ModuleNotFoundError: No module named 'librosa'
+=== MuMu-LLaMA Onset Detection Finished ===

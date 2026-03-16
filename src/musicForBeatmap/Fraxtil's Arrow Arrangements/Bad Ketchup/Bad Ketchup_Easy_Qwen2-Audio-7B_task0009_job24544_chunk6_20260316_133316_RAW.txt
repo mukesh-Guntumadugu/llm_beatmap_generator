@@ -1,0 +1,369 @@
+Based on the provided information, here's an example of a StepMania beatmap for the given 20-second audio slice:
+
+```json
+{
+  "name": "Fast techno with heavy drums",
+  "version": "1.0",
+  "author": "Your Name",
+  "description": "A fast-paced techno track with heavy drums and a loud synth bass.",
+  "music_key": "F# minor",
+  "time_signature": "4/4",
+  "tempo_bpm": "180.0 bpm",
+  "available_onset_timestamps": [
+    [333.42, 9644.63],
+    [10167.07, 10643.08],
+    [10828.84, 10991.38],
+    [12326.53, 12570.34],
+    [12744.49, 12988.30],
+    [13464.31, 13580.41],
+    [13824.22, 14079.64],
+    [14323.45, 14509.21],
+    [14578.87, 14811.07],
+    [14973.61, 15147.76],
+    [15298.68, 15403.17],
+    [15496.05, 15670.20],
+    [15797.91, 15890.79],
+    [15983.67, 16088.16],
+    [16169.43, 16320.36],
+    [16413.24, 16575.78],
+    [16668.66, 17307.21],
+    [17411.70, 17725.17],
+    [17829.66, 18236.01],
+    [18584.31, 18665.58],
+    [18828.12, 18909.39],
+    [19002.27, 19164.81],
+    [19338.96, 19652.43],
+    [19745.31, 19989.12]
+  ],
+  "beats": [
+    {
+      "timestamp": [333.42, 9644.63],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [10167.07, 10643.08],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [10828.84, 10991.38],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [12326.53, 12570.34],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [12744.49, 12988.30],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [13464.31, 13580.41],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [13824.22, 14079.64],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [14323.45, 14509.21],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [14578.87, 14811.07],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [14973.61, 15147.76],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [15298.68, 15403.17],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [15496.05, 15670.20],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [15797.91, 15890.79],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [15983.67, 16088.16],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [16169.43, 16320.36],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [16413.24, 16575.78],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [16668.66, 17307.21],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [17411.70, 17725.17],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [17829.66, 18236.01],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [18584.31, 18665.58],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [18828.12, 18909.39],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [19002.27, 19164.81],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [19338.96, 19652.43],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [19745.31, 19989.12],
+      "type": "Onset",
+      "instrument": "Drum",
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [10167.07, 10643.08],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [10828.84, 10991.38],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [12326.53, 12570.34],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [12744.49, 12988.30],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [13464.31, 13580.41],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [13824.22, 14079.64],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [14323.45, 14509.21],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [14578.87, 14811.07],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [14973.61, 15147.76],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [15298.68, 15403.17],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [15496.05, 15670.20],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [15797.91, 15890.79],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [15983.67, 16088.16],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [16169.43, 16320.36],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [16413.24, 16575.78],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [16668.66, 17307.21],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [17411.70, 17725.17],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [17829.66, 18236.01],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [18584.31, 18665.58],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [18828.12, 18909.39],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [19002.27, 19164.81],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [19338.96, 19652.43],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "G7",
+      "velocity": 100,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": [19745.31, 19989.12],
+      "type": "Note",
+      "instrument": "Drum",
+      "note_name": "F♯7",
+      "velocity": 100,
+      "confidence": 1.0
+    }
+  ]
+}
+```

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/src/hpc_qwen_server.py", line 16, in <module>
+    import uvicorn
+ModuleNotFoundError: No module named 'uvicorn'
+slurmstepd-node005: error: *** JOB 24494 ON node005 CANCELLED AT 2026-03-16T09:17:08 ***

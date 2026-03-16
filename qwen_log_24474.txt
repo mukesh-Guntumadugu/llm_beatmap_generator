@@ -1,0 +1,301 @@
+=== Starting Qwen2-Audio Onset Detection ===
+Job ID: 24474
+Node: node002
+GPU: NVIDIA RTX A6000
+=============================================
+/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading Qwen2-Audio model: Qwen/Qwen2-Audio-7B-Instruct...
+  Device: cuda | dtype: torch.float16
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:03<00:13,  3.48s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:06<00:10,  3.46s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:10<00:06,  3.41s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:13<00:03,  3.29s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:14<00:00,  2.51s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:14<00:00,  2.90s/it]
+✅ Qwen2-Audio loaded successfully on cuda.
+
+Generating Qwen beatmaps: 20 songs × 5 difficulty levels × 6 runs = 600 files
+
+Song                                     Diff         Run   Notes     Output file
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  [Bad Ketchup                        ] beginner   run 1/6 ...Keyword argument `audios` is not a valid argument for this processor and will be ignored.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Generating with Qwen2-Audio...
+  ✅    114 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_beginner_run01_15032026232423.csv
+  [Bad Ketchup                        ] beginner   run 2/6 ...Generating with Qwen2-Audio...
+  ✅    114 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_beginner_run02_15032026233141.csv
+  [Bad Ketchup                        ] beginner   run 3/6 ...Generating with Qwen2-Audio...
+  ✅    114 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_beginner_run03_15032026233858.csv
+  [Bad Ketchup                        ] beginner   run 4/6 ...Generating with Qwen2-Audio...
+  ✅    114 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_beginner_run04_15032026234615.csv
+  [Bad Ketchup                        ] beginner   run 5/6 ...Generating with Qwen2-Audio...
+  ✅    114 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_beginner_run05_15032026235332.csv
+  [Bad Ketchup                        ] beginner   run 6/6 ...Generating with Qwen2-Audio...
+  ✅    114 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_beginner_run06_16032026000049.csv
+  [Bad Ketchup                        ] easy       run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run01_16032026000700.txt
+  [Bad Ketchup                        ] easy       run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run02_16032026001311.txt
+  [Bad Ketchup                        ] easy       run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run03_16032026001922.txt
+  [Bad Ketchup                        ] easy       run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run04_16032026002533.txt
+  [Bad Ketchup                        ] easy       run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run05_16032026003144.txt
+  [Bad Ketchup                        ] easy       run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run06_16032026003755.txt
+  [Bad Ketchup                        ] medium     run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_medium_run01_16032026003803.txt
+  [Bad Ketchup                        ] medium     run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_medium_run02_16032026003812.txt
+  [Bad Ketchup                        ] medium     run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_medium_run03_16032026003821.txt
+  [Bad Ketchup                        ] medium     run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_medium_run04_16032026003830.txt
+  [Bad Ketchup                        ] medium     run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_medium_run05_16032026003838.txt
+  [Bad Ketchup                        ] medium     run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_medium_run06_16032026003847.txt
+  [Bad Ketchup                        ] hard       run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_hard_run01_16032026003855.txt
+  [Bad Ketchup                        ] hard       run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_hard_run02_16032026003904.txt
+  [Bad Ketchup                        ] hard       run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_hard_run03_16032026003912.txt
+  [Bad Ketchup                        ] hard       run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_hard_run04_16032026003920.txt
+  [Bad Ketchup                        ] hard       run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_hard_run05_16032026003928.txt
+  [Bad Ketchup                        ] hard       run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_hard_run06_16032026003937.txt
+  [Bad Ketchup                        ] challenging run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_challenging_run01_16032026003943.txt
+  [Bad Ketchup                        ] challenging run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_challenging_run02_16032026003949.txt
+  [Bad Ketchup                        ] challenging run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_challenging_run03_16032026003956.txt
+  [Bad Ketchup                        ] challenging run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_challenging_run04_16032026004002.txt
+  [Bad Ketchup                        ] challenging run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_challenging_run05_16032026004009.txt
+  [Bad Ketchup                        ] challenging run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_challenging_run06_16032026004015.txt
+  [Bitch Clap                         ] beginner   run 1/6 ...Token indices sequence length is longer than the specified maximum sequence length for this model (10384 > 8192). Running this sequence through the model will result in indexing errors
+Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_beginner_run01_16032026004357.txt
+  [Bitch Clap                         ] beginner   run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_beginner_run02_16032026004740.txt
+  [Bitch Clap                         ] beginner   run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_beginner_run03_16032026005122.txt
+  [Bitch Clap                         ] beginner   run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_beginner_run04_16032026005505.txt
+  [Bitch Clap                         ] beginner   run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_beginner_run05_16032026005847.txt
+  [Bitch Clap                         ] beginner   run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_beginner_run06_16032026010230.txt
+  [Bitch Clap                         ] easy       run 1/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bitch Clap/Qwen_beatmap_Bitch_Clap_easy_run01_16032026010612.csv
+  [Bitch Clap                         ] easy       run 2/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bitch Clap/Qwen_beatmap_Bitch_Clap_easy_run02_16032026010956.csv
+  [Bitch Clap                         ] easy       run 3/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bitch Clap/Qwen_beatmap_Bitch_Clap_easy_run03_16032026011339.csv
+  [Bitch Clap                         ] easy       run 4/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bitch Clap/Qwen_beatmap_Bitch_Clap_easy_run04_16032026011722.csv
+  [Bitch Clap                         ] easy       run 5/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bitch Clap/Qwen_beatmap_Bitch_Clap_easy_run05_16032026012105.csv
+  [Bitch Clap                         ] easy       run 6/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bitch Clap/Qwen_beatmap_Bitch_Clap_easy_run06_16032026012449.csv
+  [Bitch Clap                         ] medium     run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_medium_run01_16032026012832.txt
+  [Bitch Clap                         ] medium     run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_medium_run02_16032026013215.txt
+  [Bitch Clap                         ] medium     run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_medium_run03_16032026013558.txt
+  [Bitch Clap                         ] medium     run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_medium_run04_16032026013941.txt
+  [Bitch Clap                         ] medium     run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_medium_run05_16032026014323.txt
+  [Bitch Clap                         ] medium     run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_medium_run06_16032026014706.txt
+  [Bitch Clap                         ] hard       run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_hard_run01_16032026015049.txt
+  [Bitch Clap                         ] hard       run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_hard_run02_16032026015432.txt
+  [Bitch Clap                         ] hard       run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_hard_run03_16032026015815.txt
+  [Bitch Clap                         ] hard       run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_hard_run04_16032026020157.txt
+  [Bitch Clap                         ] hard       run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_hard_run05_16032026020540.txt
+  [Bitch Clap                         ] hard       run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_hard_run06_16032026020923.txt
+  [Bitch Clap                         ] challenging run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_challenging_run01_16032026021306.txt
+  [Bitch Clap                         ] challenging run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_challenging_run02_16032026021649.txt
+  [Bitch Clap                         ] challenging run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_challenging_run03_16032026022032.txt
+  [Bitch Clap                         ] challenging run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_challenging_run04_16032026022415.txt
+  [Bitch Clap                         ] challenging run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_challenging_run05_16032026022758.txt
+  [Bitch Clap                         ] challenging run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bitch Clap/Qwen_beatmap_RAW_Bitch_Clap_challenging_run06_16032026023141.txt
+  [Call Me Maybe (Remix)              ] beginner   run 1/6 ...Generating with Qwen2-Audio...
+  ✅     95 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_beginner_run01_16032026023746.csv
+  [Call Me Maybe (Remix)              ] beginner   run 2/6 ...Generating with Qwen2-Audio...
+  ✅     95 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_beginner_run02_16032026024351.csv
+  [Call Me Maybe (Remix)              ] beginner   run 3/6 ...Generating with Qwen2-Audio...
+  ✅     95 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_beginner_run03_16032026024956.csv
+  [Call Me Maybe (Remix)              ] beginner   run 4/6 ...Generating with Qwen2-Audio...
+  ✅     95 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_beginner_run04_16032026025602.csv
+  [Call Me Maybe (Remix)              ] beginner   run 5/6 ...Generating with Qwen2-Audio...
+  ✅     95 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_beginner_run05_16032026030207.csv
+  [Call Me Maybe (Remix)              ] beginner   run 6/6 ...Generating with Qwen2-Audio...
+  ✅     95 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_beginner_run06_16032026030812.csv
+  [Call Me Maybe (Remix)              ] easy       run 1/6 ...Generating with Qwen2-Audio...
+  ✅     97 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_easy_run01_16032026031444.csv
+  [Call Me Maybe (Remix)              ] easy       run 2/6 ...Generating with Qwen2-Audio...
+  ✅     97 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_easy_run02_16032026032116.csv
+  [Call Me Maybe (Remix)              ] easy       run 3/6 ...Generating with Qwen2-Audio...
+  ✅     97 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_easy_run03_16032026032747.csv
+  [Call Me Maybe (Remix)              ] easy       run 4/6 ...Generating with Qwen2-Audio...
+  ✅     97 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_easy_run04_16032026033419.csv
+  [Call Me Maybe (Remix)              ] easy       run 5/6 ...Generating with Qwen2-Audio...
+  ✅     97 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_easy_run05_16032026034051.csv
+  [Call Me Maybe (Remix)              ] easy       run 6/6 ...Generating with Qwen2-Audio...
+  ✅     97 notes  →  Call Me Maybe (Remix)/Qwen_beatmap_Call_Me_Maybe_(Remix)_easy_run06_16032026034723.csv
+  [Call Me Maybe (Remix)              ] medium     run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_medium_run01_16032026035738.txt
+  [Call Me Maybe (Remix)              ] medium     run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_medium_run02_16032026040753.txt
+  [Call Me Maybe (Remix)              ] medium     run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_medium_run03_16032026041808.txt
+  [Call Me Maybe (Remix)              ] medium     run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_medium_run04_16032026042823.txt
+  [Call Me Maybe (Remix)              ] medium     run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_medium_run05_16032026043838.txt
+  [Call Me Maybe (Remix)              ] medium     run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_medium_run06_16032026044853.txt
+  [Call Me Maybe (Remix)              ] hard       run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_hard_run01_16032026045450.txt
+  [Call Me Maybe (Remix)              ] hard       run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_hard_run02_16032026050048.txt
+  [Call Me Maybe (Remix)              ] hard       run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_hard_run03_16032026050645.txt
+  [Call Me Maybe (Remix)              ] hard       run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Call Me Maybe (Remix)/Qwen_beatmap_RAW_Call_Me_Maybe_(Remix)_hard_run04_16032026051243.txt
+  [Call Me Maybe (Remix)              ] hard       run 5/6 ...slurmstepd-node002: error: *** JOB 24474 ON node002 CANCELLED AT 2026-03-16T05:16:56 DUE TO TIME LIMIT ***

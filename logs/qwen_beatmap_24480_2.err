@@ -1,0 +1,7 @@
+ERROR: Could not install packages due to an OSError: [Errno 122] Disk quota exceeded: '/home/mg546924/.local/lib/python3.9/site-packages/nvidia/__init__.py'
+
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/src/hpc_qwen_server.py", line 15, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+slurmstepd-node001: error: *** JOB 24483 ON node001 CANCELLED AT 2026-03-16T09:07:00 ***

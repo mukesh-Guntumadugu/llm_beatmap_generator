@@ -1,0 +1,43 @@
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,"", "-1", "-1", 1.0, separator
+```
+
+
+  1. The first row contains the time in milliseconds (0.0) and the position of the beat on the first bar (1.0). The first note played is a standard tap note (1000) in the kick position on the first bar. The confidence value is 0.95, the instrument value is kick, and the note type is 2 (whole note).
+  2. The second row contains the time in milliseconds (125) and the position of the beat on the second bar (1.25). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  3. The third row contains the time in milliseconds (250) and the position of the beat on the third bar (1.5). The note played is a hold note in the left channel of the stereo image. The note type is 2 (whole note), and the confidence value is 0.88.
+  4. The fourth row contains the time in milliseconds (375) and the position of the beat on the fourth bar (1.75). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  5. The fifth row contains the time in milliseconds (500) and the position of the beat on the fifth bar (2.0). The note played is a hold note in the left channel of the stereo image. The note type is 2 (whole note), and the confidence value is 1.0.
+  6. The sixth row contains the time in milliseconds (625) and the position of the beat on the sixth bar (2.25). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  7. The seventh row contains the time in milliseconds (750) and the position of the beat on the seventh bar (2.5). The note played is a hold note in the left channel of the stereo image. The note type is 2 (whole note), and the confidence value is 0.82.
+  8. The eighth row contains the time in milliseconds (875) and the position of the beat on the eighth bar (2.75). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  9. The ninth row contains the time in milliseconds (1000) and the position of the beat on the ninth bar (3.0). The note played is a hold note in the left channel of the stereo image. The note type is 2 (whole note), and the confidence value is 0.91.
+  10. The tenth row contains the time in milliseconds (1125) and the position of the beat on the tenth bar (3.25). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  11. The eleventh row contains the time in milliseconds (1250) and the position of the beat on the eleventh bar (3.5). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  12. The twelfth row contains the time in milliseconds (1375) and the position of the beat on the twelfth bar (3.75). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  13. The thirteenth row contains the time in milliseconds (1500) and the position of the beat on the thirteenth bar (4.0). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  14. The fourteenth row contains the time in milliseconds (1625) and the position of the beat on the fourteenth bar (4.25). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  15. The fifteenth row contains the time in milliseconds (1750) and the position of the beat on the fifteenth bar (4.5). The note played is a hold note in the left channel of the stereo image. The note type is 2 (whole note), and the confidence value is 0.79.
+  16. The sixteenth row contains the time in milliseconds (1875) and the position of the beat on the sixteenth bar (4.75). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  17. The seventeenth row contains the time in milliseconds (2000) and the position of the beat on the seventeenth bar (5.0). The note played is a hold note in the left channel of the stereo image. The note type is 2 (whole note), and the confidence value is 1.0.
+  18. The eighteenth row contains the time in milliseconds (2125) and the position of the beat on the eighteenth bar (5.25). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  19. The nineteenth row contains the time in milliseconds (2250) and the position of the beat on the nineteenth bar (5.50). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+  20. The twentieth row contains the time in milliseconds (2375) and the position of the beat on the twentieth bar (5.75). The note played is an empty note (0000) in the left channel of the stereo image. The confidence value is 1.0, the instrument value is unknown, and the note type is -1 (separator).
+
+Note that this is just one example of a possible beatmap for the given audio. There may be other valid beatmaps with different note positions and timings.

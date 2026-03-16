@@ -1,0 +1,19 @@
+Here is the StepMania beatmap for the provided 20-second audio clip:
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",",-1,-1,1.0,separator
+```
+
+This beatmap includes 16 rows per measure, with a dense rhythm feel using 16 notes per beat. There are 4 columns per row, representing the four notes of a quarter note. The notes are arranged from left to right in each column, with the first column being the note played on the first beat, the second column on the second beat, and so on. The notes are labeled with their standard tap note names.
+The beatmap also includes hold notes, which are indicated with a '2' in a specific lane. These notes are played on the specified beat and must be held until the next beat, when they are released with a '3' in the same lane. The hold notes are represented with a '0000' note in the beatmap.
+There are also notes that are played on non-beat slots, represented with a '0000' note in the beatmap. These notes are played in the gaps between beats.
+The confidence value for each note reflects the user's confidence in playing the note correctly. The instrument value represents the instrument used to play the note.
+The time signature of the audio is 4/4, and the tempo is approximately 150 BPM.

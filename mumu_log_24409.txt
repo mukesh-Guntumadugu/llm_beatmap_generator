@@ -1,0 +1,57 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24409
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================
+/var/spool/slurmd/job24409/slurm_script: line 19: conda: command not found
+/var/spool/slurmd/job24409/slurm_script: line 22: conda: command not found
+Loading MuMu-LLaMA model... (Requires 13GB LLaMA-2 weights downloaded first)
+✅ MuMu-LLaMA interface initialized. (Full model loading code pending weight download completion)
+
+Processing songs 1 to 20 using MuMu-LLaMA...
+
+Song                                           # Mumu Onsets  Output file
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  [1/20] Processing: Bad Ketchup ...Generating with MuMu-LLaMA for: Bad Ketchup.ogg
+                                                                                Bad Ketchup                                                4  Mumu_onsets_Bad_Ketchup_15032026175519.csv
+  [2/20] Processing: Bitch Clap ...Generating with MuMu-LLaMA for: Bitch Clap.ogg
+                                                                                Bitch Clap                                                 4  Mumu_onsets_Bitch_Clap_15032026175519.csv
+  [3/20] Processing: Call Me Maybe (Remix) ...Generating with MuMu-LLaMA for: Call Me Maybe (Remix).ogg
+                                                                                Call Me Maybe (Remix)                                      4  Mumu_onsets_Call_Me_Maybe_(Remix)_15032026175519.csv
+  [4/20] Processing: Dead Hollywood ...Generating with MuMu-LLaMA for: Dead Hollywood.ogg
+                                                                                Dead Hollywood                                             4  Mumu_onsets_Dead_Hollywood_15032026175519.csv
+  [5/20] Processing: Deal With It ...Generating with MuMu-LLaMA for: Deal With It.ogg
+                                                                                Deal With It                                               4  Mumu_onsets_Deal_With_It_15032026175519.csv
+  [6/20] Processing: Gangnam Style ...Generating with MuMu-LLaMA for: Gangnam Style.ogg
+                                                                                Gangnam Style                                              4  Mumu_onsets_Gangnam_Style_15032026175519.csv
+  [7/20] Processing: Girls ...Generating with MuMu-LLaMA for: Girls.ogg
+                                                                                Girls                                                      4  Mumu_onsets_Girls_15032026175519.csv
+  [8/20] Processing: Goin' Under ...Generating with MuMu-LLaMA for: Goin' Under.ogg
+                                                                                Goin' Under                                                4  Mumu_onsets_Goin'_Under_15032026175519.csv
+  [9/20] Processing: Goodbye (2012 Mix) ...Generating with MuMu-LLaMA for: Goodbye (2012 Mix).ogg
+                                                                                Goodbye (2012 Mix)                                         4  Mumu_onsets_Goodbye_(2012_Mix)_15032026175519.csv
+  [10/20] Processing: Human Error ...Generating with MuMu-LLaMA for: Human Error.ogg
+                                                                                Human Error                                                4  Mumu_onsets_Human_Error_15032026175519.csv
+  [11/20] Processing: Inner Universe (Extended Mix) ...Generating with MuMu-LLaMA for: Inner Universe (Extended Mix).ogg
+                                                                                Inner Universe (Extended Mix)                              4  Mumu_onsets_Inner_Universe_(Extended_Mix)_15032026175519.csv
+  [12/20] Processing: Love to Rise in the Summer Morning ...Generating with MuMu-LLaMA for: Love to Rise in the Summer Morning.ogg
+                                                                                Love to Rise in the Summer Morning                         4  Mumu_onsets_Love_to_Rise_in_the_Summer_Morning_15032026175519.csv
+  [13/20] Processing: Named 'The Moon' ...Generating with MuMu-LLaMA for: Named 'The Moon'.ogg
+                                                                                Named 'The Moon'                                           4  Mumu_onsets_Named_'The_Moon'_15032026175519.csv
+  [14/20] Processing: Need Your Love -SF_Dubstep Mix- ...Generating with MuMu-LLaMA for: Need Your Love -SF_Dubstep Mix-.ogg
+                                                                                Need Your Love -SF_Dubstep Mix-                            4  Mumu_onsets_Need_Your_Love_-SF_Dubstep_Mix-_15032026175519.csv
+  [15/20] Processing: No Beginning ...Generating with MuMu-LLaMA for: No Beginning.ogg
+                                                                                No Beginning                                               4  Mumu_onsets_No_Beginning_15032026175519.csv
+  [16/20] Processing: Pain Game ...Generating with MuMu-LLaMA for: Pain Game.ogg
+                                                                                Pain Game                                                  4  Mumu_onsets_Pain_Game_15032026175519.csv
+  [17/20] Processing: Stamina ...Generating with MuMu-LLaMA for: Stamina.ogg
+                                                                                Stamina                                                    4  Mumu_onsets_Stamina_15032026175519.csv
+  [18/20] Processing: Star Gear ...Generating with MuMu-LLaMA for: Star Gear.ogg
+                                                                                Star Gear                                                  4  Mumu_onsets_Star_Gear_15032026175519.csv
+  [19/20] Processing: The Seconds ...Generating with MuMu-LLaMA for: The Seconds.ogg
+                                                                                The Seconds                                                4  Mumu_onsets_The_Seconds_15032026175519.csv
+  [20/20] Processing: Turn Up (The Music) ...Generating with MuMu-LLaMA for: Turn Up (The Music).ogg
+                                                                                Turn Up (The Music)                                        4  Mumu_onsets_Turn_Up_(The_Music)_15032026175519.csv
+
+✅ MuMu extraction run completed.
+=== MuMu-LLaMA Onset Detection Finished ===

@@ -1,0 +1,14 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24408
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================
+/var/spool/slurmd/job24408/slurm_script: line 16: conda: command not found
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/extract_mumu_onsets.py", line 22, in <module>
+    from src.mumu_interface import setup_mumu, generate_beatmap_with_mumu
+  File "/data/mg546924/llm_beatmap_generator/src/mumu_interface.py", line 30
+    <<<<<<< HEAD
+    ^
+IndentationError: expected an indented block
+=== MuMu-LLaMA Onset Detection Finished ===

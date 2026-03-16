@@ -1,0 +1,177 @@
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:02<00:20,  2.90s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:08<00:26,  4.50s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:14<00:24,  4.99s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:19<00:20,  5.21s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:25<00:15,  5.28s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:30<00:10,  5.34s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:34<00:04,  4.99s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:37<00:00,  4.31s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:37<00:00,  4.70s/it]
+INFO:     Started server process [2738946]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 107, in app
+    response = await f(request)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 426, in app
+    raw_response = await run_endpoint_function(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/anyio/to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/anyio/_backends/_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/anyio/_backends/_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+  File "/data/mg546924/llm_beatmap_generator/src/hpc_qwen_server.py", line 101, in generate
+    generated_ids = _model.generate(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/generation/utils.py", line 2566, in generate
+    result = decoding_method(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/generation/utils.py", line 2831, in _sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+RuntimeError: probability tensor contains either `inf`, `nan` or element < 0
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 107, in app
+    response = await f(request)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 426, in app
+    raw_response = await run_endpoint_function(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/anyio/to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/anyio/_backends/_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/anyio/_backends/_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+  File "/data/mg546924/llm_beatmap_generator/src/hpc_qwen_server.py", line 101, in generate
+    generated_ids = _model.generate(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/generation/utils.py", line 2566, in generate
+    result = decoding_method(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/generation/utils.py", line 2831, in _sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+RuntimeError: probability tensor contains either `inf`, `nan` or element < 0
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 107, in app
+    response = await f(request)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 426, in app
+    raw_response = await run_endpoint_function(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/anyio/to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/anyio/_backends/_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/anyio/_backends/_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+  File "/data/mg546924/llm_beatmap_generator/src/hpc_qwen_server.py", line 101, in generate
+    generated_ids = _model.generate(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/generation/utils.py", line 2566, in generate
+    result = decoding_method(
+  File "/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/generation/utils.py", line 2831, in _sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+RuntimeError: probability tensor contains either `inf`, `nan` or element < 0
+slurmstepd-node002: error: *** JOB 24521 ON node002 CANCELLED AT 2026-03-16T12:40:26 ***

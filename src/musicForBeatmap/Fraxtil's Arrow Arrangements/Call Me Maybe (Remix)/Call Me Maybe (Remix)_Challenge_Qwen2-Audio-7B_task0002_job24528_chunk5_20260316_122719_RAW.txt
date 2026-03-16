@@ -1,0 +1,141 @@
+```csv
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,,-1,-1,-1.0,separator
+```
+
+
+  * The first row corresponds to the starting timestamp of the audio (0.00).
+  * The second row represents the position of the first beat in the current measure (1.00).
+  * The third row indicates that the first note played is a standard tap note on the kick drum (1000).
+  * The fourth and fifth columns correspond to the placement type of the note (column 4 = 4th beat, column 5 = kick drum).
+  * The sixth column specifies the note type (standard tap note on the kick drum).
+  * The seventh column provides the confidence value for the note (0.95).
+  * The eighth column indicates the instrument associated with the note (kick drum).
+  * The ninth and tenth rows repeat the information for the second beat of the measure.
+  * The eleventh row indicates that the second note played is a hold note on the left arrow (2000).
+  * The twelfth and thirteenth columns correspond to the placement type and note type of the hold note (column 12 = left arrow, column 13 = note head).
+  * The fourteenth column provides the confidence value for the hold note (0.91).
+  * The fifteenth column indicates the instrument associated with the hold note (left arrow).
+  * The sixteenth row represents the position of the next beat in the measure (1.25).
+  * The seventeenth and eighteenth columns correspond to the placement type and note type of the beat note (column 17 = 4th beat, column 18 = standard tap note).
+  * The nineteenth column provides the confidence value for the beat note (0.95).
+  * The twentieth column indicates the instrument associated with the beat note (snare drum).
+  * The twenty-first row represents the position of the next beat in the measure (1.50).
+  * The twenty-second and twenty-third columns correspond to the placement type and note type of the beat note (column 22 = 4th beat, column 23 = standard tap note).
+  * The twenty-fourth column provides the confidence value for the beat note (0.88).
+  * The twenty-fifth row indicates that the next note played is a blank note (0000).
+  * The twenty-sixth and twenty-seventh columns correspond to the placement type and note type of the blank note (column 26 = 4th beat, column 27 = note head).
+  * The twenty-eighth column provides the confidence value for the blank note (1.00).
+  * The twenty-ninth and thirtieth rows repeat the information for the next beat of the measure (1.75).
+  * The thirtieth row indicates that the next note played is a hold note on the right arrow (2000).
+  * The thirty-first and thirty-second columns correspond to the placement type and note type of the hold note (column 31 = right arrow, column 32 = note head).
+  * The thirty-third column provides the confidence value for the hold note (0.91).
+  * The thirty-fourth column indicates the instrument associated with the hold note (right arrow).
+  * The thirty-fifth and thirty-sixth rows represent the position of the next beat in the measure (2.00).
+  * The thirty-seventh and thirty-eighth columns correspond to the placement type and note type of the beat note (column 37 = 4th beat, column 38 = standard tap note).
+  * The thirty-ninth column provides the confidence value for the beat note (0.88).
+  * The fortieth column indicates the instrument associated with the beat note (bass drum).
+  * The forty-first row represents the position of the next beat in the measure (2.25).
+  * The forty-second and forty-third columns correspond to the placement type and note type of the beat note (column 42 = 4th beat, column 43 = standard tap note).
+  * The forty-fourth column provides the confidence value for the beat note (1.00).
+  * The forty-fifth column indicates the instrument associated with the beat note (bass drum).
+  * The forty-sixth and forty-seventh rows repeat the information for the next beat of the measure (2.50).
+  * The forty-seventh row indicates that the next note played is a hold note on the left arrow (2000).
+  * The forty-eighth and forty-ninth columns correspond to the placement type and note type of the hold note (column 48 = left arrow, column 49 = note head).
+  * The fifty-first column provides the confidence value for the hold note (0.79).
+  * The fifty-second column indicates the instrument associated with the hold note (left arrow).
+  * The fifty-third row represents the position of the next beat in the measure (2.75).
+  * The fifty-fourth and fifty-fifth columns correspond to the placement type and note type of the beat note (column 54 = 4th beat, column 55 = standard tap note).
+  * The fifty-sixth column provides the confidence value for the beat note (0.95).
+  * The fifty-seventh column indicates the instrument associated with the beat note (snare drum).
+  * The fifty-eighth and fifty-ninth rows repeat the information for the next beat of the measure (3.00).
+  * The fifty-ninth row indicates that the next note played is a hold note on the right arrow (2000).
+  * The sixty-second and sixty-third columns correspond to the placement type and note type of the hold note (column 62 = right arrow, column 63 = note head).
+  * The sixty-fourth column provides the confidence value for the hold note (0.91).
+  * The sixty-fifth column indicates the instrument associated with the hold note (right arrow).
+  * The sixty-sixth row represents the position of the next beat in the measure (3.25).
+  * The sixty-seventh and sixty-eighth columns correspond to the placement type and note type of the beat note (column 67 = 4th beat, column 68 = standard tap note).
+  * The sixty-ninth column provides the confidence value for the beat note (0.82).
+  * The seventy-first column indicates the instrument associated with the beat note (snare drum).
+  * The seventy-second and seventy-third rows repeat the information for the next beat of the measure (3.50).
+  * The seventy-third row indicates that the next note played is a hold note on the left arrow (2000).
+  * The seventy-fourth and seventy-fifth columns correspond to the placement type and note type of the hold note (column 74 = left arrow, column 75 = note head).
+  * The seventy-sixth column provides the confidence value for the hold note (0.79).
+  * The seventy-seventh column indicates the instrument associated with the hold note (left arrow).
+  * The seventy-eighth row represents the position of the next beat in the measure (3.75).
+  * The seventy-ninth and eighty-first columns correspond to the placement type and note type of the beat note (column 81 = 4th beat, column 82 = standard tap note).
+  * The eighty-second column provides the confidence value for the beat note (0.95).
+  * The eighty-third column indicates the instrument associated with the beat note (snare drum).
+  * The eighty-fourth and eighty-fifth rows repeat the information for the next beat of the measure (4.00).
+  * The eighty-fifth row indicates that the next note played is a hold note on the right arrow (2000).
+  * The eighty-sixth and eighty-seventh columns correspond to the placement type and note type of the hold note (column 86 = right arrow, column 87 = note head).
+  * The eighty-eighth column provides the confidence value for the hold note (0.91).
+  * The eighty-ninth column indicates the instrument associated with the hold note (right arrow).
+  * The ninety-first row represents the position of the next beat in the measure (4.25).
+  * The ninety-second and ninety-third columns correspond to the placement type and note type of the beat note (column 92 = 4th beat, column 93 = standard tap note).
+  * The ninety-third column provides the confidence value for the beat note (0.88).
+  * The ninety-fourth column indicates the instrument associated with the beat note (snare drum).
+  * The ninety-fifth and ninety-sixth rows repeat the information for the next beat of the measure (4.50).
+  * The ninety-sixth row indicates that the next note played is a hold note on the left arrow (2000).
+  * The ninety-seventh and ninety-eighth columns correspond to the placement type and note type of the hold note (column 97 = left arrow, column 98 = note head).
+  * The ninety-eighth column provides the confidence value for the hold note (0.79).
+  * The ninety-ninth column indicates the instrument associated with the hold note (left arrow).
+  * The one hundredth row represents the position of the next beat in the measure (4.75).
+  * The one hundredth row indicates that the next note played is a hold note on the right arrow (2000).
+  * The one hundred and first columns correspond to the placement type and note type of the hold note (column 101 = right arrow, column 102 = note head).
+  * The one hundred and second column provides the confidence value for the hold note (0.91).
+  * The one hundred and third column indicates the instrument associated with the hold note (right arrow).
+  * The one hundred and fourth row represents the position of the next beat in the measure (5.00).
+  * The one hundred and fifth columns correspond to the placement type and note type of the beat note (column 105 = 4th beat, column 106 = standard tap note).
+  * The one hundred and sixth column provides the confidence value for the beat note (0.95).
+  * The one hundred and seventh column indicates the instrument associated with the beat note (snare drum).
+  * The one hundred and eighth and one hundred and ninth rows repeat the information for the next beat of the measure (5.25).
+  * The one hundred and ninth row indicates that the next note played is a hold note on the left arrow (2000).
+  * The one hundred and twelfth and one hundred and third columns correspond to the placement type and note type of the hold note (column 112 = left arrow, column 113 = note head).
+  * The one hundred and twelfth column provides the confidence value for the hold note (0.79).
+  * The one hundred and thirteenth column indicates the instrument associated with the hold note (left arrow).
+  * The one hundred and fourteenth row represents the position of the next beat in the measure (5.50).
+  * The one hundred and fourteenth row indicates that the next note played is a hold note on the right arrow (2000).
+  * The one hundred and fifteenth columns correspond to the placement type and note type of the hold note (column 115 = right arrow, column 116 = note head).
+  * The one hundred and fifteenth column provides the confidence value for the hold note (0.91).
+  * The one hundred and sixteenth column indicates the instrument associated with the hold note (right arrow).
+  * The one hundred and seventeenth row represents the position of the next beat in the measure (5.75).
+  * The one hundred and seventeenth row indicates that the next note played is a hold note on the left arrow (2000).
+  * The one hundred and eighteenth columns correspond to the placement type and note type of the hold note (column 118 = left arrow, column 119 = note head).
+  * The one hundred and eighteenth column provides the confidence value for the hold note (0.79).
+  * The one hundred and nineteenth column indicates the instrument associated with the hold note (left arrow).
+  * The one hundred and twentieth row represents the position of the next beat in the measure (6.00).
+  * The one hundred and twentieth row indicates that the next note played is a hold note on the right arrow (2000).
+  * The one hundred and twenty columns correspond to the placement type and note type of the hold note (column 122 = right arrow, column 123 = note head).
+  * The one hundred and twenty column provides the confidence value for the hold note (0.91).
+  * The one hundred and twenty-first column indicates the instrument associated with the hold note (right arrow).
+  * The one hundred and twenty-second row represents the position of the next beat in the measure (6.25).
+  * The one hundred and twenty-second row indicates that the next note played is a hold note on the left arrow (2000).
+  * The one hundred and twenty-third columns correspond to the placement type and note type of the hold note (column 123 = left arrow, column 124 = note head).
+  * The one hundred and twenty-fourth column provides the confidence value for the hold note (0.79).
+  * The one hundred and twenty-fifth column indicates the instrument associated with the hold note (left arrow).
+  * The one hundred and twenty-sixth row represents the position of the next beat in the measure (6.50).
+  * The one hundred and twenty-sixth row indicates that the next note played is a hold note on the right arrow (2000).
+  * The one hundred and twenty seventh columns correspond to the placement type and note type of the hold note (column 127 = right arrow, column 128 = note head).
+  * The one hundred and twenty seventh column provides the confidence value for the hold note (0.91).
+  * The one hundred and twenty-eighth column indicates the instrument associated with the hold note (right arrow).
+  * The one hundred and twenty ninth row represents the position of the next beat in the measure (6.75).
+  * The one hundred and twenty ninth row indicates that the next note played is a hold note on the left arrow (2000).
+  * The one hundred and thirty columns correspond to the placement type and note type of the hold note (column 133 = left arrow, column 134 = note head).
+  * The one hundred and thirty column provides the confidence value for the hold note (0.79).
+  * The one hundred and thirty-first column indicates the instrument associated with the hold note (left arrow).

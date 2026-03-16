@@ -1,0 +1,12 @@
+=== Starting Qwen2-Audio Onset Detection ===
+Job ID: 24432
+Node: node002
+GPU: NVIDIA RTX A6000
+=============================================
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/extract_qwen_onsets.py", line 22, in <module>
+    from src.qwen_interface import setup_qwen, generate_beatmap_with_qwen
+  File "/data/mg546924/llm_beatmap_generator/src/qwen_interface.py", line 6, in <module>
+    from transformers import Qwen2AudioForConditionalGeneration, AutoProcessor
+ImportError: cannot import name 'Qwen2AudioForConditionalGeneration' from 'transformers' (/home/mg546924/.conda/envs/mumullama/lib/python3.9/site-packages/transformers/__init__.py)
+=== Qwen Onset Detection Finished ===

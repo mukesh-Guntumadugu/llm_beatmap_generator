@@ -1,0 +1,14 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24438
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/extract_mumu_onsets.py", line 22, in <module>
+    from src.mumu_interface import setup_mumu, generate_beatmap_with_mumu
+  File "/data/mg546924/llm_beatmap_generator/src/mumu_interface.py", line 23, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+ERROR conda.cli.main_run:execute(125): `conda run python3 extract_mumu_onsets.py` failed. (See above for error)
+=== MuMu-LLaMA Onset Detection Finished ===

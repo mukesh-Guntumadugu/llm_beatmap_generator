@@ -1,0 +1,24 @@
+Here is a list of beatmaps for the given 20-second audio clip, generated using the provided rules:
+
+  1. 0000,0000,0000,0,3,1.0,unknown
+  2. 0000,0010,0000,0,3,0.88,snare
+  3. 0000,0020,0000,0,3,1.0,unknown
+  4. 0000,0030,0000,0,3,1.0,unknown
+  5. 0000,0040,0000,0,3,1.0,unknown
+  6. 0000,0050,0000,0,3,1.0,unknown
+  7. 0000,0060,0000,0,3,1.0,unknown
+  8. 0000,0070,0000,0,3,1.0,unknown
+  9. 0000,0080,0000,0,3,1.0,unknown
+  10. 0000,0090,0000,0,3,1.0,unknown
+  11. 0000,0100,0000,0,3,0.82,snare
+  12. 0000,0110,0000,0,3,1.0,unknown
+  13. 0000,0120,0000,0,3,1.0,unknown
+  14. 0000,0130,0000,0,3,1.0,unknown
+  15. 0000,0140,0000,0,3,1.0,unknown
+  16. 0000,0150,0000,0,3,1.0,unknown
+  17. 0000,0160,0000,0,3,1.0,unknown
+  18. 0000,0170,0000,0,3,1.0,unknown
+  19. 0000,0180,0000,0,3,1.0,unknown
+  20. 0000,0190,0000,0,3,1.0,unknown
+
+Note: The above beatmap includes only one column of notes, representing the notes played in the audio clip.

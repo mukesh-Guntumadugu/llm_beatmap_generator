@@ -1,0 +1,30 @@
+Job started: Mon Mar 16 09:17:09 AM PDT 2026
+Node: node003
+Array task: 4  →  Difficulty: Challenge
+GPU: NVIDIA RTX A6000
+Using conda env: /data/mg546924/conda_envs/qwenenv/bin
+Ensuring required packages are installed in conda env...
+✅ Package check done.
+
+=== Starting Qwen2-Audio Server (port 8004) ===
+Server PID: 95375
+Waiting for server to become healthy...
+  Still loading... (attempt 1/120)
+Loading model from: /data/mg546924/models/Qwen2-Audio-7B-Instruct
+  Still loading... (attempt 2/120)
+  Still loading... (attempt 3/120)
+  Still loading... (attempt 4/120)
+  Still loading... (attempt 5/120)
+  Still loading... (attempt 6/120)
+  Still loading... (attempt 7/120)
+  Still loading... (attempt 8/120)
+  Still loading... (attempt 9/120)
+  Still loading... (attempt 10/120)
+  Still loading... (attempt 11/120)
+  Still loading... (attempt 12/120)
+✅ Model loaded and ready.
+INFO:     127.0.0.1:36084 - "GET /health HTTP/1.1" 200 OK
+✅ Server is ready! (waited 13x5s)
+
+=== Starting Batch Runner (Difficulty: Challenge) ===
+INFO:     127.0.0.1:47070 - "GET /health HTTP/1.1" 200 OK

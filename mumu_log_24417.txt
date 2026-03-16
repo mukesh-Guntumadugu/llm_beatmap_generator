@@ -1,0 +1,9 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24417
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================
+
+EnvironmentLocationNotFound: Not a conda environment: /home/mg546924/.conda/envs/mumullama
+
+=== MuMu-LLaMA Onset Detection Finished ===

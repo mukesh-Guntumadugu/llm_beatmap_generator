@@ -1,0 +1,16 @@
+Here is the beatmap in CSV format:
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",",-1,-1,1.0,separator
+```
+
+This is a 16-row measure at approximately 120 BPM with a dense grid structure. It includes notes from all four instruments: kick, snare, bass, and melody. The first row (at time 0.00 and beat position 1.00) is an empty row, and the last row (at time 1125.00 and beat position 3.25) is a separator row with no notes. The remaining rows contain notes of various note types and placements.
+I hope this helps! Let me know if you have any questions or need further clarification.

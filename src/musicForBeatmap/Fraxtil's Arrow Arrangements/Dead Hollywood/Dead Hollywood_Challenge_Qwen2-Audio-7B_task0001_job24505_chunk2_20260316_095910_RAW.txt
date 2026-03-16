@@ -1,0 +1,30 @@
+Here's a StepMania beatmap generated according to the rules you provided:
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,',','-1','-1',1.0,separator
+1250.0,3.5,',','-1','-1',1.0,separator
+1375.0,3.75,',','-1','-1',1.0,separator
+1500.0,4.0,',','-1','-1',1.0,separator
+1625.0,4.25,',','-1','-1',1.0,separator
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,',','-1','-1',1.0,separator
+2000.0,5.0,',','-1','-1',1.0,separator
+2125.0,5.25,',','-1','-1',1.0,separator
+2250.0,5.5,',','-1','-1',1.0,separator
+2375.0,5.75,',','-1','-1',1.0,separator
+2500.0,6.0,',','-1','-1',1.0,separator
+2625.0,6.25,',','-1','-1',1.0,separator
+2750.0,6.5,',','-1','-1',1.0,separator
+2875.0,6.75,',','-1','-1',1.0,separator
+2999.999,7.0,',','-1','-1',1.0,separator
+```
+
+Note that I used a comma-separated list of notes to represent the beatmap. Also, since the audio slice is 20 seconds long, I stopped generating the beatmap when `time_ms` reached 20000.

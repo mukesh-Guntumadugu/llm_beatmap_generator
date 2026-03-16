@@ -1,0 +1,19 @@
+Here is an example of how to generate a StepMania beatmap for a 20-second piece of music with a tempo of around 124 BPM:
+```css
+0.00,1.00,1000,4,2,0.95,kick
+1.93,1.25,0000,0,3,1.0,unknown
+3.86,1.50,0010,4,3,0.88,snare
+5.79,1.75,0000,0,3,1.0,unknown
+7.66,2.00,2000,4,2,1.0,bass
+9.53,2.25,0000,0,3,1.0,unknown
+11.40,2.50,0100,4,3,0.82,snare
+13.27,2.75,0000,0,3,1.0,unknown
+15.14,3.00,3001,4,2,0.91,kick
+16.00,3.25,",",-1,-1,1.0,separator
+16.93,3.50,0000,0,3,1.0,unknown
+18.79,3.75,0000,0,3,1.0,unknown
+20.00,4.00,0000,0,2,1.0,unknown
+```
+
+This beatmap covers the entire 20-second duration of the music, with 4 beats per measure and notes on every beat. The notes are represented as 4-character combinations, with the first character indicating the note type (e.g. "1" for a standard tap note), and the remaining characters indicating the note duration (e.g. "0100" for a hold note followed by a standard tap note). The beat position is also included for each row, along with information about the instrument used (in this case, "kick" for all rows). The confidence value is set to 1.0 for all rows, and the note type is set to "2" for all rows (which corresponds to a standard tap note).
+It's important to note that this is just one possible way to generate a beatmap for this music piece, and there may be other valid approaches as well. The specific details of the beatmap will depend on the desired level of detail and complexity.

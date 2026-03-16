@@ -1,0 +1,23 @@
+Job started: Mon Mar 16 12:55:55 PM PDT 2026
+Node: node001
+Array task: 1  →  Difficulty: Easy
+GPU: NVIDIA RTX A6000
+Using conda env: /data/mg546924/conda_envs/qwenenv/bin
+Ensuring required packages are installed in conda env...
+✅ Package check done.
+
+=== Starting Qwen2-Audio Server (port 8001) ===
+Server PID: 4168115
+Waiting for server to become healthy...
+  Still loading... (attempt 1/120)
+Loading model from: /data/mg546924/models/Qwen2-Audio-7B-Instruct
+⚠️  Constrained decoding setup failed: unsupported operand type(s) for |: 'type' and 'NoneType' — using unconstrained generation.
+✅ Model loaded and ready.
+INFO:     127.0.0.1:55982 - "GET /health HTTP/1.1" 200 OK
+✅ Server is ready! (waited 2x5s)
+
+=== Starting Batch Runner (Difficulty: Easy) ===
+INFO:     127.0.0.1:55986 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56608 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59806 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35516 - "POST /generate HTTP/1.1" 200 OK

@@ -1,0 +1,5 @@
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:02<00:18,  2.71s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:07<00:25,  4.17s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:13<00:23,  4.64s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:18<00:19,  4.83s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:23<00:14,  4.90s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:28<00:09,  4.95s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:32<00:04,  4.60s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:34<00:00,  3.96s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:34<00:00,  4.35s/it]
+INFO:     Started server process [4168808]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)

@@ -1,0 +1,2035 @@
+Here's a sample StepMania beatmap for the provided 20-second audio slice with a medium difficulty:
+```yaml
+# Name: Medium Difficulty Beatmap for 20-Second Audio Slice
+# Key: F minor
+# Time Signature: 4/4
+# Tempo: 180.0 bpm
+
+# Headings
+Title: Medium Difficulty Beatmap for 20-Second Audio Slice
+Author: [Your Name]
+Version: 1.0
+
+# Maps
+Map Name: [Map Name]
+
+# Styles
+Style: Standard
+
+# Notes
+Note Name: A♯0
+Note Color: Red
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: C♯1
+Note Color: Green
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: E1
+Note Color: Blue
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: G1
+Note Color: Yellow
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: D1
+Note Color: Orange
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: A1
+Note Color: Purple
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F1
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F2
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F3
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F4
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F5
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F6
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F7
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F8
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F9
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F10
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F11
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F12
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F13
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F14
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F15
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F16
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F17
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F18
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F19
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F20
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F21
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F22
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F23
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F24
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F25
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F26
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F27
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F28
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F29
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F30
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F31
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F32
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F33
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F34
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F35
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F36
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F37
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F38
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F39
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F40
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F41
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F42
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F43
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F44
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F45
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F46
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F47
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F48
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F49
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F50
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F51
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F52
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F53
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F54
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F55
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F56
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F57
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F58
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F59
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F60
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F61
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F62
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F63
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F64
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F65
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F66
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F67
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F68
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F69
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F70
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F71
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F72
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F73
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F74
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F75
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F76
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F77
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F78
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F79
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F80
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F81
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F82
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F83
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F84
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F85
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F86
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F87
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F88
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F89
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F90
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F91
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F92
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F93
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F94
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F95
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F96
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F97
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F98
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F99
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F100
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F101
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F102
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F103
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F104
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F105
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F106
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F107
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F108
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F109
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F110
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F111
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F112
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F113
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F114
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F115
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F116
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F117
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F118
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F119
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F120
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F121
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F122
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F123
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F124
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F125
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F126
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F127
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F128
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F129
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F130
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F131
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F132
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F133
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F134
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F135
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F136
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F137
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F138
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F139
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F140
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F141
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F142
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F143
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F144
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F145
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F146
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F147
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F148
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F149
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F150
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F151
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F152
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F153
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F154
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F155
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F156
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F157
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F158
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F159
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F160
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F161
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F162
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F163
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F164
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F165
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F166
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F167
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F168
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F169
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F170
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F171
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F172
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F173
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F174
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F175
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F176
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F177
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F178
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F179
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F180
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F181
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F182
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F183
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F184
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F185
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F186
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F187
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F188
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F189
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F190
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F191
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F192
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F193
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F194
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F195
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F196
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F197
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F198
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F199
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F200
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F201
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F202
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F203
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F204
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F205
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F206
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F207
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F208
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F209
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F210
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F211
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F212
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F213
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F214
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F215
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F216
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F217
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F218
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F219
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F220
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F221
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F222
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F223
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F224
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F225
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F226
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F227
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F228
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F229
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F230
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F231
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F232
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F233
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F234
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F235
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F236
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F237
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F238
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F239
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F240
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F241
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F242
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F243
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F244
+Note Color: Magenta
+Note Type: Special
+Velocity Multiplier: 1.5
+
+Note Name: F245
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F246
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F247
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F248
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F249
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F250
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F251
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F252
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F253
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F254
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F255
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F256
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F257
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+
+Note Name: F258
+Note Color: Magenta
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note Type: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Note: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: 1.5
+Note: Special
+Velocity Multipler: 1.5
+Note: 1.5
+Note: Special: 1.5
+Note: 1.5
+Note: 1.5
+Note: Special
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 1.5
+Note: 5
+Note: 5
+Note: 1.5
+Note: 1.5
+Note
+Note:5
+Note:5
+Note: 5
+Note: 1.5
+Note: 1.5
+Note: 5
+Note: 1.5
+Note: 1.5
+Note:5
+Note
+Note
+Note
+Note:5
+Note
+Note:5
+Note: 5
+Note:5
+Note: 5
+Note:5
+Note:5
+Note
+1
+Note
+1.5
+Note:5
+Note
+1
+Note:5
+Note
+1
+1
+Note
+1
+Note
+1.5
+Note
+1
+1
+Note
+1
+Note
+1.5
+Note
+1
+Note
+1
+1
+Note
+1
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+1
+Note
+1
+1
+Note
+1
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+1
+Note
+1
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+1
+Note
+1
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+Note
+1
+Note
+1
+Note
+Note
+1
+Note
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+Note
+1
+Note
+Note
+1
+Note
+Note
+1
+Note
+1
+Note
+1
+Note
+Note
+Note
+1
+Note
+Note
+1
+Note
+Note
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+0
+Note
+1
+Note
+1
+Note
+0
+Note
+1
+Note
+1
+Note
+1
+Note
+0
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note)
+
+``
+1
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+0
+Note
+1
+Note
+0
+Note
+1
+Note
+0
+Note
+1
+Note
+0
+1
+Note
+0
+1
+Note
+1
+0
+Note
+1
+Note
+0
+1
+Note
+0
+Note
+1
+Note
+0
+Note
+1
+Note
+1
+Note
+1
+Note
+0
+1
+Note
+1
+Note
+1
+Note
+1
+0
+Note
+1
+Note
+1
+0
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+0
+1
+Note
+1
+Note
+1
+Note
+1
+0
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+Note
+1
+1
+Note
+1
+0
+This

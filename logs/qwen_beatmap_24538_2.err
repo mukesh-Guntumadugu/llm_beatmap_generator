@@ -1,0 +1,8 @@
+ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: '/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/interegular/__init__.py'
+
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:02,  2.59it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:02,  2.19it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  2.10it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  2.06it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  2.07it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:02<00:00,  2.07it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  2.25it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.64it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.31it/s]
+INFO:     Started server process [4168103]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+slurmstepd-node001: error: *** JOB 24541 ON node001 CANCELLED AT 2026-03-16T13:07:03 ***

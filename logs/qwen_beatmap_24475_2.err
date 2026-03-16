@@ -1,0 +1,7 @@
+  ERROR: Can't roll back nvidia-cusparse-cu12; was not uninstalled
+ERROR: Could not install packages due to an OSError: [Errno 116] Stale file handle
+
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/src/hpc_qwen_server.py", line 15, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

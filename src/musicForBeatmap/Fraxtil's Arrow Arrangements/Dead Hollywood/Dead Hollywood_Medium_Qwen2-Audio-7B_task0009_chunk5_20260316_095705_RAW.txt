@@ -1,0 +1,32 @@
+Here is the beatmap data in CSV format for the provided audio track at a difficulty level of Medium:
+```css
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",","-1","-1",1.0,separator
+1250.0,3.50,0000,0,2,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.00,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,0.97,snare
+1750.0,4.50,0010,4,3,0.82,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.00,0000,0,2,1.0,unknown
+2125.0,5.25,",","-1","-1",1.0,separator
+2250.0,5.50,0000,0,2,1.0,unknown
+2375.0,5.75,0000,0,3,1.0,unknown
+2500.0,6.00,0000,0,2,1.0,unknown
+2625.0,6.25,0000,0,3,1.0,unknown
+2750.0,6.50,0010,4,3,0.82,snare
+2875.0,6.75,0000,0,3,1.0,unknown
+2999.97,6.9997,0000,0,3,1.0,unknown
+3000.00,7.0000,0000,0,2,1.0,unknown
+```
+
+This beatmap covers the entire duration of the audio track, with 16 rows per measure and 4 columns per beat. Each row represents a single beat in the audio, with information about the note played, its placement in the beatmap, and its properties such as note type, confidence, and instrument.

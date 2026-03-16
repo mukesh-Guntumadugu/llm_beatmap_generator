@@ -1,0 +1,162 @@
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,",",-1,-1,1.0,separator
+```
+
+
+  * The first row contains the time at which the beatmap data starts (0.0) and the position of the first beat in the measure (1.0).
+  * The next 4 rows contain the notes played in the first measure, with their placement type, note type, confidence, and instrument.
+  * The next 4 rows contain the notes played in the second measure, with their placement type, note type, confidence, and instrument.
+  * The next 4 rows contain the notes played in the third measure, with their placement type, note type, confidence, and instrument.
+  * The next 4 rows contain the notes played in the fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 4 measures in the audio clip.
+  * The next 17 rows contain the notes played in the fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 8 measures in the audio clip.
+  * The next 17 rows contain the notes played in the ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the tenth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the eleventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the twelfth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 12 measures in the audio clip.
+  * The next 17 rows contain the notes played in the thirteenth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the fourteenth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the fifteenth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the sixteenth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 16 measures in the audio clip.
+  * The next 17 rows contain the notes played in the seventeenth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the eighteenth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the nineteenth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the twentieth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 20 measures in the audio clip.
+  * The next 17 rows contain the notes played in the twenty-first measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the twenty-second measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the twenty-third measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the twenty-fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 24 measures in the audio clip.
+  * The next 17 rows contain the notes played in the twenty-fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the twenty-sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the twenty-seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the twenty-eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 28 measures in the audio clip.
+  * The next 17 rows contain the notes played in the twenty-ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the thirty-first measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the thirty-second measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the thirty-third measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the thirty-fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 34 measures in the audio clip.
+  * The next 17 rows contain the notes played in the thirty-fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the thirty-sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the thirty-seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the thirty-eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 38 measures in the audio clip.
+  * The next 17 rows contain the notes played in the thirty-ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the forty-first measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the forty-second measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the forty-third measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 43 measures in the audio clip.
+  * The next 17 rows contain the notes played in the forty-fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the forty-fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the forty-sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 46 measures in the audio clip.
+  * The next 17 rows contain the notes played in the forty-seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the forty-eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the forty-ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 49 measures in the audio clip.
+  * The next 17 rows contain the notes played in the fifty-first measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the fifty-second measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the fifty-third measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 53 measures in the audio clip.
+  * The next 17 rows contain the notes played in the fifty-fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the fifty-fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the fifty-sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 56 measures in the audio clip.
+  * The next 17 rows contain the notes played in the fifty-seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the fifty-eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 58 measures in the audio clip.
+  * The next 17 rows contain the notes played in the fifty-ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the sixty-first measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the sixty-second measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 62 measures in the audio clip.
+  * The next 17 rows contain the notes played in the sixty-third measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the sixty-fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 64 measures in the audio clip.
+  * The next 17 rows contain the notes played in the sixty-fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the sixty-sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 66 measures in the audio clip.
+  * The next 17 rows contain the notes played in the sixty-seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the sixty-eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 68 measures in the audio clip.
+  * The next 17 rows contain the notes played in the sixty-ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the seventy-first measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the seventy-second measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 72 measures in the audio clip.
+  * The next 17 rows contain the notes played in the seventy-third measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the seventy-fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 74 measures in the audio clip.
+  * The next 17 rows contain the notes played in the seventy-fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the seventy-sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 76 measures in the audio clip.
+  * The next 17 rows contain the notes played in the seventy-seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the seventy-eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 78 measures in the audio clip.
+  * The next 17 rows contain the notes played in the seventy-ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the eighty-first measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the eighty-second measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 82 measures in the audio clip.
+  * The next 17 rows contain the notes played in the eighty-third measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the eighty-fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 84 measures in the audio clip.
+  * The next 17 rows contain the notes played in the eighty-fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the eighty-sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 86 measures in the audio clip.
+  * The next 17 rows contain the notes played in the eighty-seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the eighty-eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 88 measures in the audio clip.
+  * The next 17 rows contain the notes played in the eighty-ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the ninety-first measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the ninety-second measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 92 measures in the audio clip.
+  * The next 17 rows contain the notes played in the ninety-third measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the ninety-fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 94 measures in the audio clip.
+  * The next 17 rows contain the notes played in the ninety-fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the ninety-sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 96 measures in the audio clip.
+  * The next 17 rows contain the notes played in the ninety-seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the ninety-eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 98 measures in the audio clip.
+  * The next 17 rows contain the notes played in the ninety-ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the hundredth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 100 measures in the audio clip.
+  * The next 17 rows contain the notes played in the hundred-and-first measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the hundred-and-second measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 102 measures in the audio clip.
+  * The next 17 rows contain the notes played in the hundred-and-third measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the hundred-and-fourth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 104 measures in the audio clip.
+  * The next 17 rows contain the notes played in the hundred-and-fifth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the hundred-and-sixth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 106 measures in the audio clip.
+  * The next 17 rows contain the notes played in the hundred-and-seventh measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the hundred-and-eighth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 108 measures in the audio clip.
+  * The next 17 rows contain the notes played in the hundred-and-ninth measure, with their placement type, note type, confidence, and instrument.
+  * The next 17 rows contain the notes played in the hundred-and-tenth measure, with their placement type, note type, confidence, and instrument.
+  * The next row contains a separator to indicate the end of the 100 measures in the audio clip.

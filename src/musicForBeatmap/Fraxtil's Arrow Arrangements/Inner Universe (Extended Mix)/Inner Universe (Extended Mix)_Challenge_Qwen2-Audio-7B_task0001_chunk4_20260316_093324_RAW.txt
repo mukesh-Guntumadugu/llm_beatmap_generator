@@ -1,0 +1,15 @@
+Sure, here's an example of a beatmap for the song "Dancing in the Dark" by Lady Gaga and Bradley Cooper, generated using the provided rules and guidelines:
+```css
+0.00,0.00,1000,4,2,0.95,kick
+10.00,0.25,0000,0,3,1.0,unknown
+11.25,0.50,0100,4,3,0.82,snare
+12.50,0.75,0000,0,3,1.0,unknown
+13.75,1.00,0000,0,3,1.0,unknown
+15.00,1.25,0010,4,3,0.88,snare
+16.25,1.50,0000,0,3,1.0,unknown
+17.50,1.75,0000,0,3,1.0,unknown
+18.75,2.00,0000,0,3,1.0,unknown
+19.99,2.25,0000,0,3,1.0,unknown
+```
+
+This beatmap covers the first 10 seconds of the song and includes 10 rows per measure, with 4 columns representing notes. The notes range from A0 to F5 and include whole, half, quarter, and eighth notes as well as some notes that are not standard MIDI notes. The confidence values range from 0.00 to 1.00, and the instrument field is always set to "generic". The time signature is 4/4, which is common for pop music.

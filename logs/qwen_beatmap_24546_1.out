@@ -1,0 +1,77 @@
+Job started: Mon Mar 16 01:26:12 PM PDT 2026
+Node: node001
+Array task: 1  →  Difficulty: Easy
+GPU: NVIDIA RTX A6000
+Using conda env: /data/mg546924/conda_envs/qwenenv/bin
+Ensuring required packages are installed in conda env...
+✅ Package check done.
+
+=== Starting Qwen2-Audio Server (port 8001) ===
+Server PID: 4168808
+Waiting for server to become healthy...
+  Still loading... (attempt 1/120)
+Loading model from: /data/mg546924/models/Qwen2-Audio-7B-Instruct
+  Still loading... (attempt 2/120)
+  Still loading... (attempt 3/120)
+  Still loading... (attempt 4/120)
+  Still loading... (attempt 5/120)
+  Still loading... (attempt 6/120)
+  Still loading... (attempt 7/120)
+  Still loading... (attempt 8/120)
+⚠️  Constrained decoding setup failed: unsupported operand type(s) for |: 'type' and 'NoneType' — using unconstrained generation.
+✅ Model loaded and ready.
+INFO:     127.0.0.1:60572 - "GET /health HTTP/1.1" 200 OK
+✅ Server is ready! (waited 9x5s)
+
+=== Starting Batch Runner (Difficulty: Easy) ===
+TEST MODE: Running on single song: Bad Ketchup
+INFO:     127.0.0.1:60582 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60584 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41464 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43448 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43944 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42204 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48162 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34790 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44140 - "POST /generate HTTP/1.1" 200 OK
+▶  New HPC Task ID: 0010
+   Difficulties : Easy
+
+🎵 Single-song test: Bad Ketchup.ogg
+
+
+============================================================
+  Difficulty: Easy
+============================================================
+
+[1/1] Processing: Bad Ketchup  [Easy]
+  Duration: 142.4s  |  BPM: 180.0  |  Chunking into 20s slices...
+  Onsets loaded: 559 timestamps from original_onsets_*.csv
+  [1/8] Sending 20.0s chunk to server...
+  ⚠️  Could not parse any valid rows from Qwen output.
+  [1/8] ⚠️ No valid rows parsed. Saving RAW...
+  [2/8] Sending 20.0s chunk to server...
+  ⚠️  Could not parse any valid rows from Qwen output.
+  [2/8] ⚠️ No valid rows parsed. Saving RAW...
+  [3/8] Sending 20.0s chunk to server...
+  ⚠️  Could not parse any valid rows from Qwen output.
+  [3/8] ⚠️ No valid rows parsed. Saving RAW...
+  [4/8] Sending 20.0s chunk to server...
+  ⚠️  Could not parse any valid rows from Qwen output.
+  [4/8] ⚠️ No valid rows parsed. Saving RAW...
+  [5/8] Sending 20.0s chunk to server...
+  ⚠️  Could not parse any valid rows from Qwen output.
+  [5/8] ⚠️ No valid rows parsed. Saving RAW...
+  [6/8] Sending 20.0s chunk to server...
+  ⚠️  Could not parse any valid rows from Qwen output.
+  [6/8] ⚠️ No valid rows parsed. Saving RAW...
+  [7/8] Sending 20.0s chunk to server...
+  ⚠️  Could not parse any valid rows from Qwen output.
+  [7/8] ⚠️ No valid rows parsed. Saving RAW...
+  [8/8] Sending 2.4s chunk to server...
+  ⚠️  Could not parse any valid rows from Qwen output.
+  [8/8] ⚠️ No valid rows parsed. Saving RAW...
+  ⚠️ No valid rows found across any chunks.
+
+=== Batch finished (exit code: 0). Shutting down server. ===
+Job ended: Mon Mar 16 01:38:40 PM PDT 2026

@@ -1,0 +1,50 @@
+```css
+# Easy difficulty StepMania beatmap for a 20-second piece of electronic music
+
+# Onset timestamps: [313.83, 662.13, ... , 19911.47]
+
+# Map settings
+name = "Electronic Music"
+genre = "electronic"
+key = "F# minor"
+time_signature = "4/4"
+tempo = "180.0 bpm"
+
+# Beat definition
+def beat(defn):
+    if defn['note'] == "E0":
+        return "E0"
+    elif defn['note'] == "F0":
+        return "F0"
+    elif defn['note'] == "G0":
+        return "G0"
+    elif defn['note'] == "A0":
+        return "A0"
+    elif defn['note'] == "B0":
+        return "B0"
+    else:
+        return "."
+
+# Measure definitions
+measures = [
+    {
+        "name": "Fast Measure",
+        "length": 4,
+        "notes": ["E0", "F0", "G0", "A0"],
+        "velocity": 100,
+        "instrument": "all"
+    },
+    {
+        "name": "Slow Measure",
+        "length": 4,
+        "notes": ["E0", "F0", "G0", "A0"],
+        "velocity": 50,
+        "instrument": "all"
+    }
+]
+
+# Export the map
+export("stepmap.json")
+```
+
+This beatmap defines an easy difficulty map for a 20-second piece of electronic music with a tempo of 180 BPM. It includes 64 onset timestamps across the track and uses F# minor key with a 4/4 time signature. The beat definition maps each MIDI note to its corresponding note name. There are two measure definitions, one fast and one slow, both consisting of four notes each. The map is exported as a JSON file named `stepmap.json`.

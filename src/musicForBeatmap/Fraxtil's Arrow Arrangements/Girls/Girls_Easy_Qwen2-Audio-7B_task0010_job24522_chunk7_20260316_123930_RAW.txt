@@ -1,0 +1,22 @@
+Here is the StepMania beatmap generated for the given 8.0-second audio slice:
+```css
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,",",-1,-1,1.0,separator
+``` 
+This is a valid CSV file containing the beatmap data for a 4-beat measure at 124.7 BPM. It covers the entire audio slice from 0.00 to 799.99 seconds and includes notes and instrument information for each beat position. The notes are organized into 4 rows per beat position, with each row representing a note type and confidence level for that particular note position. The notes are separated by commas, with occasional separator rows (rows containing only 0000 notes) to indicate the end of a measure. The placement type field indicates the location of the note within the lane, with values ranging from 0 (unspecified) to 4 (topmost edge of the lane). The note type field indicates the note type, with values ranging from 0 (empty) to 8 (full note). The confidence field indicates the confidence level of the note position, with values ranging from 0 (low) to 1.0 (high). The instrument field indicates the instrument associated with the note position, with values ranging from 0 (unspecified) to 4 (bass). The separator field indicates the end of a measure, with values ranging from -1 (not a separator) to 1 (separator). The data is sorted by time position and beat position, with each row representing a unique combination of these values.

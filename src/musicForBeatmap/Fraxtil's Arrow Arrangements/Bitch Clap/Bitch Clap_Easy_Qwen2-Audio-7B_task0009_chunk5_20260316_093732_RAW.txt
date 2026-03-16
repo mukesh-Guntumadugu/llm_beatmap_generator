@@ -1,0 +1,1 @@
+Here is an example of a StepMania beatmap generated from the provided audio

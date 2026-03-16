@@ -1,0 +1,7 @@
+ERROR: Could not install packages due to an OSError: [Errno 122] Disk quota exceeded
+
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/src/hpc_qwen_server.py", line 15, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+slurmstepd-node003: error: *** JOB 24489 ON node003 CANCELLED AT 2026-03-16T09:13:07 ***

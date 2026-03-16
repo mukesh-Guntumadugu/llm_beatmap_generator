@@ -1,0 +1,42 @@
+Job started: Mon Mar 16 09:14:18 AM PDT 2026
+Node: node001
+Array task: 1  →  Difficulty: Easy
+GPU: NVIDIA RTX A6000
+Using conda env: /data/mg546924/conda_envs/qwenenv/bin
+
+=== Starting Qwen2-Audio Server (port 8001) ===
+Server PID: 4161849
+Waiting for server to become healthy...
+  Still loading... (attempt 1/120)
+  Still loading... (attempt 2/120)
+  Still loading... (attempt 3/120)
+  Still loading... (attempt 4/120)
+  Still loading... (attempt 5/120)
+  Still loading... (attempt 6/120)
+  Still loading... (attempt 7/120)
+  Still loading... (attempt 8/120)
+  Still loading... (attempt 9/120)
+  Still loading... (attempt 10/120)
+  Still loading... (attempt 11/120)
+  Still loading... (attempt 12/120)
+  Still loading... (attempt 13/120)
+  Still loading... (attempt 14/120)
+  Still loading... (attempt 15/120)
+  Still loading... (attempt 16/120)
+  Still loading... (attempt 17/120)
+  Still loading... (attempt 18/120)
+  Still loading... (attempt 19/120)
+  Still loading... (attempt 20/120)
+  Still loading... (attempt 21/120)
+  Still loading... (attempt 22/120)
+  Still loading... (attempt 23/120)
+  Still loading... (attempt 24/120)
+  Still loading... (attempt 25/120)
+  Still loading... (attempt 26/120)
+  Still loading... (attempt 27/120)
+  Still loading... (attempt 28/120)
+  Still loading... (attempt 29/120)
+  Still loading... (attempt 30/120)
+  Still loading... (attempt 31/120)
+  Still loading... (attempt 32/120)
+  Still loading... (attempt 33/120)

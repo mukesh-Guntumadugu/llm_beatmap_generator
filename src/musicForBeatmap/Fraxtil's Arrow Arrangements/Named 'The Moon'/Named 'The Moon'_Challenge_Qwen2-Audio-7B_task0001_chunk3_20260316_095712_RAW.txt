@@ -1,0 +1,22 @@
+Here's an example of a beatmap generated using the provided rules:
+```yaml
+0,1,1000,4,2,0.95,kick
+125,1.25,0000,0,3,1.0,unknown
+250,1.5,0010,4,3,0.88,snare
+375,1.75,0000,0,3,1.0,unknown
+500,2.0,2000,4,2,1.0,bass
+625,2.25,0000,0,3,1.0,unknown
+750,2.5,0100,4,3,0.82,snare
+875,2.75,0000,0,3,1.0,unknown
+1000,3.0,3001,4,2,0.91,kick
+1125,3.25,",",-1,-1,1.0,separator
+1250,3.50,0000,0,3,1.0,unknown
+1375,3.75,0000,0,3,1.0,unknown
+1500,4.00,0000,0,2,1.0,unknown
+1625,4.25,0000,0,3,1.0,unknown
+1750,4.50,0010,4,3,0.79,snare
+1875,4.75,0000,0,3,1.0,unknown
+2000,5.00,0000,0,2,1.0,unknown
+```
+
+This beatmap covers the entire duration of the audio, from 0 to 20 seconds, with 16 rows per measure and 4 notes per row. Each note is labeled with its type (的标准拍号、拍手声、冻结箭头开始位置)、信心度、乐器类型。

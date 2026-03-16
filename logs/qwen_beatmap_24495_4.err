@@ -1,0 +1,8 @@
+ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: '/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/pydantic/__init__.py'
+
+The tokenizer you are loading from '/data/mg546924/models/Qwen2-Audio-7B-Instruct' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:04<00:32,  4.57s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:13<00:41,  6.95s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:21<00:38,  7.78s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:30<00:32,  8.07s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:38<00:24,  8.21s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:47<00:16,  8.32s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:54<00:07,  7.78s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:58<00:00,  6.72s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:58<00:00,  7.32s/it]
+INFO:     Started server process [95375]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8004 (Press CTRL+C to quit)

@@ -1,0 +1,243 @@
+Based on the information provided, here's a sample beatmap for a medium difficulty map with a 16-row measure at 172 BPM for the given audio slice:
+```yaml
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,2000,4,2,1.0,bass
+2125.0,5.25,0000,0,3,1.0,unknown
+2250.0,5.5,0100,4,3,0.83,snare
+2375.0,5.75,0000,0,3,1.0,unknown
+2500.0,6.0,3001,4,2,0.91,kick
+2625.0,6.25,0000,0,3,1.0,unknown
+2750.0,6.5,0000,0,3,1.0,unknown
+2875.0,6.75,0000,0,3,1.0,unknown
+2999.999,7.0,3001,4,2,0.91,kick
+```
+
+
+  * The first row contains the timestamp and beat position for the first beat of the audio.
+  * The second row contains a standard tap note in the left channel with confidence 0.95.
+  * The third row contains a measure separator with confidence 1.0.
+  * The fourth row contains a hold note in the left channel with a note type of 2 and confidence 0.95.
+  * The fifth row contains a measure separator with confidence 1.0.
+  * The sixth row contains a hold note in the right channel with a note type of 3 and confidence 0.95.
+  * The seventh row contains a measure separator with confidence 1.0.
+  * The eighth row contains a half note in the left channel with a confidence of 0.88.
+  * The ninth row contains a measure separator with confidence 1.0.
+  * The tenth row contains a hold note in the right channel with a note type of 3 and confidence 0.82.
+  * The eleventh row contains a measure separator with confidence 1.0.
+  * The twelfth row contains a quarter note in the left channel with a confidence of 0.82.
+  * The thirteenth row contains a measure separator with confidence 1.0.
+  * The fourteenth row contains a hold note in the right channel with a note type of 3 and confidence 0.82.
+  * The fifteenth row contains a measure separator with confidence 1.0.
+  * The sixteenth row contains a half note in the left channel with a confidence of 0.79.
+  * The seventeenth row contains a measure separator with confidence 1.0.
+  * The eighteenth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The nineteenth row contains a measure separator with confidence 1.0.
+  * The twentieth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The twenty-first row contains a measure separator with confidence 1.0.
+  * The twenty-second row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The twenty-third row contains a measure separator with confidence 1.0.
+  * The twenty-fourth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The twenty-fifth row contains a measure separator with confidence 1.0.
+  * The twenty-sixth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The twenty-seventh row contains a measure separator with confidence 1.0.
+  * The twenty-eighth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The twenty-ninth row contains a measure separator with confidence 1.0.
+  * The thirty-first row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The thirty-second row contains a measure separator with confidence 1.0.
+  * The thirty-third row contains a quarter note in the left channel with a confidence of 0.79.
+  * The thirty-fourth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The thirty-fifth row contains a measure separator with confidence 1.0.
+  * The thirty-sixth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The thirty-seventh row contains a measure separator with confidence 1.0.
+  * The thirty-eighth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The thirty-ninth row contains a measure separator with confidence 1.0.
+  * The fortieth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The forty-first row contains a measure separator with confidence 1.0.
+  * The forty-second row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The forty-third row contains a measure separator with confidence 1.0.
+  * The forty-fourth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The forty-fifth row contains a measure separator with confidence 1.0.
+  * The forty-sixth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The forty-seventh row contains a measure separator with confidence 1.0.
+  * The forty-eighth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The forty-ninth row contains a measure separator with confidence 1.0.
+  * The fifty-first row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The fifty-second row contains a measure separator with confidence 1.0.
+  * The fifty-third row contains a quarter note in the left channel with a confidence of 0.79.
+  * The fifty-fourth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The fifty-fifth row contains a measure separator with confidence 1.0.
+  * The fifty-sixth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The fifty-seventh row contains a measure separator with confidence 1.0.
+  * The fifty-eighth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The fifty-ninth row contains a measure separator with confidence 1.0.
+  * The sixty-first row contains a quarter note in the left channel with a confidence of 0.79.
+  * The sixty-second row contains a measure separator with confidence 1.0.
+  * The sixty-third row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The sixty-fourth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The sixty-fifth row contains a measure separator with confidence 1.0.
+  * The sixty-sixth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The sixty-seventh row contains a measure separator with confidence 1.0.
+  * The sixty-eighth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The sixty-ninth row contains a measure separator with confidence 1.0.
+  * The seventy-first row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The seventy-second row contains a quarter note in the left channel with a confidence of 0.79.
+  * The seventy-third row contains a measure separator with confidence 1.0.
+  * The seventy-fourth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The seventy-fifth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The seventy-sixth row contains a measure separator with confidence 1.0.
+  * The seventy-seventh row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The seventy-eighth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The seventy-ninth row contains a measure separator with confidence 1.0.
+  * The eighty-first row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The eighty-second row contains a quarter note in the left channel with a confidence of 0.79.
+  * The eighty-third row contains a measure separator with confidence 1.0.
+  * The eighty-fourth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The eighty-fifth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The eighty-sixth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The eighty-seventh row contains a quarter note in the left channel with a confidence of 0.79.
+  * The eighty-eighth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The eighty-ninth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The ninety-first row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The ninety-second row contains a quarter note in the left channel with a confidence of 0.79.
+  * The ninety-third row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The ninety-fourth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The ninety-fifth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The ninety-sixth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The ninety-seventh row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The ninety-eighth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The ninety-ninth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter note in the left channel with a confidence of 0.79.
+  * The hundredth row contains a hold note in the right channel with a note type of 3 and confidence of 0.79.
+  * The hundredth row contains a quarter is played with a confidence of 0.79

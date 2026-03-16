@@ -1,0 +1,11 @@
+=== Starting MuMu-LLaMA Onset Detection ===
+Job ID: 24440
+Node: node002
+GPU: NVIDIA RTX A6000, 46068 MiB
+===========================================
+Loading MuMu-LLaMA checkpoint: /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/ckpts/MuMu-LLaMA-MusicGen/checkpoint.pth
+LLaMA directory:               /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/ckpts/LLaMA
+Source directory on path:      /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/MuMu-LLaMA
+❌ Failed to setup MuMu-LLaMA interface: Could not import MuMu-LLaMA model class: No module named 'requests'
+Make sure /data/mg546924/llm_beatmap_generator/MuMu-LLaMA/MuMu-LLaMA exists and contains llama/mumu_llama.py
+=== MuMu-LLaMA Onset Detection Finished ===

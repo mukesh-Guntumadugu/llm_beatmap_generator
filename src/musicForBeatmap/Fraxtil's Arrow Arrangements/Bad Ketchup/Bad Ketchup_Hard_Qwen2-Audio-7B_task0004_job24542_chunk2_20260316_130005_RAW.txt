@@ -1,0 +1,175 @@
+Here's a sample StepMania beatmap for the provided 20-second audio slice with a difficulty set to Hard:
+```yaml
+# Name:疾风之刃 - 20s Hard Map
+# Key: F minor
+# Time Signature: 4/4
+# Tempo: 180.0 bpm
+
+# Headings
+mapname =疾风之刃
+author = [Your Name Here]
+version = 1.0
+description = A challenging map inspired by the game疾风之刃.
+music = [BPM of the audio]
+
+# Beat Definitions
+# The beat definitions are used to specify which notes belong to which beat.
+# They are formatted as follows:
+# beat_name: [column_x, column_y, column_z, column_w]
+# where each column represents a different note type.
+# For example, "0000" means that there are no notes on this beat.
+# "1000" means that there is a standard tap note on the first column.
+# "2000" means that there is a hold note on the first column.
+# "3000" means that there is a release note on the first column.
+# "0000" also means that there are no notes on the second column, etc.
+
+# Column 0: Standard tap note
+0000: [0, 1, 2, 3]
+
+# Column 1: Hold note
+2000: [0, 1, 2, 3]
+
+# Column 2: Hold note
+4000: [0, 1, 2, 3]
+
+# Column 3: Hold note
+6000: [0, 1, 2, 3]
+
+# Column 4: Hold note
+8000: [0, 1, 2, 3]
+
+# Column 5: Standard tap note
+10000: [0, 1, 2, 3]
+
+# Column 6: Standard tap note
+12000: [0, 1, 2, 3]
+
+# Column 7: Standard tap note
+14000: [0, 1, 2, 3]
+
+# Column 8: Standard tap note
+16000: [0, 1, 2, 3]
+
+# Column 9: Standard tap note
+18000: [0, 1, 2, 3]
+
+# Column 10: Standard tap note
+20000: [0, 1, 2, 3]
+
+# Column 11: Standard tap note
+22000: [0, 1, 2, 3]
+
+# Column 12: Standard tap note
+24000: [0, 1, 2, 3]
+
+# Column 13: Standard tap note
+26000: [0, 1, 2, 3]
+
+# Column 14: Standard tap note
+28000: [0, 1, 2, 3]
+
+# Column 15: Standard tap note
+30000: [0, 1, 2, 3]
+
+# Column 16: Standard tap note
+32000: [0, 1, 2, 3]
+
+# Column 17: Standard tap note
+34000: [0, 1, 2, 3]
+
+# Column 18: Standard tap note
+36000: [0, 1, 2, 3]
+
+# Column 19: Standard tap note
+38000: [0, 1, 2, 3]
+
+# Column 20: Standard tap note
+40000: [0, 1, 2, 3]
+
+# Column 21: Standard tap note
+42000: [0, 1, 2, 3]
+
+# Column 22: Standard tap note
+44000: [0, 1, 2, 3]
+
+# Column 23: Standard tap note
+46000: [0, 1, 2, 3]
+
+# Column 24: Standard tap note
+48000: [0, 1, 2, 3]
+
+# Column 25: Standard tap note
+50000: [0, 1, 2, 3]
+
+# Column 26: Standard tap note
+52000: [0, 1, 2, 3]
+
+# Column 27: Standard tap note
+54000: [0, 1, 2, 3]
+
+# Column 28: Standard tap note
+56000: [0, 1, 2, 3]
+
+# Column 29: Standard tap note
+58000: [0, 1, 2, 3]
+
+# Column 30: Standard tap note
+60000: [0, 1, 2, 3]
+
+# Column 31: Standard tap note
+62000: [0, 1, 2, 3]
+
+# Column 32: Standard tap note
+64000: [0, 1, 2, 3]
+
+# Column 33: Standard tap note
+66000: [0, 1, 2, 3]
+
+# Column 34: Standard tap note
+68000: [0, 1, 2, 3]
+
+# Column 35: Standard tap note
+70000: [0, 1, 2, 3]
+
+# Column 36: Standard tap note
+72000: [0, 1, 2, 3]
+
+# Column 37: Standard tap note
+74000: [0, 1, 2, 3]
+
+# Column 38: Standard tap note
+76000: [0, 1, 2, 3]
+
+# Column 39: Standard tap note
+78000: [0, 1, 2, 3]
+
+# Column 40: Standard tap note
+80000: [0, 1, 2, 3]
+
+# Column 41: Standard tap note
+82000: [0, 1, 2, 3]
+
+# Column 42: Standard tap note
+84000: [0, 1, 2, 3]
+
+# Column 43: Standard tap note
+86000: [0, 1, 2, 3]
+
+# Column 44: Standard tap note
+88000: [0, 1, 2, 3]
+
+# Column 45: Standard tap note
+90000: [0, 1, 2, 3]
+
+# Column 46: Standard tap note
+92000: [0, 1, 2, 3]
+
+# Column 47: Standard tap note
+94000: [0, 1, 2, 3]
+
+# Column 48: Standard tap note
+96000: [0, 1, 2, 3]
+
+# Column 49: Standard tap note
+98000: [0, 1, 2, 3]
+```

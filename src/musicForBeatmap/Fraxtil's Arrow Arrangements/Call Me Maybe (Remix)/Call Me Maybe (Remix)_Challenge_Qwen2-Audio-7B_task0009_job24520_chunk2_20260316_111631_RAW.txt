@@ -1,0 +1,163 @@
+Here is your CSV:
+```css
+time_ms,beat_position,notes,placement_type,note_type,confidence,instrument
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,0000,0,3,1.0,unknown
+1250.0,3.5,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.0,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.5,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.0,",",-1,-1,1.0,separator
+```
+
+
+  1. The first row indicates the starting time and position of the first beat of the measure (125 BPM).
+  2. The second row indicates the starting time and position of the second beat of the measure (125 BPM).
+  3. The third row indicates the starting time and position of the third beat of the measure (125 BPM).
+  4. The fourth row indicates the starting time and position of the fourth beat of the measure (125 BPM).
+  5. The fifth row indicates the notes played in the first beat of the measure (125 BPM).
+  6. The sixth row indicates the notes played in the second beat of the measure (125 BPM).
+  7. The seventh row indicates the notes played in the third beat of the measure (125 BPM).
+  8. The eighth row indicates the notes played in the fourth beat of the measure (125 BPM).
+  9. The ninth row indicates the confidence value for the notes in the first beat of the measure (125 BPM).
+  10. The tenth row indicates the confidence value for the notes in the second beat of the measure (125 BPM).
+  11. The eleventh row indicates the confidence value for the notes in the third beat of the measure (125 BPM).
+  12. The twelfth row indicates the confidence value for the notes in the fourth beat of the measure (125 BPM).
+  13. The thirteenth row indicates the instrument used for the notes in the first beat of the measure (125 BPM).
+  14. The fourteenth row indicates the instrument used for the notes in the second beat of the measure (125 BPM).
+  15. The fifteenth row indicates the instrument used for the notes in the third beat of the measure (125 BPM).
+  16. The sixteenth row indicates the instrument used for the notes in the fourth beat of the measure (125 BPM).
+  17. The seventeenth row indicates the notes played in the fifth beat of the measure (125 BPM).
+  18. The eighteenth row indicates the notes played in the sixth beat of the measure (125 BPM).
+  19. The nineteenth row indicates the notes played in the seventh beat of the measure (125 BPM).
+  20. The twentieth row indicates the notes played in the eighth beat of the measure (125 BPM).
+  21. The twenty-first row indicates the notes played in the ninth beat of the measure (125 BPM).
+  22. The twenty-second row indicates the notes played in the tenth beat of the measure (125 BPM).
+  23. The twenty-third row indicates the notes played in the eleventh beat of the measure (125 BPM).
+  24. The twenty-fourth row indicates the notes played in the twelfth beat of the measure (125 BPM).
+  25. The twenty-fifth row indicates the notes played in the thirteenth beat of the measure (125 BPM).
+  26. The twenty-sixth row indicates the notes played in the fourteenth beat of the measure (125 BPM).
+  27. The twenty-seventh row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  28. The twenty-eighth row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  29. The twenty-ninth row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  30. The thirtieth row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  31. The thirty-first row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  32. The thirty-second row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  33. The thirty-third row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  34. The thirty-fourth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  35. The thirty-fifth row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  36. The thirty-sixth row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  37. The thirty-seventh row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  38. The thirty-eighth row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  39. The thirty-ninth row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  40. The forty-first row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  41. The forty-second row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  42. The forty-third row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  43. The forty-fourth row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  44. The forty-fifth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  45. The forty-sixth row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  46. The forty-seventh row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  47. The forty-eighth row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  48. The forty-ninth row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  49. The fifty-first row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  50. The fifty-second row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  51. The fifty-third row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  52. The fifty-fourth row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  53. The fifty-fifth row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  54. The fifty-sixth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  55. The fifty-seventh row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  56. The fifty-eighth row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  57. The fifty-ninth row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  58. The sixty-first row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  59. The sixty-second row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  60. The sixty-third row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  61. The sixty-fourth row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  62. The sixty-fifth row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  63. The sixty-sixth row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  64. The sixty-seventh row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  65. The sixty-eighth row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  66. The sixty-ninth row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  67. The seventy-first row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  68. The seventy-second row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  69. The seventy-third row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  70. The seventy-fourth row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  71. The seventy-fifth row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  72. The seventy-sixth row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  73. The seventy-seventh row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  74. The seventy-eighth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  75. The seventy-ninth row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  76. The eighty-first row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  77. The eighty-second row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  78. The eighty-third row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  79. The eighty-fourth row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  80. The eighty-fifth row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  81. The eighty-sixth row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  82. The eighty-seventh row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  83. The eighty-eighth row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  84. The eighty-ninth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  85. The ninety-first row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  86. The ninety-second row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  87. The ninety-third row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  88. The ninety-fourth row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  89. The ninety-fifth row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  90. The ninety-sixth row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  91. The ninety-seventh row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  92. The ninety-eighth row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  93. The ninety-ninth row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  94. The hundredth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  95. The hundred-and-first row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  96. The hundred-and-second row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  97. The hundred-and-third row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  98. The hundred-and-fourth row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  99. The hundred-and-fifth row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  100. The hundred-and-sixth row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  101. The hundred-and-seventh row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  102. The hundred-and-eighth row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  103. The hundred-and-ninth row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  104. The hundred-and-tenth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  105. The hundred-andeleventh row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  106. The hundred-andtwelfth row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  107. The hundred-andthirteenth row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  108. The hundred-andfourteenth row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  109. The hundred-andfifth row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  110. The hundred-andsixth row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  111. The hundred-andseventh row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  112. The hundred-andeighth row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  113. The hundred-andninth row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  114. The hundred-andtenth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  115. The hundred-andeleventh row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  116. The hundred-andtwelve row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  117. The hundred-andthirteenth row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  118. The hundred-andfourteenth row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  119. The hundred-andfifth row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  120. The hundred-andsixth row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  121. The hundred-andseventh row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  122. The hundred-andeighth row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  123. The hundred-andninth row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  124. The hundred-andtenth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  125. The hundred-andeleventh row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  126. The hundred-andtwelve row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  127. The hundred-andthirteenth row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  128. The hundred-andfourteenth row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  129. The hundred-andfifth row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  130. The hundred-andsixth row indicates the notes played in the eighth beat of the next measure (125 BPM).
+  131. The hundred-andseventh row indicates the notes played in the ninth beat of the next measure (125 BPM).
+  132. The hundred-andeighth row indicates the notes played in the tenth beat of the next measure (125 BPM).
+  133. The hundred-andninth row indicates the notes played in the eleventh beat of the next measure (125 BPM).
+  134. The hundred-andtenth row indicates the notes played in the twelfth beat of the next measure (125 BPM).
+  135. The hundred-andeleventh row indicates the notes played in the thirteenth beat of the next measure (125 BPM).
+  136. The hundred-andtwelve row indicates the notes played in the fourteenth beat of the next measure (125 BPM).
+  137. The hundred-andthirteenth row indicates the notes played in the fifth beat of the next measure (125 BPM).
+  138. The hundred-andfourteenth row indicates the notes played in the sixth beat of the next measure (125 BPM).
+  139. The hundred-andfifth row indicates the notes played in the seventh beat of the next measure (125 BPM).
+  140. The hundred-andsixth row indicates the notes played in the eighth beat of the next measure (125 BPM).

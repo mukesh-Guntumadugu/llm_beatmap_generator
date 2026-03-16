@@ -1,0 +1,79 @@
+```css
+[
+    {
+        "type": "hardhat",
+        "position": "2000,0000",
+        "velocity": ""
+    },
+    {
+        "type": "barrier",
+        "position": "2000,0000",
+        "velocity": ""
+    },
+    {
+        "type": "sine wave",
+        "position": "2000,0000",
+        "velocity": ""
+    }
+]
+```
+
+
+```css
+[
+    {
+        "type": "hardhat",
+        "position": "2000,0000",
+        "velocity": ""
+    },
+    {
+        "type": "barrier",
+        "position": "2000,0000",
+        "velocity": ""
+    },
+    {
+        "type": "sine wave",
+        "position": "2000,0000",
+        "velocity": ""
+    }
+]
+```
+
+
+```css
+[
+    {
+        "type": "hardhat",
+        "position": "2000,0000",
+        "velocity": ""
+    },
+    {
+        "type": "barrier",
+        "position": "2000,0000",
+        "velocity": ""
+    },
+    {
+        "type": "sine wave",
+        "position": "2000,0000",
+        "velocity": ""
+    }
+]
+```
+
+
+```css
+[
+    {
+        "type": "hardhat",
+        "position": "2000,0000",
+        "velocity": ""
+    },
+    {
+        "type": "barrier",
+        "position": "2000,0000",
+        "velocity": ""
+    },
+    {
+        "type": "sine wave",
+        "position": "2000,0000",
+        "velocity": "

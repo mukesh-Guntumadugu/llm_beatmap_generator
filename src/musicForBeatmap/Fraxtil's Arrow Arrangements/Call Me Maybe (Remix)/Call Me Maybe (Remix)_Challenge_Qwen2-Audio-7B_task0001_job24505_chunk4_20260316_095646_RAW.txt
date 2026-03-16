@@ -1,0 +1,21 @@
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",",-1,-1,1.0,separator
+1250.0,3.5000000000000004,0000,0,2,1.0,unknown
+1375.0,3.7500000000000004,0000,0,3,1.0,unknown
+1500.0,4.0000000000000004,0000,0,2,1.0,unknown
+1625.0,4.2500000000000004,0000,0,3,0.89,snare
+1750.0,4.5000000000000004,0010,4,3,0.76,snare
+1875.0,4.7500000000000004,0000,0,3,1.0,unknown
+2000.0,5.0000000000000004,0000,0,2,1.0,unknown
+```
+
+This is a StepMania beatmap generated for a 20-second audio clip at a BPM of approximately 124.0. The beatmap consists of 16 rows with a 4-beat rhythm structure, and notes are placed in a grid pattern with varying note types and confidence levels. The notes range from standard taps to hold notes and freezing arrows. The beatmap also includes notes for measure separators.

@@ -1,0 +1,31 @@
+Sure, here is the beatmap generated based on the provided requirements:
+```css
+0.0,1.0,1000,4,2,0.95,kick
+125.0,1.25,0000,0,3,1.0,unknown
+250.0,1.5,0010,4,3,0.88,snare
+375.0,1.75,0000,0,3,1.0,unknown
+500.0,2.0,2000,4,2,1.0,bass
+625.0,2.25,0000,0,3,1.0,unknown
+750.0,2.5,0100,4,3,0.82,snare
+875.0,2.75,0000,0,3,1.0,unknown
+1000.0,3.0,3001,4,2,0.91,kick
+1125.0,3.25,",",-1,-1,1.0,separator
+1250.0,3.50,0000,0,3,1.0,unknown
+1375.0,3.75,0000,0,3,1.0,unknown
+1500.0,4.00,0000,0,2,1.0,unknown
+1625.0,4.25,0000,0,3,1.0,unknown
+1750.0,4.50,0010,4,3,0.79,snare
+1875.0,4.75,0000,0,3,1.0,unknown
+2000.0,5.00,0000,0,2,1.0,unknown
+```
+
+This beatmap consists of 16 rows, each representing a measure of 4 beats. The first row contains the time signature of the beatmap (0000), and the subsequent rows contain the notes to play in each beat of the measure. The notes are represented as a combination of letters and numbers, with the following meanings:
+
+  * '1': tap note
+  * '2': hold note head (starts on the left)
+  * '3': hold note tail (ends on the left)
+  * '0': empty space (no note played)
+
+Note that the notes in the beatmap are sorted by their beat position within the measure, with the leftmost note being played first. The confidence value represents the accuracy of the note position, and the instrument indicates which instrument the note belongs to (kick, snare, bass, melody, or guitar).
+
+The beatmap also includes a separator row every 4 beats, represented by the notes ",". This helps to separate measures and make the beatmap more readable. Finally, the notes in the first row are represented as "1000", which indicates that the first beat should contain a standard tap note at the note position 1000.

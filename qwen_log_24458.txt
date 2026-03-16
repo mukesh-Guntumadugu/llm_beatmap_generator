@@ -1,0 +1,22 @@
+=== Starting Qwen2-Audio Onset Detection ===
+Job ID: 24458
+Node: node002
+GPU: NVIDIA RTX A6000
+Traceback (most recent call last):
+  File "/data/mg546924/llm_beatmap_generator/extract_qwen_onsets.py", line 22, in <module>
+    from src.qwen_interface import setup_qwen, generate_beatmap_with_qwen
+  File "/data/mg546924/llm_beatmap_generator/src/qwen_interface.py", line 3, in <module>
+    import torch
+  File "/data/mg546924/torch_packages/torch/__init__.py", line 749, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+=== Qwen Onset Detection Finished ===

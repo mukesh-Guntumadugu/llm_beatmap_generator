@@ -1,0 +1,89 @@
+=== Starting Qwen2-Audio Onset Detection ===
+Job ID: 24470
+Node: node002
+GPU: NVIDIA RTX A6000
+=============================================
+/data/mg546924/conda_envs/qwenenv/lib/python3.9/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading Qwen2-Audio model: Qwen/Qwen2-Audio-7B-Instruct...
+  Device: cuda | dtype: torch.float16
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  2.00it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:01,  2.13it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:00,  2.20it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.27it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.01it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  2.57it/s]
+✅ Qwen2-Audio loaded successfully on cuda.
+
+Generating Qwen beatmaps: 20 songs × 5 difficulty levels × 6 runs = 600 files
+
+Song                                     Diff         Run   Notes     Output file
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  [Bad Ketchup                        ] beginner   run 1/6 ...Keyword argument `audios` is not a valid argument for this processor and will be ignored.
+Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_beginner_run01_15032026221919.txt
+  [Bad Ketchup                        ] beginner   run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_beginner_run02_15032026221928.txt
+  [Bad Ketchup                        ] beginner   run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_beginner_run03_15032026221937.txt
+  [Bad Ketchup                        ] beginner   run 4/6 ...Generating with Qwen2-Audio...
+  ✅      5 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_beginner_run04_15032026221949.csv
+  [Bad Ketchup                        ] beginner   run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_beginner_run05_15032026221952.txt
+  [Bad Ketchup                        ] beginner   run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_beginner_run06_15032026222001.txt
+  [Bad Ketchup                        ] easy       run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run01_15032026222343.txt
+  [Bad Ketchup                        ] easy       run 2/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run02_15032026222350.txt
+  [Bad Ketchup                        ] easy       run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run03_15032026222357.txt
+  [Bad Ketchup                        ] easy       run 4/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run04_15032026222404.txt
+  [Bad Ketchup                        ] easy       run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run05_15032026222410.txt
+  [Bad Ketchup                        ] easy       run 6/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_easy_run06_15032026222417.txt
+  [Bad Ketchup                        ] medium     run 1/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_medium_run01_15032026222428.csv
+  [Bad Ketchup                        ] medium     run 2/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_medium_run02_15032026222440.csv
+  [Bad Ketchup                        ] medium     run 3/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_medium_run03_15032026222452.csv
+  [Bad Ketchup                        ] medium     run 4/6 ...Generating with Qwen2-Audio...
+  ✅    144 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_medium_run04_15032026222835.csv
+  [Bad Ketchup                        ] medium     run 5/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_medium_run05_15032026223218.txt
+  [Bad Ketchup                        ] medium     run 6/6 ...Generating with Qwen2-Audio...
+  ✅      1 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_medium_run06_15032026223230.csv
+  [Bad Ketchup                        ] hard       run 1/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_hard_run01_15032026223234.txt
+  [Bad Ketchup                        ] hard       run 2/6 ...Generating with Qwen2-Audio...
+  ✅    148 notes  →  Bad Ketchup/Qwen_beatmap_Bad_Ketchup_hard_run02_15032026223616.csv
+  [Bad Ketchup                        ] hard       run 3/6 ...Generating with Qwen2-Audio...
+
+  ⚠️  No parseable entries — saving raw response
+     → /data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Qwen_beatmap_RAW_Bad_Ketchup_hard_run03_15032026223959.txt
+  [Bad Ketchup                        ] hard       run 4/6 ...

@@ -1,13 +1,45 @@
 {
-  "last_task_id": 2,
+  "last_task_id": 10,
   "tasks": {
     "1": {
-      "created": "2026-03-01T12:54:27.407576",
-      "difficulty": "Hard"
+      "created": "2026-03-16T11:37:07.372754",
+      "difficulty": "Medium"
     },
     "2": {
-      "created": "2026-03-01T12:54:32.491346",
+      "created": "2026-03-16T11:37:12.572802",
+      "difficulty": "Challenge"
+    },
+    "3": {
+      "created": "2026-03-16T11:37:12.587450",
+      "difficulty": "Easy"
+    },
+    "4": {
+      "created": "2026-03-16T12:56:06.257337",
+      "difficulty": "Hard"
+    },
+    "5": {
+      "created": "2026-03-16T12:56:06.259851",
+      "difficulty": "Challenge"
+    },
+    "6": {
+      "created": "2026-03-16T12:56:06.559920",
+      "difficulty": "Medium"
+    },
+    "7": {
+      "created": "2026-03-16T12:56:06.780576",
       "difficulty": "Beginner"
+    },
+    "8": {
+      "created": "2026-03-16T12:56:06.955937",
+      "difficulty": "Easy"
+    },
+    "9": {
+      "created": "2026-03-16T13:15:54.955787",
+      "difficulty": "Easy"
+    },
+    "10": {
+      "created": "2026-03-16T13:26:58.290977",
+      "difficulty": "Easy"
     }
   }
 }
