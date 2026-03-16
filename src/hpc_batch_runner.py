@@ -119,8 +119,10 @@ def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms
                 return nearest
         return t_ms
 
-    # ── Step 1: Strip markdown code fences (```json, ```css, ``` etc.) ────────
+    # ── Step 1: Strip markdown code fences and inline comments ────────
     clean = re.sub(r"```[a-zA-Z]*", "", text).replace("```", "")
+    # Strip inline comments like `<-- HOLD HEAD` or `// comment`
+    clean = re.sub(r"(<--|//).*?$", "", clean, flags=re.MULTILINE)
     
     # ── Step 2: Try to extract a JSON array [...] from anywhere in the text ───
     array_match = re.search(r"\[.*\]", clean, re.DOTALL)

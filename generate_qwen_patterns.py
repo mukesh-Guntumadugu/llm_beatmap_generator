@@ -167,8 +167,9 @@ def parse_beatmap_response(
     """
     import re
 
-    # Strip markdown fences (```json, ```css, etc.)
+    # Strip markdown fences and inline comments
     clean = re.sub(r"```[a-zA-Z]*", "", response_text).replace("```", "")
+    clean = re.sub(r"(<--|//).*?$", "", clean, flags=re.MULTILINE)
 
     # The prompt primes output with '[', so model may have omitted the leading '['.
     # Add it back if it starts with '{'
