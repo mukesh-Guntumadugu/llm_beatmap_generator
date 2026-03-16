@@ -10,7 +10,8 @@ echo "Node: $SLURMD_NODENAME"
 echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 echo "============================================="
 
-cd /data/mg546924/llm_beatmap_generator
+# Force Python to ignore ~/.local site-packages (prevents shadowing conda env)
+export PYTHONNOUSERSITE=1
 
 # Use the conda env's Python directly (most reliable in SLURM batch scripts)
 /home/mg546924/.conda/envs/qwenenv/bin/python extract_qwen_onsets.py
