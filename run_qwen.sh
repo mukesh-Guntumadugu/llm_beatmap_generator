@@ -12,6 +12,9 @@ echo "============================================="
 
 cd /data/mg546924/llm_beatmap_generator
 
+# Block ~/.local packages (binary incompatible with our new data-based env)
+export PYTHONNOUSERSITE=1
+
 # Use the conda env on /data (home quota was full, env recreated there)
 /data/mg546924/conda_envs/qwenenv/bin/python extract_qwen_onsets.py
 
