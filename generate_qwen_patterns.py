@@ -211,11 +211,13 @@ def save_beatmap_csv(
     song_name: str,
     difficulty: str,
     run_num: int,
-    out_dir: str
+    out_dir: str,
+    job_id: str = ""
 ) -> str:
     ts = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
     safe = song_name.replace(" ", "_").replace("/", "-")
-    fname = f"Qwen_beatmap_{safe}_{difficulty}_run{run_num:02d}_{ts}.csv"
+    job_tag = f"_job{job_id}" if job_id else ""
+    fname = f"Qwen_beatmap_{safe}_{difficulty}{job_tag}_run{run_num:02d}_{ts}.csv"
     fpath = os.path.join(out_dir, fname)
     with open(fpath, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
@@ -235,6 +237,8 @@ def main():
                         help="Only process this difficulty level")
     parser.add_argument("--runs", type=int, default=6,
                         help="Number of generation runs per song × difficulty (default: 6)")
+    parser.add_argument("--job-id", type=str, default="",
+                        help="Optional SLURM Job ID to include in the output filename")
     args = parser.parse_args()
 
     if not os.path.isdir(BASE_DIR):
@@ -354,7 +358,7 @@ def main():
                         
                     all_entries.sort(key=lambda x: x[0])  # Sort by global time_ms
 
-                    out_path = save_beatmap_csv(all_entries, song_name, difficulty, run, song_dir)
+                    out_path = save_beatmap_csv(all_entries, song_name, difficulty, run, song_dir, args.job_id)
                     rel = os.path.relpath(out_path, BASE_DIR)
                     print(f"  ✅  Total: {len(all_entries):>5} notes  →  {rel}")
                     total_files += 1

@@ -85,7 +85,8 @@ echo ""
 echo "=== Starting Batch Runner (Difficulty: $DIFFICULTY) ==="
 python3 src/hpc_batch_runner.py \
     --server http://localhost:$SERVER_PORT \
-    --difficulty "$DIFFICULTY"
+    --difficulty "$DIFFICULTY" \
+    --job-id "$SLURM_JOB_ID"
 
 BATCH_EXIT=$?
 

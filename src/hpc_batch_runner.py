@@ -197,20 +197,21 @@ def get_target_files(base_dir):
                 audio_files.append(os.path.join(root, file))
     return sorted(audio_files)
 
-def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str):
+def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str, job_id: str = ""):
     name_no_ext = os.path.splitext(os.path.basename(audio_path))[0]
     dirname     = os.path.dirname(audio_path)
     task_tag    = f"task{task_id:04d}"
+    job_tag     = f"_job{job_id}" if job_id else ""
 
     print(f"Processing: {name_no_ext}  [{difficulty}]")
 
     # Skip if already done for this task + difficulty
     existing = [
         f for f in os.listdir(dirname)
-        if f.startswith(f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_") and f.endswith(".txt")
+        if f.startswith(f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}{job_tag}_") and f.endswith(".txt")
     ]
     if existing:
-        print(f"  Skipping — already done ({task_tag}, {difficulty}): {existing[0]}")
+        print(f"  Skipping — already done ({task_tag}{job_tag}, {difficulty}): {existing[0]}")
         return
 
     try:
@@ -273,7 +274,7 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
                 if not parsed_rows:
                     print(f"  [{i+1}/{num_chunks}] ⚠️ No valid rows parsed. Saving RAW...")
                     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-                    raw_path = os.path.join(dirname, f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_chunk{i+1}_{timestamp}_RAW.txt")
+                    raw_path = os.path.join(dirname, f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}{job_tag}_chunk{i+1}_{timestamp}_RAW.txt")
                     with open(raw_path, "w", encoding="utf-8") as f:
                         f.write(text)
                     continue
@@ -300,7 +301,7 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
 
         # ── Save files ────────────────────────────────────────────────────
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        base      = f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}_{timestamp}"
+        base      = f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}{job_tag}_{timestamp}"
 
         # Plain beatmap .txt (just the notes column)
         txt_path = os.path.join(dirname, f"{base}.txt")
@@ -335,6 +336,7 @@ def main():
     parser = argparse.ArgumentParser(description="HPC Batch Runner for Qwen2-Audio beatmap generation")
     parser.add_argument("task_id", nargs="?", type=int, help="Resume a specific task ID")
     parser.add_argument("--server", default=SERVER_URL, help="Qwen server URL")
+    parser.add_argument("--job-id", default="", help="Optional SLURM Job ID to include in the filename")
     parser.add_argument("--song", default=None, help="Test with one song (partial name, e.g. 'Bad Ketchup')")
     parser.add_argument(
         "--difficulty",
@@ -390,7 +392,7 @@ def main():
         print(f"{'='*60}\n")
         for i, audio_file in enumerate(target_files):
             print(f"[{i+1}/{len(target_files)}] ", end="")
-            process_song(audio_file, task_id, args.server, difficulty)
+            process_song(audio_file, task_id, args.server, difficulty, args.job_id)
             time.sleep(1)
 
 if __name__ == "__main__":
