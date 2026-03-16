@@ -71,8 +71,18 @@ def generate(req: GenerateRequest):
         target_sr = _processor.feature_extractor.sampling_rate
         y, sr = librosa.load(tmp_path, sr=target_sr, mono=True)
 
-        # Build conversation — audio_url must point to the actual temp file
+        # Build conversation — system role is CRITICAL to stop Qwen entering chatbot mode
         conversation = [
+            {
+                "role": "system",
+                "content": (
+                    "You are a strict beatmap data generation API. "
+                    "Your ONLY output is raw comma-separated value (CSV) rows. "
+                    "You MUST NOT write any text, explanations, apologies, markdown, "
+                    "code blocks, or conversation. "
+                    "Output one CSV row per line immediately, starting with the first data row."
+                ),
+            },
             {
                 "role": "user",
                 "content": [
@@ -95,17 +105,17 @@ def generate(req: GenerateRequest):
         ).to(_model.device)
 
         with torch.no_grad():
-            # Derive min_new_tokens: assume 8 rows/sec × ~12 tokens/row as a floor
-            # This forces the model to generate enough content to cover the whole chunk
-            min_tokens = max(64, int(req.chunk_duration_sec * 8 * 12))
+            # min_new_tokens: ~4 rows/sec × 5 tokens/row is a reasonable floor
+            # Avoids forcing the model to hallucinate garbage past valid content
+            min_tokens = max(32, int(req.chunk_duration_sec * 4 * 5))
             generated_ids = _model.generate(
                 **inputs, 
                 max_new_tokens=req.max_new_tokens,
                 min_new_tokens=min_tokens,
                 do_sample=True,
-                temperature=0.7,
+                temperature=0.3,
                 top_p=0.9,
-                repetition_penalty=1.05
+                repetition_penalty=1.1
             )
 
         # Strip the input tokens from the output
