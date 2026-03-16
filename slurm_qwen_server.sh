@@ -4,7 +4,7 @@
 #SBATCH --gres=gpu:A6000:1          # 1x A6000 GPU (48GB VRAM — plenty for Qwen2-Audio-7B)
 #SBATCH --cpus-per-task=8
 #SBATCH --time=12:00:00             # 12 hours per array task (20 songs × ~10 min = ~3.5 hrs)
-#SBATCH --array=0-4                 # 5 tasks: one per difficulty (Beginner/Easy/Medium/Hard/Challenge)
+#SBATCH --array=0-0                 # TEST MODE: only Beginner (change to 0-4 for all difficulties)
 #SBATCH --output=logs/qwen_beatmap_%A_%a.out
 #SBATCH --error=logs/qwen_beatmap_%A_%a.err
 
@@ -81,12 +81,26 @@ if [ "$STATUS" != "True" ]; then
 fi
 
 # ── Step 2: Run the batch runner for this difficulty ──────────────────────────
+# TEST MODE: set TEST_SONG to a song name to test on ONE song only.
+# Set to "" to run on ALL songs.
+TEST_SONG="Bad Ketchup"
+
 echo ""
 echo "=== Starting Batch Runner (Difficulty: $DIFFICULTY) ==="
-python3 src/hpc_batch_runner.py \
-    --server http://localhost:$SERVER_PORT \
-    --difficulty "$DIFFICULTY" \
-    --job-id "$SLURM_JOB_ID"
+
+if [ -n "$TEST_SONG" ]; then
+    echo "TEST MODE: Running on single song: $TEST_SONG"
+    python3 src/hpc_batch_runner.py \
+        --server http://localhost:$SERVER_PORT \
+        --difficulty "$DIFFICULTY" \
+        --job-id "$SLURM_JOB_ID" \
+        --song "$TEST_SONG"
+else
+    python3 src/hpc_batch_runner.py \
+        --server http://localhost:$SERVER_PORT \
+        --difficulty "$DIFFICULTY" \
+        --job-id "$SLURM_JOB_ID"
+fi
 
 BATCH_EXIT=$?
 
