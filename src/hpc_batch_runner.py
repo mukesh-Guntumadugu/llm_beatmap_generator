@@ -85,19 +85,22 @@ def load_song_onsets(song_dir: str) -> list[float]:
 
 # ── Prompt ────────────────────────────────────────────────────────────────────
 def build_prompt(duration: float, difficulty: str = "Medium", bpm: float = None,
-                  chunk_onsets: list[float] = None) -> str:
-    """Builds the full Qwen prompt, optionally injecting pre-computed chunk onsets."""
+                  chunk_onsets: list[float] = None) -> tuple[str, str]:
+    """Returns (system_prompt, user_prompt) where:
+       system_prompt = static CSV rules (routes to system role)
+       user_prompt   = dynamic per-song info + onsets (routes to user role)
+    """
     from src.beatmap_prompt import build_per_song_prompt
-    base = BEATMAP_SYSTEM_INSTRUCTION + build_per_song_prompt(difficulty, duration, bpm)
+    user = build_per_song_prompt(difficulty, duration, bpm)
     if chunk_onsets:
         onset_str = ", ".join(f"{ms:.2f}" for ms in chunk_onsets)
-        base += (
+        user += (
             f"\n\n## Available Onset Timestamps\n"
             f"The following {len(chunk_onsets)} timestamps (ms) are musically significant moments "
             f"detected in this audio slice. Prefer placing notes on these exact times:\n"
             f"[{onset_str}]\n"
         )
-    return base + QWEN_OUTPUT_ADDENDUM
+    return BEATMAP_SYSTEM_INSTRUCTION + QWEN_OUTPUT_ADDENDUM, user
 
 # ── Robust Qwen output parser ─────────────────────────────────────────────────
 def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms: float = 50.0) -> list[dict]:
@@ -308,7 +311,7 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
                 end_ms   = end_sec   * 1000.0
                 chunk_onsets = [ms - start_ms for ms in all_onsets_ms if start_ms <= ms < end_ms]
 
-                prompt = build_prompt(chunk_duration, difficulty, bpm, chunk_onsets)
+                system_prompt, prompt = build_prompt(chunk_duration, difficulty, bpm, chunk_onsets)
 
                 print(f"  [{i+1}/{num_chunks}] Sending {chunk_duration:.1f}s chunk to server...")
                 resp = requests.post(
@@ -316,6 +319,7 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
                     json={
                         "audio_b64":           audio_b64,
                         "audio_filename":      os.path.basename(audio_path),
+                        "system_prompt":       system_prompt,
                         "prompt":              prompt,
                         "max_new_tokens":      16384,
                         "chunk_duration_sec":  chunk_duration,

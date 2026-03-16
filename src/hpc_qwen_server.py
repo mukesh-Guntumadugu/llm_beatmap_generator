@@ -28,7 +28,8 @@ _processor = None
 class GenerateRequest(BaseModel):
     audio_b64: str          # Base64-encoded raw audio bytes (wav/ogg/mp3)
     audio_filename: str     # Original filename (e.g. "Bad Ketchup.ogg") — used for extension
-    prompt: str             # Full instruction prompt
+    system_prompt: str      # Static system instruction (CSV rules, format spec)
+    prompt: str             # Dynamic user turn (difficulty, duration, BPM, onsets)
     max_new_tokens: int = 16384
     chunk_duration_sec: float = 20.0  # Audio chunk duration in seconds (used to derive min_new_tokens)
 
@@ -71,17 +72,11 @@ def generate(req: GenerateRequest):
         target_sr = _processor.feature_extractor.sampling_rate
         y, sr = librosa.load(tmp_path, sr=target_sr, mono=True)
 
-        # Build conversation — system role is CRITICAL to stop Qwen entering chatbot mode
+        # Build conversation — system role has the static CSV rules, user role has dynamic per-song info + audio
         conversation = [
             {
                 "role": "system",
-                "content": (
-                    "You are a strict beatmap data generation API. "
-                    "Your ONLY output is raw comma-separated value (CSV) rows. "
-                    "You MUST NOT write any text, explanations, apologies, markdown, "
-                    "code blocks, or conversation. "
-                    "Output one CSV row per line immediately, starting with the first data row."
-                ),
+                "content": req.system_prompt,
             },
             {
                 "role": "user",
