@@ -2,11 +2,14 @@
 Audio to MIDI Converter using Spotify's Basic-Pitch
 =====================================================
 Converts any audio file (MP3, OGG, WAV, FLAC) to MIDI using
-Spotify's Basic-Pitch neural network model.
+Spotify's Basic-Pitch neural network model (via the CLI).
+
+Uses the CLI tool instead of the Python API to work around a
+pkg_resources incompatibility in Python 3.12.
 
 Usage:
     # Single file
-    python audio_to_midi.py path/to/song.mp3
+    python audio_to_midi.py path/to/song.ogg
 
     # Whole song directory (processes all audio files found)
     python audio_to_midi.py path/to/songs/ --batch
@@ -15,87 +18,86 @@ Usage:
     python audio_to_midi.py song.mp3 --min-freq 40 --max-freq 300
 
 Install:
-    pip install basic-pitch
+    pip install 'basic-pitch[onnx]'
 """
 
 import os
 import sys
 import glob
+import shutil
 import argparse
-
-# ── Install check ──────────────────────────────────────────────────────────────
-try:
-    from basic_pitch.inference import predict, predict_and_save
-    from basic_pitch import ICASSP_2022_MODEL_PATH
-except ImportError:
-    print("❌  basic-pitch is not installed.")
-    print("    Run:  pip install basic-pitch")
-    sys.exit(1)
+import subprocess
 
 AUDIO_EXTENSIONS = (".mp3", ".ogg", ".wav", ".flac", ".aiff", ".m4a")
 
 
-def convert_single(audio_path: str, out_dir: str, min_freq: float = None,
-                   max_freq: float = None, onset_threshold: float = 0.5,
-                   save_notes_csv: bool = True):
-    """
-    Convert one audio file to MIDI using Basic-Pitch.
-    Saves .mid (and optionally a note-events .csv) to out_dir.
-    """
+def check_basic_pitch():
+    """Verify basic-pitch CLI is on PATH."""
+    if shutil.which("basic-pitch") is None:
+        print("❌  'basic-pitch' CLI not found.")
+        print("    Install with:  pip install 'basic-pitch[onnx]'")
+        sys.exit(1)
+
+
+def convert_single(audio_path: str, out_dir: str,
+                   min_freq: float = None, max_freq: float = None,
+                   onset_threshold: float = 0.5, save_notes_csv: bool = True):
+    """Convert one audio file to MIDI using the basic-pitch CLI."""
     os.makedirs(out_dir, exist_ok=True)
     name = os.path.splitext(os.path.basename(audio_path))[0]
-
     print(f"\n🎵  Converting: {os.path.basename(audio_path)}")
     print(f"    → Output dir: {out_dir}")
 
-    kwargs = dict(
-        onset_threshold=onset_threshold,
-    )
+    cmd = ["basic-pitch", out_dir, audio_path, "--model-serialization", "onnx"]
+
+    if save_notes_csv:
+        cmd.append("--save-note-events")
+
+    if onset_threshold != 0.5:
+        cmd += ["--onset-threshold", str(onset_threshold)]
+
     if min_freq is not None:
-        kwargs["minimum_frequency"] = min_freq
+        cmd += ["--minimum-frequency", str(min_freq)]
+
     if max_freq is not None:
-        kwargs["maximum_frequency"] = max_freq
+        cmd += ["--maximum-frequency", str(max_freq)]
 
-    model_output, midi_data, note_events = predict(audio_path, **kwargs)
+    result = subprocess.run(cmd)   # stream output directly — no capture
 
-    # Save MIDI
-    midi_out = os.path.join(out_dir, f"{name}.mid")
-    midi_data.write(midi_out)
-    print(f"    ✅  MIDI saved  → {midi_out}")
+    if result.returncode != 0:
+        print(f"    ⚠️   basic-pitch exited with code {result.returncode}")
+        return None
 
-    # Save note events CSV (time, pitch, velocity, start, end)
-    if save_notes_csv and note_events:
-        csv_out = os.path.join(out_dir, f"{name}_note_events.csv")
-        with open(csv_out, "w", encoding="utf-8") as f:
-            f.write("start_s,end_s,pitch_midi,velocity,pitch_bend\n")
-            for ev in note_events:
-                # note_events tuples: (start_time, end_time, pitch, amplitude, pitch_bend)
-                start, end, pitch, amp, bend = ev
-                velocity = int(amp * 127)
-                f.write(f"{start:.4f},{end:.4f},{pitch},{velocity},{bend}\n")
-        print(f"    ✅  Notes CSV  → {csv_out}")
+    midi_out = os.path.join(out_dir, f"{name}_basic_pitch.mid")
+    if os.path.exists(midi_out):
+        print(f"    ✅  MIDI saved  → {midi_out}")
+    else:
+        # basic-pitch may use a slightly different filename; find it
+        candidates = glob.glob(os.path.join(out_dir, f"{name}*.mid"))
+        if candidates:
+            print(f"    ✅  MIDI saved  → {candidates[0]}")
+        else:
+            print(f"    ⚠️   MIDI file not found in {out_dir}")
 
-    return midi_out, note_events
+    return midi_out
 
 
 def batch_convert(audio_dir: str, out_dir: str, min_freq=None, max_freq=None,
                   onset_threshold=0.5, save_notes_csv=True):
-    """
-    Walk audio_dir, convert every audio file found.
-    """
+    """Walk audio_dir, convert every audio file found."""
     audio_files = []
     for ext in AUDIO_EXTENSIONS:
-        audio_files.extend(glob.glob(os.path.join(audio_dir, "**", f"*{ext}"), recursive=True))
-
+        audio_files.extend(
+            glob.glob(os.path.join(audio_dir, "**", f"*{ext}"), recursive=True)
+        )
     audio_files = sorted(audio_files)
+
     if not audio_files:
         print(f"❌  No audio files found in: {audio_dir}")
         return
 
     print(f"Found {len(audio_files)} audio file(s) to convert.\n")
-
     for i, audio_path in enumerate(audio_files):
-        # Mirror directory structure under out_dir
         rel = os.path.relpath(os.path.dirname(audio_path), audio_dir)
         song_out = os.path.join(out_dir, rel)
         print(f"[{i+1}/{len(audio_files)}] ", end="")
@@ -127,13 +129,17 @@ def main():
 
     args = parser.parse_args()
 
+    check_basic_pitch()
+
     # Resolve output directory
     if args.out_dir:
         out_dir = args.out_dir
     elif args.batch:
-        out_dir = os.path.join(args.input, "midi_output")
+        out_dir = os.path.join(args.input, "midi")
     else:
-        out_dir = os.path.join(os.path.dirname(os.path.abspath(args.input)), "midi_output")
+        out_dir = os.path.join(
+            os.path.dirname(os.path.abspath(args.input)), "midi"
+        )
 
     if args.batch:
         if not os.path.isdir(args.input):
