@@ -71,17 +71,23 @@ def load_model(model_dir: str):
 
     # ── Set up lm-format-enforcer constrained decoding ───────────────────────
     # Same guarantee as Gemini's response_schema: model cannot emit invalid tokens.
-    # lm-format-enforcer supports Python 3.9 (unlike outlines which needs 3.10+).
+    # We now enforce raw CSV rows to match the prompt.
     try:
-        from lmformatenforcer import JsonSchemaParser
+        from lmformatenforcer import RegexParser
         from lmformatenforcer.integrations.transformers import (
             build_transformers_prefix_allowed_tokens_fn
         )
-        schema_parser = JsonSchemaParser(BeatmapOutput.model_json_schema())
+        
+        # Regex for CSV rows: time_ms,beat_pos,notes,placement,note_type,conf,instrument
+        # Allows notes like '1000' or '","' for separators
+        csv_row = r"\d+\.\d+,\d+\.\d+,(?:[0123M]{4}|\",\"),-?\d+,-?\d+,\d+\.\d+,[a-z]+"
+        csv_regex = f"({csv_row}\n)+"
+        schema_parser = RegexParser(csv_regex)
+        
         _prefix_fn = build_transformers_prefix_allowed_tokens_fn(
             _processor.tokenizer, schema_parser
         )
-        print("✅ lm-format-enforcer constrained decoding enabled (schema: BeatmapOutput).")
+        print("✅ lm-format-enforcer constrained decoding enabled (Regex: CSV Rows).")
     except ImportError:
         _prefix_fn = None
         print("⚠️  lm-format-enforcer not installed — falling back to unconstrained generation.")
