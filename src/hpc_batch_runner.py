@@ -255,9 +255,13 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
 
     print(f"Processing: {name_no_ext}  [{difficulty}]")
 
+    # Create output directory early so we can check it
+    out_dir = os.path.join(dirname, "qwen_outputs")
+    os.makedirs(out_dir, exist_ok=True)
+
     # Skip if already done for this task + difficulty
     existing = [
-        f for f in os.listdir(dirname)
+        f for f in os.listdir(out_dir)
         if f.startswith(f"{name_no_ext}_{difficulty}_{MODEL_NAME}_{task_tag}{job_tag}_") and f.endswith(".txt")
     ]
     if existing:
