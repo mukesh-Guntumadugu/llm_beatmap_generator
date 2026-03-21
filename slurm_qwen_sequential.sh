@@ -35,6 +35,7 @@ echo ""
 echo "=== Starting Qwen2-Audio Server (port $SERVER_PORT) ==="
 python3 src/hpc_qwen_server.py \
     --model-dir "$MODEL_DIR" \
+    --lora-dir "/data/mg546924/models/qwen2-audio-lora-onsets" \
     --host 0.0.0.0 \
     --port $SERVER_PORT &
 
