@@ -108,10 +108,10 @@ def main():
     class MultimodalDataCollator:
         processor: Any
         def __call__(self, features: List[Dict[str, Any]]) -> Dict[str, Any]:
-            # Simple padding using tokenizer for text
-            input_ids = [f["input_ids"] for f in features]
-            attention_mask = [f["attention_mask"] for f in features]
-            labels = [f["labels"] for f in features]
+            # Convert dataset lists back to PyTorch tensors
+            input_ids = [torch.tensor(f["input_ids"], dtype=torch.long) for f in features]
+            attention_mask = [torch.tensor(f["attention_mask"], dtype=torch.long) for f in features]
+            labels = [torch.tensor(f["labels"], dtype=torch.long) for f in features]
             
             input_ids = torch.nn.utils.rnn.pad_sequence(input_ids, batch_first=True, padding_value=self.processor.tokenizer.pad_token_id)
             attention_mask = torch.nn.utils.rnn.pad_sequence(attention_mask, batch_first=True, padding_value=0)
@@ -124,9 +124,9 @@ def main():
             }
             
             if "audio_features" in features[0]:
-                batch["audio_features"] = torch.stack([f["audio_features"] for f in features])
+                batch["audio_features"] = torch.stack([torch.tensor(f["audio_features"], dtype=torch.float16) for f in features])
             elif "input_features" in features[0]:
-                batch["input_features"] = torch.stack([f["input_features"] for f in features])
+                batch["input_features"] = torch.stack([torch.tensor(f["input_features"], dtype=torch.float16) for f in features])
                 
             return batch
 
