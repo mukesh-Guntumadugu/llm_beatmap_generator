@@ -11,6 +11,7 @@ DEFAULT_MODEL_ID = "Qwen/Qwen2-Audio-7B-Instruct"
 
 _model = None
 _processor = None
+_prefix_fn = None
 
 def setup_qwen(model_id=DEFAULT_MODEL_ID, device=None):
     """
@@ -40,6 +41,33 @@ def setup_qwen(model_id=DEFAULT_MODEL_ID, device=None):
             torch_dtype=dtype
         )
         _model.eval()
+
+        # ── Set up lm-format-enforcer constrained decoding ───────────────────────
+        try:
+            from lmformatenforcer import RegexParser
+            from lmformatenforcer.integrations.transformers import (
+                build_transformers_prefix_allowed_tokens_fn
+            )
+            
+            # Regex for CSV rows: time_ms,beat_pos,notes,placement,note_type,conf,instrument
+            # Allows notes like '1000' or '","' for separators
+            csv_row = r"\d+\.\d+,\d+\.\d+,(?:[0123M]{4}|\",\"),-?\d+,-?\d+,\d+\.\d+,[a-z]+"
+            csv_regex = f"({csv_row}\n)+"
+            schema_parser = RegexParser(csv_regex)
+            
+            global _prefix_fn
+            _prefix_fn = build_transformers_prefix_allowed_tokens_fn(
+                _processor.tokenizer, schema_parser
+            )
+            print("✅ lm-format-enforcer constrained decoding enabled (Regex: CSV Rows).")
+        except ImportError:
+            _prefix_fn = None
+            print("⚠️  lm-format-enforcer not installed — falling back to unconstrained generation.")
+            print("   To enable: pip install lm-format-enforcer")
+        except Exception as e:
+            _prefix_fn = None
+            print(f"⚠️  Constrained decoding setup failed: {e} — using unconstrained generation.")
+
         print(f"✅ Qwen2-Audio loaded successfully on {device}.")
     except Exception as e:
         print(f"❌ Failed to load Qwen2-Audio: {e}")
@@ -85,15 +113,20 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
     # Generate
     print("Generating with Qwen2-Audio...")
     
+    generate_kwargs = dict(
+        **inputs, 
+        max_new_tokens=4096,         # Dropped to 4096 so it finishes reasonably fast even on large outputs
+        do_sample=True,              # Changed to True with low temperature so it doesn't loop infinitely
+        temperature=0.7,
+        top_p=0.9,
+        repetition_penalty=1.05
+    )
+    
+    if _prefix_fn is not None:
+        generate_kwargs["prefix_allowed_tokens_fn"] = _prefix_fn
+        
     with torch.no_grad():
-        generated_ids = _model.generate(
-            **inputs, 
-            max_new_tokens=4096,         # Dropped to 4096 so it finishes reasonably fast even on large outputs
-            do_sample=True,              # Changed to True with low temperature so it doesn't loop infinitely
-            temperature=0.7,
-            top_p=0.9,
-            repetition_penalty=1.05
-        )
+        generated_ids = _model.generate(**generate_kwargs)
         
     # Decode
     generated_ids = generated_ids[:, inputs.input_ids.size(1):]

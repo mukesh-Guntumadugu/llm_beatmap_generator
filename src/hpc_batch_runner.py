@@ -180,7 +180,50 @@ def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms
         print(f"  ✅ Parsed {len(rows)} rows from individual JSON objects.")
         return rows
 
-    # ── Step 4: Fallback — plain 4-character note rows ─────────────────────────
+    # ── Step 4: Try to extract CSV rows (time_ms, beat, notes, placement, etc) ─
+    csv_rows = []
+    for line in clean.splitlines():
+        line = line.strip()
+        parts = line.split(",")
+        # Valid CSV row has either 7 columns, or is a separator: time,beat,","...
+        if len(parts) >= 7 or (len(parts) == 8 and parts[2].startswith('"') and parts[3].endswith('"')):
+            try:
+                # Handle separator rows carefully since they use `","` which splits into extra parts
+                if '","' in line or (len(parts) > 3 and parts[2] == '"' and parts[3] == '"'):
+                    t_ms = float(parts[0])
+                    beat = float(parts[1])
+                    notes_str = ","
+                    placement = int(parts[-4]) if len(parts) >= 8 else -1
+                    ntype = int(parts[-3]) if len(parts) >= 8 else -1
+                    conf = float(parts[-2]) if len(parts) >= 8 else 1.0
+                    inst = parts[-1].strip()
+                else:
+                    t_ms = float(parts[0])
+                    beat = float(parts[1])
+                    notes_str = parts[2].strip()
+                    placement = int(parts[3])
+                    ntype = int(parts[4])
+                    conf = float(parts[5])
+                    inst = parts[6].strip()
+                
+                t_ms = snap(t_ms, notes_str)
+                csv_rows.append({
+                    "time_ms":         t_ms,
+                    "beat_position":   beat,
+                    "notes":           notes_str,
+                    "placement_type":  placement,
+                    "note_type":       ntype,
+                    "confidence":      conf,
+                    "instrument":      inst,
+                })
+            except (ValueError, IndexError):
+                pass
+                
+    if csv_rows:
+        print(f"  ✅ Parsed {len(csv_rows)} rows from CSV lines.")
+        return csv_rows
+
+    # ── Step 5: Fallback — plain 4-character note rows ─────────────────────────
     fallback = []
     rows_per_sec = 8.0
     beat_idx = 1.0

@@ -57,7 +57,7 @@ class GenerateResponse(BaseModel):
     text: str               # Raw model output (beatmap rows as text)
 
 # ── Model loading ─────────────────────────────────────────────────────────────
-def load_model(model_dir: str):
+def load_model(model_dir: str, lora_dir: str = None):
     global _model, _processor, _prefix_fn
     print(f"Loading model from: {model_dir}")
     _processor = AutoProcessor.from_pretrained(model_dir, trust_remote_code=True, fix_mistral_regex=True)
@@ -67,6 +67,12 @@ def load_model(model_dir: str):
         dtype=torch.float16,
         trust_remote_code=True,
     )
+    
+    if lora_dir:
+        print(f"Applying LoRA adapter from: {lora_dir}")
+        from peft import PeftModel
+        _model = PeftModel.from_pretrained(_model, lora_dir)
+        
     _model.eval()
 
     # ── Set up lm-format-enforcer constrained decoding ───────────────────────
@@ -193,9 +199,14 @@ if __name__ == "__main__":
         default="/data/mg546924/models/Qwen2-Audio-7B-Instruct",
         help="Path to the downloaded model directory on the cluster."
     )
+    parser.add_argument(
+        "--lora-dir",
+        default=None,
+        help="Path to the trained LoRA adapter directory on the cluster."
+    )
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", type=int, default=8000)
     args = parser.parse_args()
 
-    load_model(args.model_dir)
+    load_model(args.model_dir, args.lora_dir)
     uvicorn.run(app, host=args.host, port=args.port)
