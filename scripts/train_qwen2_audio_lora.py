@@ -34,6 +34,7 @@ def main():
         attention_mask = []
         labels = []
         audio_features = []
+        feature_attention_mask = []
         
         for messages in examples['messages']:
             # Load the audio for the user message
@@ -83,14 +84,21 @@ def main():
                  audio_features.append(inputs["audio_features"][0])
             elif "input_features" in inputs:
                  audio_features.append(inputs["input_features"][0])
+                 
+            if "feature_attention_mask" in inputs:
+                 feature_attention_mask.append(inputs["feature_attention_mask"][0])
 
         # Return dict of lists
-        return {
+        result = {
             "input_ids": input_ids,
             "attention_mask": attention_mask,
             "labels": labels,
-            "audio_features" if "audio_features" in inputs else "input_features": audio_features
+            "audio_features" if len(audio_features) > 0 and "audio_features" in inputs else "input_features": audio_features
         }
+        if len(feature_attention_mask) > 0:
+            result["feature_attention_mask"] = feature_attention_mask
+            
+        return result
 
     
     print("Pre-processing dataset...")
@@ -127,6 +135,9 @@ def main():
                 batch["audio_features"] = torch.stack([torch.tensor(f["audio_features"], dtype=torch.float16) for f in features])
             elif "input_features" in features[0]:
                 batch["input_features"] = torch.stack([torch.tensor(f["input_features"], dtype=torch.float16) for f in features])
+                
+            if "feature_attention_mask" in features[0]:
+                batch["feature_attention_mask"] = torch.stack([torch.tensor(f["feature_attention_mask"], dtype=torch.long) for f in features])
                 
             return batch
 
