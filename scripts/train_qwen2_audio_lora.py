@@ -50,10 +50,16 @@ def main():
             # Load audio using librosa
             y, sr = librosa.load(audio_url, sr=processor.feature_extractor.sampling_rate)
             
-            # Format text explicitly via chat template
-            # For SFT, the input is: <user_msg> \n <assistant_msg>
-            # The model predicts the assistant response
-            text = processor.apply_chat_template(messages, add_generation_prompt=False, tokenize=False)
+            # BYPASS QWEN REGEX BUG: The built-in apply_chat_template replaces the word "audio" with <|AUDIO|> 
+            # causing crash if dataset text contains "audio_url" or "audio segment". We build the string manually:
+            user_text = messages[0]['content'][1]['text']
+            assistant_text = messages[1]['content'][0]['text']
+            
+            text = (
+                "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n"
+                f"<|im_start|>user\nAudio 1: <|audio_bos|><|AUDIO|><|audio_eos|>\n{user_text}<|im_end|>\n"
+                f"<|im_start|>assistant\n{assistant_text}<|im_end|>\n"
+            )
             
             # Use processor to get inputs
             inputs = processor(
