@@ -4,7 +4,7 @@ import librosa
 from datasets import load_dataset
 from transformers import (
     Qwen2AudioForConditionalGeneration,
-    Qwen2AudioProcessor,
+    AutoProcessor,
     Trainer,
     TrainingArguments,
     BitsAndBytesConfig
@@ -21,7 +21,7 @@ BLOCK_SIZE = 512 # max text tokens
 
 def main():
     print(f"Loading processor: {MODEL_ID}")
-    processor = Qwen2AudioProcessor.from_pretrained(MODEL_ID)
+    processor = AutoProcessor.from_pretrained(MODEL_ID, trust_remote_code=True, fix_mistral_regex=True)
     
     # 1. Load Dataset
     print(f"Loading dataset from {DATASET_PATH}")
@@ -100,7 +100,7 @@ def main():
     # PyTorch's default collate won't work perfectly on list of tensors of varying sizes.
     @dataclass
     class MultimodalDataCollator:
-        processor: Qwen2AudioProcessor
+        processor: Any
         def __call__(self, features: List[Dict[str, Any]]) -> Dict[str, Any]:
             # Simple padding using tokenizer for text
             input_ids = [f["input_ids"] for f in features]
