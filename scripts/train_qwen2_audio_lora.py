@@ -58,7 +58,7 @@ def main():
             # Use processor to get inputs
             inputs = processor(
                 text=text,
-                audios=y,
+                audio=[y],
                 sampling_rate=processor.feature_extractor.sampling_rate,
                 return_tensors="pt"
             )
