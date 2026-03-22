@@ -182,6 +182,8 @@ def main():
         optim="paged_adamw_32bit",
         save_steps=50,
         logging_steps=10,
+        logging_strategy="steps",
+        logging_dir=os.path.join(OUTPUT_DIR, "logs"),  # Save loss to TensorBoard logs
         learning_rate=2e-4,
         weight_decay=0.001,
         fp16=False,
