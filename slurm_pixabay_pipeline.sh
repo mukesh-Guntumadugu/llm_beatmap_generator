@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G
-#SBATCH --partition=general
+#SBATCH --partition=defq
 #SBATCH --gres=gpu:1          # needed for Qwen training step
 
 # ============================================================

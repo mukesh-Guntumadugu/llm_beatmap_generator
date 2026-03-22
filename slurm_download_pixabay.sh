@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=4G
-#SBATCH --partition=general
+#SBATCH --partition=defq
 
 # ============================================================
 # Download 100 Pixabay songs into pixabay_music/ on the cluster
