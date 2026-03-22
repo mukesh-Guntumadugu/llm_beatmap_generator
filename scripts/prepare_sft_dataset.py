@@ -24,111 +24,23 @@ AUDIO_OUT_DIR = os.path.join(OUTPUT_DIR, "audio")
 
 CHUNK_DURATION = 20.0  # seconds
 
-def parse_sm_metadata(sm_file):
-    metadata = {'bpm': None, 'offset': 0.0}
+def parse_original_onsets(csv_file):
+    """Parses the original_onsets_*.csv file to extract timestamps in seconds."""
+    onsets_sec = set()
     try:
-        with open(sm_file, 'r', encoding='utf-8') as f:
-            for line in f:
-                if line.strip().startswith("#OFFSET:"):
+        with open(csv_file, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            for line in lines[1:]: # Skip header: onset_index,onset_ms
+                parts = line.strip().split(',')
+                if len(parts) >= 2:
                     try:
-                        val = line.split(":")[1].split(";")[0].strip()
-                        metadata['offset'] = float(val)
+                        ms = float(parts[1])
+                        onsets_sec.add(round(ms / 1000.0, 3))
                     except ValueError:
                         pass
-                if line.strip().startswith("#BPMS:"):
-                    try:
-                        val = line.split(":")[1].split(";")[0].strip()
-                        first_bpm = val.split(",")[0]
-                        bpm_val = first_bpm.split("=")[1]
-                        metadata['bpm'] = float(bpm_val)
-                    except (ValueError, IndexError):
-                        pass
     except Exception as e:
-        print(f"Error parsing metadata {sm_file}: {e}")
-    return metadata
-
-def parse_ssc_notes(file_path, target_difficulty="Hard"):
-    """Parses .ssc and returns measures for a target difficulty. Fallbacks to Challenge/Medium."""
-    with open(file_path, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-        
-    charts = {}
-    in_chart = False
-    in_notes = False
-    temp_difficulty = "Unknown"
-    current_measures = []
-    current_measure = []
-    
-    for line in lines:
-        line = line.strip()
-        if line.startswith("#NOTEDATA:"):
-            in_chart = True
-            in_notes = False
-            temp_difficulty = "Unknown"
-            current_measures = []
-            current_measure = []
-            continue
-            
-        if in_chart:
-            if line.startswith("#DIFFICULTY:"):
-                temp_difficulty = line.replace("#DIFFICULTY:", "").replace(";", "").strip()
-                
-            if line.startswith("#NOTES:"):
-                in_notes = True
-                continue
-                
-            if in_notes:
-                has_semicolon = ";" in line
-                note_line = line.replace(";", "").split("//")[0].strip()
-                
-                if note_line == ",":
-                    current_measures.append(current_measure)
-                    current_measure = []
-                elif len(note_line) >= 4 and all(c in '01234M' for c in note_line[:4]):
-                    current_measure.append(note_line[:4])
-                
-                if has_semicolon or line.startswith(";"):
-                    if current_measure:
-                        current_measures.append(current_measure)
-                    charts[temp_difficulty] = current_measures
-                    in_notes = False
-                    in_chart = False
-                    
-    # Pick difficulty
-    if target_difficulty in charts:
-        return charts[target_difficulty]
-    elif "Challenge" in charts:
-        return charts["Challenge"]
-    elif "Medium" in charts:
-        return charts["Medium"]
-    elif charts:
-        return list(charts.values())[-1]
-    
-    return []
-
-def get_note_times(measures, bpm, offset):
-    note_times = set()
-    beats_per_measure = 4
-    if bpm is None or bpm <= 0: return []
-    seconds_per_beat = 60.0 / bpm
-    start_time = offset 
-    
-    for measure_idx, measure in enumerate(measures):
-        measure_start_beat = measure_idx * beats_per_measure
-        lines_in_measure = len(measure)
-        if lines_in_measure == 0: continue
-        
-        beats_per_line = beats_per_measure / lines_in_measure
-        
-        for line_idx, line in enumerate(measure):
-            has_note = any(c in '1234' for c in line) # Ignoring M for pure onset
-            if has_note:
-                beat_time = measure_start_beat + (line_idx * beats_per_line)
-                timestamp = start_time + (beat_time * seconds_per_beat)
-                if timestamp >= 0:
-                    note_times.add(round(timestamp, 3))
-                
-    return sorted(list(note_times))
+        print(f"Error parsing onsets {csv_file}: {e}")
+    return sorted(list(onsets_sec))
 
 def main():
     jsonl_data = []
@@ -146,16 +58,14 @@ def main():
             continue
         audio_path = audio_files[0]
         
-        # Find SSC
-        ssc_files = glob.glob(os.path.join(song_dir, "*.ssc")) + glob.glob(os.path.join(song_dir, "*.sm"))
-        if not ssc_files:
+        # Find librosa original onsets CSV
+        onset_files = glob.glob(os.path.join(song_dir, "original_onsets_*.csv"))
+        if not onset_files:
+            print(f"  Missing original_onsets_*.csv for {song}")
             continue
-        ssc_path = ssc_files[0]
+        onset_path = onset_files[0]
         
-        metadata = parse_sm_metadata(ssc_path)
-        measures = parse_ssc_notes(ssc_path)
-        
-        onsets = get_note_times(measures, metadata['bpm'], metadata['offset'])
+        onsets = parse_original_onsets(onset_path)
         if not onsets:
             print(f"  No onsets found for {song}")
             continue
