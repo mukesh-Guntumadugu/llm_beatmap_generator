@@ -7,7 +7,8 @@ from transformers import (
     AutoProcessor,
     Trainer,
     TrainingArguments,
-    BitsAndBytesConfig
+    BitsAndBytesConfig,
+    EarlyStoppingCallback
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from dataclasses import dataclass
@@ -28,7 +29,11 @@ def main():
     
     # 1. Load Dataset
     print(f"Loading dataset from {DATASET_PATH}")
-    dataset = load_dataset('json', data_files={'train': DATASET_PATH})
+    full_dataset = load_dataset('json', data_files={'train': DATASET_PATH})['train']
+    
+    # Split 5% of data for validation evaluating (~50 songs out of 1000)
+    dataset = full_dataset.train_test_split(test_size=0.05, seed=42)
+    print(f"Train dataset size: {len(dataset['train'])} | Validation dataset size: {len(dataset['test'])}")
     
     # 2. Preprocess function
     def preprocess_function(examples):
@@ -182,10 +187,14 @@ def main():
         output_dir=OUTPUT_DIR,
         per_device_train_batch_size=1, # Keep small due to large model
         gradient_accumulation_steps=8,  # Simulate larger batch size
+        per_device_eval_batch_size=1,   # Eval batch size 1
         optim="paged_adamw_32bit",
-        save_steps=50,
         logging_steps=10,
         logging_strategy="steps",
+        evaluation_strategy="epoch",    # Evaluate at the end of each epoch
+        save_strategy="epoch",          # Save checkpoints aligned with evaluation
+        load_best_model_at_end=True,    # Always load the best performing model (lowest validation loss) at the end
+        metric_for_best_model="eval_loss",
         logging_dir=os.path.join(OUTPUT_DIR, "logs"),  # Save loss to TensorBoard logs
         learning_rate=2e-4,
         weight_decay=0.001,
@@ -203,16 +212,68 @@ def main():
     trainer = Trainer(
         model=model,
         train_dataset=tokenized_dataset["train"],
+        eval_dataset=tokenized_dataset["test"],
         args=training_args,
         data_collator=MultimodalDataCollator(processor),
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=3)] # Stops early if eval_loss doesn't improve for 3 epochs
     )
     
     print("Starting Training...")
     trainer.train()
     
-    print("Saving final model adapter...")
+    print("Saving final (best) model adapter...")
     trainer.save_model(OUTPUT_DIR)
-    print(f"Done. Model saved to {OUTPUT_DIR}")
+    print(f"Done. Model adapter saved to {OUTPUT_DIR}")
+
+    # 7. Extract Loss History and Save Chart/CSV
+    print("Generating training vs validation loss chart and CSVs...")
+    log_history = trainer.state.log_history
+
+    train_logs = [log for log in log_history if "loss" in log and "epoch" in log]
+    eval_logs = [log for log in log_history if "eval_loss" in log and "epoch" in log]
+
+    import csv
+    if train_logs:
+        with open(os.path.join(OUTPUT_DIR, "training_loss.csv"), "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["epoch", "step", "loss", "learning_rate"])
+            for log in train_logs:
+                writer.writerow([round(log.get("epoch", 0), 2), log.get("step"), log.get("loss"), log.get("learning_rate")])
+                
+    if eval_logs:
+        with open(os.path.join(OUTPUT_DIR, "validation_loss.csv"), "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["epoch", "step", "eval_loss"])
+            for log in eval_logs:
+                writer.writerow([round(log.get("epoch", 0), 2), log.get("step"), log.get("eval_loss")])
+
+    try:
+        import matplotlib.pyplot as plt
+        plt.figure(figsize=(10, 6))
+        
+        if train_logs:
+            epochs = [log.get("epoch") for log in train_logs]
+            losses = [log.get("loss") for log in train_logs]
+            plt.plot(epochs, losses, label="Training Loss", color="blue", alpha=0.6)
+            
+        if eval_logs:
+            e_epochs = [log.get("epoch") for log in eval_logs]
+            e_losses = [log.get("eval_loss") for log in eval_logs]
+            plt.plot(e_epochs, e_losses, label="Validation Loss", color="red", marker="o", linewidth=2)
+        
+        plt.title("Training vs Validation Loss Over Epochs")
+        plt.xlabel("Epoch")
+        plt.ylabel("Loss")
+        plt.legend()
+        plt.grid(True)
+        plt.tight_layout()
+        chart_path = os.path.join(OUTPUT_DIR, "loss_chart.png")
+        plt.savefig(chart_path)
+        print(f"Saved loss chart to {chart_path}")
+    except ImportError:
+        print("matplotlib not found in environment, skipping loss chart PNG generation.")
+        
+    print(f"Done. Saved CSVs to {OUTPUT_DIR}")
 
 if __name__ == "__main__":
     main()
