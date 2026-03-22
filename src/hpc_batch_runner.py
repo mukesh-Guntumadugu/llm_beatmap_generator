@@ -86,21 +86,10 @@ def load_song_onsets(song_dir: str) -> list[float]:
 # ── Prompt ────────────────────────────────────────────────────────────────────
 def build_prompt(duration: float, difficulty: str = "Medium", bpm: float = None,
                   chunk_onsets: list[float] = None) -> tuple[str, str]:
-    """Returns (system_prompt, user_prompt) where:
-       system_prompt = static CSV rules (routes to system role)
-       user_prompt   = dynamic per-song info + onsets (routes to user role)
-    """
-    from src.beatmap_prompt import build_per_song_prompt
-    user = build_per_song_prompt(difficulty, duration, bpm)
-    if chunk_onsets:
-        onset_str = ", ".join(f"{ms:.2f}" for ms in chunk_onsets)
-        user += (
-            f"\n\n## Available Onset Timestamps\n"
-            f"The following {len(chunk_onsets)} timestamps (ms) are musically significant moments "
-            f"detected in this audio slice. Prefer placing notes on these exact times:\n"
-            f"[{onset_str}]\n"
-        )
-    return BEATMAP_SYSTEM_INSTRUCTION + QWEN_OUTPUT_ADDENDUM, user
+    """Returns (system_prompt, user_prompt) for the Onset Detector SFT model."""
+    system_prompt = "You are a helpful assistant."
+    user_prompt = "List the onsets in this audio segment as a comma-separated list of timestamps in seconds."
+    return system_prompt, user_prompt
 
 # ── Robust Qwen output parser ─────────────────────────────────────────────────
 def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms: float = 50.0) -> list[dict]:
@@ -126,6 +115,32 @@ def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms
     clean = re.sub(r"```[a-zA-Z]*", "", text).replace("```", "")
     # Strip inline comments like `<-- HOLD HEAD` or `// comment`
     clean = re.sub(r"(<--|//).*?$", "", clean, flags=re.MULTILINE)
+    
+    # ── Step 1.5: SFT Onset Detector format (comma-separated seconds) ────────
+    try:
+        # Check if the output is just a list of numbers by filtering commas/dots/spaces/numbers
+        stripped_text = re.sub(r'[^0-9., ]+', '', clean).strip()
+        parts = [p.strip() for p in stripped_text.split(',') if p.strip()]
+        
+        # If it successfully split into multiple floats, we parse it
+        if len(parts) > 1:
+            times_sec = [float(p) for p in parts]
+            rows = []
+            for t_sec in times_sec:
+                t_ms = snap(t_sec * 1000.0, "1000")
+                rows.append({
+                    "time_ms":         t_ms,
+                    "beat_position":   0.0, # Handled globally in process_song using BPM
+                    "notes":           "1000",
+                    "placement_type":  1,
+                    "note_type":       2,
+                    "confidence":      0.99,
+                    "instrument":      "mixed",
+                })
+            print(f"  ✅ Parsed {len(rows)} onsets from comma-separated SFT format.")
+            return rows
+    except Exception:
+        pass
     
     # ── Step 2: Try to extract a JSON array [...] from anywhere in the text ───
     array_match = re.search(r"\[.*\]", clean, re.DOTALL)
@@ -398,7 +413,14 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
                 
                 for row in parsed_rows:
                     row["time_ms"] += chunk_start_ms
-                    row["beat_position"] += chunk_start_beat
+                    
+                    # Calculate correct beat position using global BPM
+                    # Because SFT outputs 0.0, we must calculate the true absolute beat here
+                    if bpm:
+                        row["beat_position"] = (row["time_ms"] / 1000.0 / 60.0) * bpm
+                    else:
+                        row["beat_position"] += chunk_start_beat
+                        
                     all_parsed_rows.append(row)
 
             finally:

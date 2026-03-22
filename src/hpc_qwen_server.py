@@ -84,11 +84,10 @@ def load_model(model_dir: str, lora_dir: str = None):
             build_transformers_prefix_allowed_tokens_fn
         )
         
-        # Regex for CSV rows: time_ms,beat_pos,notes,placement,note_type,conf,instrument
-        # Allows notes like '1000' or '","' for separators
-        csv_row = r"\d+\.\d+,\d+\.\d+,(?:[0123M]{4}|\",\"),-?\d+,-?\d+,\d+\.\d+,[a-z]+"
-        csv_regex = f"({csv_row}\n)+"
-        schema_parser = RegexParser(csv_regex)
+        # Regex for SFT onset detection: comma-separated floats
+        # e.g., "0.15, 0.44, 1.25"
+        timestamp_regex = r"(\d+\.\d+(, )?)+"
+        schema_parser = RegexParser(timestamp_regex)
         
         _prefix_fn = build_transformers_prefix_allowed_tokens_fn(
             _processor.tokenizer, schema_parser
