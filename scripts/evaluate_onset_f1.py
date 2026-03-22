@@ -45,6 +45,7 @@ def load_ground_truth(song_dir: str) -> list[float]:
         return []
     csv_files.sort()  # Take the most recent one if multiple
     csv_path = csv_files[-1]
+    print(f"     [GT] Using ground truth file: {os.path.basename(csv_path)}")
     
     onsets_ms = []
     with open(csv_path, "r") as f:
@@ -82,7 +83,9 @@ def load_latest_prediction(song_dir: str) -> list[float]:
     if not txt_files:
         return []
     txt_files.sort()  # Latest by name/timestamp
-    return load_predictions_from_file(txt_files[-1])
+    latest_file = txt_files[-1]
+    print(f"     [Qwen] Using prediction file: {os.path.basename(latest_file)}")
+    return load_predictions_from_file(latest_file)
 
 
 # ── F1 Scorer ─────────────────────────────────────────────────────────────────
@@ -164,9 +167,10 @@ def main():
     print(f"{'='*60}\n")
 
     for song_name in song_names:
+        print(f"  🎵 {song_name}")
         song_dir = os.path.join(BASE_DIR, song_name)
         if not os.path.isdir(song_dir):
-            print(f"⚠️  Song directory not found: {song_name}")
+            print(f"     ⚠️  Song directory not found: {song_name}")
             continue
 
         gt_ms = load_ground_truth(song_dir)
@@ -176,6 +180,7 @@ def main():
 
         # Load predictions
         if args.pred_file and len(song_names) == 1:
+            print(f"     [Qwen] Using specific prediction file: {os.path.basename(args.pred_file)}")
             pred_ms = load_predictions_from_file(args.pred_file)
         else:
             pred_ms = load_latest_prediction(song_dir)
@@ -192,7 +197,6 @@ def main():
         total_fn += scores["fn"]
 
         f1_bar = "█" * int(scores["f1"] * 20)
-        print(f"  🎵 {song_name}")
         print(f"     GT: {scores['n_ground_truth']} onsets | Predicted: {scores['n_predicted']} onsets")
         print(f"     TP: {scores['tp']}  FP: {scores['fp']}  FN: {scores['fn']}")
         print(f"     Precision: {scores['precision']:.1%}  |  Recall: {scores['recall']:.1%}  |  F1: {scores['f1']:.1%}  [{f1_bar:<20}]")
