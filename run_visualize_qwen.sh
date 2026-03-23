@@ -15,6 +15,10 @@ echo "Using conda env: /data/mg546924/conda_envs/qwenenv/bin"
 cd /data/mg546924/llm_beatmap_generator
 export PYTHONPATH="/data/mg546924/llm_beatmap_generator:$PYTHONPATH"
 
+# CRITICAL: Force Python to completely ignore the corrupted ~/.local/ 100% full home drive
+export PYTHONNOUSERSITE=1
+export PIP_CACHE_DIR="/data/mg546924/.cache/pip"
+
 # Fix Numpy / Matplotlib conflict before running
 echo "Fixing Numpy and Matplotlib dependencies..."
 /data/mg546924/conda_envs/qwenenv/bin/python3 -m pip install "numpy<2" pyparsing matplotlib --upgrade
