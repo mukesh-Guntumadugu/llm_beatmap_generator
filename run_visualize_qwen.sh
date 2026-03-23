@@ -16,8 +16,8 @@ cd /data/mg546924/llm_beatmap_generator
 export PYTHONPATH="/data/mg546924/llm_beatmap_generator:$PYTHONPATH"
 
 # Fix Numpy / Matplotlib conflict before running
-echo "Fixing Numpy compatibility..."
-/data/mg546924/conda_envs/qwenenv/bin/python3 -m pip install "numpy<2"
+echo "Fixing Numpy and Matplotlib dependencies..."
+/data/mg546924/conda_envs/qwenenv/bin/python3 -m pip install "numpy<2" pyparsing matplotlib --upgrade
 
 # Run the visualization script
 echo "Extracting Qwen Internal Spectrogram..."
