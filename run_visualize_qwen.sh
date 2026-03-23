@@ -3,7 +3,6 @@
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:A6000:1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=32G
 #SBATCH --time=01:00:00
 #SBATCH --output=logs/qwen_viz_%j.out
 #SBATCH --error=logs/qwen_viz_%j.err
