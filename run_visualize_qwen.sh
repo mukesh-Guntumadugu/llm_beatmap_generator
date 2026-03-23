@@ -18,6 +18,9 @@ export PYTHONPATH="/data/mg546924/llm_beatmap_generator:$PYTHONPATH"
 # CRITICAL: Force Math and PIP libraries to cache exclusively on the newly freed data drive
 export MPLCONFIGDIR="/data/mg546924/.cache/matplotlib"
 export PIP_CACHE_DIR="/data/mg546924/.cache/pip"
+export HF_HOME="/data/mg546924/.cache/huggingface"
+export XDG_CACHE_HOME="/data/mg546924/.cache"
+export NUMBA_CACHE_DIR="/data/mg546924/.cache/numba"
 
 # Fix Numpy / Matplotlib conflict before running
 echo "Fixing Numpy and Matplotlib dependencies..."
