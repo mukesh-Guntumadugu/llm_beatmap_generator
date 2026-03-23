@@ -164,10 +164,10 @@ def generate(req: GenerateRequest):
                 **inputs,
                 max_new_tokens=req.max_new_tokens,
                 min_new_tokens=min_tokens,
-                do_sample=True,
-                temperature=0.3,
-                top_p=0.9,
-                repetition_penalty=1.1,
+                do_sample=False,
+                temperature=0.0,
+                top_p=1.0,
+                repetition_penalty=1.0,
             )
             
             # Plug in lm-format-enforcer prefix function if available
