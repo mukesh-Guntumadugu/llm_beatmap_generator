@@ -21,7 +21,7 @@ export PIP_CACHE_DIR="/data/mg546924/.cache/pip"
 
 # Fix Numpy / Matplotlib conflict before running
 echo "Fixing Numpy and Matplotlib dependencies..."
-/data/mg546924/conda_envs/qwenenv/bin/python3 -m pip install "numpy<2" pyparsing matplotlib --upgrade
+/data/mg546924/conda_envs/qwenenv/bin/python3 -m pip install "numpy<2" pyparsing matplotlib accelerate transformers --upgrade
 
 # Run the visualization script
 echo "Extracting Qwen Internal Spectrogram..."
