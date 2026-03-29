@@ -46,4 +46,9 @@ def generate_beatmap_with_mumu(audio_path: str, prompt: str) -> str:
     # The exact function depends on how MuMu-LLaMA expects the audio and prompt.
     # Currently returning a dummy response.
     
+    max_new_tokens=8192,
+    do_sample=False,
+    temperature=0.01,
+    repetition_penalty=1.0
+    
     return "[0, 500, 1000, 1500]"

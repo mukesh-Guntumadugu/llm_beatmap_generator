@@ -7,7 +7,7 @@ from transformers import Qwen2AudioForConditionalGeneration, AutoProcessor
 from io import BytesIO
 
 # Default Model Path (can be overriden or local path)
-DEFAULT_MODEL_ID = "Qwen/Qwen2-Audio-7B-Instruct"
+DEFAULT_MODEL_ID = "/data/mg546924/models/Qwen2-Audio-7B-Instruct"
 
 _model = None
 _processor = None
@@ -40,6 +40,13 @@ def setup_qwen(model_id=DEFAULT_MODEL_ID, device=None):
             trust_remote_code=True,
             torch_dtype=dtype
         )
+        try:
+            from peft import PeftModel
+            _model = PeftModel.from_pretrained(_model, "/data/mg546924/models/qwen2-audio-lora-onsets/checkpoint-2208")
+            print("✅ 15-Hour Trained LoRA Adapter (checkpoint-2208) successfully loaded!")
+        except Exception as e:
+            print(f"⚠️ Could not attach trained weights (LoRA): {e}")
+        
         _model.eval()
 
         # ── Set up lm-format-enforcer constrained decoding ───────────────────────
@@ -115,11 +122,9 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
     
     generate_kwargs = dict(
         **inputs, 
-        max_new_tokens=4096,         # Dropped to 4096 so it finishes reasonably fast even on large outputs
-        do_sample=True,              # Changed to True with low temperature so it doesn't loop infinitely
-        temperature=0.7,
-        top_p=0.9,
-        repetition_penalty=1.05
+        max_new_tokens=8192,
+        do_sample=False,
+        repetition_penalty=1.0
     )
     
     if _prefix_fn is not None:
