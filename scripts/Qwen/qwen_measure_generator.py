@@ -105,6 +105,10 @@ def main():
             beat_time = start_time + b * beat_duration_sec
             has_onset = any(abs(t - beat_time) <= 0.05 for t in m_onsets)
             
+            # Tally total number of raw Librosa onsets firing inside this specific beat's duration
+            onsets_in_this_beat_slot = sum(1 for t in m_onsets if beat_time <= t < beat_time + beat_duration_sec)
+            
+            # Formulate beat prompt
             prompt = (
                 f"You are generating a StepMania beatmap (Beginner difficulty).\n"
                 f"Measure: {M+1} / {total_measures} | Beat: {b+1}/4\n"
@@ -130,13 +134,13 @@ def main():
             # Slice last 8 beats explicitly to punish extreme repetitions
             recent_history = global_linear_history[-8:]
             
-            # Score true mathematical probabilities for the 16 paths using our custom ML Filter Pipeline
+            # Removed space-bashing Top-K to allow SINGLE ARROWS to be evaluated properly 
             probs_dict = get_qwen_16_step_probabilities(
                 tmp_path, prompt, ALL_16_COMBOS,
                 temperature=1.0, 
                 top_p=0.9, 
                 min_p=0.05, 
-                top_k=4,
+                top_k=None,
                 repetition_penalty=1.2, 
                 recent_history=recent_history
             )
@@ -145,13 +149,9 @@ def main():
             
             calc_time = time.time() - beat_start_time_calc
             
-            # MULTINOMIAL SAMPLING: Treat the probabilities like a weighted dice roll
-            # This perfectly fixes the 0110 bias so it doesn't just spam the #1 highest percentage!
             choices = list(probs_dict.keys())
             weights = list(probs_dict.values())
             
-            # Note: Because Top-P and Min-P zeroed out the invalid branches mathematically inside get_qwen...
-            # Python's random.choices automatically cannot ever pick them because their weight is 0.0!
             selected_step = random.choices(choices, weights=weights)[0]
             
             prob_format = "|".join([f"{k}-{v:.1f}%" for k, v in probs_dict.items()])
@@ -160,9 +160,11 @@ def main():
                 f"{global_bpm:.1f}",
                 f"{duration_min:.2f}",
                 f"{beat_time:.2f}",
+                onsets_in_this_beat_slot,   # Total onsets inside the mathematical time slot of this beat
                 has_onset,
                 selected_step,
                 prob_format,
+                selected_step,              # Repetition of requested {stepselected} AFTER probability list
                 f"{calc_time:.2f}"
             ])
             
@@ -195,7 +197,7 @@ def main():
         w.writerow(["# Temperature", "1.0"])
         w.writerow(["# Top-P", "0.9"])
         w.writerow(["# Min-P", "0.05"])
-        w.writerow(["# Top-K", "4"])
+        w.writerow(["# Top-K", "None"])
         w.writerow(["# Repetition Penalty", "Dynamic Scale Matrix (1.0 + N*0.2, Last-Beat Multiplier 1.1x)"])
         
         # Flat Metadata Columns Header
@@ -203,9 +205,11 @@ def main():
             "global_bpm", 
             "song_duration_minutes", 
             "beat_time_sec", 
+            "total_onsets_in_beat_slot",
             "onset_detected", 
             "selected_step", 
             "step_probabilities", 
+            "final_step_selection",
             "time_taken_sec"
         ])
         for r in csv_rows: 
