@@ -129,10 +129,15 @@ def main():
             # Score true mathematical probabilities for the 16 paths
             probs_dict = get_qwen_16_step_probabilities(tmp_path, prompt, ALL_16_COMBOS)
             
+            import random
+            
             calc_time = time.time() - beat_start_time_calc
             
-            # The model's prediction is mathematically defined as the sequence path with max probability
-            selected_step = max(probs_dict, key=probs_dict.get)
+            # MULTINOMIAL SAMPLING: Treat the probabilities like a weighted dice roll
+            # This perfectly fixes the 0110 bias so it doesn't just spam the #1 highest percentage!
+            choices = list(probs_dict.keys())
+            weights = list(probs_dict.values())
+            selected_step = random.choices(choices, weights=weights)[0]
             
             prob_format = "|".join([f"{k}-{v:.1f}%" for k, v in probs_dict.items()])
             
