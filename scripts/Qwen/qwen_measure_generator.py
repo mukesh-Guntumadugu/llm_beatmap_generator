@@ -87,17 +87,26 @@ def main():
         # 2. Gather raw onsets inside this measure window
         m_onsets = [round(t, 2) for t in onset_times if start_time <= t < end_time]
         
-        # 3. Build Prompt with exact requirements
+        # 3. Calculate explicit beats and match onsets for the prompt
+        row_prompts = []
+        for i in range(4):
+            beat_time = start_time + i * beat_duration_sec
+            has_onset = any(abs(t - beat_time) <= 0.05 for t in m_onsets)
+            if has_onset:
+                row_prompts.append(f"Row {i+1} ({beat_time:.2f}s) -> ONSET DETECTED. Choose a valid step.")
+            else:
+                row_prompts.append(f"Row {i+1} ({beat_time:.2f}s) -> NO ONSET. You MUST output 0000.")
+        row_prompts_str = "\n".join(row_prompts)
+
         prompt = (
             f"You are generating a StepMania beatmap (Beginner difficulty, 4 rows per measure).\n"
             f"Measure: {M+1} / {total_measures}\n"
             f"Global BPM: {global_bpm:.1f}\n"
-            f"This 4/4 measure spans from {start_time:.2f}s to {end_time:.2f}s.\n"
-            f"Detected Audio Onsets in this measure window: {m_onsets}\n\n"
+            f"This 4/4 measure spans from {start_time:.2f}s to {end_time:.2f}s.\n\n"
             f"INSTRUCTIONS:\n"
-            f"- Output EXACTLY 4 strings representing the 4 beats of this measure.\n"
+            f"- Output EXACTLY 4 strings representing the 4 rows of this measure.\n"
             f"- Each string is 4 characters long (Left, Down, Up, Right).\n"
-            f"- LOGIC: If a beat aligns with an onset timestamp, select an appropriate step. If there is NO onset near the beat, you MUST output '0000'.\n"
+            f"- Follow this exact row-by-row structure:\n{row_prompts_str}\n\n"
             f"- Valid step options for an onset (15 options total): {', '.join(VALID_STEP_COMBOS)}\n\n"
             f"HISTORY OF PREVIOUS MEASURE SELECTIONS (Use this to form patterns and avoid repetition):\n"
         )
@@ -130,8 +139,8 @@ def main():
 
     # Write output file
     ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    csv_path = os.path.join(OUT_DIR, f"qwen_MeasureGrid_{ts}.csv")
-    txt_path = os.path.join(OUT_DIR, f"qwen_MeasureGrid_{ts}.txt")
+    csv_path = os.path.join(OUT_DIR, f"qwen_MeasureGrid_Wonsets_Wtempo_WBPM_{ts}.csv")
+    txt_path = os.path.join(OUT_DIR, f"qwen_MeasureGrid_Wonsets_Wtempo_WBPM_{ts}.txt")
 
     with open(txt_path, "w") as f:
         f.write("\n".join(out_rows))
