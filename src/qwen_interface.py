@@ -139,6 +139,46 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
     
     return response_text
 
+def get_qwen_16_step_probabilities(audio_path: str, prompt: str, candidates: list) -> dict:
+    """ Computes exact sequence generation probabilities for specific text candidates by performing forward-pass loss extraction. """
+    global _model, _processor
+    if not _model or not _processor:
+        setup_qwen()
+
+    target_sr = _processor.feature_extractor.sampling_rate
+    y, sr = librosa.load(audio_path, sr=target_sr)
+    audio_uri = f"file://{os.path.abspath(audio_path)}"
+    
+    conversation = [{"role": "user", "content": [{"type": "audio", "audio_url": audio_uri}, {"type": "text", "text": prompt}]}]
+    text_context = _processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
+    
+    # Process base context to find token length
+    base_inputs = _processor(text=text_context, audio=[y], sampling_rate=target_sr, return_tensors="pt", padding=True).to(_model.device)
+    base_input_len = base_inputs.input_ids.shape[1]
+    
+    cand_scores = []
+    
+    for cand in candidates:
+        cand_text = text_context + cand
+        inputs = _processor(text=cand_text, audio=[y], sampling_rate=target_sr, return_tensors="pt", padding=True).to(_model.device)
+        
+        labels = inputs.input_ids.clone()
+        labels[0, :base_input_len] = -100 # Mask out everything except the candidate tokens
+        
+        with torch.no_grad():
+            outputs = _model(**inputs, labels=labels)
+            loss = outputs.loss 
+            # CrossEntropy is implicitly averaged over the non-masked (candidate) tokens
+            num_cand_tokens = (labels != -100).sum().item()
+            seq_log_prob = -loss.item() * num_cand_tokens
+            cand_scores.append(seq_log_prob)
+            
+    # Apply softmax across all valid sequence log-probs
+    scores_tensor = torch.tensor(cand_scores, dtype=torch.float32)
+    probs = torch.nn.functional.softmax(scores_tensor, dim=0).numpy()
+    
+    return {candidates[i]: probs[i]*100 for i in range(len(candidates))}
+
 if __name__ == "__main__":
     # Test Block
     TEST_AUDIO = "test.ogg" # Replace with real path if testing

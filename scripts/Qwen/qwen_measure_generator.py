@@ -17,7 +17,7 @@ sys.path.insert(0, PROJ)
 sys.path.insert(0, os.path.join(PROJ, "src"))
 
 try:
-    from src.qwen_interface import setup_qwen, generate_beatmap_with_qwen
+    from src.qwen_interface import setup_qwen, generate_beatmap_with_qwen, get_qwen_16_step_probabilities
 except ImportError:
     print("Could not import qwen_interface. Ensure BENCHMARK_PROJ is correct.")
     sys.exit(1)
@@ -61,20 +61,32 @@ def main():
     print(f"Total Measures to generate (Beginner 4-rows/measure): {total_measures}")
     print("--------------------------------------------------")
 
-    history_log = []
-    out_rows = []
+    # Update Output Subfolder Logic
+    global OUT_DIR
+    OUT_DIR = os.path.join(OUT_DIR, "Qwen", "Wonsets_Wtempo_WBPM")
+    os.makedirs(OUT_DIR, exist_ok=True)
+    
+    import time
+    script_start_time = time.time()
+    duration_min = duration / 60.0
+    
+    ALL_16_COMBOS = ["0000"] + VALID_STEP_COMBOS
 
-    for M in tqdm(range(total_measures), desc="Generating Measures"):
+    history_log = []
+    txt_rows = []
+    csv_rows = []
+
+    for M in tqdm(range(total_measures), desc="Generating Beats (Beat-by-Beat)"):
         start_time = M * measure_duration_sec
         end_time = start_time + measure_duration_sec
         
         if start_time >= duration: 
             break
+            
+        txt_rows.append(",") # Separator for new measure
         
-        # 1. Chunk audio for this specific measure
+        # 1. Chunk audio for this specific measure (re-used for 4 beats to save disk IO)
         chunk_y = y[int(start_time*sr):int(min(end_time, duration)*sr)]
-        
-        # Pad chunk explicitly to ensure the model always hears exactly exactly that measure size properly
         target_len = int(measure_duration_sec * sr)
         if len(chunk_y) < target_len:
             pad_len = target_len - len(chunk_y)
@@ -84,73 +96,91 @@ def main():
             sf.write(tmp.name, chunk_y, sr)
             tmp_path = tmp.name
 
-        # 2. Gather raw onsets inside this measure window
         m_onsets = [round(t, 2) for t in onset_times if start_time <= t < end_time]
+        measure_step_outputs = []
         
-        # 3. Calculate explicit beats and match onsets for the prompt
-        row_prompts = []
-        for i in range(4):
-            beat_time = start_time + i * beat_duration_sec
+        # Iterating Beat by Beat
+        for b in range(4):
+            beat_time = start_time + b * beat_duration_sec
             has_onset = any(abs(t - beat_time) <= 0.05 for t in m_onsets)
-            if has_onset:
-                row_prompts.append(f"Row {i+1} ({beat_time:.2f}s) -> ONSET DETECTED. Choose a valid step.")
-            else:
-                row_prompts.append(f"Row {i+1} ({beat_time:.2f}s) -> NO ONSET. You MUST output 0000.")
-        row_prompts_str = "\n".join(row_prompts)
-
-        prompt = (
-            f"You are generating a StepMania beatmap (Beginner difficulty, 4 rows per measure).\n"
-            f"Measure: {M+1} / {total_measures}\n"
-            f"Global BPM: {global_bpm:.1f}\n"
-            f"This 4/4 measure spans from {start_time:.2f}s to {end_time:.2f}s.\n\n"
-            f"INSTRUCTIONS:\n"
-            f"- Output EXACTLY 4 strings representing the 4 rows of this measure.\n"
-            f"- Each string is 4 characters long (Left, Down, Up, Right).\n"
-            f"- Follow this exact row-by-row structure:\n{row_prompts_str}\n\n"
-            f"- Valid step options for an onset (15 options total): {', '.join(VALID_STEP_COMBOS)}\n\n"
-            f"HISTORY OF PREVIOUS MEASURE SELECTIONS (Use this to form patterns and avoid repetition):\n"
-        )
-        
-        # Full history payload
-        if len(history_log) > 0:
-            hist_text = "\n".join(history_log)
-        else:
-            hist_text = "None (this is the first measure)."
             
-        prompt += hist_text + "\n\n---> Please output only the 4 rows for THIS measure."
+            prompt = (
+                f"You are generating a StepMania beatmap (Beginner difficulty).\n"
+                f"Measure: {M+1} / {total_measures} | Beat: {b+1}/4\n"
+                f"Global BPM: {global_bpm:.1f}\n"
+                f"Current Beat Time: {beat_time:.2f}s\n\n"
+            )
+            
+            if has_onset:
+                prompt += f"CONDITION: ONSET DETECTED. You must select a valid 4-character step (e.g. 0001, 0110). Do NOT output 0000.\n"
+            else:
+                prompt += f"CONDITION: NO ONSET here. You MUST output 0000.\n"
+                
+            prompt += f"\nHISTORY (Previous 5 Measures):\n"
+            if len(history_log) > 0:
+                prompt += "\n".join(history_log[-5:])
+            else:
+                prompt += "None."
+                
+            prompt += f"\n\n---> Please output ONLY the 4-character string for THIS beat."
+            
+            beat_start_time_calc = time.time()
+            
+            # Score true mathematical probabilities for the 16 paths
+            probs_dict = get_qwen_16_step_probabilities(tmp_path, prompt, ALL_16_COMBOS)
+            
+            calc_time = time.time() - beat_start_time_calc
+            
+            # The model's prediction is mathematically defined as the sequence path with max probability
+            selected_step = max(probs_dict, key=probs_dict.get)
+            
+            prob_format = "|".join([f"{k}-{v:.1f}%" for k, v in probs_dict.items()])
+            
+            csv_rows.append([
+                f"{global_bpm:.1f}",
+                f"{duration_min:.2f}",
+                f"{beat_time:.2f}",
+                has_onset,
+                selected_step,
+                prob_format,
+                f"{calc_time:.2f}"
+            ])
+            
+            txt_rows.append(selected_step)
+            measure_step_outputs.append(selected_step)
+            
+        # Log measure history correctly
+        history_log.append(f"Measure {M+1}: " + ", ".join(measure_step_outputs))
         
-        # 4. Generate Output
-        response = generate_beatmap_with_qwen(tmp_path, prompt)
-        
-        # Parse only valid rows (ignoring conversational filler if hallucinated)
-        lines = [L.strip() for L in (response or "").splitlines() if len(L.strip()) == 4 and all(c in '01234' for c in L.strip())]
-        
-        # Enforce 4 rows strictly
-        while len(lines) < 4: lines.append("0000")
-        if len(lines) > 4: lines = lines[:4]
-        
-        measure_out_str = f"Measure {M+1}:\n" + "\n".join(lines)
-        history_log.append(measure_out_str)
-        out_rows.extend(lines)
-        
-        # Cleanup memory for loop 
         os.remove(tmp_path)
         gc.collect(); torch.cuda.empty_cache()
 
-    # Write output file
+    txt_rows.append(",") # Final trailing separator
+
+    # Write output files
     ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     csv_path = os.path.join(OUT_DIR, f"qwen_MeasureGrid_Wonsets_Wtempo_WBPM_{ts}.csv")
     txt_path = os.path.join(OUT_DIR, f"qwen_MeasureGrid_Wonsets_Wtempo_WBPM_{ts}.txt")
 
     with open(txt_path, "w") as f:
-        f.write("\n".join(out_rows))
+        f.write("\n".join(txt_rows))
 
     with open(csv_path, "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["notes"])
-        for r in out_rows: w.writerow([r])
+        # Flat Metadata Columns Header
+        w.writerow([
+            "global_bpm", 
+            "song_duration_minutes", 
+            "beat_time_sec", 
+            "onset_detected", 
+            "selected_step", 
+            "step_probabilities", 
+            "time_taken_sec"
+        ])
+        for r in csv_rows: 
+            w.writerow(r)
 
-    print(f"✅ Generated {len(out_rows)} rows across {total_measures} measures.")
+    print(f"✅ Generated {len(csv_rows)} absolute rows across {total_measures} measures.")
     print(f"Saved CSV: {csv_path}")
 
 if __name__ == "__main__":
