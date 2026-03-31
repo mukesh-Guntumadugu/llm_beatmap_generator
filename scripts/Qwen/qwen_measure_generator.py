@@ -73,6 +73,7 @@ def main():
     ALL_16_COMBOS = ["0000"] + VALID_STEP_COMBOS
 
     history_log = []
+    global_linear_history = []
     txt_rows = []
     csv_rows = []
 
@@ -126,8 +127,18 @@ def main():
             
             beat_start_time_calc = time.time()
             
-            # Score true mathematical probabilities for the 16 paths
-            probs_dict = get_qwen_16_step_probabilities(tmp_path, prompt, ALL_16_COMBOS)
+            # Slice last 8 beats explicitly to punish extreme repetitions
+            recent_history = global_linear_history[-8:]
+            
+            # Score true mathematical probabilities for the 16 paths using our custom ML Filter Pipeline
+            probs_dict = get_qwen_16_step_probabilities(
+                tmp_path, prompt, ALL_16_COMBOS,
+                temperature=1.0, 
+                top_p=0.9, 
+                min_p=0.05, 
+                repetition_penalty=1.2, 
+                recent_history=recent_history
+            )
             
             import random
             
@@ -137,6 +148,9 @@ def main():
             # This perfectly fixes the 0110 bias so it doesn't just spam the #1 highest percentage!
             choices = list(probs_dict.keys())
             weights = list(probs_dict.values())
+            
+            # Note: Because Top-P and Min-P zeroed out the invalid branches mathematically inside get_qwen...
+            # Python's random.choices automatically cannot ever pick them because their weight is 0.0!
             selected_step = random.choices(choices, weights=weights)[0]
             
             prob_format = "|".join([f"{k}-{v:.1f}%" for k, v in probs_dict.items()])
@@ -153,6 +167,7 @@ def main():
             
             txt_rows.append(selected_step)
             measure_step_outputs.append(selected_step)
+            global_linear_history.append(selected_step)
             
         # Log measure history correctly
         history_log.append(f"Measure {M+1}: " + ", ".join(measure_step_outputs))

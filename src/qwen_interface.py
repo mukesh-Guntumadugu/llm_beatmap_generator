@@ -139,7 +139,11 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
     
     return response_text
 
-def get_qwen_16_step_probabilities(audio_path: str, prompt: str, candidates: list) -> dict:
+def get_qwen_16_step_probabilities(
+    audio_path: str, prompt: str, candidates: list,
+    temperature=1.0, top_p=0.9, min_p=0.05, 
+    repetition_penalty=1.2, recent_history=None
+) -> dict:
     """ Computes exact sequence generation probabilities for specific text candidates by performing forward-pass loss extraction. """
     global _model, _processor
     if not _model or not _processor:
@@ -173,9 +177,48 @@ def get_qwen_16_step_probabilities(audio_path: str, prompt: str, candidates: lis
             seq_log_prob = -loss.item() * num_cand_tokens
             cand_scores.append(seq_log_prob)
             
-    # Apply softmax across all valid sequence log-probs
     scores_tensor = torch.tensor(cand_scores, dtype=torch.float32)
-    probs = torch.nn.functional.softmax(scores_tensor, dim=0).numpy()
+
+    # 1. Repetition Penalty 
+    # (If a step was recently picked, multiply its negative NLL by >1 to push probability toward 0)
+    if recent_history and repetition_penalty != 1.0:
+        for i, cand in enumerate(candidates):
+            if cand in recent_history:
+                scores_tensor[i] = scores_tensor[i] * repetition_penalty
+
+    # 2. Temperature Scaling
+    if temperature != 1.0 and temperature > 0.0:
+        scores_tensor = scores_tensor / temperature
+        
+    # Baseline Softmax conversion
+    probs = torch.nn.functional.softmax(scores_tensor, dim=0)
+
+    # 3. Min-P Filter
+    if min_p > 0.0:
+        max_prob = torch.max(probs)
+        min_allowed = max_prob * min_p
+        probs[probs < min_allowed] = 0.0
+
+    # 4. Top-P (Nucleus) Filter
+    if top_p < 1.0:
+        sorted_probs, sorted_indices = torch.sort(probs, descending=True)
+        cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
+        
+        # Identify indices to zero out (cumulative sum > top_p)
+        sorted_indices_to_remove = cumulative_probs > top_p
+        # Shift mask right by 1 to include the token that formally tips over the top_p boundary
+        sorted_indices_to_remove[..., 1:] = sorted_indices_to_remove[..., :-1].clone()
+        sorted_indices_to_remove[..., 0] = 0
+        
+        indices_to_remove = sorted_indices[sorted_indices_to_remove]
+        probs[indices_to_remove] = 0.0
+        
+    # Re-normalize remaining valid percentages perfectly back to 100%
+    probs_sum = probs.sum()
+    if probs_sum > 0:
+        probs = probs / probs_sum
+        
+    probs = probs.numpy()
     
     return {candidates[i]: probs[i]*100 for i in range(len(candidates))}
 
