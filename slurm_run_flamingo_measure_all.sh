@@ -11,7 +11,7 @@ echo "=== FLAMINGO MEASURE-BY-MEASURE: Starting 20 Loop Iterations === $(date)"
 cd /data/mg546924/llm_beatmap_generator
 export PYTHONUNBUFFERED=1
 
-PYTHON_DRIVER="/data/mg546924/conda_envs/music_flamingo_env/bin/python"
+PYTHON_DRIVER="/data/mg546924/conda_envs/flamingo_env/bin/python"
 BASE_DIR="/data/mg546924/llm_beatmap_generator/src/musicForBeatmap/Fraxtil's Arrow Arrangements"
 
 for ITERATION in {1..20}; do
