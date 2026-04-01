@@ -18,18 +18,18 @@ def initialize_flamingo_model():
         return _model, _processor
 
     try:
-        from transformers import AudioFlamingo3Processor, AudioFlamingo3ForConditionalGeneration
+        from transformers import AutoProcessor, AutoModelForCausalLM
     except ImportError as e:
-        print(f"❌ Failed to import Music Flamingo classes. Ensure you are in the correct conda env: {e}")
+        print(f"❌ Failed to import transformers classes: {e}")
         raise
 
     print("Loading Music-Flamingo Processor...", flush=True)
-    _processor = AudioFlamingo3Processor.from_pretrained(
+    _processor = AutoProcessor.from_pretrained(
         "nvidia/music-flamingo-hf", trust_remote_code=True
     )
 
     print("Loading Music-Flamingo Model (~30GB)...", flush=True)
-    _model = AudioFlamingo3ForConditionalGeneration.from_pretrained(
+    _model = AutoModelForCausalLM.from_pretrained(
         "nvidia/music-flamingo-hf",
         trust_remote_code=True,
         torch_dtype=torch.float16,
