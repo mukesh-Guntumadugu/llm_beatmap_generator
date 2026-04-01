@@ -183,6 +183,9 @@ def get_qwen_16_step_probabilities(
     # (If a step was recently picked, multiply its negative NLL by >1 to push probability toward 0)
     if recent_history and repetition_penalty > 1.0:
         for i, cand in enumerate(candidates):
+            if cand == "0000":
+                continue  # Never penalize resting!
+                
             count = recent_history.count(cand)
             if count > 0:
                 # Scaled Punishment: e.g. Penalty 1.15 -> 1 repeat = 1.15x, 3 repeats = 1.45x
