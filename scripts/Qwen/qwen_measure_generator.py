@@ -104,11 +104,12 @@ def main():
         # Iterating Beat by Beat
         for b in range(4):
             beat_time = start_time + b * beat_duration_sec
-            # onset_detected = True if ANY onset fires within the full beat time window
-            has_onset = any(beat_time <= t < beat_time + beat_duration_sec for t in m_onsets)
+            # Get exact onsets falling inside this specific beat's duration
+            onsets_in_slot = [t for t in m_onsets if beat_time <= t < beat_time + beat_duration_sec]
+            has_onset = len(onsets_in_slot) > 0
             
-            # Tally total number of raw Librosa onsets firing inside this specific beat's duration
-            onsets_in_this_beat_slot = sum(1 for t in m_onsets if beat_time <= t < beat_time + beat_duration_sec)
+            # Format exactly as requested: e.g. "0.12|0.17" or "None"
+            onsets_timestamps_str = "|".join([f"{t:.2f}" for t in onsets_in_slot]) if has_onset else "None"
             
             # Formulate beat prompt
             prompt = (
@@ -165,7 +166,7 @@ def main():
                 f"{global_bpm:.1f}",
                 f"{duration_min:.2f}",
                 f"{beat_time:.2f}",
-                onsets_in_this_beat_slot,   # Total onsets inside the mathematical time slot of this beat
+                onsets_timestamps_str,      # Exact timestamps (e.g. "0.12|0.17" or "None")
                 has_onset,
                 selected_step,
                 prob_format,
@@ -210,7 +211,7 @@ def main():
             "global_bpm", 
             "song_duration_minutes", 
             "beat_time_sec", 
-            "total_onsets_in_beat_slot",
+            "onset_timestamps_in_beat",
             "onset_detected", 
             "selected_step", 
             "step_probabilities", 
