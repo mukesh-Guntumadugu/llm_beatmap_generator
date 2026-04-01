@@ -148,9 +148,9 @@ def main():
                     tmp_path, prompt, ALL_16_COMBOS,
                     temperature=1.8, 
                     top_p=0.9, 
-                    min_p=0.05, 
+                    min_p=0.01, 
                     top_k=None,
-                    repetition_penalty=1.2, 
+                    repetition_penalty=1.5, 
                     recent_history=recent_history
                 )
                 
@@ -202,9 +202,9 @@ def main():
         w.writerow(["# Graph Search Strategy", "Exhaustive Sequence Evaluation (Math computes all 16 states natively, no Beam Search needed)"])
         w.writerow(["# Temperature", "1.8"])
         w.writerow(["# Top-P", "0.9"])
-        w.writerow(["# Min-P", "0.05"])
+        w.writerow(["# Min-P", "0.01"])
         w.writerow(["# Top-K", "None"])
-        w.writerow(["# Repetition Penalty", "Dynamic Scale Matrix (1.0 + N*0.2, Last-Beat Multiplier 1.1x)"])
+        w.writerow(["# Repetition Penalty", "Dynamic Scale Matrix (1.0 + N*0.5, Last-Beat Multiplier 1.1x)"])
         
         # Flat Metadata Columns Header
         w.writerow([
