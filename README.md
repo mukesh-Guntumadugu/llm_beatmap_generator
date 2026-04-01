@@ -176,6 +176,7 @@ To run this process, you **must be in the root directory** of the repository on 
 ssh mg546924@hpc.ent.ohio.edu
 cd /data/mg546924/llm_beatmap_generator
 sbatch slurm_run_qwen_measure.sh
+sbatch slurm_run_qwen_measure_all.sh # for all 20 songs
 squeue -u $USER   # monitor job
 ```
 Monitor its specific output using:
