@@ -142,6 +142,7 @@ BENCHMARK SUMMARY — Bad Ketchup onset detection
 | `run_flamingo.sh` | Run Music-Flamingo on all 23 audio files | `sbatch run_flamingo.sh` |
 | `run_mumu.sh` | Run MuMu-LLaMA on all songs | `sbatch run_mumu.sh` |
 | `slurm_qwen_sequential.sh` | Run Qwen on all songs | `sbatch slurm_qwen_sequential.sh` |
+| `slurm_run_qwen_measure.sh` | Run Qwen line-by-line (beat-by-beat) with Onsets, BPM, and Tempo features included | `sbatch slurm_run_qwen_measure.sh` |
 | `run_onset_extraction.sh` | Run Librosa baseline on all songs | `bash run_onset_extraction.sh` |
 
 > All Slurm jobs can be monitored with `squeue -u $USER` and `tail -f logs/<logfile>.out`
@@ -166,6 +167,21 @@ srun -p defq --gres=gpu:1 --pty bash
 > See `CHAT_DEEPRESONANCE_README.md` for full instructions.
 
 ---
+
+### Qwen Measure-by-Measure Batch Job
+This job executes the Qwen model to generate beatmaps **line-by-line (beat-by-beat/measure-by-measure)**. This advanced generation process incorporates **Onsets**, **BPM**, and **Tempo** directly into its context window, allowing extremely detailed charts. This line-by-line feature is currently **exclusive to Qwen**.
+
+To run this process, you **must be in the root directory** of the repository on the cluster:
+```bash
+ssh mg546924@hpc.ent.ohio.edu
+cd /data/mg546924/llm_beatmap_generator
+sbatch slurm_run_qwen_measure.sh
+squeue -u $USER   # monitor job
+```
+Monitor its specific output using:
+```bash
+tail -f /data/mg546924/llm_beatmap_generator/logs/qwen_measure_<JOBID>.out
+```
 
 ## 📊 Evaluation
 
