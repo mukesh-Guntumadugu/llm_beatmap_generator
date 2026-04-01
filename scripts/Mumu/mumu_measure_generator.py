@@ -125,8 +125,11 @@ def main():
             else:
                 prompt += f"CONDITION: NO ONSET here. You MUST output 0000.\n"
                 
-            prompt += f"\nHISTORY (Last 15 Measures max):\n"
-            prompt += "\n".join(history_log[-15:]) if history_log else "None."
+            prompt += f"\nHISTORY (All Previous Measures):\n"
+            if len(history_log) > 0:
+                prompt += "\n".join(history_log)
+            else:
+                prompt += "None."
                 
             prompt += f"\n\n---> Please output ONLY the 4-character string for THIS beat."
             
