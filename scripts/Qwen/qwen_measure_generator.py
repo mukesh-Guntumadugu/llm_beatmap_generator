@@ -4,7 +4,9 @@ import sys
 import tempfile
 import gc
 import csv
+import random
 import datetime
+import time
 import torch
 import librosa
 import numpy as np
@@ -66,7 +68,6 @@ def main():
     OUT_DIR = os.path.join(OUT_DIR, "Qwen", "Wonsets_Wtempo_WBPM")
     os.makedirs(OUT_DIR, exist_ok=True)
     
-    import time
     script_start_time = time.time()
     duration_min = duration / 60.0
     
