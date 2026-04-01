@@ -144,7 +144,7 @@ def main():
                 # Score true mathematical probabilities for the 16 paths using our custom ML Filter Pipeline
                 probs_dict = get_qwen_16_step_probabilities(
                     tmp_path, prompt, ALL_16_COMBOS,
-                    temperature=5.0, 
+                    temperature=1.8, 
                     top_p=0.9, 
                     min_p=0.05, 
                     top_k=None,
@@ -198,7 +198,7 @@ def main():
         # Write ML Parameters at exactly the TOP of the CSV
         w.writerow(["# ML Generation Strategy", "Weighted Multinomial Probability Sampling"])
         w.writerow(["# Graph Search Strategy", "Exhaustive Sequence Evaluation (Math computes all 16 states natively, no Beam Search needed)"])
-        w.writerow(["# Temperature", "5.0"])
+        w.writerow(["# Temperature", "1.8"])
         w.writerow(["# Top-P", "0.9"])
         w.writerow(["# Min-P", "0.05"])
         w.writerow(["# Top-K", "None"])
