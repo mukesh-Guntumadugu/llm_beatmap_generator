@@ -141,7 +141,7 @@ def generate_beatmap_with_qwen(audio_path: str, prompt: str) -> str:
 
 def get_qwen_16_step_probabilities(
     audio_path: str, prompt: str, candidates: list,
-    temperature=1.0, top_p=0.9, min_p=0.05, top_k=None,
+    temperature=5.0, top_p=0.9, min_p=0.05, top_k=None,
     repetition_penalty=1.2, recent_history=None
 ) -> dict:
     """ Computes exact sequence generation probabilities for specific text candidates by performing forward-pass loss extraction. """

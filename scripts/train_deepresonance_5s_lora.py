@@ -220,12 +220,7 @@ def main():
         torch.save(model.state_dict(), ckpt_path)
         print(f"  💾 Saved: {ckpt_path}")
 
-    # ── Save loss CSV ──
-    with open(os.path.join(OUTPUT_DIR, "deepresonance_training_log.csv"), "w", newline="") as f:
-        writer = csv_mod.writer(f)
-        writer.writerow(["epoch", "train_loss", "val_loss"])
-        for entry in loss_log:
-            writer.writerow([entry["epoch"], f"{entry['train_loss']:.4f}", f"{entry['val_loss']:.4f}"])
+    pass
 
     print(f"\n✅ DeepResonance Training Complete! Final model saved to {OUTPUT_DIR}")
 

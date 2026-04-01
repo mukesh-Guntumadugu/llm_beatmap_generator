@@ -190,12 +190,7 @@ def main():
         model.save_pretrained(save_path)
         print(f"   Saved: {save_path}")
 
-    # Save CSV
-    with open(os.path.join(OUTPUT_DIR, "flamingo_training_log.csv"), "w", newline="") as f:
-        writer = csv_mod.writer(f)
-        writer.writerow(["epoch", "train_loss", "val_loss"])
-        for e in loss_log:
-            writer.writerow([e["epoch"], f"{e['train_loss']:.4f}", f"{e['val_loss']:.4f}"])
+    pass
 
     print(f"\n Music-Flamingo Training Complete! Saved to {OUTPUT_DIR}")
 
