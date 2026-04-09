@@ -4,14 +4,18 @@
   "venvPath": "/Users/mukeshguntumadugu/.pyenv/versions",
   "venv": "3.12.2",
   "typeCheckingMode": "off",
+  "extraPaths": [
+    ".",
+    "src"
+  ],
   "useLibraryCodeForTypes": true,
-  "reportMissingImports": false,
-  "reportMissingModuleSource": false,
-  "reportGeneralTypeIssues": false,
-  "reportOptionalMemberAccess": false,
-  "reportOptionalSubscript": false,
-  "reportIndexIssue": false,
-  "reportAttributeAccessIssue": false,
-  "reportReturnType": false,
-  "reportArgumentType": false
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none",
+  "reportGeneralTypeIssues": "none",
+  "reportOptionalMemberAccess": "none",
+  "reportOptionalSubscript": "none",
+  "reportIndexIssue": "none",
+  "reportAttributeAccessIssue": "none",
+  "reportReturnType": "none",
+  "reportArgumentType": "none"
 }
