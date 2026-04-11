@@ -8,6 +8,8 @@ from datetime import datetime
 import pandas as pd
 import numpy as np
 
+import audio_feature_extraction as afe
+
 try:
     from sklearn.cluster import HDBSCAN
 except ImportError:
@@ -20,6 +22,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import OneHotEncoder
 import umap
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 try:
     from prefixspan import PrefixSpan
@@ -30,13 +33,23 @@ def parse_ssc_sm(file_path):
     """
     Parses a single .ssc or .sm file and returns a list of dictionaries with difficulty and parsed measures.
     """
+    metadata = {'bpms': None, 'offset': None, 'music': None}
     charts = []
     try:
         with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
             content = f.read()
     except Exception as e:
         print(f"Failed to read {file_path}: {e}")
-        return charts
+        return charts, metadata
+
+    # Extract High-level metadata
+    bpms_match = re.search(r'#BPMS:\s*([^;]+);', content)
+    offset_match = re.search(r'#OFFSET:\s*([^;]+);', content)
+    music_match = re.search(r'#MUSIC:\s*([^;]+);', content)
+    
+    if bpms_match: metadata['bpms'] = bpms_match.group(1).strip()
+    if offset_match: metadata['offset'] = offset_match.group(1).strip()
+    if music_match: metadata['music'] = music_match.group(1).strip()
 
     if file_path.endswith('.ssc'):
         sections = content.split('#NOTEDATA:')
@@ -65,7 +78,7 @@ def parse_ssc_sm(file_path):
                 notes_str = parts[5].split(';')[0]
                 charts.append({'difficulty': diff, 'notes_string': notes_str})
                 
-    return charts
+    return charts, metadata
 
 def clean_and_split_measures(notes_str):
     """
@@ -396,6 +409,39 @@ def init_database(db_path: str) -> sqlite3.Connection:
             frequency   INTEGER,
             saved_at    TEXT    NOT NULL
         );
+
+        CREATE TABLE IF NOT EXISTS cluster_transitions (
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            run_id          TEXT    NOT NULL,
+            current_cluster INTEGER NOT NULL,
+            next_cluster    INTEGER NOT NULL,
+            count           INTEGER,
+            probability     REAL,
+            saved_at        TEXT    NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS audio_features (
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            run_id          TEXT    NOT NULL,
+            file_path       TEXT    NOT NULL,
+            difficulty      TEXT    NOT NULL,
+            measure_idx     INTEGER NOT NULL,
+            start_time      REAL,
+            end_time        REAL,
+            rms_energy      REAL,
+            onset_density   REAL,
+            tempo_strength  REAL,
+            chroma_mean     REAL,
+            spectral_centroid REAL,
+            spectral_bandwidth REAL,
+            spectral_contrast REAL,
+            spectral_flatness REAL,
+            vocal_word_count  REAL,
+            vocal_density     REAL,
+            mfcc_0 REAL, mfcc_1 REAL, mfcc_2 REAL, mfcc_3 REAL, mfcc_4 REAL, mfcc_5 REAL, 
+            mfcc_6 REAL, mfcc_7 REAL, mfcc_8 REAL, mfcc_9 REAL, mfcc_10 REAL, mfcc_11 REAL, mfcc_12 REAL,
+            saved_at        TEXT    NOT NULL
+        );
     """)
     conn.commit()
     return conn
@@ -446,7 +492,7 @@ def log_file_to_db(conn: sqlite3.Connection, file_path: str, song_name: str,
 # MAIN DATASET PROCESSING
 # ---------------------------------------------------------------------------
 
-def process_dataset(directory, db_path):
+def process_dataset(directory, db_path, run_id):
     print(f"Scanning directory: {directory} for .ssc and .sm files...")
     search_pattern_ssc = os.path.join(directory, '**', '*.ssc')
     search_pattern_sm  = os.path.join(directory, '**', '*.sm')
@@ -527,7 +573,25 @@ def process_dataset(directory, db_path):
         if count > 0 and count % 100 == 0:
             print(f"  --- Checkpoint: {count}/{total} files processed ---")
 
-        charts = parse_ssc_sm(fp)
+        charts, metadata = parse_ssc_sm(fp)
+        
+        # Audio feature setup
+        y, sr, time_map, vocal_words = None, None, None, []
+        if metadata['music']:
+            audio_path = os.path.join(os.path.dirname(fp), metadata['music'])
+        else:
+            base = os.path.join(os.path.dirname(fp), os.path.splitext(os.path.basename(fp))[0])
+            if os.path.exists(base+'.ogg'): audio_path = base+'.ogg'
+            elif os.path.exists(base+'.mp3'): audio_path = base+'.mp3'
+            else: audio_path = None
+            
+        if audio_path:
+            y, sr = afe.load_audio(audio_path)
+            time_map = afe.parse_time_map(metadata['bpms'], metadata['offset'])
+            vocal_words = afe.transcribe_vocals(audio_path)
+            
+        audio_rows = []
+
         for chart in charts:
             diff = chart['difficulty']
 
@@ -544,6 +608,7 @@ def process_dataset(directory, db_path):
                 diff_stats[diff]['files_with_4col'] += 1
                 diff_stats[diff]['total_4col_measures'] += len(cleaned_measures)
 
+            measure_idx = 0
             for measure_lines in cleaned_measures:
                 # Count characters
                 for line in measure_lines:
@@ -558,8 +623,7 @@ def process_dataset(directory, db_path):
                 all_upscaled_measures.append(flattened)
                 all_raw_measures.append(measure_lines)  # keep raw for alt encodings
 
-                # Sequential Pattern Mining: canonicalize each active row so that
-                # mirrored step strings (e.g. '1000' and '0001') are treated as one.
+                # Sequential Pattern Mining
                 active_steps = [
                     canonicalize_row(line)
                     for line in measure_lines
@@ -567,6 +631,27 @@ def process_dataset(directory, db_path):
                 ]
                 if active_steps:
                     all_sequence_measures.append(active_steps)
+                    
+                # Audio Feature Extraction
+                if y is not None and time_map is not None:
+                    start_beat = measure_idx * 4.0
+                    end_beat = start_beat + 4.0
+                    start_time = afe.get_time_for_beat(start_beat, time_map)
+                    end_time = afe.get_time_for_beat(end_beat, time_map)
+                    feats = afe.extract_audio_features_for_slice(y, sr, start_time, end_time)
+                    vocal_feats = afe.get_vocal_features_for_slice(vocal_words, start_time, end_time)
+                    
+                    row_time = datetime.now().isoformat()
+                    audio_rows.append((run_id, fp, diff, measure_idx, start_time, end_time) + tuple(feats) + tuple(vocal_feats) + (row_time,))
+
+                measure_idx += 1
+                
+        if audio_rows:
+            conn.executemany(
+                "INSERT INTO audio_features (run_id, file_path, difficulty, measure_idx, start_time, end_time, rms_energy, onset_density, tempo_strength, chroma_mean, spectral_centroid, spectral_bandwidth, spectral_contrast, spectral_flatness, mfcc_0, mfcc_1, mfcc_2, mfcc_3, mfcc_4, mfcc_5, mfcc_6, mfcc_7, mfcc_8, mfcc_9, mfcc_10, mfcc_11, mfcc_12, vocal_word_count, vocal_density, saved_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                audio_rows
+            )
+            conn.commit()
 
             # Log to database after each file is fully processed
             file_diffs    = [c['difficulty'] for c in charts]
@@ -656,6 +741,29 @@ def run_topology_pipeline(measures_ohe, raw_measures, conn, run_id, output_dir, 
     conn.commit()
     print(f"Cluster counts saved to DB (table: cluster_counts, run_id={run_id})")
 
+    # Save Macro-Markov Chain (Cluster Transitions) → DB
+    print("Calculating Macro-Markov Chain (Measure-level Cluster Transitions)...")
+    cluster_trans = Counter()
+    cluster_state_counts = Counter()
+    for i in range(len(labels) - 1):
+        cur, nxt = labels[i], labels[i+1]
+        cluster_trans[(cur, nxt)] += 1
+        cluster_state_counts[cur] += 1
+
+    trans_rows = []
+    for (cur, nxt), cnt in cluster_trans.items():
+        prob = cnt / cluster_state_counts[cur]
+        trans_rows.append((run_id, int(cur), int(nxt), int(cnt), round(prob, 4), now))
+
+    conn.executemany(
+        "INSERT INTO cluster_transitions "
+        "(run_id, current_cluster, next_cluster, count, probability, saved_at) "
+        "VALUES (?,?,?,?,?,?)",
+        trans_rows
+    )
+    conn.commit()
+    print(f"Cluster transitions saved to DB (table: cluster_transitions, run_id={run_id})")
+
     # 4. UMAP — still saved as PNG (images don't belong in a DB)
     print("Projecting clusters to 2D Map using UMAP...")
     reducer = umap.UMAP(n_neighbors=15, min_dist=0.1, metric='euclidean', random_state=42)
@@ -672,9 +780,55 @@ def run_topology_pipeline(measures_ohe, raw_measures, conn, run_id, output_dir, 
     png_path = os.path.join(output_dir, f'measure_cluster_map_{encoding}.png')
     plt.savefig(png_path, dpi=300, bbox_inches='tight')
     print(f"Visualization saved to {png_path}")
+    plt.close()
+
+    # 5. Feature Representation Heatmap (What traits does each cluster have?)
+    if encoding in ['features', 'relative', 'rle']:
+        print("Generating Feature Profile Heatmap...")
+        df_encoded = pd.DataFrame(encoded_data)
+        df_encoded['cluster'] = labels
+        # Exclude noise for the profile heatmap so we just see the clean patterns
+        cluster_means = df_encoded[df_encoded['cluster'] != -1].groupby('cluster').mean()
+        
+        if encoding == 'features':
+            col_names = ['active_steps', 'jumps', 'max_dist', 'avg_dist', 
+                         'returns', 'density', 'uniq_cols', 'has_holds', 'has_mines']
+        elif encoding == 'relative':
+            col_names = ['-3', '-2', '-1', '0', '+1', '+2', '+3']
+        elif encoding == 'rle':
+            col_names = ['num_events', 'avg_wait', 'max_wait', 'min_wait', 'wait_std', 'density']
+        else:
+            col_names = [str(i) for i in range(encoded_data.shape[1])]
+            
+        cluster_means.columns = col_names
+        
+        plt.figure(figsize=(10, max(4, len(cluster_means) * 0.5 + 2)))
+        sns.heatmap(cluster_means, annot=True, cmap="YlGnBu", fmt=".2f")
+        plt.title(f"Average Features per Cluster [{encoding}]")
+        plt.ylabel("Cluster ID")
+        feat_heat_path = os.path.join(output_dir, f'feature_heatmap_{encoding}.png')
+        plt.savefig(feat_heat_path, dpi=300, bbox_inches='tight')
+        print(f"Feature Heatmap saved to {feat_heat_path}")
+        plt.close()
+
+    # 6. Macro-Markov Heatmap (Cluster Transition Matrix)
+    print("Generating Macro-Markov (Cluster Transition) Heatmap...")
+    if len(trans_rows) > 0:
+        df_trans = pd.DataFrame(trans_rows, columns=['run_id', 'cur', 'nxt', 'count', 'prob', 'saved_at'])
+        pivot_trans = df_trans.pivot(index='cur', columns='nxt', values='prob').fillna(0)
+        
+        plt.figure(figsize=(10, 8))
+        sns.heatmap(pivot_trans, annot=True, cmap="Reds", fmt=".2f")
+        plt.title("Macro-Markov Transition Probabilities (Cluster -> Cluster)")
+        plt.xlabel("Next Cluster")
+        plt.ylabel("Current Cluster")
+        macro_heat_path = os.path.join(output_dir, 'macro_cluster_transitions_heatmap.png')
+        plt.savefig(macro_heat_path, dpi=300, bbox_inches='tight')
+        print(f"Macro-Markov Heatmap saved to {macro_heat_path}")
+        plt.close()
 
 
-def run_sequential_pipeline(sequence_measures, conn, run_id):
+def run_sequential_pipeline(sequence_measures, conn, run_id, output_dir):
     print(f"\n--- Sequential Pattern Mining ---")
     if not sequence_measures:
         return
@@ -703,6 +857,29 @@ def run_sequential_pipeline(sequence_measures, conn, run_id):
     )
     conn.commit()
     print(f"Saved {len(markov_rows)} Markov transitions to DB (table: markov_transitions, run_id={run_id})")
+
+    # Generate Micro-Markov Heatmap
+    print("Generating Micro-Markov Heatmap for Top 15 States...")
+    if len(markov_rows) > 0:
+        df_micro = pd.DataFrame(markov_rows, columns=['run_id', 'cur', 'nxt', 'count', 'prob', 'saved_at'])
+        # Get top 15 most frequent states to keep heatmap readable
+        top_states = [x[0] for x in state_counts.most_common(15)]
+        
+        df_top = df_micro[(df_micro['cur'].isin(top_states)) & (df_micro['nxt'].isin(top_states))]
+        
+        if not df_top.empty:
+            pivot_micro = df_top.pivot(index='cur', columns='nxt', values='prob').fillna(0)
+            pivot_micro = pivot_micro.reindex(index=top_states, columns=top_states, fill_value=0)
+            
+            plt.figure(figsize=(12, 10))
+            sns.heatmap(pivot_micro, annot=True, cmap="Blues", fmt=".2f")
+            plt.title("Micro-Markov Transition Probabilities (Top 15 States)")
+            plt.xlabel("Next Step State")
+            plt.ylabel("Current Step State")
+            micro_heat_path = os.path.join(output_dir, 'micro_markov_transitions_heatmap.png')
+            plt.savefig(micro_heat_path, dpi=300, bbox_inches='tight')
+            print(f"Micro-Markov Heatmap saved to {micro_heat_path}")
+            plt.close()
 
     # PrefixSpan
     print("Mining frequent sequential sub-patterns using PrefixSpan...")
@@ -758,9 +935,11 @@ def main():
     run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
     print(f"\nRun ID: {run_id}  |  DB: {args.db_path}\n")
 
-    measures, raw_measures, seq_measures, diff_stats, chars = process_dataset(args.target_dir, args.db_path)
+    measures, raw_measures, seq_measures, diff_stats, chars = process_dataset(args.target_dir, args.db_path, run_id)
 
     now = datetime.now().isoformat()
+    if not measures:
+        return
 
     # ------------------------------------------------------------------ #
     # 1. Difficulty 4-column breakdown → difficulty_breakdown table
@@ -824,7 +1003,7 @@ def main():
             print(f"Topology Pipeline failed: {e}")
 
         try:
-            run_sequential_pipeline(seq_measures, conn, run_id)
+            run_sequential_pipeline(seq_measures, conn, run_id, args.output_dir)
         except Exception as e:
             print(f"Sequential Pipeline failed: {e}")
 
@@ -835,10 +1014,12 @@ def main():
         print("\n-- Exporting DB tables to CSV --")
         tables = [
             ("difficulty_breakdown",    "difficulty_4col_breakdown.csv"),
-            ("character_distributions",  "character_distributions.csv"),
-            ("cluster_counts",           "hdbscan_cluster_counts.csv"),
-            ("markov_transitions",       "markov_chain_transitions.csv"),
-            ("prefixspan_patterns",      "prefixspan_frequent_patterns.csv"),
+            ("character_distributions", "character_distributions.csv"),
+            ("cluster_counts",          "hdbscan_cluster_counts.csv"),
+            ("cluster_transitions",     "macro_cluster_transitions.csv"),
+            ("markov_transitions",      "markov_chain_transitions.csv"),
+            ("prefixspan_patterns",     "prefixspan_frequent_patterns.csv"),
+            ("audio_features",          "audio_features_metrics.csv"),
         ]
         for table, fname in tables:
             df = pd.read_sql(f"SELECT * FROM {table} WHERE run_id=?", conn, params=(run_id,))
