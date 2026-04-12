@@ -31,6 +31,10 @@ wandb/
 # HPC cluster — never commit model weights or job logs
 logs/
 MuMu-LLaMA/
+DeepResonance/
+Music-Flamingo/
+SALMONN/
+llark/
 =4.45.0
 src/.venv_qwen/
 
