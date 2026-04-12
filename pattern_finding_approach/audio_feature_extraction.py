@@ -154,6 +154,13 @@ def transcribe_vocals(audio_path):
     
     if _whisper_model is None:
         print("\n  [Speech-To-Text] Loading Whisper model (base)...")
+        import ssl
+        try:
+            _create_unverified_https_context = ssl._create_unverified_context
+        except AttributeError:
+            pass
+        else:
+            ssl._create_default_https_context = _create_unverified_https_context
         _whisper_model = whisper.load_model("base")
         
     print(f"  [Speech-To-Text] Transcribing lyrics for {os.path.basename(audio_path)}...")

@@ -442,6 +442,23 @@ def init_database(db_path: str) -> sqlite3.Connection:
             mfcc_6 REAL, mfcc_7 REAL, mfcc_8 REAL, mfcc_9 REAL, mfcc_10 REAL, mfcc_11 REAL, mfcc_12 REAL,
             saved_at        TEXT    NOT NULL
         );
+
+        CREATE TABLE IF NOT EXISTS stepmania_features (
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            run_id          TEXT    NOT NULL,
+            file_path       TEXT    NOT NULL,
+            difficulty      TEXT    NOT NULL,
+            measure_idx     INTEGER NOT NULL,
+            total_active    INTEGER,
+            jumps           INTEGER,
+            max_dist        INTEGER,
+            avg_dist        REAL,
+            returns         INTEGER,
+            density         REAL,
+            uniq_col        INTEGER,
+            has_hold        INTEGER,
+            has_mine        INTEGER
+        );
     """)
     conn.commit()
     return conn
@@ -591,6 +608,7 @@ def process_dataset(directory, db_path, run_id):
             vocal_words = afe.transcribe_vocals(audio_path)
             
         audio_rows = []
+        stepmania_rows = []
 
         for chart in charts:
             diff = chart['difficulty']
@@ -644,6 +662,10 @@ def process_dataset(directory, db_path, run_id):
                     row_time = datetime.now().isoformat()
                     audio_rows.append((run_id, fp, diff, measure_idx, start_time, end_time) + tuple(feats) + tuple(vocal_feats) + (row_time,))
 
+                # Record the 9 Physical Stepmania Features for this measure
+                sm_feats = extract_measure_features(measure_lines)
+                stepmania_rows.append((run_id, fp, diff, measure_idx) + tuple(sm_feats))
+
                 measure_idx += 1
                 
         if audio_rows:
@@ -651,23 +673,29 @@ def process_dataset(directory, db_path, run_id):
                 "INSERT INTO audio_features (run_id, file_path, difficulty, measure_idx, start_time, end_time, rms_energy, onset_density, tempo_strength, chroma_mean, spectral_centroid, spectral_bandwidth, spectral_contrast, spectral_flatness, mfcc_0, mfcc_1, mfcc_2, mfcc_3, mfcc_4, mfcc_5, mfcc_6, mfcc_7, mfcc_8, mfcc_9, mfcc_10, mfcc_11, mfcc_12, vocal_word_count, vocal_density, saved_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 audio_rows
             )
-            conn.commit()
-
-            # Log to database after each file is fully processed
-            file_diffs    = [c['difficulty'] for c in charts]
-            file_measures = sum(
-                len(clean_and_split_measures(c['notes_string'])) for c in charts
+            
+        if stepmania_rows:
+            conn.executemany(
+                "INSERT INTO stepmania_features (run_id, file_path, difficulty, measure_idx, total_active, jumps, max_dist, avg_dist, returns, density, uniq_col, has_hold, has_mine) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                stepmania_rows
             )
-            log_file_to_db(conn,
-                           file_path=fp,
-                           song_name=os.path.splitext(os.path.basename(fp))[0],
-                           fmt=os.path.splitext(fp)[1],
-                           skipped=False,
-                           difficulties=file_diffs,
-                           measures_4col=file_measures)
+        conn.commit()
+
+        # Log to database after each file is fully processed
+        file_diffs    = [c['difficulty'] for c in charts]
+        file_measures = sum(
+            len(clean_and_split_measures(c['notes_string'])) for c in charts
+        )
+        log_file_to_db(conn,
+                       file_path=fp,
+                       song_name=os.path.splitext(os.path.basename(fp))[0],
+                       fmt=os.path.splitext(fp)[1],
+                       skipped=False,
+                       difficulties=file_diffs,
+                       measures_4col=file_measures)
 
     conn.close()
-    print(f"\nDatabase updated: {db_path}")
+    print(f"\\nDatabase updated: {db_path}")
     print("Data parsing complete!")
     return all_upscaled_measures, all_raw_measures, all_sequence_measures, diff_stats, char_counts
 
