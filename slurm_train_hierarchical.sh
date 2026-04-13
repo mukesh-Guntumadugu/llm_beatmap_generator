@@ -4,10 +4,9 @@
 #SBATCH --error=logs/train_hierarchical_%j.log
 #SBATCH --time=24:00:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
-#SBATCH --exclusive
+#SBATCH --cpus-per-task=4
 #SBATCH --partition=defq
-#SBATCH --gres=gpu:A6000:1
+#SBATCH --gres=gpu:1
 
 set -e
 mkdir -p /data/mg546924/llm_beatmap_generator/logs
