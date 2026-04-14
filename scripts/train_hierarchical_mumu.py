@@ -274,7 +274,7 @@ def main():
     tokenizer, model = extend_tokenizer_and_model(tokenizer, model, cluster_tokens)
 
     print(f"Transferring model to {torch.cuda.device_count()} GPUs (float16)...")
-    # Checkpoint weights are stored in FP16 — model MUST be half() for dtype consistency.
+    # Model + checkpoint both in FP16. output.float() in mumu_llama.py handles NaN in loss.
     model = model.cuda().half()
 
     # Enable native PyTorch DataParallel across all available Slurm GPUs
@@ -330,7 +330,7 @@ def main():
         for batch_idx, (examples, labels, mask, audio, modality, caption) in enumerate(pbar):
             examples = examples.cuda().contiguous()
             labels   = labels.cuda().contiguous()
-            audio    = audio.cuda().contiguous()
+            audio    = audio.cuda().contiguous().half()  # must match FP16 model
 
             optimizer.zero_grad()
             try:
