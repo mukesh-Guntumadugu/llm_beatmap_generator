@@ -307,14 +307,13 @@ def main():
     )
     val_loader   = DataLoader(val_dataset,   batch_size=BATCH_SIZE, shuffle=False, num_workers=0)
 
-    # ── STEP 3: Optimizer + GradScaler ──────────────────────────────────────
+    # ── STEP 3: Optimizer ────────────────────────────────────────────────────
     # Only update the new cluster token embeddings + LoRA/trainable layers
     optimizer = torch.optim.AdamW(
         filter(lambda p: p.requires_grad, model.parameters()),
         lr=LR, weight_decay=0.05
     )
-    # GradScaler prevents NaN loss from FP16 overflow — standard for mixed precision
-    scaler = torch.cuda.amp.GradScaler()
+    # Pure FP32 training — no GradScaler, no autocast, no NaN, no unscale errors.
 
     # ── STEP 4: Training Loop ─────────────────────────────────────────────────
     loss_log = []
@@ -338,32 +337,24 @@ def main():
 
             optimizer.zero_grad()
             try:
-                with torch.cuda.amp.autocast(dtype=torch.float16):
-                    c_loss, m_loss = model(examples, labels, audios=audio, music_caption=None)
+                c_loss, m_loss = model(examples, labels, audios=audio, music_caption=None)
 
-                    # If multiple GPUs are used, average the scattered loss arrays
-                    if torch.cuda.device_count() > 1:
-                        c_loss = c_loss.mean()
-                        m_loss = m_loss.mean()
+                # If multiple GPUs are used, average the scattered loss arrays
+                if torch.cuda.device_count() > 1:
+                    c_loss = c_loss.mean()
+                    m_loss = m_loss.mean()
 
-                    loss = c_loss + m_loss
-
-                # GradScaler: scales loss to prevent FP16 underflow/overflow → no NaN
-                scaler.scale(loss).backward()
-                scaler.unscale_(optimizer)
+                loss = c_loss + m_loss
+                loss.backward()
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
-                scaler.step(optimizer)
-                scaler.update()
+                optimizer.step()
 
-                loss_val = loss.item()
-                if not (loss_val != loss_val):  # skip NaN batches from the average
-                    epoch_loss  += loss_val
-                    num_batches += 1
-                    pbar.set_postfix({"loss": f"{epoch_loss/num_batches:.4f}"})
+                epoch_loss  += loss.item()
+                num_batches += 1
+                pbar.set_postfix({"loss": f"{epoch_loss/num_batches:.4f}"})
 
-                # Periodic VRAM defrag
                 del c_loss, m_loss, loss
-                if batch_idx > 0 and batch_idx % 50 == 0:
+                if batch_idx % 50 == 0:
                     torch.cuda.empty_cache()
 
             except Exception as e:
@@ -382,10 +373,9 @@ def main():
                 labels   = labels.cuda()
                 audio    = audio.cuda()
                 try:
-                    with torch.cuda.amp.autocast(dtype=torch.float16):
-                        c_loss, m_loss = model(examples, labels, audios=audio, music_caption=None)
-                        val_loss   += (c_loss + m_loss).item()
-                        val_batches += 1
+                    c_loss, m_loss = model(examples, labels, audios=audio, music_caption=None)
+                    val_loss   += (c_loss + m_loss).item()
+                    val_batches += 1
                 except Exception as e:
                     import traceback
                     print(f"  [VAL SKIP]: {e}\n{traceback.format_exc()}")
