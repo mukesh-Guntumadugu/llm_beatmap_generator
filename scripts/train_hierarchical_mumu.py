@@ -217,12 +217,10 @@ class HierarchicalDataset(Dataset):
         full_ids = full_ids.clamp(min=0, max=vocab_size - 1)
 
         # ── Mask labels: only learn the cluster token sequence ──────────────
-        # Use -100 (PyTorch standard ignore_index) for prompt tokens so they
-        # are never used in loss calculation. Avoids token-0 ambiguity.
+        # MuMu's internal self.criterion uses ignore_index=0, so we mask
+        # prompt tokens with 0 (NOT -100 which would crash the CUDA NLL loss).
         labels = full_ids.clone()
-        labels[:len(prompt_ids)] = -100  # mask prompt — do NOT learn these
-        # Also mask padding tokens
-        labels[full_ids == 0] = -100
+        labels[:len(prompt_ids)] = 0  # mask prompt — MuMu ignores token_id=0
 
         mask = full_ids.ne(0)
 
