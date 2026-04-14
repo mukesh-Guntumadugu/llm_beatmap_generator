@@ -240,8 +240,17 @@ def main():
     cluster_tokens = load_cluster_tokens(TOKENS_TXT)
     tokenizer, model = extend_tokenizer_and_model(tokenizer, model, cluster_tokens)
 
-    model = model.cuda().float()
+    print(f"Transferring model to {torch.cuda.device_count()} GPUs (bfloat16)...")
+    # Cast entirely to bfloat16 to cut VRAM usage by 50%
+    model = model.cuda().bfloat16()
 
+    # Enable native PyTorch DataParallel across all available Slurm GPUs
+    n_gpus = torch.cuda.device_count()
+    if n_gpus > 1:
+        print(f"🔥 Automatic DataParallel Enabled across {n_gpus} GPUs! 🔥")
+        model = torch.nn.DataParallel(model)
+
+    print("Model initialized and ready.")
     # ── STEP 2: Dataset ──────────────────────────────────────────────────────
     print("Loading hierarchical SFT dataset...")
     full_dataset = HierarchicalDataset(DATASET_JSONL, tokenizer, MAX_WORDS)
@@ -253,7 +262,15 @@ def main():
     )
     print(f"  Train: {train_size} | Val: {val_size}")
 
-    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True,  num_workers=0)
+    effective_batch_size = BATCH_SIZE * max(1, torch.cuda.device_count())
+
+    train_loader = DataLoader(
+        train_dataset,
+        batch_size=effective_batch_size,
+        shuffle=True,
+        collate_fn=train_dataset.collate_fn,
+        drop_last=True
+    )
     val_loader   = DataLoader(val_dataset,   batch_size=BATCH_SIZE, shuffle=False, num_workers=0)
 
     # ── STEP 3: Optimizer ────────────────────────────────────────────────────
@@ -284,8 +301,14 @@ def main():
             audio    = audio.cuda()
 
             try:
-                with torch.cuda.amp.autocast():
+                with torch.cuda.amp.autocast(dtype=torch.bfloat16):
                     c_loss, m_loss = model(examples, labels, audios=audio, music_caption=None)
+                    
+                    # If multiple GPUs are used, average the scattered loss arrays mathematically
+                    if torch.cuda.device_count() > 1:
+                        c_loss = c_loss.mean()
+                        m_loss = m_loss.mean()
+
                     loss = c_loss + m_loss
 
                 optimizer.zero_grad()
