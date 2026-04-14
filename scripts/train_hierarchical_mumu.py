@@ -297,6 +297,11 @@ def main():
                 num_batches += 1
                 pbar.set_postfix({"loss": f"{epoch_loss/num_batches:.4f}"})
 
+                # Extremely aggressive VRAM defragmentation
+                del c_loss, m_loss, loss
+                if batch_idx > 0 and batch_idx % 50 == 0:
+                    torch.cuda.empty_cache()
+
             except Exception as e:
                 print(f"\n  [SKIP] batch {batch_idx}: {e}")
                 continue
