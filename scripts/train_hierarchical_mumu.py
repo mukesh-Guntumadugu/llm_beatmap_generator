@@ -273,11 +273,11 @@ def main():
     cluster_tokens = load_cluster_tokens(TOKENS_TXT)
     tokenizer, model = extend_tokenizer_and_model(tokenizer, model, cluster_tokens)
 
-    print(f"Transferring model to {torch.cuda.device_count()} GPUs (float16)...")
-    model = model.cuda().half()
-    # MERT's HuBERT processor ALWAYS outputs float32 — keep MERT in float32 so it
-    # accepts its own processor output. LLaMA stays float16.
-    model.mert_model.float()
+    print(f"Transferring model to {torch.cuda.device_count()} GPUs (float32)...")
+    # Cast EVERYTHING to float32. The A40 has 45GB — FP32 model needs ~28GB, fits fine.
+    # This eliminates every dtype mismatch permanently: MERT processor, LLaMA, mu_mert_agg,
+    # all Conv1d layers — everything consistent. No NaN (FP32 softmax is numerically stable).
+    model = model.cuda().float()
 
     # Enable native PyTorch DataParallel across all available Slurm GPUs
     n_gpus = torch.cuda.device_count()
@@ -332,7 +332,7 @@ def main():
         for batch_idx, (examples, labels, mask, audio, modality, caption) in enumerate(pbar):
             examples = examples.cuda().contiguous()
             labels   = labels.cuda().contiguous()
-            audio    = audio.cuda().contiguous().half()  # must match FP16 model
+            audio    = audio.cuda().contiguous()
 
             optimizer.zero_grad()
             try:
