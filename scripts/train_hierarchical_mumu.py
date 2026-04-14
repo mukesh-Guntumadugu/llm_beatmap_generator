@@ -268,7 +268,6 @@ def main():
         train_dataset,
         batch_size=effective_batch_size,
         shuffle=True,
-        collate_fn=train_dataset.collate_fn,
         drop_last=True
     )
     val_loader   = DataLoader(val_dataset,   batch_size=BATCH_SIZE, shuffle=False, num_workers=0)
