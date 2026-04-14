@@ -295,9 +295,9 @@ def main():
 
         pbar = tqdm(train_loader, desc=f"Epoch {epoch+1}/{NUM_EPOCHS}")
         for batch_idx, (examples, labels, mask, audio, modality, caption) in enumerate(pbar):
-            examples = examples.cuda()
-            labels   = labels.cuda()
-            audio    = audio.cuda()
+            examples = examples.cuda().contiguous()
+            labels   = labels.cuda().contiguous()
+            audio    = audio.cuda().contiguous()
 
             try:
                 with torch.cuda.amp.autocast(dtype=torch.bfloat16):
