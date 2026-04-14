@@ -273,9 +273,11 @@ def main():
     cluster_tokens = load_cluster_tokens(TOKENS_TXT)
     tokenizer, model = extend_tokenizer_and_model(tokenizer, model, cluster_tokens)
 
-    print(f"Transferring model to {torch.cuda.device_count()} GPUs (float16)...")
-    # Cast entirely to float16 to cut VRAM usage by 50% and perfectly satisfy cuDNN Convolution compatibility natively
-    model = model.cuda().half()
+    print(f"Transferring model to {torch.cuda.device_count()} GPUs (FP32 params + FP16 autocast)...")
+    # Model parameters stay in FP32 — GradScaler requires FP32 params to unscale gradients.
+    # The autocast block in the training loop still uses FP16 for fast computation.
+    # FP32 model = ~28GB VRAM, well within the A40's 45GB limit.
+    model = model.cuda()
 
     # Enable native PyTorch DataParallel across all available Slurm GPUs
     n_gpus = torch.cuda.device_count()
