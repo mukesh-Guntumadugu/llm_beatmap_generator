@@ -86,12 +86,15 @@ def extend_tokenizer_and_model(tokenizer, model, cluster_tokens):
     old_num_tokens, embed_dim = embedding_layer.weight.shape
     mean_embed = embedding_layer.weight.data.mean(dim=0, keepdim=True)
 
-    # Recreate the embedding layer entirely if the standard method doesn't exist
+    # Recreate the embedding layer entirely
     import torch.nn as nn
     new_embeds = nn.Embedding(after, embed_dim)
     with torch.no_grad():
+        # Copy the original LLaMA weights + the 8 [AUD] weights
         new_embeds.weight.data[:old_num_tokens] = embedding_layer.weight.data
-        new_embeds.weight.data[old_num_tokens:] = mean_embed.expand(added, -1)
+        # Warm-start the new cluster token vectors with the matrix mean
+        added_for_clusters = after - old_num_tokens
+        new_embeds.weight.data[old_num_tokens:] = mean_embed.expand(added_for_clusters, -1)
     
     # Enable gradients on the new layer
     new_embeds.weight.requires_grad = True
@@ -112,7 +115,8 @@ def extend_tokenizer_and_model(tokenizer, model, cluster_tokens):
                 if out_dim == old_num_tokens:
                     new_output.weight.data[:old_num_tokens, :] = output_layer.weight.data
                     mean_out = output_layer.weight.data.mean(dim=0, keepdim=True)
-                    new_output.weight.data[old_num_tokens:, :] = mean_out.expand(added, -1)
+                    added_for_clusters = after - old_num_tokens
+                    new_output.weight.data[old_num_tokens:, :] = mean_out.expand(added_for_clusters, -1)
             new_output.weight.requires_grad = True
             model.llama.output = new_output
             
@@ -202,6 +206,11 @@ def main():
     # ── Tokenizer ───────────────────────────────────────────────────────────
     print("Loading LLaMA tokenizer...")
     tokenizer = LlamaTokenizer.from_pretrained(LLAMA_DIR)
+    
+    # Pre-align tokenizer with the 8 [AUD] tokens MuMu injects internally
+    # This prevents ID collision and matrix slicing errors when we add our cluster tokens
+    aud_tokens = [f"[AUD{i}]" for i in range(8)]
+    tokenizer.add_tokens(aud_tokens, special_tokens=True)
 
     # ── Model ────────────────────────────────────────────────────────────────
     model_args = argparse.Namespace(
