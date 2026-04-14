@@ -135,6 +135,17 @@ def extend_tokenizer_and_model(tokenizer, model, cluster_tokens):
                     val.vocab_size = after
                     print(f"  Patched {obj.__class__.__name__}.{attr}.vocab_size: {old_num_tokens} → {after}")
 
+    # ── CRITICAL: Patch model_args.num_gen_audio_tokens ───────────────────
+    # mumu_llama.py line 623 asserts:
+    #   self.llama.vocab_size == 32000 + self.model_args.num_gen_audio_tokens
+    # After our expansion: vocab_size=34197, so num_gen_audio_tokens must = 2197
+    # (original 8 AUD tokens + 2189 cluster tokens we added)
+    if hasattr(model, "model_args") and hasattr(model.model_args, "num_gen_audio_tokens"):
+        old_val = model.model_args.num_gen_audio_tokens
+        model.model_args.num_gen_audio_tokens = after - 32000
+        print(f"  Patched model_args.num_gen_audio_tokens: {old_val} → {model.model_args.num_gen_audio_tokens}")
+
+
     print(f"  Embedding matrix manually resized: ({old_num_tokens}, {embed_dim}) → ({after}, {embed_dim})")
     print(f"  New rows warm-started with mean embeddings.")
     print("── Done ─────────────────────────────────────────────────────────\n")
