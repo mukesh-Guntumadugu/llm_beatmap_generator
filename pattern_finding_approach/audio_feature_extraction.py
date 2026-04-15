@@ -161,7 +161,26 @@ def transcribe_vocals(audio_path):
             pass
         else:
             ssl._create_default_https_context = _create_unverified_https_context
-        _whisper_model = whisper.load_model("base")
+        # Auto-detect best device: use GPU if CUDA is actually functional,
+        # fall back to CPU silently if the GPU has incompatible drivers (e.g. themachine).
+        import torch
+        _whisper_device = "cpu"
+        if torch.cuda.is_available():
+            try:
+                torch.zeros(1).cuda()   # quick smoke-test — crashes on incompatible CUDA
+                _whisper_device = "cuda"
+                print("  [Speech-To-Text] CUDA available — using GPU.")
+            except Exception:
+                print("  [Speech-To-Text] CUDA present but incompatible — falling back to CPU.")
+        else:
+            print("  [Speech-To-Text] No GPU detected — using CPU.")
+
+        try:
+            _whisper_model = whisper.load_model("base", device=_whisper_device)
+        except Exception:
+            # Last resort: force CPU if GPU load still fails
+            print("  [Speech-To-Text] GPU load failed — retrying on CPU.")
+            _whisper_model = whisper.load_model("base", device="cpu")
         
     print(f"  [Speech-To-Text] Transcribing lyrics for {os.path.basename(audio_path)}...")
     try:
