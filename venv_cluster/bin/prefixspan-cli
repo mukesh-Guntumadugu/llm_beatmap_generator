@@ -1,0 +1,114 @@
+#!/Users/mukeshguntumadugu/LLM_rock/llm_beatmap_generator/venv_cluster/bin/python3
+
+"""
+Usage:
+    prefixspan-cli (frequent | top-k) <threshold> [options] [<file>]
+
+    prefixspan-cli --help
+
+
+Options:
+    --text             Treat each item as text instead of integer.
+
+    --closed           Return only closed patterns.
+    --generator        Return only generator patterns.
+
+    --key=<key>        Custom key function. [default: ]
+                       Must be a Python function in form of "lambda patt, matches: ...", returning an integer value.
+    --bound=<bound>    The upper-bound function of the respective key function. When unspecified, the same key function is used. [default: ]
+                       Must be no less than the key function, i.e. bound(patt, matches) ≥ key(patt, matches).
+                       Must be anti-monotone, i.e. for patt1 ⊑ patt2, bound(patt1, matches1) ≥ bound(patt2, matches2).
+
+    --filter=<filter>  Custom filter function. [default: ]
+                       Must be a Python function in form of "lambda patt, matches: ...", returning a boolean value.
+
+    --minlen=<minlen>  Minimum length of patterns. [default: 1]
+    --maxlen=<maxlen>  Maximum length of patterns. [default: 1000]
+"""
+
+from typing import *
+
+import sys
+
+from docopt import docopt
+
+from prefixspan import PrefixSpan
+from extratools.dicttools import invert, remap
+from extratools.printtools import print2
+
+def checkArg(arg, cond):
+    # type: (str, Callable[[int], bool]) -> int
+    try:
+        val = int(argv[arg])
+        if not cond(val):
+            raise ValueError
+    except ValueError:
+        print2("ERROR: Cannot parse {}.".format(arg))
+        print2(__doc__)
+        sys.exit(1)
+
+    return val
+
+
+def checkFunc(arg):
+    # type: (str) -> Callable[..., bool]
+    try:
+        return eval(argv[arg])
+    except:
+        print2("ERROR: Cannot parse {}.".format(arg))
+        print2(__doc__)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    argv = docopt(__doc__)
+
+    istext = argv["--text"]
+
+    docs = [
+        line.strip().split(' ')
+        for line in (open(argv["<file>"]) if argv["<file>"] else sys.stdin)
+    ]
+
+    if istext:
+        wordmap = {} # type: Dict[str, int]
+
+        db = [list(remap(doc, wordmap)) for doc in docs]
+    else:
+        db = [
+            [int(w) for w in doc]
+            for doc in docs
+        ]
+
+    ps = PrefixSpan(db)
+
+    func = ps.frequent if argv["frequent"] else ps.topk
+
+    key = checkFunc("--key") if argv["--key"] else None
+    bound = checkFunc("--bound") if argv["--bound"] else key
+
+    threshold = checkArg("<threshold>", lambda v: key is not None or v > 0)
+
+    closed = argv["--closed"]
+    generator = argv["--generator"]
+
+    filter = checkFunc("--filter") if argv["--filter"] else None
+
+    if argv["--minlen"]:
+        ps.minlen = checkArg("--minlen", lambda v: v > 0)
+    if argv["--maxlen"]:
+        ps.maxlen = checkArg("--maxlen", lambda v: v >= ps.minlen)
+
+
+    if istext:
+        invwordmap = invert(wordmap)
+
+    for freq, patt in func(
+            threshold, closed=closed, generator=generator,
+            key=key, bound=bound,
+            filter=filter
+        ):
+        print("{} : {}".format(' '.join(
+            (invwordmap[i] for i in patt) if istext
+            else (str(i) for i in patt)
+        ), freq))

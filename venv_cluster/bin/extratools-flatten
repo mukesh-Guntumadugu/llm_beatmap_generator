@@ -1,0 +1,18 @@
+#!/Users/mukeshguntumadugu/LLM_rock/llm_beatmap_generator/venv_cluster/bin/python3
+
+"""
+Usage:
+    extratools-flatten [--force]
+"""
+
+import sys
+import json
+
+from docopt import docopt
+from extratools.jsontools import flatten
+
+argv = docopt(__doc__)
+force = argv["--force"]
+
+data = json.load(sys.stdin)
+json.dump(flatten(data, force=force), sys.stdout)

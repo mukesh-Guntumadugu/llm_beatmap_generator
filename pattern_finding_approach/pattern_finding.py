@@ -214,9 +214,17 @@ def _active_cols(row) -> list:
 # per measure.  Two measures that 'look' the same to a human will have nearly
 # identical trait vectors even if their raw matrices differ.
 
+def is_hold_safe(chop_lines: list) -> bool:
+    """Check if chop perfectly encapsulates holds without cutting them."""
+    for c in range(4):
+        col_chars = [row[c] for row in chop_lines if len(row) > c]
+        if col_chars.count('2') != col_chars.count('3'):
+            return False
+    return True
+
 def extract_measure_features(measure_lines: list, incoming_holds: int, outgoing_holds: int) -> list:
     """
-    Return a 14-element feature vector for one measure.
+    Return a 15-element feature vector for one measure or combined chop.
 
     Features
     --------
@@ -234,13 +242,14 @@ def extract_measure_features(measure_lines: list, incoming_holds: int, outgoing_
     11 crossover_count      : count of physical crossovers
     12 incoming_holds       : active holds carried over from previous measure
     13 outgoing_holds       : active holds bridging into next measure
+    14 longest_diff_chain   : length of longest sequence of identical relative movement (e.g. continuous staircase)
     """
     total_rows   = len(measure_lines)
     active_rows  = [r for r in measure_lines if r != '0000']
     total_active = len(active_rows)
 
     if total_active == 0:
-        return [0] * 12 + [incoming_holds, outgoing_holds]
+        return [0] * 12 + [incoming_holds, outgoing_holds, 0]
 
     col_lists      = [_active_cols(r) for r in active_rows]
     jumps          = sum(1 for cols in col_lists if len(cols) >= 2)
@@ -272,10 +281,24 @@ def extract_measure_features(measure_lines: list, incoming_holds: int, outgoing_
             if seq in [(0,1,3), (3,1,0), (0,2,3), (3,2,0)]:
                 crossover_count += 1
 
+    longest_chain = 0
+    if len(single_cols) >= 2:
+        diff_chain = [((single_cols[i+1] - single_cols[i]) % 4) for i in range(len(single_cols)-1)]
+        if diff_chain:
+            current_streak = 1
+            max_streak = 1
+            for i in range(1, len(diff_chain)):
+                if diff_chain[i] == diff_chain[i-1]:
+                    current_streak += 1
+                    max_streak = max(max_streak, current_streak)
+                else:
+                    current_streak = 1
+            longest_chain = max_streak
+
     return [total_active, jumps, max_dist, round(avg_dist, 4),
             returns, round(density, 4), uniq_col, has_hold, has_mine,
             round(hold_duration, 4), round(symmetry_bias, 4), crossover_count,
-            incoming_holds, outgoing_holds]
+            incoming_holds, outgoing_holds, longest_chain]
 
 
 # ── 2. Relative Encoding ────────────────────────────────────────────────────
@@ -471,6 +494,7 @@ def init_database(db_path: str) -> sqlite3.Connection:
             file_path       TEXT    NOT NULL,
             difficulty      TEXT    NOT NULL,
             measure_idx     INTEGER NOT NULL,
+            chop_length     INTEGER DEFAULT 1,
             start_time      REAL,
             end_time        REAL,
             rms_energy      REAL,
@@ -494,6 +518,7 @@ def init_database(db_path: str) -> sqlite3.Connection:
             file_path       TEXT    NOT NULL,
             difficulty      TEXT    NOT NULL,
             measure_idx     INTEGER NOT NULL,
+            chop_length     INTEGER DEFAULT 1,
             total_active    INTEGER,
             jumps           INTEGER,
             max_dist        INTEGER,
@@ -507,7 +532,8 @@ def init_database(db_path: str) -> sqlite3.Connection:
             symmetry_bias   REAL,
             crossover_count INTEGER,
             incoming_holds  INTEGER,
-            outgoing_holds  INTEGER
+            outgoing_holds  INTEGER,
+            longest_diff_chain INTEGER DEFAULT 0
         );
 
         CREATE TABLE IF NOT EXISTS measure_cluster_assignments (
@@ -516,6 +542,7 @@ def init_database(db_path: str) -> sqlite3.Connection:
             file_path       TEXT    NOT NULL,
             difficulty      TEXT    NOT NULL,
             measure_idx     INTEGER NOT NULL,
+            chop_length     INTEGER DEFAULT 1,
             cluster_id      INTEGER NOT NULL,
             saved_at        TEXT    NOT NULL
         );
@@ -524,6 +551,19 @@ def init_database(db_path: str) -> sqlite3.Connection:
         conn.execute("ALTER TABLE processed_files ADD COLUMN author TEXT;")
     except sqlite3.OperationalError:
         pass
+    for col_def in [
+        ("stepmania_features", "incoming_holds INTEGER"),
+        ("stepmania_features", "outgoing_holds INTEGER"),
+        ("stepmania_features", "chop_length INTEGER DEFAULT 1"),
+        ("stepmania_features", "longest_diff_chain INTEGER DEFAULT 0"),
+        ("audio_features", "chop_length INTEGER DEFAULT 1"),
+        ("measure_cluster_assignments", "chop_length INTEGER DEFAULT 1"),
+    ]:
+        table, definition = col_def
+        try:
+            conn.execute(f"ALTER TABLE {table} ADD COLUMN {definition};")
+        except sqlite3.OperationalError:
+            pass
     conn.commit()
     return conn
 
@@ -596,7 +636,7 @@ def log_duplicate_to_db(conn: sqlite3.Connection, file_path: str, song_name: str
 # MAIN DATASET PROCESSING
 # ---------------------------------------------------------------------------
 
-def process_dataset(directory, db_path, run_id):
+def process_dataset(directory, db_path, run_id, chop_mode='both'):
     print(f"Scanning directory: {directory} for .ssc and .sm files...")
     search_pattern_ssc = os.path.join(directory, '**', '*.ssc')
     search_pattern_sm  = os.path.join(directory, '**', '*.sm')
@@ -725,16 +765,13 @@ def process_dataset(directory, db_path, run_id):
                 diff_stats[diff]['files_with_4col'] += 1
                 diff_stats[diff]['total_4col_measures'] += len(cleaned_measures)
 
-            measure_idx = 0
+            chart_interpolated = []
+            chart_raw = []
             active_holds = [False] * 4
-
+            
             for measure_lines in cleaned_measures:
-                
-                # Capture holds carrying into this measure
-                incoming_holds = sum(active_holds)
-
-                # Interpolate 'H' for active holds during the measure
-                interpolated_lines = []
+                chart_raw.append(measure_lines)
+                interpolated_measure = []
                 for line in measure_lines:
                     new_line = ""
                     for c, char in enumerate(line):
@@ -748,55 +785,84 @@ def process_dataset(directory, db_path, run_id):
                             new_line += 'H'
                         else:
                             new_line += char
-                    interpolated_lines.append(new_line)
+                    interpolated_measure.append(new_line)
+                chart_interpolated.append(interpolated_measure)
 
-                # Capture holds leaving this measure
-                outgoing_holds = sum(active_holds)
+            total_m = len(cleaned_measures)
+            chops_to_process = []
+            
+            if chop_mode in ['sliding', 'both']:
+                for start_idx in range(total_m):
+                    for length in [1, 2, 3]:
+                        end_idx = start_idx + length
+                        if end_idx <= total_m:
+                            chop_raw = [line for m in chart_raw[start_idx:end_idx] for line in m]
+                            chop_interp = [line for m in chart_interpolated[start_idx:end_idx] for line in m]
+                            if is_hold_safe(chop_raw):
+                                chops_to_process.append((start_idx, length, chop_raw, chop_interp))
+                                
+            if chop_mode in ['discrete', 'both']:
+                start_idx = 0
+                while start_idx < total_m:
+                    length = 1
+                    while start_idx + length <= total_m:
+                        chop_raw = [line for m in chart_raw[start_idx:start_idx+length] for line in m]
+                        if is_hold_safe(chop_raw) or (start_idx + length == total_m):
+                            break
+                        length += 1
+                        if length > 8:
+                            break
+                    if start_idx + length <= total_m:
+                        chop_raw = [line for m in chart_raw[start_idx:start_idx+length] for line in m]
+                        chop_interp = [line for m in chart_interpolated[start_idx:start_idx+length] for line in m]
+                        chop_tuple = (start_idx, length, chop_raw, chop_interp)
+                        if chop_tuple not in chops_to_process:
+                             chops_to_process.append(chop_tuple)
+                    start_idx += length
 
-                # Count characters by difficulty using the interpolated lines
-                for line in interpolated_lines:
-                    for char in line:
-                        char_counts[(char, diff)] += 1
+            for start_idx, chop_len, raw_lines, interp_lines in chops_to_process:
+                # Count characters by difficulty using the interpolated lines (only for length=1 to avoid massive duplication in tables)
+                if chop_len == 1:
+                    for line in interp_lines:
+                        for char in line:
+                            char_counts[(char, diff)] += 1
 
-                all_raw_measures.append(measure_lines)  # keep raw for alt encodings
-                all_measure_info.append((fp, diff, measure_idx))
+                all_raw_measures.append(raw_lines)
+                all_measure_info.append((fp, diff, start_idx, chop_len))
 
-                # Sequential Pattern Mining
-                active_steps = [
-                    canonicalize_row(line)
-                    for line in measure_lines
-                    if line != '0000'
-                ]
+                active_steps = [canonicalize_row(line) for line in raw_lines if line != '0000']
                 if active_steps:
                     all_sequence_measures.append(active_steps)
                     
-                # Audio Feature Extraction
                 if y is not None and time_map is not None:
-                    start_beat = measure_idx * 4.0
-                    end_beat = start_beat + 4.0
+                    start_beat = start_idx * 4.0
+                    end_beat = (start_idx + chop_len) * 4.0
                     start_time = afe.get_time_for_beat(start_beat, time_map)
                     end_time = afe.get_time_for_beat(end_beat, time_map)
                     feats = afe.extract_audio_features_for_slice(y, sr, start_time, end_time)
                     vocal_feats = afe.get_vocal_features_for_slice(vocal_words, start_time, end_time)
                     
                     row_time = datetime.now().isoformat()
-                    audio_rows.append((run_id, fp, diff, measure_idx, start_time, end_time) + tuple(feats) + tuple(vocal_feats) + (row_time,))
+                    audio_rows.append((run_id, fp, diff, start_idx, chop_len, start_time, end_time) + tuple(feats) + tuple(vocal_feats) + (row_time,))
 
-                # Record the 11 Physical Stepmania Features for this measure
-                sm_feats = extract_measure_features(interpolated_lines, incoming_holds, outgoing_holds)
-                stepmania_rows.append((run_id, fp, diff, measure_idx) + tuple(sm_feats))
+                incoming_holds = 0
+                outgoing_holds = 0
+                if len(interp_lines) > 0:
+                    incoming_holds = interp_lines[0].count('H')
+                    outgoing_holds = interp_lines[-1].count('H') + interp_lines[-1].count('2')
 
-                measure_idx += 1
+                sm_feats = extract_measure_features(interp_lines, incoming_holds, outgoing_holds)
+                stepmania_rows.append((run_id, fp, diff, start_idx, chop_len) + tuple(sm_feats))
                 
         if audio_rows:
             conn.executemany(
-                "INSERT INTO audio_features (run_id, file_path, difficulty, measure_idx, start_time, end_time, rms_energy, onset_density, tempo_strength, chroma_mean, spectral_centroid, spectral_bandwidth, spectral_contrast, spectral_flatness, mfcc_0, mfcc_1, mfcc_2, mfcc_3, mfcc_4, mfcc_5, mfcc_6, mfcc_7, mfcc_8, mfcc_9, mfcc_10, mfcc_11, mfcc_12, vocal_word_count, vocal_density, saved_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                "INSERT INTO audio_features (run_id, file_path, difficulty, measure_idx, chop_length, start_time, end_time, rms_energy, onset_density, tempo_strength, chroma_mean, spectral_centroid, spectral_bandwidth, spectral_contrast, spectral_flatness, mfcc_0, mfcc_1, mfcc_2, mfcc_3, mfcc_4, mfcc_5, mfcc_6, mfcc_7, mfcc_8, mfcc_9, mfcc_10, mfcc_11, mfcc_12, vocal_word_count, vocal_density, saved_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 audio_rows
             )
             
         if stepmania_rows:
             conn.executemany(
-                "INSERT INTO stepmania_features (run_id, file_path, difficulty, measure_idx, total_active, jumps, max_dist, avg_dist, returns, density, uniq_col, has_hold, has_mine, hold_duration, symmetry_bias, crossover_count, incoming_holds, outgoing_holds) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                "INSERT INTO stepmania_features (run_id, file_path, difficulty, measure_idx, chop_length, total_active, jumps, max_dist, avg_dist, returns, density, uniq_col, has_hold, has_mine, hold_duration, symmetry_bias, crossover_count, incoming_holds, outgoing_holds, longest_diff_chain) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 stepmania_rows
             )
         conn.commit()
@@ -851,19 +917,70 @@ def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, 
 
     # ── Select and build the encoding matrix ─────────────────────────────
     if encoding == 'features':
-        print("Extracting 9-trait feature vectors directly from SQLite...")
+        print("Extracting physical trait feature vectors directly from SQLite...")
         query = """
             SELECT 
                 total_active, jumps, max_dist, avg_dist, returns, density, 
                 uniq_col, has_hold, has_mine, hold_duration, symmetry_bias, 
-                crossover_count, incoming_holds, outgoing_holds
+                crossover_count, incoming_holds, outgoing_holds, longest_diff_chain
             FROM stepmania_features
             WHERE run_id = ?
             ORDER BY id ASC
         """
         df_feats = pd.read_sql(query, conn, params=(run_id,))
         encoded_data = df_feats.values
-        print(f"Feature matrix shape: {encoded_data.shape}  (measures × 14 traits)")
+        print(f"Feature matrix shape: {encoded_data.shape}  (measures × 15 traits)")
+
+    elif encoding == 'features+audio':
+        print("Extracting physical and audio features with INNER JOIN...")
+        query = """
+            SELECT 
+                s.file_path, s.difficulty, s.measure_idx, s.chop_length,
+                s.total_active, s.jumps, s.max_dist, s.avg_dist, s.returns, s.density, 
+                s.uniq_col, s.has_hold, s.has_mine, s.hold_duration, s.symmetry_bias, 
+                s.crossover_count, s.incoming_holds, s.outgoing_holds, s.longest_diff_chain,
+                a.rms_energy, a.onset_density, a.tempo_strength, a.spectral_centroid, 
+                a.spectral_bandwidth, a.vocal_density,
+                a.spectral_contrast, a.spectral_flatness,
+                a.mfcc_0, a.mfcc_1, a.mfcc_2, a.mfcc_3, a.mfcc_4, a.mfcc_5, a.mfcc_6, 
+                a.mfcc_7, a.mfcc_8, a.mfcc_9, a.mfcc_10, a.mfcc_11, a.mfcc_12
+            FROM stepmania_features s
+            INNER JOIN audio_features a
+                ON s.run_id = a.run_id
+                AND s.file_path = a.file_path
+                AND s.difficulty = a.difficulty
+                AND s.measure_idx = a.measure_idx
+                AND s.chop_length = a.chop_length
+            WHERE s.run_id = ?
+            ORDER BY s.id ASC
+        """
+        df_feats = pd.read_sql(query, conn, params=(run_id,))
+        
+        # We need to filter raw_measures and measure_info to match the INNER JOIN result exactly.
+        raw_map = {(mi[0], mi[1], int(mi[2]), int(mi[3])): rm for mi, rm in zip(measure_info, raw_measures)}
+        keys_df = df_feats[['file_path', 'difficulty', 'measure_idx', 'chop_length']]
+        
+        new_measure_info = []
+        new_raw_measures = []
+        for fp, diff, midx, chplen in keys_df.itertuples(index=False, name=None):
+            key = (fp, diff, int(midx), int(chplen))
+            new_measure_info.append(key)
+            new_raw_measures.append(raw_map.get(key, []))
+            
+        measure_info = new_measure_info
+        raw_measures = new_raw_measures
+        
+        df_feats = df_feats.drop(columns=['file_path', 'difficulty', 'measure_idx', 'chop_length'])
+        
+        scaler = StandardScaler()
+        scaled_data = scaler.fit_transform(df_feats.values)
+        
+        # Weight multiplier: Physical (idx 0 to 14) vs Audio (idx 15 to 35)
+        weight_multiplier = 1.5
+        scaled_data[:, :15] *= weight_multiplier
+        
+        encoded_data = scaled_data
+        print(f"Features+Audio matrix shape: {encoded_data.shape}  (measures × 36 traits)")
 
     elif encoding == 'relative':
         print("Building column-delta histograms (Relative Encoding)...")
@@ -882,9 +999,10 @@ def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, 
 
     print(f"Encoded Shape: {encoded_data.shape}")
     # ── PCA → HDBSCAN → UMAP (same for all encodings) ───────────────────
-    # For low-dimensional encodings (features=9, relative=7, rle=6),
+    # For low-dimensional encodings (features=15, relative=7, rle=6),
     # PCA is a no-op or very light — that's fine.
-    components = min(16, encoded_data.shape[1], encoded_data.shape[0])
+    base_components = 24 if encoding == 'features+audio' else 16
+    components = min(base_components, encoded_data.shape[1], encoded_data.shape[0])
     print(f"Compressing data heavily using PCA to {components} dimensions...")
     pca = PCA(n_components=components)
     compressed_data = pca.fit_transform(encoded_data)
@@ -913,11 +1031,14 @@ def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, 
     print("Saving measure-to-cluster mapping...")
     assign_rows = []
     for i in range(len(labels)):
-        fp, diff, midx = measure_info[i]
-        assign_rows.append((run_id, fp, diff, midx, int(labels[i]), now))
+        # Provide all 4 items logic
+        item = measure_info[i]
+        fp, diff, midx = item[0], item[1], item[2]
+        chop_len = item[3] if len(item) > 3 else 1
+        assign_rows.append((run_id, fp, diff, midx, chop_len, int(labels[i]), now))
     
     conn.executemany(
-        "INSERT INTO measure_cluster_assignments (run_id, file_path, difficulty, measure_idx, cluster_id, saved_at) VALUES (?,?,?,?,?,?)",
+        "INSERT INTO measure_cluster_assignments (run_id, file_path, difficulty, measure_idx, chop_length, cluster_id, saved_at) VALUES (?,?,?,?,?,?,?)",
         assign_rows
     )
     conn.commit()
@@ -990,7 +1111,7 @@ def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, 
     plt.close()
 
     # 5. Feature Representation Heatmap (What traits does each cluster have?)
-    if encoding in ['features', 'relative', 'rle']:
+    if encoding in ['features', 'features+audio', 'relative', 'rle']:
         print("Generating Feature Profile Heatmap...")
         df_encoded = pd.DataFrame(encoded_data)
         df_encoded['cluster'] = labels
@@ -1000,7 +1121,9 @@ def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, 
         if encoding == 'features':
             col_names = ['active_steps', 'jumps', 'max_dist', 'avg_dist', 
                          'returns', 'density', 'uniq_cols', 'has_holds', 'has_mines',
-                         'hold_duration', 'symmetry_bias', 'crossovers', 'in_holds', 'out_holds']
+                         'hold_duration', 'symmetry_bias', 'crossovers', 'in_holds', 'out_holds', 'longest_diff']
+        elif encoding == 'features+audio':
+            col_names = ['active_steps', 'jumps', 'max_dist', 'avg_dist', 'returns', 'density', 'uniq_cols', 'has_holds', 'has_mines', 'hold_duration', 'symmetry_bias', 'crossovers', 'in_holds', 'out_holds', 'longest_diff', 'rms_energy', 'onset_density', 'tempo_strength', 'spectral_centroid', 'spectral_bandwidth', 'vocal_density', 'spectral_contrast', 'spectral_flatness', 'mfcc_0', 'mfcc_1', 'mfcc_2', 'mfcc_3', 'mfcc_4', 'mfcc_5', 'mfcc_6', 'mfcc_7', 'mfcc_8', 'mfcc_9', 'mfcc_10', 'mfcc_11', 'mfcc_12']
         elif encoding == 'relative':
             col_names = ['-3', '-2', '-1', '0', '+1', '+2', '+3']
         elif encoding == 'rle':
@@ -1184,25 +1307,70 @@ def generate_audio_cluster_correlations(conn, run_id, output_dir):
         box_path = os.path.join(output_dir, 'vocal_density_boxplot.png')
         plt.savefig(box_path, dpi=300, bbox_inches='tight')
         plt.close()
-    print("Correlations successfully visualised!")
+        
+    print("Exporting Human-Readable Audio-Action Explanations...")
+    explain_path = os.path.join(output_dir, 'audio_cluster_explanations.md')
+    try:
+        with open(explain_path, 'w') as f:
+            f.write("# Audio-Action Contextual Explanations\n\n")
+            f.write("This document maps the top 20 StepMania geometric patterns to their underlying audio triggers based on sliding Multi-Measure Chops.\n\n")
+            
+            for cid in top_clusters:
+                audio_prof = cluster_means.loc[cid]
+                
+                # Fetch typical physical features for this cluster to cross-reference
+                phys_query = f"SELECT avg(density) as d, avg(jumps) as j, avg(longest_diff_chain) as chain FROM stepmania_features s JOIN measure_cluster_assignments m ON s.run_id=m.run_id AND s.measure_idx=m.measure_idx AND s.chop_length=m.chop_length WHERE m.cluster_id={cid} AND m.run_id='{run_id}'"
+                
+                try:
+                    phys_df = pd.read_sql(phys_query, conn)
+                    if not phys_df.empty:
+                        d, j, chain = phys_df.iloc[0]
+                        shape_desc = f"{int(chain)}-step continuous staircases/trills" if chain and chain > 3 else "sporadic rhythmic steps"
+                        jumps_desc = f"heavy jumping patterns ({j:.1f} jumps/chop)" if j and j > 4 else "mostly single notes"
+                        
+                        audio_triggers = []
+                        if audio_prof.get('onset_density', 0) > df['onset_density'].mean() * 1.5:
+                            audio_triggers.append("rapid Drum/Percussive strikes (High Onset Density)")
+                        if audio_prof.get('spectral_centroid', 0) > df['spectral_centroid'].mean() * 1.2:
+                            audio_triggers.append("high-frequency energy spikes (e.g., Cymbals/Synths)")
+                        if audio_prof.get('rms_energy', 0) > df['rms_energy'].mean() * 1.3:
+                            audio_triggers.append("very loud musical intensity (High RMS)")
+                        if audio_prof.get('vocal_density', 0) > df['vocal_density'].mean() * 1.5:
+                            audio_triggers.append("intense vocal sequences")
+                            
+                        trigger_text = ", ".join(audio_triggers) if audio_triggers else "steady background rhythms"
+                        
+                        f.write(f"### Cluster {cid}\n")
+                        f.write(f"- **Physical Geography:** Predominantly features {shape_desc} mixed with {jumps_desc}.\n")
+                        f.write(f"- **Audio Correlation:** These geometric motifs are heavily correlated with **{trigger_text}** in the audio track.\n\n")
+                except Exception as ex:
+                    pass
+    except Exception as e:
+        print(f"Failed to write explanations: {e}")
+
+    print("Correlations successfully visualised and explained!")
 
 def main():
     parser = argparse.ArgumentParser(description="Process beatmap datasets to discover patterns.")
-    parser.add_argument('--target_dir', type=str, default='../../src/musicForBeatmap/',
+    parser.add_argument('--target_dir', type=str, default='src/musicForBeatmap/',
                         help="Path to the master directory containing .ssc/.sm files")
     parser.add_argument('--output_dir', type=str, default='pattern_finding_results/',
                         help="Output directory for the UMAP PNG plot")
     parser.add_argument('--db_path', type=str, default='pattern_finding_approach/processed_files.db',
                         help="Path to the SQLite database (stores ALL results)")
     parser.add_argument('--encoding', type=str, default='features',
-                        choices=['ohe', 'features', 'relative', 'rle'],
+                        choices=['ohe', 'features', 'relative', 'rle', 'features+audio'],
                         help=(
                             "Encoding strategy for the topology pipeline:\n"
                             "  ohe      – One-Hot Encoding of canonical 192x4 matrix (most detailed)\n"
-                            "  features – 9-trait feature extraction (shift/mirror/stretch invariant)\n"
+                            "  features – physical sequence traits (shift-invariant)\n"
                             "  relative – Column-delta histograms (shift-invariant)\n"
-                            "  rle      – Run-length compression stats (stretch-invariant)"
+                            "  rle      – Run-length compression stats (stretch-invariant)\n"
+                            "  features+audio – Semantic motif contextual fusion"
                         ))
+    parser.add_argument('--chop_mode', type=str, default='both',
+                        choices=['sliding', 'discrete', 'both'],
+                        help="Data chunking logic: overlapping (sliding) or algorithmic continuous sweeps (discrete).")
     parser.add_argument('--export_csv', action='store_true',
                         help="Also export all DB result tables as CSV files (optional)")
 
@@ -1216,7 +1384,7 @@ def main():
     run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
     print(f"\nRun ID: {run_id}  |  DB: {args.db_path}\n")
 
-    raw_measures, seq_measures, measure_info, diff_stats, chars = process_dataset(args.target_dir, args.db_path, run_id)
+    raw_measures, seq_measures, measure_info, diff_stats, chars = process_dataset(args.target_dir, args.db_path, run_id, args.chop_mode)
 
     now = datetime.now().isoformat()
     if not measure_info:
