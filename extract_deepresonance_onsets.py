@@ -54,10 +54,26 @@ BASE_DIR = os.path.join(
     "src", "musicForBeatmap", "Fraxtil's Arrow Arrangements"
 )
 
+def is_hallucinated_loop(onsets: List[float]) -> bool:
+    if not onsets or len(onsets) < 10:
+        return False
+    if len(onsets) > 150:  # 150 drums in chunk_sec is physically impossible noise
+        return True 
+    times = onsets
+    deltas = [round(times[j+1] - times[j], 1) for j in range(len(times)-1)]
+    for j in range(len(deltas) - 8):
+        window = deltas[j:j+8]
+        if all(w == window[0] for w in window):
+            return True
+    return False
+
 def build_onset_prompt(duration_sec: float) -> str:
     prompt = (
-        f"<Audio>\nPlease listen to the audio and identify all musical onset events (transients) in this {round(duration_sec, 2)}-second clip. "
-        "Output a continuous single-line comma-separated array of all your found timestamps in strictly absolute milliseconds."
+        f"<Audio>\nPlease listen to the audio and extract the specific musical burst onsets from this {round(duration_sec, 2)}-second clip. "
+        "You must follow these strict rules to prevent hallucinations:\n"
+        "1. Do not give me a bare list of numbers. Format each line exactly as: [Hit] : [Onset Timestamp in seconds]\n"
+        "2. CRITICAL: Do not interpolate, guess, auto-fill, or count up sequentially. Only output the exact numbers found in the audio.\n"
+        "3. Do not make up extra data if the audio is sparse. Stop generating when you reach the end."
     )
     return prompt
 
@@ -74,13 +90,28 @@ def parse_onsets_from_response(response_text: str) -> List[float]:
     text_clean = re.sub(r"```[\w]*\n?", "", text).strip()
     onsets = []
     
-    # Try array parsing
+    # 1. Anti-Hallucination Secure Anchored Parsing (Seconds)
+    found_matches = re.findall(r':\s*([0-9]+\.?[0-9]*)', text_clean)
+    if found_matches:
+        for val in found_matches:
+            try:
+                ms = float(val) * 1000.0  # Prompt requested seconds, we need ms
+                if 0.0 <= ms <= 600_000:
+                    onsets.append(round(ms, 2))
+            except ValueError:
+                pass
+        if onsets:
+            return sorted(set(onsets))
+            
+    # 2. Try array parsing (Fallback if it ignores formatting rule)
     try:
         match = re.search(r'\[([\d.,\s]+)\]', text_clean)
         if match:
             arr = json.loads('[' + match.group(1) + ']')
             for val in arr:
-                ms = float(val)
+                # Fallback natively assumed ms in the past. Assume numbers < 1000 are seconds.
+                val_f = float(val)
+                ms = val_f * 1000.0 if val_f < 600.0 else val_f
                 if 0.0 <= ms <= 600_000:
                     onsets.append(round(ms, 2))
             if onsets:
@@ -88,12 +119,13 @@ def parse_onsets_from_response(response_text: str) -> List[float]:
     except Exception:
         pass
         
-    # Fallback numerical search
+    # 3. Fallback numerical search
     numbers = re.findall(r'\b(\d+(?:[.,]\d+)?)\b', text_clean)
     for n in numbers:
         n = n.replace(',', '.')
         try:
-            ms = float(n)
+            val_f = float(n)
+            ms = val_f * 1000.0 if val_f < 600.0 else val_f
             if 0.0 <= ms <= 600_000:
                 onsets.append(round(ms, 2))
         except ValueError:
@@ -211,27 +243,39 @@ def main():
                     }
                     
                     try:
-                        response_text = dr_predictor.predict(
-                            inputs,
-                            max_tgt_len=512,
-                            top_p=1.0,
-                            temperature=0.1,
-                            stops_id=[[835]],
-                        )
-                        
-                        if isinstance(response_text, list):
-                            response_text = response_text[0].split("\n###")[0]
-                        
-                        # Parse predicted milliseconds
-                        parsed_ms = parse_onsets_from_response(response_text)
-                        
-                        # Shift predictions to match actual timeline
-                        chunk_start_ms = chunk_idx * chunk_sec * 1000
-                        shifted_ms = [round(ms + chunk_start_ms, 2) for ms in parsed_ms]
-                        all_onsets_ms.extend(shifted_ms)
-                        
-                    except Exception as e:
-                        print(f"    ❌ Error on chunk {chunk_idx}: {e}")
+                        max_retries = 3
+                        for attempt in range(max_retries):
+                            try:
+                                response_text = dr_predictor.predict(
+                                    inputs,
+                                    max_tgt_len=512,
+                                    top_p=1.0,
+                                    temperature=0.1,
+                                    stops_id=[[835]],
+                                )
+                                
+                                if isinstance(response_text, list):
+                                    response_text = response_text[0].split("\n###")[0]
+                                
+                                # Parse predicted milliseconds
+                                parsed_ms = parse_onsets_from_response(response_text)
+                                
+                                if is_hallucinated_loop(parsed_ms):
+                                    print(f"    [!] HALLUCINATION CAUGHT: Neural counting drift detected! Retrying chunk {chunk_idx}...")
+                                    parsed_ms = []
+                                    continue
+                                
+                                # Shift predictions to match actual timeline
+                                chunk_start_ms = chunk_idx * chunk_sec * 1000
+                                shifted_ms = [round(ms + chunk_start_ms, 2) for ms in parsed_ms]
+                                all_onsets_ms.extend(shifted_ms)
+                                
+                                break # Success! Break the retry loop
+                                
+                            except Exception as e:
+                                print(f"    [!] Error on chunk {chunk_idx}: {e}")
+                                if attempt == max_retries - 1:
+                                    break
                     finally:
                         # Ensure temp file is scrubbed immediately
                         if os.path.exists(tmp_audio_path):
