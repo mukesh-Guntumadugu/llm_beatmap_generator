@@ -15,16 +15,18 @@ import sys
 import time
 import datetime
 import librosa
+import tempfile
+import soundfile as sf
 from typing import Optional, List
 
 # Ensure project root is on the path so `src` imports work
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.mumu_interface import setup_mumu, generate_beatmap_with_mumu
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
 BASE_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "src", "musicForBeatmap", "Fraxtil's Arrow Arrangements"
 )
 
@@ -171,44 +173,78 @@ def main():
 
         print(f"  [{song_idx}/{len(song_dirs)}] Processing: {song_name} ...", end="", flush=True)
 
-        max_retries = 3
-        onset_ms = []
-        response = ""
-        duration_sec = 0.0
+        try:
+            y, sr = librosa.load(audio_path, sr=None)
+            duration_sec = librosa.get_duration(y=y, sr=sr)
+        except Exception as e:
+            print(f"\n  WARNING: Could not load audio {audio_path}: {e}")
+            continue
 
-        for attempt in range(max_retries):
-            try:
-                # Get song duration for the prompt
-                duration_sec = librosa.get_duration(path=audio_path)
-                prompt = build_onset_prompt(duration_sec)
+        chunk_duration = 15.0
+        num_chunks = int(duration_sec // chunk_duration) + (1 if duration_sec % chunk_duration > 0 else 0)
+        
+        all_onset_ms = []
+        raw_responses = []
 
-                response = generate_beatmap_with_mumu(audio_path, prompt=prompt)
-
-                if not response or not response.strip():
-                    print(f"\n  WARNING: Empty response for '{song_name}'")
+        with tempfile.TemporaryDirectory() as tmpdir:
+            for c_idx in range(num_chunks):
+                start_time = c_idx * chunk_duration
+                end_time = min((c_idx + 1) * chunk_duration, duration_sec)
+                chunk_dur = end_time - start_time
+                
+                if chunk_dur < 1.0:
                     continue
+                
+                start_sample = int(start_time * sr)
+                end_sample = int(end_time * sr)
+                y_chunk = y[start_sample:end_sample]
+                
+                chunk_path = os.path.join(tmpdir, f"chunk_{c_idx}.wav")
+                sf.write(chunk_path, y_chunk, sr)
 
-                onset_ms = parse_onsets_from_response(response, duration_sec)
+                max_retries = 3
+                chunk_onsets = []
+                response = ""
 
-                if onset_ms and is_hallucinated_loop(onset_ms):
-                    print("\n  [!] HALLUCINATION CAUGHT: Neural counting drift detected! Retrying...")
-                    onset_ms = []
-                    continue
+                for attempt in range(max_retries):
+                    try:
+                        prompt = build_onset_prompt(chunk_dur)
+                        response = generate_beatmap_with_mumu(chunk_path, prompt=prompt)
 
-                if onset_ms:
-                    break # Success!
+                        if not response or not response.strip():
+                            continue
 
-            except Exception as e:
-                print(f"\n  ERROR processing '{song_name}': {e}")
-                if attempt == max_retries - 1:
-                    break
+                        chunk_onsets = parse_onsets_from_response(response, chunk_dur)
+
+                        if chunk_onsets and is_hallucinated_loop(chunk_onsets):
+                            chunk_onsets = []
+                            continue
+
+                        if chunk_onsets is not None:
+                            break
+
+                    except Exception as e:
+                        if attempt == max_retries - 1:
+                            break
+
+                raw_responses.append(response)
+
+                if chunk_onsets:
+                    for ms in chunk_onsets:
+                        abs_ms = ms + (start_time * 1000.0)
+                        all_onset_ms.append(round(abs_ms, 2))
+
+                time.sleep(1)
+
+        onset_ms = sorted(set(all_onset_ms))
+        full_response = "\n---\n".join(raw_responses)
 
         if not onset_ms:
             print(f"\n  WARNING: No parseable valid onsets in response for '{song_name}' after {max_retries} attempts.")
             # Save raw response for debugging
             raw_path = os.path.join(song_dir, f"Mumu_onsets_RAW_{song_name.replace(' ', '_')}_{datetime.datetime.now().strftime('%d%m%Y%H%M%S')}.txt")
             with open(raw_path, "w", encoding="utf-8") as f:
-                f.write(response)
+                f.write(full_response)
             continue
 
         # Save valid onsets to CSV

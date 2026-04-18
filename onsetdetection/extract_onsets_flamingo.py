@@ -171,7 +171,7 @@ def extract_flamingo_onsets_for_song(song_dir: str, chunk_sec: float) -> tuple[l
 
 def main():
     parser = argparse.ArgumentParser(description="Extract onsets using local Flamingo model")
-    parser.add_argument("--chunk_sec", type=float, default=20.0, help="Chunk size in seconds")
+    parser.add_argument("--chunk_sec", type=float, default=15.0, help="Chunk size in seconds")
     parser.add_argument("--songs", nargs="+", default=None,
                         help="Specific song names to process (default: all songs)")
     args = parser.parse_args()

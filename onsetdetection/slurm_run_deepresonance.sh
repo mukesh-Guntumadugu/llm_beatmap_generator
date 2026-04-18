@@ -30,6 +30,6 @@ fi
 
 # Must cd into DeepResonance/code/ so config/base.yaml is found by relative path
 cd /data/mg546924/llm_beatmap_generator/DeepResonance/code
-/data/mg546924/conda_envs/deepresonance_env/bin/python /data/mg546924/llm_beatmap_generator/extract_deepresonance_onsets.py --ckpt_path /data/mg546924/llm_beatmap_generator/DeepResonance/ckpt
+/data/mg546924/conda_envs/deepresonance_env/bin/python /data/mg546924/llm_beatmap_generator/onsetdetection/extract_deepresonance_onsets.py --ckpt_path /data/mg546924/llm_beatmap_generator/DeepResonance/ckpt
 
 echo "Pipeline executed on $(date)."

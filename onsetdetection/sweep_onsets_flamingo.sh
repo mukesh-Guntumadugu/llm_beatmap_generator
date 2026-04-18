@@ -12,7 +12,7 @@ for chunk in "${CHUNK_SIZES[@]}"; do
     echo "▶️ Running Flamingo with chunk size: ${chunk}s"
     echo "------------------------------------------------"
     
-    python scripts/extract_onsets_flamingo.py --chunk_sec "$chunk"
+    python onsetdetection/extract_onsets_flamingo.py --chunk_sec "$chunk"
     
     echo "✅ Completed Flamingo chunk size: ${chunk}s"
 done

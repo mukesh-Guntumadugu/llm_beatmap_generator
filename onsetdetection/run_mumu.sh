@@ -16,6 +16,6 @@ export PYTHONUSERBASE=/data/mg546924/.local
 export PATH=$PYTHONUSERBASE/bin:$PATH
 
 # Use the conda env's Python directly (most reliable in SLURM batch scripts)
-/home/mg546924/.conda/envs/mumullama/bin/python extract_mumu_onsets.py
+/home/mg546924/.conda/envs/mumullama/bin/python onsetdetection/extract_mumu_onsets.py
 
 echo "=== MuMu-LLaMA Onset Detection Finished ==="

@@ -37,7 +37,7 @@ sys.modules['triton.ops.matmul_perf_model'] = MagicMock()
 
 # ── Import DeepResonance ──────────────────────────────────────────────────────
 # Add DeepResonance code/ to the Python path
-DEEPRESONANCE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "DeepResonance", "code")
+DEEPRESONANCE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "DeepResonance", "code")
 sys.path.append(DEEPRESONANCE_DIR)
 
 try:
@@ -50,7 +50,7 @@ except ImportError as e:
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 BASE_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "src", "musicForBeatmap", "Fraxtil's Arrow Arrangements"
 )
 
@@ -212,7 +212,7 @@ def main():
             # Load full audio into memory once
             y, sr = librosa.load(audio_path, sr=None)
             
-            CHUNK_SIZES = [1, 5, 10, 15, 20]
+            CHUNK_SIZES = [15.0]
             for chunk_sec in CHUNK_SIZES:
                 print(f"  [{i+1}/{len(song_dirs)}] Inferring: {song_name} ({chunk_sec}sec chunks)...", flush=True)
                 chunk_samples = int(chunk_sec * sr)
