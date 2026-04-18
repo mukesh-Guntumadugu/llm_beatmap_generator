@@ -53,7 +53,7 @@ Given a collection of songs from Fraxtil's Arrow Arrangements (20 tracks), autom
 - **Logs:** `mumu_log_*.txt`
   
  ### ✅ DeepSeek (DeepSeek-V3 )
-- **Why not:** DeepSeek is a 
+- **Why not:** DeepSeek has an audio as input, so we are giving it a shot.
 - **Status:** trying WIP for music/audio tasks
 - **Note:** It looks like some blogs are saying interesting things, we are WIP
 
