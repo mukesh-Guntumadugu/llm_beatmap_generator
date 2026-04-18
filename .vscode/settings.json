@@ -1,5 +1,5 @@
 {
-    "python.defaultInterpreterPath": "/Users/mukeshguntumadugu/.pyenv/versions/3.12.2/bin/python3",
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python3",
     "python.analysis.extraPaths": [
         "${workspaceFolder}",
         "${workspaceFolder}/pattern_finding_approach/.venv/lib/python3.14/site-packages"

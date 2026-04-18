@@ -33,8 +33,7 @@ BASE_DIR = os.path.join(
 def is_hallucinated_loop(onsets: List[float]) -> bool:
     if not onsets or len(onsets) < 10:
         return False
-    if len(onsets) > 150:
-        return True 
+    # Removed hard > 150 check because full songs trivially hit 150+ onsets.
     times = onsets
     deltas = [round(times[j+1] - times[j], 1) for j in range(len(times)-1)]
     for j in range(len(deltas) - 8):

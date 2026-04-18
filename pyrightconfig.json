@@ -1,8 +1,6 @@
 {
-  "pythonVersion": "3.12",
+  "pythonVersion": "3.9",
   "pythonPlatform": "Darwin",
-  "venvPath": "/Users/mukeshguntumadugu/.pyenv/versions",
-  "venv": "3.12.2",
   "typeCheckingMode": "off",
   "extraPaths": [
     ".",
