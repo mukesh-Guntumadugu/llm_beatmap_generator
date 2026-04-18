@@ -48,7 +48,7 @@ Given a collection of songs from Fraxtil's Arrow Arrangements (20 tracks), autom
 
 ### ✅ MuMu-LLaMA *(tested on cluster)*
 - **What it is:** Music understanding multimodal LLaMA model from the MuMu dataset
-- **Weights:** Available at `MuMu-LLaMA/`
+- **Weights:** You must manually download the MuMu-LLaMA repository and weights from the internet and place them in the root directory under a folder called `MuMu-LLaMA/`. The codebase expects the inner path to be `MuMu-LLaMA/MuMu-LLaMA/`.
 - **Scripts:** `extract_mumu_onsets.py`, `run_mumu.sh`
 - **Logs:** `mumu_log_*.txt`
   
