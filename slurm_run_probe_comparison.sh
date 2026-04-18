@@ -17,7 +17,7 @@ TARGET_DIR="src/musicForBeatmap/Fraxtil's Arrow Arrangements"
 echo "--------------------------------------------------------"
 echo "PHASE 1: PROBING FLAMINGO (AudioMAE Backbone)"
 echo "--------------------------------------------------------"
-PYTHON_DRIVER_FLAMINGO="/data/mg546924/conda_envs/music_flamingo_env/bin/python"
+PYTHON_DRIVER_FLAMINGO="/data/mg546924/conda_envs/flamingo_env/bin/python"
 OUTPUT_DIR_FLAMINGO="results_flamingo_probe_fraxtil"
 
 $PYTHON_DRIVER_FLAMINGO -u src/probe_flamingo.py --target_dir "$TARGET_DIR" --output_dir "$OUTPUT_DIR_FLAMINGO"
