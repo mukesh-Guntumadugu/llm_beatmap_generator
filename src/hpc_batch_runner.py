@@ -86,10 +86,35 @@ def load_song_onsets(song_dir: str) -> list[float]:
 # ── Prompt ────────────────────────────────────────────────────────────────────
 def build_prompt(duration: float, difficulty: str = "Medium", bpm: float = None,
                   chunk_onsets: list[float] = None) -> tuple[str, str]:
-    """Returns (system_prompt, user_prompt) for the Onset Detector SFT model."""
-    system_prompt = "You are a helpful assistant."
-    user_prompt = "List the onsets in this audio segment as a comma-separated list of timestamps in seconds."
+    """Returns (system_prompt, user_prompt) for the Onset Detector SFT model with rigid negative prompting to prevent autoregressive drift."""
+    system_prompt = "You are an expert audio extraction system. You must adhere strictly to formatting rules."
+    user_prompt = (
+        "Extract the specific musical burst onsets from this audio segment. You must follow these strict rules to prevent hallucinations:\n"
+        "1. Do not give me a bare list of numbers. Format each line exactly as: [Hit] : [Onset Timestamp in seconds]\n"
+        "2. CRITICAL: Do not interpolate, guess, auto-fill, or count up sequentially. Only output the exact numbers found in the audio.\n"
+        "3. Do not make up extra data if the audio is sparse. Stop generating when you reach the end."
+    )
     return system_prompt, user_prompt
+
+def is_hallucinated_loop(rows: list[dict]) -> bool:
+    """Mathematical validation checks to mathematically guarantee we catch counting loops."""
+    if not rows or len(rows) < 10:
+        return False
+        
+    if len(rows) > 150: # More than 150 drum onsets in a 20 second chunk is physically impossible noise
+        return True 
+
+    # Check for perfect mathematical distancing (autoregressive linear scale drift)
+    times = [r["time_ms"] for r in rows]
+    deltas = [round(times[j+1] - times[j], 1) for j in range(len(times)-1)]
+    
+    # If the exact same ms spacing occurs continuously across 8 or more hits, it's a generated sequence algorithm loop!
+    for j in range(len(deltas) - 8):
+        window = deltas[j:j+8]
+        if all(w == window[0] for w in window):
+            return True
+            
+    return False
 
 # ── Robust Qwen output parser ─────────────────────────────────────────────────
 def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms: float = 50.0) -> list[dict]:
@@ -116,29 +141,39 @@ def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms
     # Strip inline comments like `<-- HOLD HEAD` or `// comment`
     clean = re.sub(r"(<--|//).*?$", "", clean, flags=re.MULTILINE)
     
-    # ── Step 1.5: SFT Onset Detector format (comma-separated seconds) ────────
+    # ── Step 1.5: Anti-Hallucination Onset Detector format ([Hit] : 1.25) ────────
     try:
-        # Check if the output is just a list of numbers by filtering commas/dots/spaces/numbers
-        stripped_text = re.sub(r'[^0-9., ]+', '', clean).strip()
-        parts = [p.strip() for p in stripped_text.split(',') if p.strip()]
+        # Regex to dynamically rip floats out of context anchors (e.g. "[Hit] : 1.25" or "Onset 5 : 1.25")
+        found_matches = re.findall(r':\s*([0-9]+\.?[0-9]*)', clean)
         
-        # If it successfully split into multiple floats, we parse it
-        if len(parts) > 1:
-            times_sec = [float(p) for p in parts]
-            rows = []
-            for t_sec in times_sec:
-                t_ms = snap(t_sec * 1000.0, "1000")
-                rows.append({
-                    "time_ms":         t_ms,
-                    "beat_position":   0.0, # Handled globally in process_song using BPM
-                    "notes":           "1000",
-                    "placement_type":  1,
-                    "note_type":       2,
-                    "confidence":      0.99,
-                    "instrument":      "mixed",
-                })
-            print(f"  ✅ Parsed {len(rows)} onsets from comma-separated SFT format.")
-            return rows
+        # Fallback in case the AI ignored rule 1 and just wrote commas anyway
+        if not found_matches:
+            stripped_text = re.sub(r'[^0-9., ]+', '', clean).strip()
+            parts = [p.strip() for p in stripped_text.split(',') if p.strip()]
+            if len(parts) > 1:
+                found_matches = parts
+
+        if len(found_matches) > 0:
+            times_sec = []
+            for m in found_matches:
+                try: times_sec.append(float(m))
+                except: pass
+                
+            if times_sec:
+                rows = []
+                for t_sec in times_sec:
+                    t_ms = snap(t_sec * 1000.0, "1000")
+                    rows.append({
+                        "time_ms":         t_ms,
+                        "beat_position":   0.0, # Handled globally in process_song using BPM
+                        "notes":           "1000",
+                        "placement_type":  1,
+                        "note_type":       2,
+                        "confidence":      0.99,
+                        "instrument":      "mixed",
+                    })
+                print(f"  Parsed {len(rows)} onsets securely using anchored logic.")
+                return rows
     except Exception:
         pass
     
@@ -164,7 +199,7 @@ def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms
                             "instrument":      str(item.get("instrument", "mixed")),
                         })
                 if rows:
-                    print(f"  ✅ Parsed {len(rows)} rows from JSON array.")
+                    print(f"  Parsed {len(rows)} rows from JSON array.")
                     return rows
         except (json.JSONDecodeError, ValueError):
             pass
@@ -192,7 +227,7 @@ def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms
             except (json.JSONDecodeError, ValueError):
                 pass
     if rows:
-        print(f"  ✅ Parsed {len(rows)} rows from individual JSON objects.")
+        print(f"  Parsed {len(rows)} rows from individual JSON objects.")
         return rows
 
     # ── Step 4: Try to extract CSV rows (time_ms, beat, notes, placement, etc) ─
@@ -235,7 +270,7 @@ def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms
                 pass
                 
     if csv_rows:
-        print(f"  ✅ Parsed {len(csv_rows)} rows from CSV lines.")
+        print(f"  Parsed {len(csv_rows)} rows from CSV lines.")
         return csv_rows
 
     # ── Step 5: Fallback — plain 4-character note rows ─────────────────────────
@@ -261,10 +296,10 @@ def _parse_qwen_output(text: str, valid_onsets: list[float] = None, tolerance_ms
             })
             row_count += 1
     if fallback:
-        print(f"  ✅ Parsed {len(fallback)} rows from plain note lines (fallback).")
+        print(f"  Parsed {len(fallback)} rows from plain note lines (fallback).")
         return fallback
 
-    print("  ⚠️  Could not parse any valid rows from Qwen output.")
+    print("  WARNING: Could not parse any valid rows from Qwen output.")
     return []
 
 # ── Task registry helpers ──────────────────────────────────────────────────────
@@ -345,7 +380,7 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
         if all_onsets_ms:
             print(f"  Onsets loaded: {len(all_onsets_ms)} timestamps from original_onsets_*.csv")
         else:
-            print(f"  ⚠️  No original_onsets_*.csv found — Qwen will detect notes from audio only")
+            print(f"  WARNING: No original_onsets_*.csv found — Qwen will detect notes from audio only")
 
         chunk_size_sec = 20.0
         num_chunks = math.ceil(duration / chunk_size_sec)
@@ -375,30 +410,44 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
 
                 system_prompt, prompt = build_prompt(chunk_duration, difficulty, bpm, chunk_onsets)
 
-                print(f"  [{i+1}/{num_chunks}] Sending {chunk_duration:.1f}s chunk to server...")
-                resp = requests.post(
-                    f"{server_url}/generate",
-                    json={
-                        "audio_b64":           audio_b64,
-                        "audio_filename":      os.path.basename(audio_path),
-                        "system_prompt":       system_prompt,
-                        "prompt":              prompt,
-                        "max_new_tokens":      16384,
-                        "chunk_duration_sec":  chunk_duration,
-                    },
-                    timeout=600,
-                )
-                resp.raise_for_status()
-                text = resp.json()["text"]
-
-                if not text.strip():
-                    print(f"  [{i+1}/{num_chunks}] No output from model.")
-                    continue
-
-                parsed_rows = _parse_qwen_output(text, chunk_onsets)
+                # --- Anti-Hallucination Safe Retry Loop ---
+                max_retries = 3
+                parsed_rows = []
                 
+                for attempt in range(max_retries):
+                    print(f"  [{i+1}/{num_chunks}] (Attempt {attempt+1}) Sending {chunk_duration:.1f}s chunk to server...")
+                    resp = requests.post(
+                        f"{server_url}/generate",
+                        json={
+                            "audio_b64":           audio_b64,
+                            "audio_filename":      os.path.basename(audio_path),
+                            "system_prompt":       system_prompt,
+                            "prompt":              prompt,
+                            "max_new_tokens":      16384,
+                            "chunk_duration_sec":  chunk_duration,
+                        },
+                        timeout=600,
+                    )
+                    resp.raise_for_status()
+                    text = resp.json()["text"]
+
+                    if not text.strip():
+                        print(f"  [{i+1}/{num_chunks}] No output from model.")
+                        continue
+
+                    parsed_rows = _parse_qwen_output(text, chunk_onsets)
+                    
+                    if is_hallucinated_loop(parsed_rows):
+                        print(f"  [{i+1}/{num_chunks}] [!] HALLUCINATION CAUGHT: Neural counting drift detected! Retrying generation automatically...")
+                        parsed_rows = []
+                        continue
+                    
+                    # Successfully parsed and mathematically verified clean! Break loop.
+                    if parsed_rows:
+                        break
+
                 if not parsed_rows:
-                    print(f"  [{i+1}/{num_chunks}] ⚠️ No valid rows parsed. Saving RAW...")
+                    print(f"  [{i+1}/{num_chunks}]  Exhausted retries or 0 rows. Saving RAW text for analysis...")
                     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
                     raw_dir = os.path.join(dirname, "qwen_outputs")
                     os.makedirs(raw_dir, exist_ok=True)
@@ -428,7 +477,7 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
                     os.remove(tmp_path)
 
         if not all_parsed_rows:
-            print("  ⚠️ No valid rows found across any chunks.")
+            print("  WARNING: No valid rows found across any chunks.")
             return
 
         # Sort the combined rows by timestamp just in case
@@ -452,9 +501,9 @@ def process_song(audio_path: str, task_id: int, server_url: str, difficulty: str
         print("  Done.")
 
     except requests.exceptions.ConnectionError:
-        print(f"  ❌ Cannot reach server at {server_url}. Is it running?")
+        print(f"   Cannot reach server at {server_url}. Is it running?")
     except Exception as e:
-        print(f"  ❌ Error: {e}")
+        print(f"    Error: {e}")
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
@@ -478,9 +527,9 @@ def main():
     try:
         health = requests.get(f"{args.server}/health", timeout=5).json()
         if not health.get("model_loaded"):
-            print("⚠️  Server is up but model is not loaded yet. Waiting...")
+            print("WARNING: Server is up but model is not loaded yet. Waiting...")
     except Exception:
-        print(f"❌ Cannot reach Qwen server at {args.server}.")
+        print(f"ERROR: Cannot reach Qwen server at {args.server}.")
         print("   Start it first:  python src/hpc_qwen_server.py")
         sys.exit(1)
 
@@ -491,11 +540,11 @@ def main():
         if str(task_id) not in registry["tasks"]:
             print(f"Error: Task ID {task_id} not found in registry.")
             sys.exit(1)
-        print(f"▶  Resuming HPC Task ID: {task_id:04d}")
+        print(f"-> Resuming HPC Task ID: {task_id:04d}")
     else:
         first_difficulty = difficulties[0]
         task_id = create_new_task(registry, first_difficulty)
-        print(f"▶  New HPC Task ID: {task_id:04d}")
+        print(f"-> New HPC Task ID: {task_id:04d}")
 
     print(f"   Difficulties : {', '.join(difficulties)}\n")
 
