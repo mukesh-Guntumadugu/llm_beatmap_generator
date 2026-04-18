@@ -41,7 +41,14 @@ def plot_for_audio(file_path, output_dir):
     target_sr = processor.feature_extractor.sampling_rate
     y_qwen, _ = librosa.load(file_path, sr=target_sr)
     
-    inputs = processor(audio=[y_qwen], sampling_rate=target_sr, return_tensors="pt")
+    # Qwen2Audio processor explicitly requires text formatting even if we only want audio embeddings
+    audio_uri = f"file://{os.path.abspath(file_path)}"
+    conversation = [
+        {"role": "user", "content": [{"type": "audio", "audio_url": audio_uri}, {"type": "text", "text": "probe"}]}
+    ]
+    text_context = processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
+    
+    inputs = processor(text=text_context, audio=[y_qwen], sampling_rate=target_sr, return_tensors="pt")
     inputs = inputs.to(model.device)
     
     print("2. Pushing audio through Qwen's neural audio_tower...")
