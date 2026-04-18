@@ -253,6 +253,19 @@ def main():
         print(f"\r{' ' * 80}\r", end="")
         print(f"{song_name[:43]:<45} {len(onset_ms):>14d}  {os.path.basename(csv_path)}")
 
+        # Clean up heavy memory footprint before the next song iteration
+        import gc
+        try:
+            del y
+            del y_chunk
+        except NameError:
+            pass
+        gc.collect()
+        
+        import torch
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
     print("\nMuMu extraction run completed.")
 
 if __name__ == "__main__":
