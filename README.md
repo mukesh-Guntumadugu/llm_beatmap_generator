@@ -51,6 +51,11 @@ Given a collection of songs from Fraxtil's Arrow Arrangements (20 tracks), autom
 - **Weights:** Available at `MuMu-LLaMA/`
 - **Scripts:** `extract_mumu_onsets.py`, `run_mumu.sh`
 - **Logs:** `mumu_log_*.txt`
+  
+ ### ✅ DeepSeek (DeepSeek-V3 )
+- **Why not:** DeepSeek is a 
+- **Status:** trying WIP for music/audio tasks
+- **Note:** It looks like some blogs are saying interesting things, we are WIP
 
 ---
 
@@ -61,10 +66,6 @@ Given a collection of songs from Fraxtil's Arrow Arrangements (20 tracks), autom
 - **Status:** Weights not available — cannot run locally or on cluster
 - **Alternative used:** Librosa for traditional onset detection
 
-### ✗ DeepSeek (LLM versions)
-- **Why not:** DeepSeek is a text/code LLM — it has no audio understanding capability whatsoever
-- **Status:** Not applicable for music/audio tasks
-- **Note:** Cannot process raw audio waveforms, spectrograms, or musical content in any form
 
 ### ✗ SALMONN
 - **Why not:** Model directory exists (`SALMONN/`) but weights were too large to fully download and configure on the Ohio cluster storage quota
