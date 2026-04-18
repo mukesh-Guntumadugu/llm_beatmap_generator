@@ -49,6 +49,19 @@ DEFAULT_MODEL = "gemini-3.1-pro-preview"  # confirmed available for this API key
 
 _client: Optional[genai.Client] = None
 
+def is_hallucinated_loop(onsets: List[float]) -> bool:
+    if not onsets or len(onsets) < 10:
+        return False
+    if len(onsets) > 150:
+        return True 
+    times = onsets
+    deltas = [round(times[j+1] - times[j], 1) for j in range(len(times)-1)]
+    for j in range(len(deltas) - 8):
+        window = deltas[j:j+8]
+        if all(w == window[0] for w in window):
+            return True
+    return False
+
 def setup_gemini() -> genai.Client:
     """Initialise and return the Gemini client, reading the API key from env."""
     global _client
@@ -62,7 +75,7 @@ def setup_gemini() -> genai.Client:
             "Add it to your .env file or export it in your shell."
         )
     _client = genai.Client(api_key=api_key)
-    print(f"✅ Gemini client initialised.")
+    print(f"Gemini client initialised.")
     print(f"   API key: {api_key[:8]}...{api_key[-4:]}  (from .env)")
     return _client
 
@@ -73,61 +86,12 @@ ONSET_SYSTEM_INSTRUCTION = (
     "You are an expert music analyst and audio engineer specializing in precise "
     "onset detection for rhythm game chart generation.\n\n"
 
-    "## What is an Onset?\n"
-    "An onset is the exact moment a new musical event begins — the attack phase "
-    "of a sound. Onsets occur on:\n"
-    "- Percussion: kick drum, snare, hi-hat, cymbal, clap, tom hits\n"
-    "- Melodic instruments: guitar pick attack, piano key strike, bass pluck, "
-    "synth note start, violin bow attack\n"
-    "- Vocals: consonant or vowel attacks at the start of sung words or syllables\n"
-    "- Any transient: any sudden increase in energy that marks the start of a "
-    "rhythmic or melodic event\n\n"
-
     "## Your Task\n"
-    "When given an audio file, you must:\n"
-    "1. Listen to the complete audio from the very beginning to the very end. "
-    "Do not stop early.\n"
-    "2. Identify every significant musical onset throughout the entire duration.\n"
-    "3. Record the exact time of each onset in milliseconds (ms), measured from "
-    "the start of the audio (time 0).\n"
-    "4. Return all onset times as a single JSON array of numbers.\n\n"
-
-    "## Detection Guidelines\n"
-    "- Be thorough: a typical 3-minute song should have hundreds of onsets.\n"
-    "- Be precise: onset times should be accurate to within ±5 milliseconds.\n"
-    "- Include ALL instrument layers: if a kick drum and a hi-hat hit at the same "
-    "time, record that time once (it is one onset event).\n"
-    "- Include weak onsets: even soft notes or ghost notes on a snare should be "
-    "captured if they are rhythmically significant.\n"
-    "- Do not hallucinate: only report onsets you can actually hear in the audio. "
-    "Do not invent onsets where there is silence.\n"
-    "- Cover the full song: make sure the last few seconds of the song are "
-    "included — many submissions fail by stopping too early.\n\n"
-
-    "## Output Format\n"
-    "You MUST output ONLY a valid JSON array of numbers, nothing else.\n"
-    "- Each number is an onset time in milliseconds (integer or float).\n"
-    "- The array must be sorted in ascending order (earliest onset first).\n"
-    "- Do NOT include any explanation, markdown formatting, headers, units, "
-    "or any text outside the JSON array.\n"
-    "- Do NOT wrap the array in backticks or code fences.\n"
-    "- Correct format: [0, 125.5, 250, 375, 500, 750.25, 1000, ...]\n"
-    "- Incorrect formats:\n"
-    "    'Here are the onsets: [0, 125, 250]'  ← has explanation text\n"
-    "    '```json\\n[0, 125, 250]\\n```'         ← has markdown fencing\n"
-    "    '{\"onsets\": [0, 125, 250]}'           ← wrong structure\n\n"
-
-    "## Quality Criteria\n"
-    "Your output will be evaluated against a ground-truth onset list generated "
-    "by a professional audio analysis tool (librosa). A good onset detection "
-    "result achieves:\n"
-    "- Precision ≥ 60%: most of your predicted onsets should match real onsets\n"
-    "- Recall ≥ 60%: you should find at least 60% of the real onsets\n"
-    "- F1 Score ≥ 0.60: the harmonic mean of precision and recall\n"
-    "A predicted onset counts as correct if it is within ±50 ms of a "
-    "ground-truth onset.\n\n"
-
-    "Remember: output ONLY the JSON array. No other text."
+    "Listen to the audio carefully and extract the specific musical burst onsets.\n"
+    "You must follow these strict rules to prevent hallucinations:\n"
+    "1. Do not give me a bare list of numbers. Format each line exactly as: [Hit] : [Onset Timestamp in seconds]\n"
+    "2. CRITICAL: Do not interpolate, guess, auto-fill, or count up sequentially. Only output the exact numbers found in the audio.\n"
+    "3. Do not make up extra data if the audio is sparse. Stop generating when you reach the end."
 )
 
 
@@ -136,8 +100,7 @@ def build_system_prompt(duration_sec: float) -> str:
     Used when context cache is active (system instruction is already cached)."""
     return (
         f"The audio is {duration_sec:.1f} seconds long. "
-        "Identify all musical onsets and return them as a JSON array of "
-        "millisecond timestamps covering the full duration."
+        "Extract all musical onsets in '[Hit] : [Seconds]' format."
     )
 
 
@@ -216,9 +179,21 @@ def parse_onsets_from_response(response_text: str) -> List[float]:
 
     onsets: List[float] = []
 
+    # 1. Anti-Hallucination Secure Anchored Parsing (Seconds)
+    found_matches = re.findall(r':\s*([0-9]+\.?[0-9]*)', text_clean)
+    if found_matches:
+        for val in found_matches:
+            try:
+                ms = float(val) * 1000.0
+                if 0.0 <= ms <= 600_000:
+                    onsets.append(round(ms, 2))
+            except ValueError:
+                pass
+        if onsets:
+            return sorted(set(onsets))
+
     # ── Strategy 1: JSON array of numbers ────────────────────────────────────
     try:
-        # Try parsing the whole response as a JSON array first
         arr = json.loads(text_clean)
         if isinstance(arr, list):
             for val in arr:
@@ -507,50 +482,64 @@ def main():
         audio_path = find_audio_file(song_dir)
 
         if audio_path is None:
-            print(f"  ⚠️  [{i+1}/{len(song_dirs)}] No audio file in: {song_name}")
+            print(f"  WARNING: [{i+1}/{len(song_dirs)}] No audio file in: {song_name}")
             continue
 
         print(f"  [{i+1}/{len(song_dirs)}] {song_name} ...", end="", flush=True)
 
-        try:
-            duration_sec = librosa.get_duration(path=audio_path)
-            response_text = query_gemini_for_onsets(
-                audio_path, duration_sec, args.model, client,
-                max_retries=args.max_retries,
-                cache_name=cache_name
-            )
+        max_retries = 3
+        onset_ms = []
+        response_text = ""
 
-            if args.verbose:
-                preview = response_text.replace("\n", " ")[:500]
-                print(f"\n  📨 Raw response ({len(response_text)} chars): {preview}")
-                print()
-
-            if not response_text.strip():
-                print(f"\n  ⚠️  Empty response for '{song_name}'")
-                continue
-
-            onset_ms = parse_onsets_from_response(response_text)
-
-            if not onset_ms:
-                print(f"\n  ⚠️  No parseable onsets for '{song_name}'")
-                # Save raw response for debugging
-                ts = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
-                raw_path = os.path.join(
-                    song_dir,
-                    f"Gemini_onsets_RAW_{song_name.replace(' ', '_')}_{ts}.txt"
+        for attempt in range(max_retries):
+            try:
+                duration_sec = librosa.get_duration(path=audio_path)
+                response_text = query_gemini_for_onsets(
+                    audio_path, duration_sec, args.model, client,
+                    max_retries=args.max_retries,
+                    cache_name=cache_name
                 )
-                with open(raw_path, "w", encoding="utf-8") as f:
-                    f.write(response_text)
-                print(f"     Raw saved → {raw_path}")
-                continue
 
-            out_path = save_onsets_csv(onset_ms, song_name, song_dir)
-            rel_out  = os.path.relpath(out_path, BASE_DIR)
-            print(f"  ✅ {song_name:<43} {len(onset_ms):>10,}  {rel_out}")
-            total_songs += 1
+                if args.verbose:
+                    preview = response_text.replace("\n", " ")[:500]
+                    print(f"\n  📨 Raw response ({len(response_text)} chars): {preview}")
+                    print()
 
-        except Exception as e:
-            print(f"\n  ❌ Error: {e}")
+                if not response_text.strip():
+                    print(f"\n  WARNING: Empty response for '{song_name}'")
+                    continue
+
+                onset_ms = parse_onsets_from_response(response_text)
+
+                if onset_ms and is_hallucinated_loop(onset_ms):
+                    print(f"\n  [!] HALLUCINATION CAUGHT: Neural counting drift detected! Retrying...")
+                    onset_ms = []
+                    continue
+
+                if onset_ms:
+                    break
+
+            except Exception as e:
+                print(f"\n  ERROR: {e}")
+                if attempt == max_retries - 1:
+                    break
+
+        if not onset_ms:
+            print(f"\n  WARNING: No parseable onsets for '{song_name}'")
+            ts = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
+            raw_path = os.path.join(
+                song_dir,
+                f"Gemini_onsets_RAW_{song_name.replace(' ', '_')}_{ts}.txt"
+            )
+            with open(raw_path, "w", encoding="utf-8") as f:
+                f.write(response_text)
+            print(f"     Raw saved -> {raw_path}")
+            continue
+
+        out_path = save_onsets_csv(onset_ms, song_name, song_dir)
+        rel_out  = os.path.relpath(out_path, BASE_DIR)
+        print(f"  -> {song_name:<43} {len(onset_ms):>10,}  {rel_out}")
+        total_songs += 1
 
         # Respectful pause between API calls
         if i < len(song_dirs) - 1:   # no need to wait after the last song
