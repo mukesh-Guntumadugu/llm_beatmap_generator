@@ -23,6 +23,9 @@ except ImportError:
 
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.cluster import KMeans, AgglomerativeClustering
+from sklearn.mixture import GaussianMixture
+from scipy.cluster.hierarchy import dendrogram
 import umap
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -31,6 +34,23 @@ try:
     from prefixspan import PrefixSpan
 except ImportError:
     print("Warning: prefixspan not installed. Sequential sequence mining will fail.")
+
+def plot_dendrogram(model, **kwargs):
+    """
+    Create linkage matrix and then plot the dendrogram for AgglomerativeClustering.
+    """
+    counts = np.zeros(model.children_.shape[0])
+    n_samples = len(model.labels_)
+    for i, merge in enumerate(model.children_):
+        current_count = 0
+        for child_idx in merge:
+            if child_idx < n_samples:
+                current_count += 1  # leaf node
+            else:
+                current_count += counts[child_idx - n_samples]
+        counts[i] = current_count
+    linkage_matrix = np.column_stack([model.children_, model.distances_, counts]).astype(float)
+    dendrogram(linkage_matrix, **kwargs)
 
 def parse_ssc_sm(file_path):
     """
@@ -68,8 +88,9 @@ def parse_ssc_sm(file_path):
         sections = content.split('#NOTEDATA:')
         for sec in sections[1:]:
             stepstype_match = re.search(r'#STEPSTYPE:\s*([^;]+);', sec)
-            if not stepstype_match or stepstype_match.group(1).strip() != 'dance-single':
+            if not stepstype_match:
                 continue
+            stepstype = stepstype_match.group(1).strip()
             
             diff_match = re.search(r'#DIFFICULTY:\s*([^;]+);', sec)
             diff = diff_match.group(1).strip() if diff_match else "Unknown"
@@ -77,7 +98,7 @@ def parse_ssc_sm(file_path):
             notes_match = re.search(r'#NOTES:\s*\n*((?:[^;])+)', sec)
             if notes_match:
                 notes_str = notes_match.group(1)
-                charts.append({'difficulty': diff, 'notes_string': notes_str})
+                charts.append({'difficulty': diff, 'chart_type': stepstype, 'notes_string': notes_str})
                 
     elif file_path.endswith('.sm'):
         sections = content.split('#NOTES:')
@@ -85,18 +106,16 @@ def parse_ssc_sm(file_path):
             parts = [p.strip() for p in sec.split(':')]
             if len(parts) >= 6:
                 stepstype = parts[0]
-                if stepstype != 'dance-single':
-                    continue
                 diff = parts[2]
                 notes_str = parts[5].split(';')[0]
-                charts.append({'difficulty': diff, 'notes_string': notes_str})
+                charts.append({'difficulty': diff, 'chart_type': stepstype, 'notes_string': notes_str})
                 
     return charts, metadata
 
 def clean_and_split_measures(notes_str):
     """
     Splits the note string into individual measures and cleans comments/empty lines.
-    Ensures lines have exactly 4 columns.
+    Ensures all lines within a measure have exactly the same column width natively.
     """
     raw_measures = notes_str.split(',')
     cleaned_measures = []
@@ -106,14 +125,18 @@ def clean_and_split_measures(notes_str):
         # Filter comments and empty lines
         lines = [line for line in lines if line and not line.startswith('//')]
         
-        # We enforce exactly 4 columns. If any line is != 4, we flag the measure as invalid.
+        if len(lines) == 0:
+            continue
+            
+        # We ensure all lines share the same column length (N > 0).
+        num_cols = len(lines[0])
         valid = True
         for line in lines:
-            if len(line) != 4:
+            if len(line) != num_cols or num_cols == 0:
                 valid = False
                 break
                 
-        if valid and len(lines) > 0:
+        if valid:
             cleaned_measures.append(lines)
             
     return cleaned_measures
@@ -245,10 +268,11 @@ def extract_measure_features(measure_lines: list, incoming_holds: int, outgoing_
     14 longest_diff_chain   : length of longest sequence of identical relative movement (e.g. continuous staircase)
     """
     total_rows   = len(measure_lines)
-    active_rows  = [r for r in measure_lines if r != '0000']
+    num_cols     = len(measure_lines[0]) if total_rows > 0 else 0
+    active_rows  = [r for r in measure_lines if any(c != '0' for c in r)]
     total_active = len(active_rows)
 
-    if total_active == 0:
+    if total_active == 0 or num_cols == 0:
         return [0] * 12 + [incoming_holds, outgoing_holds, 0]
 
     col_lists      = [_active_cols(r) for r in active_rows]
@@ -258,7 +282,7 @@ def extract_measure_features(measure_lines: list, incoming_holds: int, outgoing_
     if len(single_cols) >= 2:
         dists       = [abs(single_cols[i+1] - single_cols[i]) for i in range(len(single_cols)-1)]
         max_dist    = max(dists)
-        avg_dist    = sum(dists) / len(dists) / 3.0   # normalise to 0-1 (max possible = 3)
+        avg_dist    = sum(dists) / len(dists) / max(float(num_cols - 1), 1.0)
         returns     = int(single_cols[0] == single_cols[-1])
     else:
         max_dist = avg_dist = returns = 0
@@ -270,20 +294,22 @@ def extract_measure_features(measure_lines: list, incoming_holds: int, outgoing_
 
     hold_duration = sum(1 for r in measure_lines for ch in r if ch in ('2', '3', '4', 'H')) / max(total_rows, 1)
 
-    col_counts = [sum(1 for r in measure_lines if r[i] != '0') for i in range(4)]
+    col_counts = [sum(1 for r in measure_lines if r[i] != '0') for i in range(num_cols)]
     total_taps = sum(col_counts)
-    symmetry_bias = (col_counts[0] + col_counts[1]) / max(total_taps, 1)
+    
+    # Left hemisphere vs right hemisphere
+    left_taps = sum(col_counts[:num_cols//2])
+    symmetry_bias = left_taps / max(total_taps, 1)
 
     crossover_count = 0
     if len(single_cols) >= 3:
         for i in range(len(single_cols)-2):
-            seq = (single_cols[i], single_cols[i+1], single_cols[i+2])
-            if seq in [(0,1,3), (3,1,0), (0,2,3), (3,2,0)]:
+            if (single_cols[i] < single_cols[i+1] and single_cols[i+2] < single_cols[i+1]) or (single_cols[i] > single_cols[i+1] and single_cols[i+2] > single_cols[i+1]):
                 crossover_count += 1
 
     longest_chain = 0
     if len(single_cols) >= 2:
-        diff_chain = [((single_cols[i+1] - single_cols[i]) % 4) for i in range(len(single_cols)-1)]
+        diff_chain = [((single_cols[i+1] - single_cols[i]) % max(num_cols, 1)) for i in range(len(single_cols)-1)]
         if diff_chain:
             current_streak = 1
             max_streak = 1
@@ -417,7 +443,7 @@ def init_database(db_path: str) -> sqlite3.Connection:
             author              TEXT,
             skipped_duplicate   INTEGER NOT NULL DEFAULT 0,
             difficulties_found  TEXT,
-            measures_4col       INTEGER DEFAULT 0,
+            valid_measures      INTEGER DEFAULT 0,
             processed_at        TEXT    NOT NULL
         );
 
@@ -435,10 +461,12 @@ def init_database(db_path: str) -> sqlite3.Connection:
             id                      INTEGER PRIMARY KEY AUTOINCREMENT,
             run_id                  TEXT    NOT NULL,
             difficulty              TEXT    NOT NULL,
+            chart_type              TEXT    NOT NULL DEFAULT 'dance-single',
+            column_count            INTEGER DEFAULT 4,
             total_charts_in_files   INTEGER,
-            charts_with_4col        INTEGER,
-            total_4col_measures     INTEGER,
-            skipped_charts_non4col  INTEGER,
+            valid_charts            INTEGER,
+            valid_measures          INTEGER,
+            skipped_charts          INTEGER,
             saved_at                TEXT    NOT NULL
         );
 
@@ -447,6 +475,7 @@ def init_database(db_path: str) -> sqlite3.Connection:
             run_id          TEXT    NOT NULL,
             character       TEXT    NOT NULL,
             difficulty      TEXT    NOT NULL,
+            chart_type      TEXT    NOT NULL DEFAULT 'dance-single',
             count           INTEGER,
             is_new_pattern  TEXT,
             saved_at        TEXT    NOT NULL
@@ -493,6 +522,7 @@ def init_database(db_path: str) -> sqlite3.Connection:
             run_id          TEXT    NOT NULL,
             file_path       TEXT    NOT NULL,
             difficulty      TEXT    NOT NULL,
+            chart_type      TEXT    NOT NULL DEFAULT 'dance-single',
             measure_idx     INTEGER NOT NULL,
             chop_length     INTEGER DEFAULT 1,
             start_time      REAL,
@@ -517,6 +547,7 @@ def init_database(db_path: str) -> sqlite3.Connection:
             run_id          TEXT    NOT NULL,
             file_path       TEXT    NOT NULL,
             difficulty      TEXT    NOT NULL,
+            chart_type      TEXT    NOT NULL DEFAULT 'dance-single',
             measure_idx     INTEGER NOT NULL,
             chop_length     INTEGER DEFAULT 1,
             total_active    INTEGER,
@@ -541,6 +572,7 @@ def init_database(db_path: str) -> sqlite3.Connection:
             run_id          TEXT    NOT NULL,
             file_path       TEXT    NOT NULL,
             difficulty      TEXT    NOT NULL,
+            chart_type      TEXT    NOT NULL DEFAULT 'dance-single',
             measure_idx     INTEGER NOT NULL,
             chop_length     INTEGER DEFAULT 1,
             cluster_id      INTEGER NOT NULL,
@@ -558,19 +590,44 @@ def init_database(db_path: str) -> sqlite3.Connection:
         ("stepmania_features", "longest_diff_chain INTEGER DEFAULT 0"),
         ("audio_features", "chop_length INTEGER DEFAULT 1"),
         ("measure_cluster_assignments", "chop_length INTEGER DEFAULT 1"),
+        ("stepmania_features", "chart_type TEXT DEFAULT 'dance-single'"),
+        ("audio_features", "chart_type TEXT DEFAULT 'dance-single'"),
+        ("measure_cluster_assignments", "chart_type TEXT DEFAULT 'dance-single'"),
+        ("character_distributions", "chart_type TEXT DEFAULT 'dance-single'"),
+        ("difficulty_breakdown", "chart_type TEXT DEFAULT 'dance-single'"),
     ]:
         table, definition = col_def
         try:
             conn.execute(f"ALTER TABLE {table} ADD COLUMN {definition};")
         except sqlite3.OperationalError:
             pass
+    try:
+        conn.execute("ALTER TABLE processed_files RENAME COLUMN measures_4col TO valid_measures;")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        conn.execute("ALTER TABLE difficulty_breakdown RENAME COLUMN charts_with_4col TO valid_charts;")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        conn.execute("ALTER TABLE difficulty_breakdown RENAME COLUMN total_4col_measures TO valid_measures;")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        conn.execute("ALTER TABLE difficulty_breakdown RENAME COLUMN skipped_charts_non4col TO skipped_charts;")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        conn.execute("ALTER TABLE difficulty_breakdown ADD COLUMN column_count INTEGER DEFAULT 4;")
+    except sqlite3.OperationalError:
+        pass
     conn.commit()
     return conn
 
 
 def log_file_to_db(conn: sqlite3.Connection, file_path: str, song_name: str,
                    fmt: str, skipped: bool,
-                   difficulties: list = None, measures_4col: int = 0,
+                   difficulties: list = None, valid_measures: int = 0,
                    author: str = "Unknown",
                    max_retries: int = 5):
     """
@@ -586,13 +643,13 @@ def log_file_to_db(conn: sqlite3.Connection, file_path: str, song_name: str,
     sql = """
         INSERT OR REPLACE INTO processed_files
             (file_path, song_name, format, author, skipped_duplicate,
-             difficulties_found, measures_4col, processed_at)
+             difficulties_found, valid_measures, processed_at)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     """
     params = (
         file_path, song_name, fmt, author,
         1 if skipped else 0,
-        diff_str, measures_4col,
+        diff_str, valid_measures,
         datetime.now().isoformat()
     )
     for attempt in range(max_retries):
@@ -751,23 +808,25 @@ def process_dataset(directory, db_path, run_id, chop_mode='both'):
 
         for chart in charts:
             diff = chart['difficulty']
+            chart_type = chart.get('chart_type', 'dance-single')
+
+            # Process all valid geometric measures 
+            cleaned_measures = clean_and_split_measures(chart['notes_string'])
+            num_cols = len(cleaned_measures[0][0]) if cleaned_measures and len(cleaned_measures[0]) > 0 else 4
 
             # Initialise stats bucket for this difficulty if first time seen
-            if diff not in diff_stats:
-                diff_stats[diff] = {'total_charts': 0, 'files_with_4col': 0, 'total_4col_measures': 0}
+            if (diff, chart_type, num_cols) not in diff_stats:
+                diff_stats[(diff, chart_type, num_cols)] = {'total_charts': 0, 'files_with_matching_measures': 0, 'total_measures': 0}
 
-            diff_stats[diff]['total_charts'] += 1
+            diff_stats[(diff, chart_type, num_cols)]['total_charts'] += 1
 
-            # Only process 4-column (dance-single) measures — others are silently skipped
-            cleaned_measures = clean_and_split_measures(chart['notes_string'])
-
-            if cleaned_measures:  # This chart had at least one valid 4-col measure
-                diff_stats[diff]['files_with_4col'] += 1
-                diff_stats[diff]['total_4col_measures'] += len(cleaned_measures)
+            if cleaned_measures:
+                diff_stats[(diff, chart_type, num_cols)]['files_with_matching_measures'] += 1
+                diff_stats[(diff, chart_type, num_cols)]['total_measures'] += len(cleaned_measures)
 
             chart_interpolated = []
             chart_raw = []
-            active_holds = [False] * 4
+            active_holds = [False] * num_cols
             
             for measure_lines in cleaned_measures:
                 chart_raw.append(measure_lines)
@@ -825,12 +884,13 @@ def process_dataset(directory, db_path, run_id, chop_mode='both'):
                 if chop_len == 1:
                     for line in interp_lines:
                         for char in line:
-                            char_counts[(char, diff)] += 1
+                            char_counts[(char, diff, chart_type)] += 1
 
                 all_raw_measures.append(raw_lines)
-                all_measure_info.append((fp, diff, start_idx, chop_len))
+                all_measure_info.append((fp, diff, chart_type, start_idx, chop_len))
 
-                active_steps = [canonicalize_row(line) for line in raw_lines if line != '0000']
+                # Handle arbitrary 0s strings (e.g., '0000', '00000000') effectively
+                active_steps = [canonicalize_row(line) for line in raw_lines if any(c != '0' for c in line)]
                 if active_steps:
                     all_sequence_measures.append(active_steps)
                     
@@ -843,7 +903,7 @@ def process_dataset(directory, db_path, run_id, chop_mode='both'):
                     vocal_feats = afe.get_vocal_features_for_slice(vocal_words, start_time, end_time)
                     
                     row_time = datetime.now().isoformat()
-                    audio_rows.append((run_id, fp, diff, start_idx, chop_len, start_time, end_time) + tuple(feats) + tuple(vocal_feats) + (row_time,))
+                    audio_rows.append((run_id, fp, diff, chart_type, start_idx, chop_len, start_time, end_time) + tuple(feats) + tuple(vocal_feats) + (row_time,))
 
                 incoming_holds = 0
                 outgoing_holds = 0
@@ -852,17 +912,17 @@ def process_dataset(directory, db_path, run_id, chop_mode='both'):
                     outgoing_holds = interp_lines[-1].count('H') + interp_lines[-1].count('2')
 
                 sm_feats = extract_measure_features(interp_lines, incoming_holds, outgoing_holds)
-                stepmania_rows.append((run_id, fp, diff, start_idx, chop_len) + tuple(sm_feats))
+                stepmania_rows.append((run_id, fp, diff, chart_type, start_idx, chop_len) + tuple(sm_feats))
                 
         if audio_rows:
             conn.executemany(
-                "INSERT INTO audio_features (run_id, file_path, difficulty, measure_idx, chop_length, start_time, end_time, rms_energy, onset_density, tempo_strength, chroma_mean, spectral_centroid, spectral_bandwidth, spectral_contrast, spectral_flatness, mfcc_0, mfcc_1, mfcc_2, mfcc_3, mfcc_4, mfcc_5, mfcc_6, mfcc_7, mfcc_8, mfcc_9, mfcc_10, mfcc_11, mfcc_12, vocal_word_count, vocal_density, saved_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                "INSERT INTO audio_features (run_id, file_path, difficulty, chart_type, measure_idx, chop_length, start_time, end_time, rms_energy, onset_density, tempo_strength, chroma_mean, spectral_centroid, spectral_bandwidth, spectral_contrast, spectral_flatness, mfcc_0, mfcc_1, mfcc_2, mfcc_3, mfcc_4, mfcc_5, mfcc_6, mfcc_7, mfcc_8, mfcc_9, mfcc_10, mfcc_11, mfcc_12, vocal_word_count, vocal_density, saved_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 audio_rows
             )
             
         if stepmania_rows:
             conn.executemany(
-                "INSERT INTO stepmania_features (run_id, file_path, difficulty, measure_idx, chop_length, total_active, jumps, max_dist, avg_dist, returns, density, uniq_col, has_hold, has_mine, hold_duration, symmetry_bias, crossover_count, incoming_holds, outgoing_holds, longest_diff_chain) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                "INSERT INTO stepmania_features (run_id, file_path, difficulty, chart_type, measure_idx, chop_length, total_active, jumps, max_dist, avg_dist, returns, density, uniq_col, has_hold, has_mine, hold_duration, symmetry_bias, crossover_count, incoming_holds, outgoing_holds, longest_diff_chain) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 stepmania_rows
             )
         conn.commit()
@@ -892,7 +952,7 @@ def process_dataset(directory, db_path, run_id, chop_mode='both'):
                        fmt=os.path.splitext(fp)[1],
                        skipped=False,
                        difficulties=file_diffs,
-                       measures_4col=file_measures,
+                       valid_measures=file_measures,
                        author=metadata.get('author', 'Unknown'))
 
     conn.close()
@@ -900,7 +960,7 @@ def process_dataset(directory, db_path, run_id, chop_mode='both'):
     print("Data parsing complete!")
     return all_raw_measures, all_sequence_measures, all_measure_info, diff_stats, char_counts
 
-def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, encoding='features'):
+def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, encoding='features', cluster_algo='hdbscan', n_clusters=20):
     """
     encoding choices:
       'ohe'      – One-Hot Encoding of canonical 192x4 matrix  (default / most detailed)
@@ -935,7 +995,7 @@ def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, 
         print("Extracting physical and audio features with INNER JOIN...")
         query = """
             SELECT 
-                s.file_path, s.difficulty, s.measure_idx, s.chop_length,
+                s.file_path, s.difficulty, s.chart_type, s.measure_idx, s.chop_length,
                 s.total_active, s.jumps, s.max_dist, s.avg_dist, s.returns, s.density, 
                 s.uniq_col, s.has_hold, s.has_mine, s.hold_duration, s.symmetry_bias, 
                 s.crossover_count, s.incoming_holds, s.outgoing_holds, s.longest_diff_chain,
@@ -949,6 +1009,7 @@ def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, 
                 ON s.run_id = a.run_id
                 AND s.file_path = a.file_path
                 AND s.difficulty = a.difficulty
+                AND s.chart_type = a.chart_type
                 AND s.measure_idx = a.measure_idx
                 AND s.chop_length = a.chop_length
             WHERE s.run_id = ?
@@ -957,20 +1018,20 @@ def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, 
         df_feats = pd.read_sql(query, conn, params=(run_id,))
         
         # We need to filter raw_measures and measure_info to match the INNER JOIN result exactly.
-        raw_map = {(mi[0], mi[1], int(mi[2]), int(mi[3])): rm for mi, rm in zip(measure_info, raw_measures)}
-        keys_df = df_feats[['file_path', 'difficulty', 'measure_idx', 'chop_length']]
+        raw_map = {(mi[0], mi[1], mi[2], int(mi[3]), int(mi[4])): rm for mi, rm in zip(measure_info, raw_measures)}
+        keys_df = df_feats[['file_path', 'difficulty', 'chart_type', 'measure_idx', 'chop_length']]
         
         new_measure_info = []
         new_raw_measures = []
-        for fp, diff, midx, chplen in keys_df.itertuples(index=False, name=None):
-            key = (fp, diff, int(midx), int(chplen))
+        for fp, diff, ctype, midx, chplen in keys_df.itertuples(index=False, name=None):
+            key = (fp, diff, ctype, int(midx), int(chplen))
             new_measure_info.append(key)
             new_raw_measures.append(raw_map.get(key, []))
             
         measure_info = new_measure_info
         raw_measures = new_raw_measures
         
-        df_feats = df_feats.drop(columns=['file_path', 'difficulty', 'measure_idx', 'chop_length'])
+        df_feats = df_feats.drop(columns=['file_path', 'difficulty', 'chart_type', 'measure_idx', 'chop_length'])
         
         scaler = StandardScaler()
         scaled_data = scaler.fit_transform(df_feats.values)
@@ -1007,15 +1068,42 @@ def run_topology_pipeline(raw_measures, measure_info, conn, run_id, output_dir, 
     pca = PCA(n_components=components)
     compressed_data = pca.fit_transform(encoded_data)
 
-    # 3. HDBSCAN
-    print("Clustering dense neighborhoods with HDBSCAN...")
-    hdbscan_clusterer = HDBSCAN(min_cluster_size=10, min_samples=5)
-    labels = hdbscan_clusterer.fit_predict(compressed_data)
+    # 3. Clustering Execution
+    if cluster_algo == 'hdbscan':
+        print("Clustering dense neighborhoods with HDBSCAN...")
+        clusterer = HDBSCAN(min_cluster_size=10, min_samples=5)
+        labels = clusterer.fit_predict(compressed_data)
+    elif cluster_algo == 'kmeans':
+        print(f"Clustering with KMeans (k={n_clusters})...")
+        clusterer = KMeans(n_clusters=n_clusters, random_state=42)
+        labels = clusterer.fit_predict(compressed_data)
+    elif cluster_algo == 'gmm':
+        print(f"Clustering with GMM (components={n_clusters})...")
+        clusterer = GaussianMixture(n_components=n_clusters, random_state=42, covariance_type='tied')
+        clusterer.fit(compressed_data)
+        labels = clusterer.predict(compressed_data)
+    elif cluster_algo == 'agglomerative':
+        print(f"Clustering with Agglomerative (clusters={n_clusters})...")
+        clusterer = AgglomerativeClustering(n_clusters=n_clusters, compute_distances=True)
+        labels = clusterer.fit_predict(compressed_data)
+        
+        # Plot Dendrogram for Agglomerative
+        plt.figure(figsize=(12, 6))
+        plt.title('Hierarchical Clustering Dendrogram')
+        plot_dendrogram(clusterer, truncate_mode='level', p=5)
+        plt.xlabel("Number of points in node (or index of point if no parenthesis).")
+        dendro_path = os.path.join(output_dir, f'agglomerative_dendrogram_{encoding}.png')
+        plt.savefig(dendro_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"Dendrogram saved to {dendro_path}")
+    else:
+        raise ValueError(f"Unknown clustering algorithm: {cluster_algo}")
 
     unique_clusters = set(labels)
-    noise_points = list(labels).count(-1)
-    print(f"HDBSCAN discovered {len(unique_clusters) - (1 if -1 in unique_clusters else 0)} distinct pattern groups.")
-    print(f"Filtered out {noise_points} messy noise measures (-1).")
+    noise_points = list(labels).count(-1) if -1 in unique_clusters else 0
+    print(f"{cluster_algo.upper()} discovered {len(unique_clusters) - (1 if noise_points > 0 else 0)} distinct pattern groups.")
+    if noise_points > 0:
+        print(f"Filtered out {noise_points} messy noise measures (-1).")
 
     # Save cluster counts → DB
     now = datetime.now().isoformat()
@@ -1371,6 +1459,11 @@ def main():
     parser.add_argument('--chop_mode', type=str, default='both',
                         choices=['sliding', 'discrete', 'both'],
                         help="Data chunking logic: overlapping (sliding) or algorithmic continuous sweeps (discrete).")
+    parser.add_argument('--cluster_algo', type=str, default='hdbscan',
+                        choices=['hdbscan', 'kmeans', 'gmm', 'agglomerative'],
+                        help="The unsupervised clustering algorithm to group features.")
+    parser.add_argument('--n_clusters', type=int, default=20,
+                        help="Number of clusters for KMeans, GMM, or Agglomerative (ignored by HDBSCAN).")
     parser.add_argument('--export_csv', action='store_true',
                         help="Also export all DB result tables as CSV files (optional)")
 
@@ -1394,28 +1487,28 @@ def main():
     # 1. Difficulty 4-column breakdown → difficulty_breakdown table
     # ------------------------------------------------------------------ #
     breakdown_rows = []
-    for diff, stats in sorted(diff_stats.items()):
-        skipped = stats['total_charts'] - stats['files_with_4col']
+    for (diff, chart_type, num_cols), stats in sorted(diff_stats.items()):
+        skipped = stats['total_charts'] - stats['files_with_matching_measures']
         breakdown_rows.append((
-            run_id, diff,
-            stats['total_charts'], stats['files_with_4col'],
-            stats['total_4col_measures'], skipped, now
+            run_id, diff, chart_type, num_cols,
+            stats['total_charts'], stats['files_with_matching_measures'],
+            stats['total_measures'], skipped, now
         ))
     conn.executemany(
         "INSERT INTO difficulty_breakdown "
-        "(run_id, difficulty, total_charts_in_files, charts_with_4col, "
-        "total_4col_measures, skipped_charts_non4col, saved_at) "
-        "VALUES (?,?,?,?,?,?,?)",
+        "(run_id, difficulty, chart_type, column_count, total_charts_in_files, valid_charts, "
+        "valid_measures, skipped_charts, saved_at) "
+        "VALUES (?,?,?,?,?,?,?,?,?)",
         breakdown_rows
     )
     conn.commit()
     print(f"\nDifficulty breakdown saved to DB (table: difficulty_breakdown, run_id={run_id})")
     # Print a preview to terminal
     df_bd = pd.read_sql(
-        "SELECT difficulty, total_charts_in_files, charts_with_4col, "
-        "total_4col_measures, skipped_charts_non4col "
+        "SELECT difficulty, chart_type, column_count, total_charts_in_files, valid_charts, "
+        "valid_measures, skipped_charts "
         "FROM difficulty_breakdown WHERE run_id=? "
-        "ORDER BY total_4col_measures DESC",
+        "ORDER BY valid_measures DESC",
         conn, params=(run_id,)
     )
     print(df_bd.to_string(index=False))
@@ -1425,18 +1518,18 @@ def main():
     # ------------------------------------------------------------------ #
     standard_chars = {'0', '1', '2', '3', '4', 'M', 'L', 'F', 'K', 'H'}
     char_rows = [
-        (run_id, ch, diff, cnt, "No" if ch in standard_chars else "Yes", now)
-        for (ch, diff), cnt in chars.items()
+        (run_id, ch, diff, chart_type, cnt, "No" if ch in standard_chars else "Yes", now)
+        for (ch, diff, chart_type), cnt in chars.items()
     ]
     conn.executemany(
         "INSERT INTO character_distributions "
-        "(run_id, character, difficulty, count, is_new_pattern, saved_at) VALUES (?,?,?,?,?,?)",
+        "(run_id, character, difficulty, chart_type, count, is_new_pattern, saved_at) VALUES (?,?,?,?,?,?,?)",
         char_rows
     )
     conn.commit()
     print(f"\nCharacter distributions saved to DB (table: character_distributions, run_id={run_id})")
     df_ch = pd.read_sql(
-        "SELECT character, difficulty, count, is_new_pattern FROM character_distributions "
+        "SELECT character, difficulty, chart_type, count, is_new_pattern FROM character_distributions "
         "WHERE run_id=? ORDER BY count DESC LIMIT 15",
         conn, params=(run_id,)
     )
@@ -1447,7 +1540,7 @@ def main():
     # ------------------------------------------------------------------ #
     if measure_info:
         try:
-            run_topology_pipeline(raw_measures, measure_info, conn, run_id, args.output_dir, args.encoding)
+            run_topology_pipeline(raw_measures, measure_info, conn, run_id, args.output_dir, args.encoding, args.cluster_algo, args.n_clusters)
         except Exception as e:
             print(f"Topology Pipeline failed: {e}")
 
