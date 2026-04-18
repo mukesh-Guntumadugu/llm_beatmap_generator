@@ -123,6 +123,8 @@ def main():
     parser.add_argument('--output_dir', type=str, default="results_dr_probe_fraxtil", help="Output directory")
     args = parser.parse_args()
     
+    args.target_dir = os.path.abspath(args.target_dir)
+    args.output_dir = os.path.abspath(args.output_dir)
     os.makedirs(args.output_dir, exist_ok=True)
     
     print("\n--- Initializing DeepResonance Audio Engine ---")
