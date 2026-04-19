@@ -43,22 +43,23 @@ def generate_beatmap_with_mumu(audio_path: str, prompt: str) -> str:
         waveform, sr = torchaudio.load(audio_path)
         if sr != 24000:
             waveform = torchaudio.functional.resample(waveform, orig_freq=sr, new_freq=24000)
-            
-        audio_tensor = torch.mean(waveform, 0).flatten().cuda()
+        
+        # MuMu's encode_audio feeds this directly to MERT's AutoProcessor which expects
+        # a plain 1D numpy float32 array at 24kHz.  Passing a torch tensor adds a
+        # dimension each time MuMu wraps it in [[audios], 1], causing a [1,1,1,N] crash.
+        audio_np = torch.mean(waveform, 0).float().cpu().numpy()  # shape: (N,) float32
         
         formatted_prompt = llama.utils.format_prompt(prompt)
         
         with torch.no_grad():
-            with torch.cuda.amp.autocast():
-                # Call standard text generation on MuMu 
-                # MuMu returns a list of string generations matching the batch size
-                results = model.generate(
-                    prompts=[formatted_prompt],
-                    audios=audio_tensor,
-                    max_gen_len=1024,
-                    temperature=0.1,
-                    top_p=0.9
-                )
+            # model is already float32 on GPU; no autocast needed
+            results = model.generate(
+                prompts=[formatted_prompt],
+                audios=audio_np,         # 1D numpy array — MERT processor handles batching
+                max_gen_len=1024,
+                temperature=0.1,
+                top_p=0.9
+            )
                 
         if isinstance(results, list) and len(results) > 0:
             return str(results[0])
