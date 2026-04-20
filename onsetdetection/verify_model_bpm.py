@@ -252,7 +252,7 @@ def main():
     
     song_dirs = []
     # Force recursive Spidering for jagged nested Beatmap Packs
-    for root_dir, list_dirs, list_files in os.walk(abs_batch_dir):
+    for root_dir, list_dirs, list_files in os.walk(abs_batch_dir, followlinks=True):
         # Quickly skip macOS junk metadata
         if os.path.basename(root_dir).startswith("_"):
             continue
