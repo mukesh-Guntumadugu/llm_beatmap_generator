@@ -16,25 +16,25 @@ export BENCHMARK_PROJ=/data/mg546924/llm_beatmap_generator
 
 echo ""
 echo "▶️ [1/5] Extracting Mathematical Ground Truth (Librosa)"
-python onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model librosa
+/data/mg546924/conda_envs/deepresonance_env/bin/python onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model librosa
 
 echo ""
 echo "▶️ [2/5] Benchmarking Qwen2-Audio"
-python onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model qwen
+/data/mg546924/conda_envs/qwenenv/bin/python onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model qwen
 
 echo ""
 echo "▶️ [3/5] Benchmarking MuMu-LLaMA"
-python onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model mumu
+/data/mg546924/conda_envs/deepresonance_env/bin/python onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model mumu
 
 echo ""
 echo "▶️ [4/5] Benchmarking DeepResonance"
-python onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model deepresonance
+/data/mg546924/conda_envs/deepresonance_env/bin/python onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model deepresonance
 
-echo ""
-echo "▶️ [5/5] Benchmarking Music-Flamingo (Isolated Conda Env)"
-export HF_HOME=/data/mg546924/llm_beatmap_generator/Music-Flamingo/checkpoints
-export LD_LIBRARY_PATH=/data/mg546924/conda_envs/deepresonance_env/lib/python3.10/site-packages/nvidia/cusparse/lib:/data/mg546924/conda_envs/deepresonance_env/lib:$LD_LIBRARY_PATH
-/data/mg546924/music_flamingo_env/bin/python -u onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model flamingo
+# echo ""
+# echo "▶️ [5/5] Benchmarking Music-Flamingo (Isolated Conda Env)"
+# export HF_HOME=/data/mg546924/llm_beatmap_generator/Music-Flamingo/checkpoints
+# export LD_LIBRARY_PATH=/data/mg546924/conda_envs/deepresonance_env/lib/python3.10/site-packages/nvidia/cusparse/lib:/data/mg546924/conda_envs/deepresonance_env/lib:$LD_LIBRARY_PATH
+# /data/mg546924/music_flamingo_env/bin/python -u onsetdetection/verify_model_bpm.py --batch_dir "$DATASET_DIR" --model flamingo
 
 echo ""
 echo "✅ All 5 benchmarks completed! Check onsetdetection/ folder for the resulting CSVs."
