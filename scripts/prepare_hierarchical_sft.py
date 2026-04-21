@@ -27,6 +27,7 @@ Usage (HPC Slurm):
 import os
 import sys
 import json
+import csv
 import sqlite3
 import numpy as np
 
@@ -44,13 +45,110 @@ OUTPUT_DIR      = os.path.join(REPO_ROOT, "hierarchical_sft_dataset")
 AUDIO_OUT_DIR   = os.path.join(OUTPUT_DIR, "audio")
 
 # The base path the HPC cluster will see for the audio chunks.
-# Adjust this to your actual Slurm data directory.
 HPC_BASE_AUDIO_PATH = "/data/mg546924/llm_beatmap_generator/hierarchical_sft_dataset/audio"
+
+# Tempo Change Analysis CSV (produced by onsetdetection/extract_tempo_changes.py)
+TEMPO_CSV_PATH  = os.path.join(REPO_ROOT, "onsetdetection", "Tempo_Change_Analysis.csv")
 
 CHUNK_SIZE_SEC   = 5.0      # 5-second audio windows
 SAMPLE_RATE      = 16000    # Resample all audio to 16kHz for model input
 MIN_CLUSTERS     = 2        # Skip windows with fewer than 2 clusters (likely silence/padding)
 # ───────────────────────────────────────────────────────────────────────────────
+
+
+# ─── Tempo Lookup (from extract_tempo_changes.py output) ───────────────────────
+
+def load_tempo_lookup(tempo_csv_path: str) -> dict:
+    """
+    Loads Tempo_Change_Analysis.csv into a dict keyed by Song_Name (folder basename).
+
+    Returns:
+        {
+          "Springtime": {
+              "is_variable":   True,
+              "gt_timeline":   [{"time_sec": 0.0, "bpm": 181.68, ...}, ...],
+              "global_bpm":    181.68,
+          },
+          ...
+        }
+    Returns empty dict if CSV not found (degrades gracefully).
+    """
+    if not os.path.exists(tempo_csv_path):
+        print(f"  ⚠  Tempo CSV not found: {tempo_csv_path}")
+        print("     Run: sbatch onsetdetection/slurm_tempo_extraction.sh first.")
+        print("     Continuing WITHOUT tempo conditioning...\n")
+        return {}
+
+    lookup = {}
+    with open(tempo_csv_path, "r", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            song_name = row["Song_Name"].strip()
+            try:
+                gt_timeline = json.loads(row.get("GT_BPM_Timeline", "[]"))
+            except json.JSONDecodeError:
+                gt_timeline = []
+
+            is_variable = row.get("Is_Variable_Tempo", "False").strip().lower() == "true"
+
+            # Global BPM = first entry in GT timeline (beat 0 BPM)
+            global_bpm = gt_timeline[0]["bpm"] if gt_timeline else None
+
+            lookup[song_name] = {
+                "is_variable": is_variable,
+                "gt_timeline": gt_timeline,
+                "global_bpm":  global_bpm,
+            }
+
+    print(f"  Loaded tempo data for {len(lookup)} songs.")
+    return lookup
+
+
+def get_active_bpm(time_sec: float, gt_timeline: list) -> float | None:
+    """
+    Returns the BPM that is active at a given time in seconds,
+    based on the ground-truth BPM timeline from the .sm/.ssc file.
+
+    If gt_timeline is empty, returns None.
+    """
+    if not gt_timeline:
+        return None
+
+    active_bpm = gt_timeline[0]["bpm"]  # default: first zone
+    for zone in gt_timeline:
+        if zone["time_sec"] <= time_sec:
+            active_bpm = zone["bpm"]
+        else:
+            break
+    return active_bpm
+
+
+def build_tempo_prompt_fragment(win_start: float, win_mid: float, tempo_info: dict | None) -> str:
+    """
+    Builds the tempo conditioning fragment to inject into the prompt.
+
+    Examples:
+      Constant tempo:  "The song runs at a constant 210 BPM."
+      Variable tempo:  "The song has tempo changes. At this moment (t=5.0s) the BPM is 181.7."
+      No data:         ""  (empty string — degrades gracefully)
+    """
+    if not tempo_info:
+        return ""
+
+    gt_timeline  = tempo_info["gt_timeline"]
+    is_variable  = tempo_info["is_variable"]
+    active_bpm   = get_active_bpm(win_mid, gt_timeline)
+
+    if active_bpm is None:
+        return ""
+
+    if is_variable:
+        return (
+            f"This song has tempo changes. "
+            f"At this audio segment (t={win_mid:.1f}s) the BPM is {active_bpm:.1f}. "
+        )
+    else:
+        return f"The song runs at a constant {active_bpm:.1f} BPM. "
+
 
 
 def get_all_songs(conn):
@@ -162,7 +260,7 @@ def slice_and_save_audio(y, sr, start_sec, end_sec, out_path):
     return True
 
 
-def process_song(conn, file_path, difficulty, audio_index, jsonl_file, stats):
+def process_song(conn, file_path, difficulty, audio_index, jsonl_file, stats, tempo_lookup=None):
     """
     Processes a single (file_path, difficulty) pair:
     - Loads audio
@@ -238,27 +336,40 @@ def process_song(conn, file_path, difficulty, audio_index, jsonl_file, stats):
             stats["silence_skipped"] += 1
             continue
 
+        # ── Tempo conditioning ──────────────────────────────────────────────
+        win_mid = (win_start + actual_end) / 2.0
+        tempo_info = tempo_lookup.get(song_stem) if tempo_lookup else None
+        tempo_fragment = build_tempo_prompt_fragment(win_start, win_mid, tempo_info)
+        active_bpm = get_active_bpm(win_mid, tempo_info["gt_timeline"]) if tempo_info else None
+        is_variable = tempo_info["is_variable"] if tempo_info else False
+
         # ── Build prompt ────────────────────────────────────────────────────
         prompt = (
             "You are a rhythm game beatmap pattern generator. "
             f"Listen to this {round(actual_end - win_start, 1)}s audio segment. "
             f"The difficulty is {difficulty}. "
+            f"{tempo_fragment}"
             "Predict the ordered sequence of rhythmic pattern cluster tokens "
             "that best matches the audio's energy, density, and rhythm."
         )
 
         # ── Write JSONL record ──────────────────────────────────────────────
         record = {
-            "id":              f"{song_key}_w{window_idx:04d}",
-            "audio_path":      hpc_chunk_path,
+            "id":               f"{song_key}_w{window_idx:04d}",
+            "audio_path":       hpc_chunk_path,
             "local_audio_path": local_chunk_path,
-            "file_path":       file_path,
-            "difficulty":      difficulty,
+            "file_path":        file_path,
+            "difficulty":       difficulty,
             "window_start_sec": round(float(win_start), 3),
             "window_end_sec":   round(float(actual_end), 3),
-            "num_clusters":    len(overlapping_clusters),
-            "text_prompt":     prompt,
-            "text_response":   cluster_tokens,
+            "num_clusters":     len(overlapping_clusters),
+            # ── Tempo fields (new) ──────────────────────────────────────────
+            "bpm_at_window":    round(active_bpm, 2) if active_bpm else None,
+            "is_variable_tempo": is_variable,
+            "tempo_fragment":   tempo_fragment,
+            # ── Text I/O ────────────────────────────────────────────────────
+            "text_prompt":      prompt,
+            "text_response":    cluster_tokens,
         }
         jsonl_file.write(json.dumps(record) + "\n")
 
@@ -275,18 +386,21 @@ def main():
     print(f"Connecting to DB: {DB_PATH}")
     conn = sqlite3.connect(DB_PATH, timeout=30)
 
-    audio_index = build_local_file_index()
+    audio_index  = build_local_file_index()
+    tempo_lookup = load_tempo_lookup(TEMPO_CSV_PATH)   # ← load tempo data
 
     songs = get_all_songs(conn)
-    print(f"Found {len(songs)} unique (file_path, difficulty) combos to process.\n")
+    print(f"Found {len(songs)} unique (file_path, difficulty) combos to process.")
+    print(f"Tempo data available for {len(tempo_lookup)} songs.\n")
 
     stats = {
-        "songs_processed":  0,
-        "total_windows":    0,
-        "no_audio":         0,
-        "load_error":       0,
-        "no_measures":      0,
-        "silence_skipped":  0,
+        "songs_processed":    0,
+        "total_windows":      0,
+        "no_audio":           0,
+        "load_error":         0,
+        "no_measures":        0,
+        "silence_skipped":    0,
+        "tempo_conditioned":  0,   # windows that got a real BPM injected
     }
 
     with open(out_jsonl_path, "w", encoding="utf-8") as f_out:
@@ -294,7 +408,8 @@ def main():
             song_name = os.path.basename(os.path.dirname(file_path))
             print(f"  [{i+1:>4}/{len(songs)}] {song_name} [{difficulty}]", end="  ")
             before = stats["total_windows"]
-            process_song(conn, file_path, difficulty, audio_index, f_out, stats)
+            process_song(conn, file_path, difficulty, audio_index, f_out, stats,
+                         tempo_lookup=tempo_lookup)     # ← pass tempo data
             added = stats["total_windows"] - before
             print(f"→ +{added} windows")
 
