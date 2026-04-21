@@ -52,14 +52,15 @@ Given a collection of songs from Fraxtil's Arrow Arrangements (20 tracks), autom
 - **Scripts:** `extract_mumu_onsets.py`, `run_mumu.sh`
 - **Logs:** `mumu_log_*.txt`
   
- ### ✅ DeepSeek (DeepSeek-V3 )
-- **Why not:** DeepSeek has an audio as input, so we are giving it a shot.
-- **Status:** trying WIP for music/audio tasks
-- **Note:** It looks like some blogs are saying interesting things, we are WIP
+
 
 ---
 
 ## ❌ Models Tried But Could Not Use
+ ###  DeepSeek (DeepSeek-V3 ) (Nope not as audio as input need to find WIP )
+- **Why not:** DeepSeek has an audio as input, so we are giving it a shot.
+- **Status:** trying WIP for music/audio tasks
+- **Note:** It looks like some blogs are saying interesting things, we are WIP
 
 ### ✗ Spotify Basic Pitch / Spotify Audio Research Models
 - **Why not:** Spotify does not publicly release model weights for their core audio intelligence models
