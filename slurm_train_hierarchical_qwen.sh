@@ -6,6 +6,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=defq
+#SBATCH --exclusive
 #SBATCH --gres=gpu:1
 
 set -e
