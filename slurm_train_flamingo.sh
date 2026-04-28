@@ -23,6 +23,6 @@ export CUDA_HOME=$(dirname $(dirname $(which nvcc 2>/dev/null || echo /usr/local
 export DS_SKIP_CUDA_CHECK=1
 export HF_HOME="/data/mg546924/llm_beatmap_generator/Music-Flamingo/checkpoints"
 
-/data/mg546924/conda_envs/deepresonance_env/bin/python3.10 scripts/train_flamingo_5s_lora.py
+/data/mg546924/conda_envs/flamingo_env/bin/python3.10 scripts/train_flamingo_5s_lora.py
 
 echo "✅ Music-Flamingo Training Complete: $(date)"
