@@ -14,6 +14,7 @@ import csv as csv_mod
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
 from transformers import (
+    AutoConfig,
     AutoModel,
     AutoProcessor,
     AutoTokenizer,
@@ -64,8 +65,12 @@ def main():
     # Load model directly in bfloat16 without 4-bit quantization 
     # (custom architecture lacks PyTorch set_submodule needed by transformers quantization)
     print("Loading Music-Flamingo in bfloat16...")
+    # Must explicitly load config with trust_remote_code first so the custom
+    # audioflamingo3 architecture gets registered before AutoModel attempts loading
+    config = AutoConfig.from_pretrained(LOCAL_MODEL_PATH, trust_remote_code=True)
     model = AutoModel.from_pretrained(
         LOCAL_MODEL_PATH,
+        config=config,
         device_map="auto",
         torch_dtype=torch.bfloat16,
         trust_remote_code=True,
