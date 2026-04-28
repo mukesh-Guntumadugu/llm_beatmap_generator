@@ -170,21 +170,23 @@ def main():
                 
             return batch
 
-    # 3. Model Loading (Pure bfloat16, no 4-bit to prevent resize bugs)
-    print("Loading Base Model in bfloat16...")
+    # 3. Model Loading (Pure bfloat16, load on CPU first to safely resize embeddings)
+    print("Loading Base Model in bfloat16 on CPU...")
     model = Qwen2AudioForConditionalGeneration.from_pretrained(
         MODEL_ID,
-        torch_dtype=torch.bfloat16,
-        device_map="auto"
+        torch_dtype=torch.bfloat16
     )
     
     import gc
     gc.collect()
     torch.cuda.empty_cache()
 
-    # RESIZE EMBEDDINGS BEFORE PEFT
-    print("Resizing token embeddings...")
+    # RESIZE EMBEDDINGS BEFORE PEFT AND BEFORE MOVING TO GPU
+    print("Resizing token embeddings on CPU...")
     model.resize_token_embeddings(after_len, mean_resizing=False)
+    
+    print("Moving model to GPU...")
+    model = model.to("cuda")
     
     # Enable gradient checkpointing
     model.gradient_checkpointing_enable()
