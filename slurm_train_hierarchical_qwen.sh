@@ -4,7 +4,7 @@
 #SBATCH --error=logs/train_hierarchical_qwen_%j.log
 #SBATCH --time=24:00:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=24
 #SBATCH --partition=defq
 #SBATCH --exclusive
 #SBATCH --gres=gpu:1

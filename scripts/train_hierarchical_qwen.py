@@ -191,7 +191,7 @@ def main():
 
     # RESIZE EMBEDDINGS BEFORE PEFT
     print("Resizing token embeddings...")
-    model.resize_token_embeddings(after_len)
+    model.resize_token_embeddings(after_len, mean_resizing=False)
     
     # Enable gradient checkpointing
     model.gradient_checkpointing_enable()
