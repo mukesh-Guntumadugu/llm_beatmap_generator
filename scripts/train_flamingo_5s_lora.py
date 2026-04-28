@@ -14,15 +14,18 @@ import csv as csv_mod
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
 from transformers import (
-    AudioFlamingo3Processor,
-    AudioFlamingo3ForConditionalGeneration,
+    AutoModel,
+    AutoProcessor,
 )
 from peft import LoraConfig, get_peft_model
 from huggingface_hub import snapshot_download
 
 # ── Paths ──
-MODEL_ID = "nvidia/music-flamingo-hf"
+HF_MODEL_ID = "nvidia/music-flamingo-hf"
 LOCAL_MODEL_PATH = "/data/mg546924/llm_beatmap_generator/Music-Flamingo/checkpoints/model_weights"
+
+# Point HF cache to shared /data path so compute nodes can find cached modules
+os.environ['HF_HOME'] = "/data/mg546924/llm_beatmap_generator/Music-Flamingo/checkpoints"
 DATASET_JSONL = "/data/mg546924/llm_beatmap_generator/sft_dataset_5s_chunks/dataset.jsonl"
 OUTPUT_DIR = "/data/mg546924/models/music-flamingo-lora-onsets"
 
@@ -39,9 +42,9 @@ def main():
     # ── Step 1: Download weights if not already cached ──
     config_path = os.path.join(LOCAL_MODEL_PATH, "config.json")
     if not os.path.exists(config_path):
-        print(f"Downloading Music-Flamingo weights from {MODEL_ID}...")
+        print(f"Downloading Music-Flamingo weights from {HF_MODEL_ID}...")
         snapshot_download(
-            repo_id=MODEL_ID,
+            repo_id=HF_MODEL_ID,
             local_dir=LOCAL_MODEL_PATH,
             ignore_patterns=["*.msgpack", "*.h5", "flax_model*"],
         )
@@ -49,17 +52,15 @@ def main():
     else:
         print(f"✅ Weights already at {LOCAL_MODEL_PATH}, skipping download.")
 
-    # ── Step 2: Load tokenizer + model ──
-    # Use AudioFlamingo3 classes directly — AutoModel doesn't know this architecture
-    print("Loading tokenizer...")
-    tokenizer = AudioFlamingo3Processor.from_pretrained(
-        LOCAL_MODEL_PATH, trust_remote_code=True
-    )
+    # ── Step 2: Load processor + model from Hub ID (uses HF_HOME cache, no internet needed) ──
+    # Use Hub ID so HuggingFace finds the cached custom audioflamingo3 code in HF_HOME/modules/
+    print("Loading processor...")
+    tokenizer = AutoProcessor.from_pretrained(HF_MODEL_ID, trust_remote_code=True)
 
-    # Load model directly in bfloat16
+    # Load model in bfloat16
     print("Loading Music-Flamingo in bfloat16...")
-    model = AudioFlamingo3ForConditionalGeneration.from_pretrained(
-        LOCAL_MODEL_PATH,
+    model = AutoModel.from_pretrained(
+        HF_MODEL_ID,
         trust_remote_code=True,
         torch_dtype=torch.bfloat16,
         device_map="auto"
