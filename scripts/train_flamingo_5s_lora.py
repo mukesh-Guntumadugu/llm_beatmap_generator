@@ -186,9 +186,10 @@ def main():
         print(f"\n Epoch {epoch+1}/{NUM_EPOCHS} — Train: {avg_train:.4f} | Val: {avg_val:.4f}\n")
         loss_log.append({"epoch": epoch+1, "train_loss": avg_train, "val_loss": avg_val})
 
-        save_path = os.path.join(OUTPUT_DIR, f"checkpoint_epoch{epoch+1}")
-        model.save_pretrained(save_path)
-        print(f"   Saved: {save_path}")
+        if epoch + 1 == NUM_EPOCHS:
+            save_path = os.path.join(OUTPUT_DIR, f"checkpoint_epoch{epoch+1}")
+            model.save_pretrained(save_path)
+            print(f"   Saved: {save_path}")
 
     pass
 

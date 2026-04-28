@@ -217,7 +217,7 @@ def main():
         logging_steps=10,
         logging_strategy="steps",
         eval_strategy="epoch",
-        save_strategy="epoch",
+        save_strategy="no",
         logging_dir=os.path.join(OUTPUT_DIR, "logs"),
         learning_rate=2e-4,
         weight_decay=0.001,

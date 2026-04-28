@@ -74,8 +74,16 @@ def load_audio(audio_path):
     if not os.path.exists(audio_path):
         return None, None
     try:
-        # Load as mono, default sample rate
-        y, sr = librosa.load(audio_path, sr=None, mono=True)
+        # Load as stereo (mono=False), default sample rate
+        y, sr = librosa.load(audio_path, sr=None, mono=False)
+        
+        # If the audio is natively mono, duplicate the channel so it's always (2, N)
+        if y.ndim == 1 or y.shape[0] == 1:
+            if y.ndim == 1:
+                y = np.vstack((y, y))
+            else:
+                y = np.vstack((y[0], y[0]))
+                
         return y, sr
     except Exception as e:
         print(f"Failed to load audio {audio_path}: {e}")
@@ -83,7 +91,7 @@ def load_audio(audio_path):
 
 def extract_audio_features_for_slice(y, sr, start_time, end_time):
     """
-    Given a pre-loaded audio array (y, sr), slices it and extracts:
+    Given a pre-loaded stereo audio array (y, sr), slices it and extracts:
     - RMS Energy (Loudness)
     - Onset Density (Rhythmic complexity / Spectral Flux)
     - Chromagram (Average harmonic content)
@@ -93,55 +101,60 @@ def extract_audio_features_for_slice(y, sr, start_time, end_time):
     - Spectral Flatness
     - Tempogram (Local tempo strength)
     - 13 MFCCs (Timbre / Texture)
-    Returns a list of 21 features.
+    Returns a list of 42 features (21 for Left channel + 21 for Right channel).
     """
     if y is None or sr is None:
-        return [0.0] * 21
+        return [0.0] * 42
 
     start_sample = int(start_time * sr)
     end_sample = int(end_time * sr)
     
+    # y shape is (2, N)
+    total_samples = y.shape[1]
+    
     if start_sample < 0: start_sample = 0
-    if end_sample > len(y): end_sample = len(y)
+    if end_sample > total_samples: end_sample = total_samples
     
     if start_sample >= end_sample:
-        return [0.0] * 21
+        return [0.0] * 42
         
-    slice_y = y[start_sample:end_sample]
+    slice_y_left = y[0, start_sample:end_sample]
+    slice_y_right = y[1, start_sample:end_sample]
     
-    try:
-        # 1. Energy (Loudness map)
-        rms = librosa.feature.rms(y=slice_y).mean()
-        
-        # 2. Rhythm & Tempo
-        onset_env = librosa.onset.onset_strength(y=slice_y, sr=sr)
-        onset_density = onset_env.mean() if len(onset_env)>0 else 0.0
-        
-        tempogram = librosa.feature.tempogram(y=slice_y, sr=sr)
-        tempo_strength = tempogram.mean() if tempogram.size > 0 else 0.0
-        
-        # 3. Harmony & Chords
-        chroma = librosa.feature.chroma_stft(y=slice_y, sr=sr)
-        chroma_mean = chroma.mean() if chroma.size > 0 else 0.0
-        
-        # 4. Spectral Features (Brightness, Bass/Treble, Texture)
-        centroid = librosa.feature.spectral_centroid(y=slice_y, sr=sr).mean()
-        bandwidth = librosa.feature.spectral_bandwidth(y=slice_y, sr=sr).mean()
-        contrast = librosa.feature.spectral_contrast(y=slice_y, sr=sr).mean()
-        flatness = librosa.feature.spectral_flatness(y=slice_y).mean()
-        
-        # 5. Timbre (Instrument texture - 13 dimensions)
-        mfccs = librosa.feature.mfcc(y=slice_y, sr=sr, n_mfcc=13)
-        mfcc_means = mfccs.mean(axis=1).tolist()
-        
-        return [
-            float(rms), float(onset_density), float(tempo_strength), 
-            float(chroma_mean), float(centroid), float(bandwidth), 
-            float(contrast), float(flatness)
-        ] + mfcc_means
-        
-    except Exception:
-        return [0.0] * 21
+    def extract_21_features(slice_ch):
+        try:
+            rms = librosa.feature.rms(y=slice_ch).mean()
+            
+            onset_env = librosa.onset.onset_strength(y=slice_ch, sr=sr)
+            onset_density = onset_env.mean() if len(onset_env)>0 else 0.0
+            
+            tempogram = librosa.feature.tempogram(y=slice_ch, sr=sr)
+            tempo_strength = tempogram.mean() if tempogram.size > 0 else 0.0
+            
+            chroma = librosa.feature.chroma_stft(y=slice_ch, sr=sr)
+            chroma_mean = chroma.mean() if chroma.size > 0 else 0.0
+            
+            centroid = librosa.feature.spectral_centroid(y=slice_ch, sr=sr).mean()
+            bandwidth = librosa.feature.spectral_bandwidth(y=slice_ch, sr=sr).mean()
+            contrast = librosa.feature.spectral_contrast(y=slice_ch, sr=sr).mean()
+            flatness = librosa.feature.spectral_flatness(y=slice_ch).mean()
+            
+            mfccs = librosa.feature.mfcc(y=slice_ch, sr=sr, n_mfcc=13)
+            mfcc_means = mfccs.mean(axis=1).tolist()
+            
+            return [
+                float(rms), float(onset_density), float(tempo_strength), 
+                float(chroma_mean), float(centroid), float(bandwidth), 
+                float(contrast), float(flatness)
+            ] + mfcc_means
+            
+        except Exception:
+            return [0.0] * 21
+            
+    left_features = extract_21_features(slice_y_left)
+    right_features = extract_21_features(slice_y_right)
+    
+    return left_features + right_features
 
 def transcribe_vocals(audio_path):
     """

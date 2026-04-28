@@ -527,18 +527,20 @@ def init_database(db_path: str) -> sqlite3.Connection:
             chop_length     INTEGER DEFAULT 1,
             start_time      REAL,
             end_time        REAL,
-            rms_energy      REAL,
-            onset_density   REAL,
-            tempo_strength  REAL,
-            chroma_mean     REAL,
-            spectral_centroid REAL,
-            spectral_bandwidth REAL,
-            spectral_contrast REAL,
-            spectral_flatness REAL,
+            rms_energy_l    REAL, rms_energy_r    REAL,
+            onset_density_l REAL, onset_density_r REAL,
+            tempo_strength_l REAL, tempo_strength_r REAL,
+            chroma_mean_l    REAL, chroma_mean_r    REAL,
+            spectral_centroid_l REAL, spectral_centroid_r REAL,
+            spectral_bandwidth_l REAL, spectral_bandwidth_r REAL,
+            spectral_contrast_l REAL, spectral_contrast_r REAL,
+            spectral_flatness_l REAL, spectral_flatness_r REAL,
+            mfcc_0_l REAL, mfcc_1_l REAL, mfcc_2_l REAL, mfcc_3_l REAL, mfcc_4_l REAL, mfcc_5_l REAL, mfcc_6_l REAL,
+            mfcc_7_l REAL, mfcc_8_l REAL, mfcc_9_l REAL, mfcc_10_l REAL, mfcc_11_l REAL, mfcc_12_l REAL,
+            mfcc_0_r REAL, mfcc_1_r REAL, mfcc_2_r REAL, mfcc_3_r REAL, mfcc_4_r REAL, mfcc_5_r REAL, mfcc_6_r REAL,
+            mfcc_7_r REAL, mfcc_8_r REAL, mfcc_9_r REAL, mfcc_10_r REAL, mfcc_11_r REAL, mfcc_12_r REAL,
             vocal_word_count  REAL,
             vocal_density     REAL,
-            mfcc_0 REAL, mfcc_1 REAL, mfcc_2 REAL, mfcc_3 REAL, mfcc_4 REAL, mfcc_5 REAL, 
-            mfcc_6 REAL, mfcc_7 REAL, mfcc_8 REAL, mfcc_9 REAL, mfcc_10 REAL, mfcc_11 REAL, mfcc_12 REAL,
             saved_at        TEXT    NOT NULL
         );
 
@@ -916,7 +918,7 @@ def process_dataset(directory, db_path, run_id, chop_mode='both'):
                 
         if audio_rows:
             conn.executemany(
-                "INSERT INTO audio_features (run_id, file_path, difficulty, chart_type, measure_idx, chop_length, start_time, end_time, rms_energy, onset_density, tempo_strength, chroma_mean, spectral_centroid, spectral_bandwidth, spectral_contrast, spectral_flatness, mfcc_0, mfcc_1, mfcc_2, mfcc_3, mfcc_4, mfcc_5, mfcc_6, mfcc_7, mfcc_8, mfcc_9, mfcc_10, mfcc_11, mfcc_12, vocal_word_count, vocal_density, saved_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                "INSERT INTO audio_features (run_id, file_path, difficulty, chart_type, measure_idx, chop_length, start_time, end_time, rms_energy_l, onset_density_l, tempo_strength_l, chroma_mean_l, spectral_centroid_l, spectral_bandwidth_l, spectral_contrast_l, spectral_flatness_l, mfcc_0_l, mfcc_1_l, mfcc_2_l, mfcc_3_l, mfcc_4_l, mfcc_5_l, mfcc_6_l, mfcc_7_l, mfcc_8_l, mfcc_9_l, mfcc_10_l, mfcc_11_l, mfcc_12_l, rms_energy_r, onset_density_r, tempo_strength_r, chroma_mean_r, spectral_centroid_r, spectral_bandwidth_r, spectral_contrast_r, spectral_flatness_r, mfcc_0_r, mfcc_1_r, mfcc_2_r, mfcc_3_r, mfcc_4_r, mfcc_5_r, mfcc_6_r, mfcc_7_r, mfcc_8_r, mfcc_9_r, mfcc_10_r, mfcc_11_r, mfcc_12_r, vocal_word_count, vocal_density, saved_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 audio_rows
             )
             

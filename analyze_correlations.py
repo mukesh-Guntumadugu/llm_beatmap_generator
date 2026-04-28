@@ -25,8 +25,8 @@ def main():
     # Query joined features
     query = """
     SELECT 
-        a.rms_energy, a.onset_density, a.tempo_strength, a.chroma_mean, 
-        a.spectral_centroid, a.spectral_bandwidth, a.spectral_contrast, a.spectral_flatness,
+        a.rms_energy_l, a.rms_energy_r, a.onset_density_l, a.onset_density_r, a.tempo_strength_l, a.tempo_strength_r, a.chroma_mean_l, a.chroma_mean_r, 
+        a.spectral_centroid_l, a.spectral_centroid_r, a.spectral_bandwidth_l, a.spectral_bandwidth_r, a.spectral_contrast_l, a.spectral_contrast_r, a.spectral_flatness_l, a.spectral_flatness_r,
         s.total_active, s.jumps, s.max_dist, s.avg_dist, s.returns, s.density, s.uniq_col, s.has_hold, s.has_mine
     FROM audio_features a
     JOIN stepmania_features s 

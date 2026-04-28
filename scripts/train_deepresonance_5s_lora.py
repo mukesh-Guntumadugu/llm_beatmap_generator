@@ -216,9 +216,10 @@ def main():
         loss_log.append({"epoch": epoch+1, "train_loss": avg_train_loss, "val_loss": avg_val_loss})
 
         # Save checkpoint
-        ckpt_path = os.path.join(OUTPUT_DIR, f"checkpoint_epoch{epoch+1}.pt")
-        torch.save(model.state_dict(), ckpt_path)
-        print(f"  💾 Saved: {ckpt_path}")
+        if epoch + 1 == NUM_EPOCHS:
+            ckpt_path = os.path.join(OUTPUT_DIR, f"checkpoint_epoch{epoch+1}.pt")
+            torch.save(model.state_dict(), ckpt_path)
+            print(f"  💾 Saved: {ckpt_path}")
 
     pass
 

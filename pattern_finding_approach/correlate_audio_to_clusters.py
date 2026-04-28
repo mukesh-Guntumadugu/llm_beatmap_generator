@@ -26,16 +26,16 @@ def main():
     query = """
     SELECT 
         c.cluster_id, 
-        a.rms_energy, 
-        a.onset_density, 
-        a.tempo_strength, 
-        a.spectral_centroid, 
+        a.rms_energy_l, a.rms_energy_r,
+        a.onset_density_l, a.onset_density_r,
+        a.tempo_strength_l, a.tempo_strength_r,
+        a.spectral_centroid_l, a.spectral_centroid_r,
         a.vocal_density,
-        a.spectral_contrast,
-        a.spectral_flatness
+        a.spectral_contrast_l, a.spectral_contrast_r,
+        a.spectral_flatness_l, a.spectral_flatness_r
     FROM measure_cluster_assignments c
     JOIN audio_features a 
-      ON c.run_id = a.run_id 
+     ON c.run_id = a.run_id 
      AND c.file_path = a.file_path 
      AND c.difficulty = a.difficulty 
      AND c.measure_idx = a.measure_idx
