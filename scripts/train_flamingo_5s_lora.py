@@ -14,8 +14,8 @@ import csv as csv_mod
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
 from transformers import (
-    AutoModel,
-    AutoProcessor,
+    AudioFlamingo3ForConditionalGeneration,
+    AudioFlamingo3Processor,
 )
 from peft import LoraConfig, get_peft_model
 from huggingface_hub import snapshot_download
@@ -53,13 +53,13 @@ def main():
         print(f"✅ Weights already at {LOCAL_MODEL_PATH}, skipping download.")
 
     # ── Step 2: Load processor + model from Hub ID (uses HF_HOME cache, no internet needed) ──
-    # Use Hub ID so HuggingFace finds the cached custom audioflamingo3 code in HF_HOME/modules/
+    # Use AudioFlamingo3 classes directly since AutoModel doesn't know the architecture
     print("Loading processor...")
-    tokenizer = AutoProcessor.from_pretrained(HF_MODEL_ID, trust_remote_code=True)
+    tokenizer = AudioFlamingo3Processor.from_pretrained(HF_MODEL_ID, trust_remote_code=True)
 
     # Load model in bfloat16
     print("Loading Music-Flamingo in bfloat16...")
-    model = AutoModel.from_pretrained(
+    model = AudioFlamingo3ForConditionalGeneration.from_pretrained(
         HF_MODEL_ID,
         trust_remote_code=True,
         torch_dtype=torch.bfloat16,
