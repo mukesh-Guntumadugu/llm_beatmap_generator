@@ -89,6 +89,8 @@ def main():
     # Load tokenizer (Vicuna uses LLaMA tokenizer)
     vicuna_path = os.path.join(CKPT_DIR, 'pretrained_ckpt', 'vicuna-7b-v1.1')
     tokenizer = LlamaTokenizer.from_pretrained(vicuna_path)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
 
     # ── Custom Dataset ──
     class OnsetDataset(Dataset):

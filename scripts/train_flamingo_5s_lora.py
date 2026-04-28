@@ -59,6 +59,9 @@ def main():
         print(f"AutoTokenizer failed ({e}), falling back to AutoProcessor...")
         tokenizer = AutoProcessor.from_pretrained(LOCAL_MODEL_PATH, trust_remote_code=True)
 
+    if not hasattr(tokenizer, 'pad_token') or tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+
     # Load model directly in bfloat16 without 4-bit quantization 
     # (custom architecture lacks PyTorch set_submodule needed by transformers quantization)
     print("Loading Music-Flamingo in bfloat16...")
