@@ -4,8 +4,7 @@
 #SBATCH --error=logs/train_deepres_%j.log
 #SBATCH --time=24:00:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=128G
+#SBATCH --cpus-per-task=16
 #SBATCH --exclusive
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:A6000:1
