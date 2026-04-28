@@ -82,7 +82,7 @@ def main():
     else:
         print(f"⚠️ No delta checkpoint at {delta_path}, training from base weights")
 
-    model = model.cuda().float()
+    model = model.cuda().bfloat16()
     model.train()
     print("✅ DeepResonance loaded successfully!")
 

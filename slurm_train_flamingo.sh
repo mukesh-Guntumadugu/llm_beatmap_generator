@@ -5,6 +5,7 @@
 #SBATCH --time=24:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
+#SBATCH --mem=64G
 #SBATCH --exclusive
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:A6000:1
