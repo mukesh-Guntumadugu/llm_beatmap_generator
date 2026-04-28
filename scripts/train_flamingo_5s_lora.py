@@ -14,8 +14,9 @@ import csv as csv_mod
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
 from transformers import (
-    AutoModelForConditionalGeneration,
+    AutoModelForCausalLM,
     AutoProcessor,
+    AutoConfig,
 )
 from peft import LoraConfig, get_peft_model
 from huggingface_hub import snapshot_download
@@ -52,19 +53,31 @@ def main():
     else:
         print(f"✅ Weights already at {LOCAL_MODEL_PATH}, skipping download.")
 
-    # ── Step 2: Load processor + model from Hub ID (uses HF_HOME cache, no internet needed) ──
-    # The config.json has 'AutoModelForConditionalGeneration' in its auto_map
-    print("Loading processor...")
-    tokenizer = AutoProcessor.from_pretrained(HF_MODEL_ID, trust_remote_code=True)
-
-    # Load model in bfloat16
-    print("Loading Music-Flamingo in bfloat16...")
-    model = AutoModelForConditionalGeneration.from_pretrained(
-        HF_MODEL_ID,
-        trust_remote_code=True,
-        torch_dtype=torch.bfloat16,
-        device_map="auto"
-    )
+    # ── DEBUGGING: Print directory contents and config.json ──
+    print(f"\n--- DEBUG: Contents of {LOCAL_MODEL_PATH} ---")
+    if os.path.exists(LOCAL_MODEL_PATH):
+        for f in os.listdir(LOCAL_MODEL_PATH):
+            print(f)
+        
+        config_path = os.path.join(LOCAL_MODEL_PATH, "config.json")
+        if os.path.exists(config_path):
+            print("\n--- DEBUG: config.json ---")
+            with open(config_path, "r") as f:
+                print(f.read())
+        else:
+            print("config.json not found!")
+    else:
+        print("Directory not found!")
+        
+    print("\n--- DEBUG: Checking for audio_flamingo modules ---")
+    try:
+        from audio_flamingo.models.modeling_audioflamingo3 import AudioFlamingo3ForConditionalGeneration
+        print("Successfully imported from audio_flamingo!")
+    except Exception as e:
+        print(f"Failed to import from audio_flamingo: {e}")
+        
+    sys.exit(0)
+    # ---------------------------------------------------------
 
     model.gradient_checkpointing_enable()
 
