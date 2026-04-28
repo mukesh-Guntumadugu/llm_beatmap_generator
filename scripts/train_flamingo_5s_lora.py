@@ -13,10 +13,18 @@ import librosa
 import csv as csv_mod
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
-from transformers import (  # type: ignore
-    AudioFlamingo3ForConditionalGeneration,
-    AudioFlamingo3Processor,
-)
+try:
+    import transformers
+    from transformers import (  # type: ignore
+        AudioFlamingo3ForConditionalGeneration,
+        AudioFlamingo3Processor,
+    )
+except ImportError as e:
+    import sys
+    import transformers
+    print(f"CRITICAL ERROR: Failed to import AudioFlamingo. Transformers version is {transformers.__version__}")
+    print(f"Error details: {e}")
+    sys.exit(1)
 from peft import LoraConfig, get_peft_model
 from huggingface_hub import snapshot_download
 
