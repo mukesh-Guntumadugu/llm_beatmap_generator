@@ -214,6 +214,7 @@ def generate_beatmap(audio_path, out_ssc_path, bpm, difficulty="Challenge"):
 #KEYSOUNDS:;
 #ATTACKS:;"""
 
+    measures_str = ",\n".join(physical_measures)
     ssc_chart = f"""
 //---------------dance-single - ----------------
 #NOTEDATA:;
@@ -226,14 +227,14 @@ def generate_beatmap(audio_path, out_ssc_path, bpm, difficulty="Challenge"):
 #RADARVALUES:0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000;
 #CREDIT:;
 #NOTES:
-{",\n".join(physical_measures)}
+{measures_str}
 ;"""
 
     with open(out_ssc_path, "w", encoding="utf-8") as f:
         f.write(ssc_header + ssc_chart)
         
     print(f"\n==========================================")
-    print(f"✅ Hierarchical Beatmap Generated!")
+    print(f"[OK] Hierarchical Beatmap Generated!")
     print(f"  Input Music   : {audio_path}")
     print(f"  Chart Output  : {out_ssc_path}")
     print(f"  Total Tokens  : {len(all_cluster_tokens)}")
