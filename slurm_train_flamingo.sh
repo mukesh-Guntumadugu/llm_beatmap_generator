@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=train_flamingo
-#SBATCH --output=/dev/null
-#SBATCH --error=/dev/null
+#SBATCH --output=logs/train_flamingo_%j.log
+#SBATCH --error=logs/train_flamingo_%j.log
 #SBATCH --time=24:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
