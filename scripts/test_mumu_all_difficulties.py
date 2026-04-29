@@ -271,7 +271,7 @@ def main():
             input_text = llama.utils.format_prompt(prompt)
             input_ids  = tokenizer(input_text).input_ids
             input_ids  = torch.tensor(input_ids, dtype=torch.int64).unsqueeze(0).cuda()
-            audio_t    = chunk.cuda().float().unsqueeze(0)
+            audio_t    = chunk.cuda().float()  # keep 1D [T]; MuMu's forward_audio adds batch dim internally
 
             with torch.no_grad():
                 with torch.cuda.amp.autocast(dtype=torch.bfloat16):
