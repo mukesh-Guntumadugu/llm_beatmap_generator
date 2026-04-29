@@ -27,9 +27,6 @@ OUTPUT_DIR = "/data/mg546924/models/qwen2-audio-hierarchical-director"
 BLOCK_SIZE = 512
 MAX_AUDIO_DURATION_SEC = 5   # Load only 5 seconds of audio
 MAX_SEQ_LENGTH = 512         # Max text token length
-# Whisper feature extractor ALWAYS pads to 30s (3000 mel frames) internally.
-# We truncate to 500 frames (~5s) AFTER the processor runs to keep the model fast.
-MAX_MEL_FRAMES = 500
 
 def load_cluster_tokens(tokens_txt_path):
     if not os.path.exists(tokens_txt_path):
@@ -110,12 +107,6 @@ def main():
                 max_length=MAX_SEQ_LENGTH,
                 padding=False,
             )
-            # CRITICAL FIX: Whisper pads ALL audio to 3000 mel frames (30s) internally.
-            # Truncate to MAX_MEL_FRAMES here so the audio encoder stays fast.
-            if "input_features" in inputs:
-                inputs["input_features"] = inputs["input_features"][:, :, :MAX_MEL_FRAMES]
-            if "audio_features" in inputs:
-                inputs["audio_features"] = inputs["audio_features"][:, :, :MAX_MEL_FRAMES]
             
             label = inputs["input_ids"].clone()
             
