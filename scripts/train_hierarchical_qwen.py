@@ -25,8 +25,11 @@ DATASET_PATH = "/data/mg546924/llm_beatmap_generator/hierarchical_sft_dataset/hi
 TOKENS_TXT = "/data/mg546924/llm_beatmap_generator/scripts/cluster_to_patterns_tokens.txt"
 OUTPUT_DIR = "/data/mg546924/models/qwen2-audio-hierarchical-director"
 BLOCK_SIZE = 512
-MAX_AUDIO_DURATION_SEC = 10  # Hard cap: prevents giant mel spectrograms from hanging forward pass
-MAX_SEQ_LENGTH = 512         # Hard cap: prevents OOM from very long tokenized sequences
+MAX_AUDIO_DURATION_SEC = 5   # Load only 5 seconds of audio
+MAX_SEQ_LENGTH = 512         # Max text token length
+# Whisper feature extractor ALWAYS pads to 30s (3000 mel frames) internally.
+# We truncate to 500 frames (~5s) AFTER the processor runs to keep the model fast.
+MAX_MEL_FRAMES = 500
 
 def load_cluster_tokens(tokens_txt_path):
     if not os.path.exists(tokens_txt_path):
@@ -107,6 +110,12 @@ def main():
                 max_length=MAX_SEQ_LENGTH,
                 padding=False,
             )
+            # CRITICAL FIX: Whisper pads ALL audio to 3000 mel frames (30s) internally.
+            # Truncate to MAX_MEL_FRAMES here so the audio encoder stays fast.
+            if "input_features" in inputs:
+                inputs["input_features"] = inputs["input_features"][:, :, :MAX_MEL_FRAMES]
+            if "audio_features" in inputs:
+                inputs["audio_features"] = inputs["audio_features"][:, :, :MAX_MEL_FRAMES]
             
             label = inputs["input_ids"].clone()
             
@@ -153,7 +162,9 @@ def main():
     tokenized_dataset = dataset.map(
         preprocess_function,
         batched=True,
-        batch_size=1, 
+        batch_size=1,
+        num_proc=1,           # Keep at 1: processor object can't be pickled across workers
+        load_from_cache_file=False,  # Always reprocess — avoids stale cache bugs
         remove_columns=dataset["train"].column_names,
     )
 
@@ -177,13 +188,16 @@ def main():
                 "labels": labels
             }
             
+            # Use np.array() first — torch.tensor() on nested Python lists is extremely
+            # slow for large audio feature arrays (e.g. [128, 500] takes seconds per sample).
+            import numpy as np
             if "audio_features" in features[0]:
-                batch["audio_features"] = torch.stack([torch.tensor(f["audio_features"], dtype=torch.float16) for f in features])
+                batch["audio_features"] = torch.stack([torch.from_numpy(np.array(f["audio_features"], dtype=np.float16)) for f in features])
             elif "input_features" in features[0]:
-                batch["input_features"] = torch.stack([torch.tensor(f["input_features"], dtype=torch.float16) for f in features])
+                batch["input_features"] = torch.stack([torch.from_numpy(np.array(f["input_features"], dtype=np.float16)) for f in features])
                 
             if "feature_attention_mask" in features[0]:
-                batch["feature_attention_mask"] = torch.stack([torch.tensor(f["feature_attention_mask"], dtype=torch.long) for f in features])
+                batch["feature_attention_mask"] = torch.stack([torch.from_numpy(np.array(f["feature_attention_mask"], dtype=np.int64)) for f in features])
                 
             return batch
 
