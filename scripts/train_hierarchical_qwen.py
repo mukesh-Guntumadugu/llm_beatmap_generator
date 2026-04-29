@@ -25,6 +25,8 @@ DATASET_PATH = "/data/mg546924/llm_beatmap_generator/hierarchical_sft_dataset/hi
 TOKENS_TXT = "/data/mg546924/llm_beatmap_generator/scripts/cluster_to_patterns_tokens.txt"
 OUTPUT_DIR = "/data/mg546924/models/qwen2-audio-hierarchical-director"
 BLOCK_SIZE = 512
+MAX_AUDIO_DURATION_SEC = 10  # Hard cap: prevents giant mel spectrograms from hanging forward pass
+MAX_SEQ_LENGTH = 512         # Hard cap: prevents OOM from very long tokenized sequences
 
 def load_cluster_tokens(tokens_txt_path):
     if not os.path.exists(tokens_txt_path):
@@ -76,7 +78,16 @@ def main():
                     continue # Skip
                     
             try:
-                y, sr = librosa.load(audio_url, sr=processor.feature_extractor.sampling_rate)
+                sr_target = processor.feature_extractor.sampling_rate
+                # KEY FIX: cap audio duration to prevent enormous mel spectrograms
+                # that cause the first forward pass to hang for hours
+                y, sr = librosa.load(
+                    audio_url,
+                    sr=sr_target,
+                    duration=MAX_AUDIO_DURATION_SEC
+                )
+                if len(y) == 0:
+                    continue  # Skip silent/empty files
             except Exception:
                 continue # Skip on load error
             
@@ -91,7 +102,10 @@ def main():
                 text=text,
                 audio=[y],
                 sampling_rate=processor.feature_extractor.sampling_rate,
-                return_tensors="pt"
+                return_tensors="pt",
+                truncation=True,
+                max_length=MAX_SEQ_LENGTH,
+                padding=False,
             )
             
             label = inputs["input_ids"].clone()
@@ -217,19 +231,21 @@ def main():
         gradient_accumulation_steps=8,
         per_device_eval_batch_size=1,
         optim="paged_adamw_32bit",
-        logging_steps=10,
+        logging_steps=1,           # Log every step so we can see per-step timing
         logging_strategy="steps",
         eval_strategy="epoch",
-        save_strategy="no",
+        save_strategy="steps",
+        save_steps=50,             # Save checkpoint every 50 steps
+        save_total_limit=2,        # Keep only last 2 checkpoints
         logging_dir=os.path.join(OUTPUT_DIR, "logs"),
         learning_rate=2e-4,
         weight_decay=0.001,
         fp16=False,
-        bf16=True, 
+        bf16=True,
         max_grad_norm=1.0,
         num_train_epochs=5,
         warmup_ratio=0.03,
-        group_by_length=True,
+        group_by_length=False,     # Disable: was hiding bad samples by grouping by length
         lr_scheduler_type="cosine",
         report_to="none"
     )
