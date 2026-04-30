@@ -6,7 +6,6 @@
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=32G
 
 # Initialize environment
 export PYTHONUNBUFFERED=1
