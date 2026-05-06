@@ -122,7 +122,7 @@ def generate_beatmap(audio_path, out_ssc_path, bpm, difficulty="Challenge"):
     
     # Find the latest checkpoint
     import glob
-    ckpts = glob.glob(os.path.join(MODELS_DIR, "checkpoint_epoch*.pth"))
+    ckpts = glob.glob(os.path.join(MODELS_DIR, "checkpoint_*.pth"))
     if not ckpts:
         print("ERROR: No checkpoints found. Is training done?")
         sys.exit(1)

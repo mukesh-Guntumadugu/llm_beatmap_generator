@@ -1,0 +1,36 @@
+{
+  "normal_songs": {
+    "label": "NORMAL FULL SONGS",
+    "total_files_found": 1,
+    "total_files_ok": 1,
+    "total_files_error": 0,
+    "avg_duration_sec": 147.7,
+    "median_duration_sec": 147.7,
+    "avg_n_onsets": 611.0,
+    "median_n_onsets": 611.0,
+    "min_n_onsets": 611,
+    "max_n_onsets": 611,
+    "avg_density_onsets_per_sec": 4.1367,
+    "median_density_onsets_per_sec": 4.1367,
+    "std_density_onsets_per_sec": 0.0,
+    "min_density_onsets_per_sec": 4.1367,
+    "max_density_onsets_per_sec": 4.1367
+  },
+  "ddr_beatmap_songs": {
+    "label": "DDR BEATMAP SONGS",
+    "total_files_found": 526,
+    "total_files_ok": 526,
+    "total_files_error": 0,
+    "avg_duration_sec": 115.56,
+    "median_duration_sec": 114.04,
+    "avg_n_onsets": 352.73,
+    "median_n_onsets": 351.5,
+    "min_n_onsets": 34,
+    "max_n_onsets": 1015,
+    "avg_density_onsets_per_sec": 3.0626,
+    "median_density_onsets_per_sec": 3.1483,
+    "std_density_onsets_per_sec": 1.1833,
+    "min_density_onsets_per_sec": 0.2739,
+    "max_density_onsets_per_sec": 6.5739
+  }
+}
