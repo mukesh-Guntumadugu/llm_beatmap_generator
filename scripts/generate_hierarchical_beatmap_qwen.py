@@ -50,6 +50,16 @@ def extract_tokens_from_response(text):
     tokens = re.findall(r"<\|cluster_\d+\|>", text)
     return tokens
 
+def align_tokens_to_measures(tokens, target_len):
+    """Stretches or compresses the sequence of tokens to perfectly match target_len."""
+    if not tokens:
+        return ["<|cluster_0|>"] * target_len
+    aligned = []
+    for i in range(target_len):
+        idx = int(i * len(tokens) / target_len)
+        aligned.append(tokens[idx])
+    return aligned
+
 def generate_beatmap(audio_path, out_ssc_path, bpm, difficulty="Challenge"):
     os.makedirs(os.path.dirname(out_ssc_path) if os.path.dirname(out_ssc_path) else ".", exist_ok=True)
     
@@ -159,17 +169,25 @@ def generate_beatmap(audio_path, out_ssc_path, bpm, difficulty="Challenge"):
         print(f"  [{win_start:04.1f}s - {win_end:04.1f}s]: {' '.join(tokens)}")
         all_cluster_tokens.extend(tokens)
         
-    # 5. Actor Translation
-    print("\nRunning Actor Translation to Physical Measures...")
+    # 5. Math: Exact Number of Physical Measures Required
+    total_beats = duration * (bpm / 60.0)
+    target_measures = int(np.round(total_beats / 4.0)) # 4/4 time
+    print(f"\nMath: {duration:.2f}s at {bpm} BPM = {total_beats:.2f} beats = {target_measures} measures")
+    
+    print(f"Aligning {len(all_cluster_tokens)} generated tokens to {target_measures} physical measures...")
+    aligned_tokens = align_tokens_to_measures(all_cluster_tokens, target_measures)
+    
+    # 6. Actor Translation
+    print("Running Actor Translation to Physical Measures...")
     physical_measures = []
-    for t in all_cluster_tokens:
+    for t in aligned_tokens:
         if t in cluster_dict and cluster_dict[t]:
             pattern_str = random.choice(cluster_dict[t])
             physical_measures.append(pattern_str)
         else:
             physical_measures.append("\n".join(["0000" for _ in range(192)]))
             
-    # 6. SSC Formatting
+    # 7. SSC Formatting
     print("\nFormatting SSC File...")
     ssc_header = f"""#VERSION:0.83;
 #TITLE:Generated Qwen Hierarchical Chart;

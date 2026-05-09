@@ -63,6 +63,16 @@ def extract_cluster_tokens(text):
     """Pull <|cluster_N|> tokens from raw model output."""
     return re.findall(r"<\|cluster_\d+\|>", text)
 
+def align_tokens_to_measures(tokens, target_len):
+    """Stretches or compresses the sequence of tokens to perfectly match target_len."""
+    if not tokens:
+        return ["<|cluster_0|>"] * target_len
+    aligned = []
+    for i in range(target_len):
+        idx = int(i * len(tokens) / target_len)
+        aligned.append(tokens[idx])
+    return aligned
+
 
 def tokens_to_measures(tokens, cluster_dict, difficulty_name):
     """
@@ -258,12 +268,20 @@ def main():
 
     print(f"\n  Total cluster tokens predicted: {len(all_tokens)}\n")
 
+    # ── Calculate Mathematical Target Measures ──
+    total_beats = duration * (args.bpm / 60.0)
+    target_measures = int(np.round(total_beats / 4.0)) # 4/4 time
+    print(f"Math: {duration:.2f}s at {args.bpm} BPM = {total_beats:.2f} beats = {target_measures} physical measures")
+    
+    print(f"Aligning {len(all_tokens)} generated tokens to {target_measures} measures...")
+    aligned_tokens = align_tokens_to_measures(all_tokens, target_measures)
+
     # ── Actor: Build Each Difficulty from the SAME token sequence ──
     for diff_name, meter in DIFFICULTIES:
         print(f"{'='*55}")
         print(f"Building difficulty: {diff_name.upper()} (meter {meter})")
 
-        measures = tokens_to_measures(all_tokens, cluster_dict, diff_name)
+        measures = tokens_to_measures(aligned_tokens, cluster_dict, diff_name)
         measures_str = ",\n".join(measures)
         all_charts += format_ssc_chart(diff_name, meter, measures_str)
         print(f"  ✅ {diff_name}: {len(measures)} measures generated")

@@ -28,7 +28,7 @@ echo "  Start       : $(date)"
 echo "=============================================="
 
 PYTHON=/data/mg546924/conda_envs/qwenenv/bin/python
-SCRIPT=scripts/generate_hierarchical_beatmap_qwen.py
+SCRIPT=scripts/test_qwen_all_difficulties.py
 
 # ── Song 1: Bad Ketchup ──────────────────────────
 echo ""
@@ -36,8 +36,7 @@ echo "Generating: Bad Ketchup (BPM 180)"
 $PYTHON -u $SCRIPT \
     --audio "src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup.ogg" \
     --bpm 180.0 \
-    --difficulty Challenge \
-    --out "outputs/qwen_Bad_Ketchup_Challenge.ssc"
+    --out "outputs/qwen_Bad_Ketchup_ALL.ssc"
 
 # ── Song 2: Springtime ───────────────────────────
 echo ""
@@ -45,8 +44,7 @@ echo "Generating: Springtime (BPM 145)"
 $PYTHON -u $SCRIPT \
     --audio "src/musicForBeatmap/Springtime/Kommisar - Springtime.mp3" \
     --bpm 145.0 \
-    --difficulty Challenge \
-    --out "outputs/qwen_Springtime_Challenge.ssc"
+    --out "outputs/qwen_Springtime_ALL.ssc"
 
 # ── Song 3: Mecha-Tribe Assault ──────────────────
 echo ""
@@ -54,8 +52,7 @@ echo "Generating: Mecha-Tribe Assault (BPM 200)"
 $PYTHON -u $SCRIPT \
     --audio "src/musicForBeatmap/MechaTribe Assault/Mecha-Tribe Assault.ogg" \
     --bpm 200.0 \
-    --difficulty Challenge \
-    --out "outputs/qwen_MechaTribe_Challenge.ssc"
+    --out "outputs/qwen_MechaTribe_ALL.ssc"
 
 echo ""
 echo "=============================================="
