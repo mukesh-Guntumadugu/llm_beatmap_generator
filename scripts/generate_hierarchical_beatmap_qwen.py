@@ -153,7 +153,7 @@ def generate_beatmap(audio_path, out_ssc_path, bpm, difficulty="Challenge"):
             
         # Decode prediction
         input_length = inputs["input_ids"].shape[1]
-        response = processor.tokenizer.decode(output_ids[0][input_length:], skip_special_tokens=True)
+        response = processor.tokenizer.decode(output_ids[0][input_length:], skip_special_tokens=False)
         tokens = extract_tokens_from_response(response)
         
         print(f"  [{win_start:04.1f}s - {win_end:04.1f}s]: {' '.join(tokens)}")

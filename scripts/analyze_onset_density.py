@@ -45,9 +45,9 @@ except ImportError:
 # ── Configuration ──────────────────────────────────────────────────────────────
 ROOT = Path(__file__).parent.parent
 
-# Normal audio: full songs attached by the user
+# Normal audio: full songs downloaded from pixabay
 NORMAL_AUDIO_DIRS = [
-    ROOT / "test_dir" / "Song"
+    ROOT / "pixabay_music"
 ]
 
 # DDR beatmap songs: full-length songs that have .sm/.ssc chart files alongside
