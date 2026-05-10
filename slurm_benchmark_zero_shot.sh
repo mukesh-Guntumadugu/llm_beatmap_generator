@@ -6,7 +6,6 @@
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=64G
 
 echo "Starting Zero-Shot Benchmarking for all open-source models..."
 date

@@ -5,7 +5,6 @@
 #SBATCH --time=01:00:00
 #SBATCH --partition=defq
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=16G
 
 echo "Starting SFT Benchmarking from generated .ssc files..."
 date
