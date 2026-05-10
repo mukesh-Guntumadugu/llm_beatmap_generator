@@ -42,6 +42,7 @@ def main():
         labels = []
         audio_features = []
         feature_attention_mask = []
+        inputs = {}
         
         for messages in examples['messages']:
             user_msg = messages[0]

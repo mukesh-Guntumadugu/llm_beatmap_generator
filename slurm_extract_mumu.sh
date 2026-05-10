@@ -5,6 +5,7 @@
 #SBATCH --time=12:00:00
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:1
+#SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
 
 echo "Starting MuMu Onset Extraction..."
