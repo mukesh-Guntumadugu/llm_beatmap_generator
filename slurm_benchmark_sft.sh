@@ -3,7 +3,7 @@
 #SBATCH --output=logs/benchmark_sft_%j.out
 #SBATCH --error=logs/benchmark_sft_%j.err
 #SBATCH --time=01:00:00
-#SBATCH --partition=compute
+#SBATCH --partition=defq
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G
 
