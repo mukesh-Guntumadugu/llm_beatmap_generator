@@ -10,7 +10,7 @@
 echo "Starting Flamingo Onset Extraction..."
 mkdir -p logs
 
-PYTHON="/data/mg546924/music_flamingo_env/bin/python"
+PYTHON="/data/mg546924/conda_envs/flamingo_env/bin/python"
 $PYTHON scripts/extract_onsets_flamingo.py
 
 echo "Flamingo Onset Extraction complete."

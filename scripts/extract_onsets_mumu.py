@@ -19,7 +19,6 @@ import numpy as np
 import librosa
 import soundfile as sf
 import datetime
-from tqdm import tqdm
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _PROJECT_ROOT not in sys.path:
@@ -69,7 +68,7 @@ def main():
 
     song_dirs = sorted([d for d in glob.glob(os.path.join(BASE_DIR, "*")) if os.path.isdir(d)])
     
-    for song_dir in tqdm(song_dirs, desc="Processing Songs with MuMu"):
+    for song_dir in song_dirs:
         song_name = os.path.basename(song_dir)
         print(f"\nProcessing {song_name}...")
         

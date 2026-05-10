@@ -19,7 +19,6 @@ import numpy as np
 import librosa
 import soundfile as sf
 import datetime
-from tqdm import tqdm
 
 # Fix bitsandbytes/CUDA missing libcusparse.so.11
 os.environ["LD_LIBRARY_PATH"] = f"/data/mg546924/conda_envs/deepresonance_env/lib/python3.10/site-packages/nvidia/cusparse/lib:{os.environ.get('LD_LIBRARY_PATH', '')}"
@@ -102,7 +101,7 @@ def main():
 
     song_dirs = sorted([d for d in glob.glob(os.path.join(BASE_DIR, "*")) if os.path.isdir(d)])
     
-    for song_dir in tqdm(song_dirs, desc="Processing Songs with DeepResonance"):
+    for song_dir in song_dirs:
         song_name = os.path.basename(song_dir)
         print(f"\nProcessing {song_name}...")
         
