@@ -8,14 +8,31 @@ LLM's zero-shot BPM predictions compared to the ground truth.
 
 import os
 import csv
+import json
 
 PROJ_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV_FILE = os.path.join(PROJ_DIR, "outputs", "zero_shot_results.csv")
+BPM_JSON = os.path.join(PROJ_DIR, "local_bpm_analysis.json")
 
 def main():
     if not os.path.exists(CSV_FILE):
         print(f"Error: Could not find {CSV_FILE}")
         return
+        
+    if not os.path.exists(BPM_JSON):
+        print(f"Error: Could not find {BPM_JSON}")
+        return
+        
+    with open(BPM_JSON, "r") as f:
+        bpm_db = json.load(f)
+        
+    # Map song dir name to its BPM
+    song_to_bpm = {}
+    for sm_key, sm_data in bpm_db.items():
+        if "sections" in sm_data and len(sm_data["sections"]) > 0:
+            primary_bpm = sm_data["sections"][0]["bpm"]
+            song_name = sm_key.replace(".sm", "").replace(".ssc", "")
+            song_to_bpm[song_name] = primary_bpm
 
     model_errors = {}
     model_counts = {}
@@ -29,17 +46,23 @@ def main():
         for row in reader:
             model = row["model"]
             song = row["song_name"]
-            gt_bpm_str = row["gt_bpm"]
             pred_bpm_str = row["pred_bpm"]
             
+            # Find the GT BPM
+            gt_bpm = None
+            for key in song_to_bpm.keys():
+                if key in song or song in key:
+                    gt_bpm = song_to_bpm[key]
+                    break
+            
+            if gt_bpm is None:
+                continue # Skip if we can't find GT
+                
             if model not in model_errors:
                 model_errors[model] = 0.0
                 model_counts[model] = 0
                 
             try:
-                # Some models might spit out text instead of a pure number
-                gt_bpm = float(gt_bpm_str)
-                # Clean up any weird LLM text if it failed to just output a number
                 import re
                 pred_nums = re.findall(r"\\d+\\.?\\d*", pred_bpm_str)
                 if pred_nums:
