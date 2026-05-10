@@ -78,7 +78,8 @@ os.remove(tmp_path)
 
 nums = re.findall(r"\\b(\\d+(?:\\.\\d+)?)\\b", resp_onset or "")
 print(f"ONSET_COUNT={len(nums)}")
-print(f"BPM_RESPONSE={resp_bpm.strip().split('\\n')[0]}")
+clean_bpm = resp_bpm.strip().split('\\n')[0]
+print(f"BPM_RESPONSE={clean_bpm}")
 '''
 
 CODE_TEMPLATE_QWEN = '''
@@ -102,7 +103,8 @@ os.remove(tmp_path)
 
 nums = re.findall(r"\\b(\\d+(?:\\.\\d+)?)\\b", resp_onset or "")
 print(f"ONSET_COUNT={len(nums)}")
-print(f"BPM_RESPONSE={resp_bpm.strip().split('\\n')[0]}")
+clean_bpm = resp_bpm.strip().split('\\n')[0]
+print(f"BPM_RESPONSE={clean_bpm}")
 '''
 
 CODE_TEMPLATE_MUMU = '''
@@ -126,7 +128,8 @@ os.remove(tmp_path)
 
 nums = re.findall(r"\\b(\\d+(?:\\.\\d+)?)\\b", resp_onset or "")
 print(f"ONSET_COUNT={len(nums)}")
-print(f"BPM_RESPONSE={resp_bpm.strip().split('\\n')[0]}")
+clean_bpm = resp_bpm.strip().split('\\n')[0]
+print(f"BPM_RESPONSE={clean_bpm}")
 '''
 
 CODE_TEMPLATE_FLAMINGO = '''
@@ -151,7 +154,8 @@ os.remove(tmp_path)
 
 nums = re.findall(r"\\b(\\d+(?:\\.\\d+)?)\\b", resp_onset or "")
 print(f"ONSET_COUNT={len(nums)}")
-print(f"BPM_RESPONSE={resp_bpm.strip().split('\\n')[0]}")
+clean_bpm = resp_bpm.strip().split('\\n')[0]
+print(f"BPM_RESPONSE={clean_bpm}")
 '''
 
 MODELS = {
