@@ -1,0 +1,46 @@
+# Methodology
+
+Our proposed framework introduces a novel hierarchical Director-Actor architecture to address the high-dimensionality and temporal strictness of audio-to-beatmap generation. By decoupling rhythmic understanding from physical chart formatting, the pipeline ensures musically coherent note placement while eliminating structural hallucinations common in generative LLMs.
+
+## 1. Dataset Preparation and Preprocessing
+
+The model relies on a high-quality paired dataset of raw audio waveforms and human-authored StepMania charts (.sm and .ssc files).
+
+**Audio Standardization:** All music tracks are converted to mono-channel audio. The sampling rate is dynamically adjusted to match the native requirements of the respective multimodal encoder being evaluated (e.g., 16kHz for Qwen-based and MuMu LLaMA architectures).
+
+**Sliding Window Chunking & Temporal Sweeps:** To manage the context window of the LLMs and capture localized rhythmic dynamics, the audio tracks and their corresponding beatmap measures are dynamically sliced into contiguous temporal windows. While **5.0-second** windows serve as the primary baseline for training and inference, our framework implements programmatic sweeps across variable chunk sizes (e.g., 1s, 2s, 5s, 10s, 15s, and 20s) to evaluate the impact of context length on structural latency and onset detection accuracy.
+
+## 2. Abstraction via Rhythmic Clustering (The Vocabulary)
+
+Directly predicting physical StepMania notations (e.g., thousands of combinations of 0000, 1000, 0110 spread across 192 ticks per measure) causes significant sparsity and vocabulary bloat for LLMs. To solve this, we introduce Rhythmic Clustering. To identify meaningful rhythmic archetypes across our large-scale dataset, we applied HDBSCAN (Hierarchical Density-Based Spatial Clustering of Applications with Noise). HDBSCAN was executed on the density and onset frequency metrics of all physical measures, allowing the unsupervised algorithm to automatically discover and group them into distinct, high-level structural clusters while filtering out noisy, outlier charts.
+
+Each physical measure is mapped to a discrete vocabulary token, such as `<|cluster_45|>`.
+This reduces the model's vocabulary to a manageable set of abstract rhythmic archetypes, forcing the neural network to focus purely on the "density and rhythm" of the audio rather than the geometric placement of arrows.
+
+## 3. Hallucination Mitigation via Atomic Tokenization
+
+A fundamental flaw in adapting standard LLMs for StepMania generation is format violation (hallucination). If an LLM is tasked with predicting literal ASCII text arrays (e.g., predicting character by character: `0000`, `10a0`, `010`), it will inevitably generate invalid syntax or hallucinate irregular matrix sizes that crash the game engine. To completely eliminate this, we register our `<|cluster_N|>` representations as special, atomic tokens directly within the tokenizer vocabulary. By enforcing that the LLM predicts single, indivisible cluster tokens rather than character-by-sequence strings, it becomes mathematically impossible for the model to output a structurally invalid format or "go out of bounds" of the StepMania syntax.
+
+## 4. Phase I: The Director (Audio Understanding)
+
+The "Director" is responsible for listening to the music and deciding the overarching rhythm structure.
+
+**Model Evaluation Suite:** To establish a robust baseline, we evaluate the Director architecture across a suite of state-of-the-art multimodal audio-language models, including Qwen2-Audio, MuMu-LLaMA, DeepResonance, and Music-Flamingo. These open-weight models are fine-tuned via Low-Rank Adaptation (LoRA). Additionally, we benchmark the pipeline against Gemini, evaluating the performance of a proprietary, closed-source LLM on the same rhythmic mapping tasks.
+
+**Inference:** During generation, a target song is sequentially fed to the Director in 5-second chunks. For each chunk, the Director predicts a sequence of `<|cluster_N|>` tokens that best match the acoustic energy, transient onsets, and tempo of the waveform.
+
+## 5. Phase II: The Actor (Physical Translation)
+
+The "Actor" is a deterministic sub-decoder responsible for translating the Director's high-level concepts into a playable game chart.
+
+**Dictionary Mapping:** The Actor leverages a compiled dictionary that maps each `<|cluster_N|>` token back to its pool of valid, human-charted 192-tick physical measures.
+
+**Difficulty Scaling:** A key innovation of the Actor is multi-difficulty generation. The Director predicts the rhythmic sequence only once. The Actor then biases its dictionary selection: for "Beginner" charts, it selects the sparsest physical patterns from the cluster pool; for "Challenge" charts, it selects the densest, most technically demanding patterns from that exact same cluster pool.
+
+## 6. Temporal and Mathematical Alignment
+
+Rhythm game engines require mathematically perfect synchronization between the audio and the visual chart. Simply appending physical measures consecutively can lead to severe desynchronization if the LLM predicts too many or too few tokens for a chunk.
+
+We enforce strict temporal alignment by calculating the exact number of required physical measures mathematically: `Target Measures = (Duration_seconds × (BPM / 60)) / 4`.
+
+The Actor aligns the sequence of generated tokens to this target constraint using relative temporal interpolation, guaranteeing that the generated StepMania file ends at the exact termination of the audio waveform without drifting out of sync.
