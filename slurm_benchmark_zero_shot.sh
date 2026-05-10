@@ -14,12 +14,11 @@ date
 mkdir -p logs
 mkdir -p outputs
 
-# We run the orchestrator script using a standard environment,
-# as it spawns subprocesses that activate their own conda envs via the absolute python paths.
-source /data/mg546924/conda_envs/qwenenv/bin/activate
+# Use the absolute path to the Python binary in the qwenenv environment
+PYTHON="/data/mg546924/conda_envs/qwenenv/bin/python"
 
 # Execute the zero-shot benchmarking script
-python scripts/benchmark_zero_shot_all_models.py --max-songs 20
+$PYTHON scripts/benchmark_zero_shot_all_models.py --max-songs 20
 
 echo "Benchmarking complete."
 date

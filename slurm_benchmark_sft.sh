@@ -11,10 +11,10 @@ date
 
 mkdir -p logs
 
-# Use standard base python environment
-source /data/mg546924/conda_envs/qwenenv/bin/activate
+# Use the absolute path to the Python binary in the qwenenv environment
+PYTHON="/data/mg546924/conda_envs/qwenenv/bin/python"
 
-python scripts/benchmark_sft_from_ssc.py
+$PYTHON scripts/benchmark_sft_from_ssc.py
 
 echo "Benchmarking complete."
 date
