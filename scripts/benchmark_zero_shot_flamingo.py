@@ -5,7 +5,7 @@ import csv
 import re
 import subprocess
 import tempfile
-from glob import glob
+import glob
 
 PROJ_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATASET_DIR = os.path.join(PROJ_DIR, "src", "musicForBeatmap", "Fraxtil's Arrow Arrangements")
@@ -66,7 +66,9 @@ def main():
     for d in os.listdir(DATASET_DIR):
         full_dir = os.path.join(DATASET_DIR, d)
         if os.path.isdir(full_dir) and not d.startswith("_"):
-            audio_files = glob.glob(os.path.join(full_dir, "*.ogg"))
+            audio_files = (glob.glob(os.path.join(full_dir, "*.ogg")) +
+                           glob.glob(os.path.join(full_dir, "*.mp3")) +
+                           glob.glob(os.path.join(full_dir, "*.wav")))
             if audio_files:
                 songs.append((d, audio_files[0]))
                 
