@@ -140,7 +140,7 @@ print("BPM_RESPONSE=" + str(final_bpm))
 
 MODELS = {
     "Qwen":          (PYTHON_QWEN, CODE_TEMPLATE_QWEN),
-    "MuMu":          (PYTHON_DR,   CODE_TEMPLATE_MUMU),
+    "MuMu":          (PYTHON_QWEN, CODE_TEMPLATE_MUMU),
     "DeepResonance": (PYTHON_DR,   CODE_TEMPLATE_DR),
     "Flamingo":      (PYTHON_FL,   CODE_TEMPLATE_FLAMINGO)
 }

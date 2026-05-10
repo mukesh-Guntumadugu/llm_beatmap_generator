@@ -151,7 +151,7 @@ print("TOKENS_RESPONSE=" + ",".join(all_tokens))
 
 MODELS = {
     "Qwen": (PYTHON_QWEN, CODE_TEMPLATE_QWEN),
-    "MuMu": (PYTHON_DR, CODE_TEMPLATE_MUMU)
+    "MuMu": (PYTHON_QWEN, CODE_TEMPLATE_MUMU)
 }
 
 # ─────────────────────────────────────────────
