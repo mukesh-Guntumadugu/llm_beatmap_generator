@@ -9,6 +9,7 @@
 
 echo "Starting Zero-Shot Benchmarking for all open-source models..."
 date
+export PYTHONUNBUFFERED=1
 
 # Create logs directory if it doesn't exist
 mkdir -p logs
