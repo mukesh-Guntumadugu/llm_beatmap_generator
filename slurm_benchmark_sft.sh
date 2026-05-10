@@ -14,6 +14,9 @@ mkdir -p logs
 # Use the absolute path to the Python binary in the qwenenv environment
 PYTHON="/data/mg546924/conda_envs/qwenenv/bin/python"
 
+# Ensure simfile is installed in this environment
+$PYTHON -m pip install simfile --user
+
 $PYTHON scripts/benchmark_sft_from_ssc.py
 
 echo "Benchmarking complete."
