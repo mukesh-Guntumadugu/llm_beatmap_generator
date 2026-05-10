@@ -168,7 +168,7 @@ def main():
         logging_steps=10,
         logging_strategy="steps",
         eval_strategy="epoch",
-        save_strategy="epoch",
+        save_strategy="no", # Save only at the very end to conserve space
         logging_dir=os.path.join(OUTPUT_DIR, "logs"),
         learning_rate=3e-4, # slightly higher learning rate for a simple task
         weight_decay=0.001,
