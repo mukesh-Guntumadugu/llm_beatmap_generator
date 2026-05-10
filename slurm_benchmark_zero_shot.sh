@@ -17,6 +17,10 @@ mkdir -p outputs
 # Use the absolute path to the Python binary in the qwenenv environment
 PYTHON="/data/mg546924/conda_envs/qwenenv/bin/python"
 
+# Fix the missing nnAudio dependency for the MuMu environment
+echo "Fixing MuMu missing dependency (nnAudio)..."
+/data/mg546924/conda_envs/deepresonance_env/bin/python -m pip install nnAudio --user
+
 # Execute the zero-shot benchmarking script
 $PYTHON scripts/benchmark_zero_shot_all_models.py --max-songs 20
 

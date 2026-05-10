@@ -170,13 +170,24 @@ def main():
         
         for ssc_path in ssc_files:
             filename = os.path.basename(ssc_path)
-            parts = filename.replace(".ssc", "").split("_", 2)
-            model_name = parts[0].upper()
-            if len(parts) >= 3:
-                # Example: qwen_5diff_Bad_Ketchup
-                song_name = parts[2].replace("_", " ")
-            else:
-                song_name = "Unknown"
+            
+            # Extract model_name
+            model_name = "UNKNOWN"
+            for m in ["Qwen", "MuMu", "DeepResonance", "Flamingo", "qwen", "mumu"]:
+                if filename.startswith(m) or filename.startswith(m.lower()):
+                    model_name = m.upper()
+                    break
+                    
+            # Try to match the exact song name from the dataset directories
+            song_name = "Unknown"
+            possible_songs = [d for d in os.listdir(DATASET_DIR) if os.path.isdir(os.path.join(DATASET_DIR, d))]
+            for s in possible_songs:
+                # Remove spaces/underscores for a robust match
+                clean_s = s.replace(" ", "").replace("_", "").lower()
+                clean_f = filename.replace(" ", "").replace("_", "").lower()
+                if clean_s in clean_f:
+                    song_name = s
+                    break
                 
             pred_bpm, pred_onsets_ms = extract_sft_metrics_from_ssc(ssc_path)
             gt_onsets_ms = load_ground_truth(song_name)
