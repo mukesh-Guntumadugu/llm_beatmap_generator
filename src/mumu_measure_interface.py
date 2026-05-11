@@ -39,7 +39,7 @@ def initialize_mumu_model():
         vit_path="google/vit-base-patch16-224",
         vivit_path="google/vivit-b-16x2-kinetics400",
         music_decoder="musicgen",
-        music_decoder_path="facebook/musicgen-medium",  # LoRA ckpt was saved with medium (dim=1536)
+        music_decoder_path="facebook/musicgen-small",  # Fix: Checkpoint was trained with small (dim=1024)
         max_words=512,
     )
 
