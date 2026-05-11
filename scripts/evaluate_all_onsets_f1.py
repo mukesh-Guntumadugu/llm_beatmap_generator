@@ -148,6 +148,11 @@ def main():
     print(f"{'MODEL':<15} | {'PRECISION':<10} | {'RECALL':<10} | {'F1 SCORE':<10} | {'TP':<6} | {'FP':<6} | {'FN':<6}")
     print("-" * 80)
     
+    plot_models = []
+    plot_p = []
+    plot_r = []
+    plot_f1 = []
+
     for model_name in MODELS:
         agg = model_aggregates[model_name]
         tp, fp, fn = agg["tp"], agg["fp"], agg["fn"]
@@ -162,8 +167,39 @@ def main():
         
         print(f"{model_name:<15} | {p:.2%}     | {r:.2%}     | {f1:.2%}     | {tp:<6} | {fp:<6} | {fn:<6}")
         
+        plot_models.append(model_name)
+        plot_p.append(p * 100)
+        plot_r.append(r * 100)
+        plot_f1.append(f1 * 100)
+        
     print("="*80)
     print(f"\n✅ Detailed results saved to {OUT_CSV}")
+
+    # Generate Aggregate Bar Graph
+    if plot_models:
+        import matplotlib.pyplot as plt
+        x = np.arange(len(plot_models))
+        width = 0.25
+
+        fig, ax = plt.subplots(figsize=(10, 6))
+        ax.bar(x - width, plot_p, width, label='Precision', color='#1f77b4', edgecolor='black')
+        ax.bar(x, plot_r, width, label='Recall', color='#ff7f0e', edgecolor='black')
+        ax.bar(x + width, plot_f1, width, label='F1 Score', color='#2ca02c', edgecolor='black')
+
+        ax.set_ylabel('Percentage (%)', fontweight='bold', fontsize=12)
+        ax.set_title('Aggregate Onset Detection Performance Across All Models', fontsize=14, fontweight='bold', pad=15)
+        ax.set_xticks(x)
+        ax.set_xticklabels(plot_models, fontweight='bold', fontsize=11)
+        ax.legend(loc='upper right', framealpha=0.9)
+        ax.set_ylim(0, 100)
+        ax.yaxis.grid(True, linestyle='--', alpha=0.7)
+        ax.set_axisbelow(True)
+
+        out_chart = os.path.join(_PROJECT_ROOT, "outputs", "overall_models_f1_comparison.png")
+        plt.tight_layout()
+        plt.savefig(out_chart, dpi=200, bbox_inches='tight')
+        plt.close(fig)
+        print(f"📊 Aggregate performance bar graph saved to: {out_chart}")
 
 if __name__ == "__main__":
     main()
