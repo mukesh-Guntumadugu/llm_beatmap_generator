@@ -93,7 +93,9 @@ def main():
         "freeze_lm": False, "freeze_input_proj": False, "freeze_output_proj": False,
         "prompt": "", "prellmfusion": True, "prellmfusion_dropout": 0.1,
         "num_prellmfusion_layers": 1, "imagebind_embs_seq": True, "topp": 1.0, "temp": 0.001,
-        "ckpt_path": "/data/mg546924/models/deepresonance-lora-onsets",
+        "ckpt_path": os.path.join(CKPT, "DeepResonance_data_models", "ckpt",
+                                  "deepresonance_beta_delta_ckpt", "delta_ckpt",
+                                  "deepresonance", "7b_tiva_v0"),
     }
     model = DeepResonancePredict(args)
 
