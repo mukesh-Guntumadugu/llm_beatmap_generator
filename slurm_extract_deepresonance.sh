@@ -4,6 +4,7 @@
 #SBATCH --error=logs/extract_deepresonance_%j.err
 #SBATCH --time=12:00:00
 #SBATCH --partition=defq
+#SBATCH --exclude=node001,node007
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 
