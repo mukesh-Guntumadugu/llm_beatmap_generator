@@ -77,9 +77,15 @@ def main():
             continue
 
         out_dir = os.path.join(song_dir, "mumu_onsets")
-        os.makedirs(out_dir, exist_ok=True)
         safe_name = song_name.replace(" ", "_").replace("'", "")
         out_path = os.path.join(out_dir, f"{safe_name}_MuMu_5s.txt")
+
+        # Skip if already fully processed!
+        if os.path.exists(out_path):
+            print(f"  ⏭️ Skipping {song_name}, already generated!", flush=True)
+            continue
+
+        os.makedirs(out_dir, exist_ok=True)
 
         with open(out_path, "w") as f:
             for ms in onsets_ms:

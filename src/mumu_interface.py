@@ -34,7 +34,7 @@ def generate_beatmap_with_mumu(audio_path: str, prompt: str) -> str:
     if not _is_initialized:
         setup_mumu()
         
-    print(f"Generating with MuMu-LLaMA for: {os.path.basename(audio_path)}")
+    print(f"Generating with MuMu-LLaMA for: {os.path.basename(audio_path)}", flush=True)
     
     try:
         model, tokenizer = initialize_mumu_model()
