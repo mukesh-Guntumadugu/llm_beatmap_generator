@@ -45,8 +45,13 @@ def main():
     print("========================================")
     
     for csv_file in CSV_FILES:
-        with open(csv_file, "r") as f:
-            reader = csv.DictReader(f)
+        # Skip the old broken file from the original script
+        if "zero_shot_results.csv" in csv_file:
+            continue
+            
+        with open(csv_file, "r", encoding="utf-8") as f:
+            content = f.read().replace('\x00', '') # Remove NUL bytes caused by OOM kills
+            reader = csv.DictReader(content.splitlines())
             for row in reader:
                 model = row["model"]
                 song = row["song_name"]
