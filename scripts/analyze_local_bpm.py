@@ -9,7 +9,7 @@ import os
 import glob
 import json
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "musicForBeatmap")
+DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "musicForBeatmap", "Fraxtil's Arrow Arrangements")
 OUTPUT_REPORT = os.path.join(os.path.dirname(__file__), "..", "local_bpm_analysis.json")
 
 def find_beatmap_files(directory):
