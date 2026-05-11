@@ -50,19 +50,19 @@ def load_ground_truth(song_dir: str) -> list[float]:
     return sorted(onsets_ms)
 
 def load_predictions(song_dir: str, subfolder: str) -> list[float]:
-    """Load the latest raw millisecond .txt predictions for a specific model."""
+    """Load the latest raw millisecond predictions (.txt or .csv) for a specific model."""
     pred_dir = os.path.join(song_dir, subfolder)
-    txt_files = glob.glob(os.path.join(pred_dir, "*.txt"))
-    if not txt_files:
+    pred_files = glob.glob(os.path.join(pred_dir, "*.txt")) + glob.glob(os.path.join(pred_dir, "*.csv"))
+    if not pred_files:
         return []
-    txt_files.sort()
-    latest_file = txt_files[-1]
+    pred_files.sort(key=os.path.getmtime)
+    latest_file = pred_files[-1]
     
     onsets_ms = []
     with open(latest_file, "r") as f:
         for line in f:
             line = line.strip()
-            if not line: continue
+            if not line or line.startswith("onset_ms"): continue
             try:
                 onsets_ms.append(float(line))
             except ValueError:

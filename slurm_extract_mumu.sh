@@ -10,7 +10,7 @@
 echo "Starting MuMu Onset Extraction..."
 mkdir -p logs
 
-PYTHON="/data/mg546924/conda_envs/qwenenv/bin/python"
+PYTHON="/data/mg546924/conda_envs/deepresonance_env/bin/python"
 $PYTHON scripts/extract_onsets_mumu.py
 
 echo "MuMu Onset Extraction complete."
