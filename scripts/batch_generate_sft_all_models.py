@@ -230,6 +230,7 @@ def run_director(python_bin, code, audio_path, bpm):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--max-songs", type=int, default=20)
+    parser.add_argument("--model", type=str, default="all", help="Which model to run (Qwen, MuMu, or all)")
     args = parser.parse_args()
 
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -263,6 +264,9 @@ def main():
         target_measures = int(np.round(total_beats / 4.0))
         
         for model_name, (py_bin, code) in MODELS.items():
+            if args.model.lower() != "all" and args.model.lower() != model_name.lower():
+                continue
+                
             out_file = os.path.join(OUT_DIR, f"{model_name.lower()}_{song_name.replace(' ', '_')}.ssc")
             if os.path.exists(out_file):
                 continue
