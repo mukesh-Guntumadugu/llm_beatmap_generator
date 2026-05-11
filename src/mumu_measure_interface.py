@@ -8,7 +8,7 @@ from torch.nn import functional as F
 # Paths aligned with your cluster structure
 MUMU_ROOT = "/data/mg546924/llm_beatmap_generator/MuMu-LLaMA/MuMu-LLaMA"
 LLAMA_DIR = "/data/mg546924/llm_beatmap_generator/MuMu-LLaMA/ckpts/LLaMA"
-MUMU_CKPT = "/data/mg546924/models/mumu-llama-lora-onsets/checkpoint_epoch4.pth" # Fallback to a fine-tuned if exists, or base if missing
+MUMU_CKPT = "/data/mg546924/models/mumu-llama-lora-onsets/checkpoint_epoch5.pth" # Fallback to a fine-tuned if exists, or base if missing
 
 # Add MuMu to system path so `llama.mumu_llama` works
 sys.path.insert(0, MUMU_ROOT)
