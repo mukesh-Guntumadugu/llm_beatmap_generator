@@ -101,16 +101,21 @@ def main():
     
     for song_dir in song_dirs:
         song_name = os.path.basename(song_dir)
-        print(f"\nProcessing {song_name}...")
+        print(f"\nProcessing {song_name}...", flush=True)
         
         onsets_ms = extract_for_song(song_dir, model, chunk_sec=5.0)
         if not onsets_ms:
             continue
 
         out_dir = os.path.join(song_dir, "deepresonance_onsets")
-        os.makedirs(out_dir, exist_ok=True)
         safe_name = song_name.replace(" ", "_").replace("'", "")
         out_path = os.path.join(out_dir, f"{safe_name}_DeepResonance_5s.txt")
+
+        if os.path.exists(out_path):
+            print(f"  ⏭️ Skipping {song_name}, already generated!", flush=True)
+            continue
+
+        os.makedirs(out_dir, exist_ok=True)
 
         with open(out_path, "w") as f:
             for ms in onsets_ms:
