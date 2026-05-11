@@ -65,9 +65,9 @@ def main():
         basename = os.path.basename(file)
         bpms = parse_bpms(file)
         sections = get_sections(bpms)
-        if len(sections) > 1:
+        if len(sections) > 0:
             report[basename] = {
-                "file": file, "total_changes": len(sections) - 1,
+                "file": file, "total_changes": max(0, len(sections) - 1),
                 "sections": sections
             }
     with open(OUTPUT_REPORT, 'w') as f:
