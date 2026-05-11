@@ -66,7 +66,7 @@ def extract_for_song(song_dir, model, chunk_sec=5.0):
             "outputs": [""],
         }
 
-        resp = model.predict(inputs, max_tgt_len=512, top_p=1.0, temperature=0.001, stops_id=[[835]])
+        resp = model.predict(inputs, max_tgt_len=512, top_p=1.0, temperature=0.1, stops_id=[[835]])
         if isinstance(resp, list): resp = resp[0]
         
         nums = re.findall(r"\b(\d+(?:\.\d+)?)\b", resp or "")
@@ -92,7 +92,7 @@ def main():
         "lora_r": 32, "lora_alpha": 32, "lora_dropout": 0.1,
         "freeze_lm": False, "freeze_input_proj": False, "freeze_output_proj": False,
         "prompt": "", "prellmfusion": True, "prellmfusion_dropout": 0.1,
-        "num_prellmfusion_layers": 1, "imagebind_embs_seq": True, "topp": 1.0, "temp": 0.001,
+        "num_prellmfusion_layers": 1, "imagebind_embs_seq": True, "topp": 1.0, "temp": 0.1,
         "ckpt_path": os.path.join(CKPT, "DeepResonance_data_models", "ckpt",
                                   "deepresonance_beta_delta_ckpt", "delta_ckpt",
                                   "deepresonance", "7b_tiva_v0"),
