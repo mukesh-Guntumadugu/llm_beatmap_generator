@@ -10,7 +10,6 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --gres=gpu:1
 
-set -e
 cd /data/mg546924/llm_beatmap_generator
 
 export CUDA_VISIBLE_DEVICES=0
