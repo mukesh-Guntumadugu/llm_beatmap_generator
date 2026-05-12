@@ -6,7 +6,8 @@ A research project that uses Large Language Models (LLMs) and multimodal AI to a
 
 ## 🎯 Project Goal
 
-Given a collection of songs from Fraxtil's Arrow Arrangements (20 tracks), automatically detect musical onset events in milliseconds using AI models and generate StepMania-compatible beatmap data — replacing manual human charting with automated LLM inference.
+Given a collection of songs from Fraxtil's Arrow Arrangements (
+tracks), automatically detect musical onset events in milliseconds using AI models and generate StepMania-compatible beatmap data — replacing manual human charting with automated LLM inference.
 
 ---
 
