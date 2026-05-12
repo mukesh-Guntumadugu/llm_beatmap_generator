@@ -66,6 +66,16 @@ def extract_cluster_tokens(text):
     """Pull <|cluster_N|> tokens from raw model output."""
     return re.findall(r"<\|cluster_\d+\|>", text)
 
+def align_tokens_to_measures(tokens, target_len):
+    """Stretches or compresses the sequence of tokens to perfectly match target_len."""
+    if not tokens:
+        return ["<|cluster_0|>"] * target_len
+    aligned = []
+    for i in range(target_len):
+        idx = int(i * len(tokens) / target_len)
+        aligned.append(tokens[idx])
+    return aligned
+
 
 def tokens_to_measures(tokens, cluster_dict, difficulty_name):
     """
@@ -151,6 +161,28 @@ def main():
         print(f"  Added {added} cluster tokens to tokenizer (total vocab: {len(tokenizer)})")
     else:
         print(f"  WARNING: {TOKENS_TXT} not found — cluster tokens not injected!")
+
+    # ── Monkey-Patch Tokenizer Decode to Prevent SentencePiece Crashes ──
+    original_decode = tokenizer.decode
+    def safe_decode(token_ids, **kwargs):
+        if isinstance(token_ids, int):
+            token_ids = [token_ids]
+        elif torch.is_tensor(token_ids):
+            token_ids = token_ids.tolist()
+            
+        res = []
+        for tid in token_ids:
+            if tid in tokenizer.added_tokens_decoder:
+                res.append(str(tokenizer.added_tokens_decoder[tid]))
+            else:
+                try:
+                    if tid < tokenizer.sp_model.get_piece_size():
+                        res.append(original_decode([tid], **kwargs))
+                except Exception:
+                    pass
+        return "".join(res)
+    
+    tokenizer.decode = safe_decode
 
     model_args = argparse.Namespace(
         mert_path="m-a-p/MERT-v1-330M",
@@ -309,15 +341,20 @@ def main():
 
         print(f"  Total cluster tokens: {len(all_tokens)}")
 
+        # ── Calculate Mathematical Target Measures ──
+        total_beats = duration * (args.bpm / 60.0)
+        target_measures = int(np.round(total_beats / 4.0)) # 4/4 time
+        aligned_tokens = align_tokens_to_measures(all_tokens, target_measures)
+
         # Actor: tokens → physical measures
-        measures = tokens_to_measures(all_tokens, cluster_dict, diff_name)
+        measures = tokens_to_measures(aligned_tokens, cluster_dict, diff_name)
         measures_str = ",\n".join(measures)
 
         # Build this chart block
         all_charts += format_ssc_chart(diff_name, meter, measures_str)
         print(f"  ✅ {diff_name}: {len(measures)} measures generated\n")
         
-        difficulty_clusters_export[diff_name] = all_tokens
+        difficulty_clusters_export[diff_name] = aligned_tokens
 
     # ── Write Final .ssc ──
     with open(args.out, "w", encoding="utf-8") as f:

@@ -14,8 +14,7 @@ set -e
 cd /data/mg546924/llm_beatmap_generator
 mkdir -p outputs/qwen logs
 
-# CRITICAL: Only use 1 GPU to prevent SLURM DataParallel deadlock
-export CUDA_VISIBLE_DEVICES=0
+# CRITICAL: Let SLURM handle GPU isolation via --gres=gpu:1 instead of hardcoding.
 export PYTHONNOUSERSITE=1
 export PYTHONPATH="/data/mg546924/llm_beatmap_generator:$PYTHONPATH"
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
