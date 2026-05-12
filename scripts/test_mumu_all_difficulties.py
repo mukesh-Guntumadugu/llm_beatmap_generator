@@ -229,6 +229,11 @@ def main():
     state_dict = torch.load(latest_ckpt, map_location="cpu")
     model.load_state_dict(state_dict, strict=True)
     model = model.cuda().bfloat16().eval()
+    
+    # ── Apply the same monkey-patch to the model's internal tokenizer ──
+    if hasattr(model, "tokenizer"):
+        model.tokenizer.decode = safe_decode
+
     print("✅ MuMu Director ready!")
 
     # ── Load + Chunk Audio ──
@@ -344,6 +349,7 @@ def main():
         # ── Calculate Mathematical Target Measures ──
         total_beats = duration * (args.bpm / 60.0)
         target_measures = int(np.round(total_beats / 4.0)) # 4/4 time
+        target_measures = max(1, target_measures) # Ensure at least 1 measure
         aligned_tokens = align_tokens_to_measures(all_tokens, target_measures)
 
         # Actor: tokens → physical measures
