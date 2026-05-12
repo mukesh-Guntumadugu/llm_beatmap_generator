@@ -266,6 +266,7 @@ def main():
 #ATTACKS:;"""
 
     all_charts = ""
+    difficulty_clusters_export = {}
 
     # ── Run Director for Each Difficulty ──
     for diff_name, meter in DIFFICULTIES:
@@ -315,10 +316,20 @@ def main():
         # Build this chart block
         all_charts += format_ssc_chart(diff_name, meter, measures_str)
         print(f"  ✅ {diff_name}: {len(measures)} measures generated\n")
+        
+        difficulty_clusters_export[diff_name] = all_tokens
 
     # ── Write Final .ssc ──
     with open(args.out, "w", encoding="utf-8") as f:
         f.write(ssc_header + all_charts)
+
+    # ── Export Cluster Choices to JSON ──
+    import datetime
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    base_name = os.path.splitext(args.out)[0]
+    cluster_export_path = f"{base_name}_cluster_picked_{timestamp}.json"
+    with open(cluster_export_path, "w", encoding="utf-8") as f:
+        json.dump(difficulty_clusters_export, f, indent=2)
 
     print(f"\n{'='*55}")
     print(f"✅ Full beatmap written to: {args.out}")

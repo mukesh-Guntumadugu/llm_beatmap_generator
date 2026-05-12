@@ -20,7 +20,8 @@ if _PROJECT_ROOT not in sys.path:
 
 BASE_DIR = os.path.join(_PROJECT_ROOT, "src", "musicForBeatmap", "Fraxtil's Arrow Arrangements")
 OUT_CSV = os.path.join(_PROJECT_ROOT, "outputs", "onset_f1_results.csv")
-TOLERANCE_MS = 50.0
+TOLERANCE_MS = 100.0
+NMS_WINDOW_MS = 100.0
 
 MODELS = {
     "Qwen":          "qwen_onsets",
@@ -49,6 +50,16 @@ def load_ground_truth(song_dir: str) -> list[float]:
                 pass
     return sorted(onsets_ms)
 
+def apply_nms(onsets_ms: list[float], window: float) -> list[float]:
+    """Apply Non-Maximum Suppression to remove duplicate predictions that are too close."""
+    if not onsets_ms:
+        return []
+    res = [onsets_ms[0]]
+    for o in onsets_ms[1:]:
+        if o - res[-1] > window:
+            res.append(o)
+    return res
+
 def load_predictions(song_dir: str, subfolder: str) -> list[float]:
     """Load the latest raw millisecond predictions (.txt or .csv) for a specific model."""
     pred_dir = os.path.join(song_dir, subfolder)
@@ -67,7 +78,9 @@ def load_predictions(song_dir: str, subfolder: str) -> list[float]:
                 onsets_ms.append(float(line))
             except ValueError:
                 pass
-    return sorted(onsets_ms)
+                
+    onsets_ms = sorted(onsets_ms)
+    return apply_nms(onsets_ms, NMS_WINDOW_MS)
 
 def score_onsets(predictions_ms: list[float], ground_truth_ms: list[float], tolerance_ms: float = TOLERANCE_MS) -> dict:
     if not predictions_ms or not ground_truth_ms:

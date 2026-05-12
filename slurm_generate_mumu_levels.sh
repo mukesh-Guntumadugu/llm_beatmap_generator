@@ -32,30 +32,30 @@ TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 # Song 1: Bad Ketchup
 echo ""
 echo "Generating Level for: Bad Ketchup"
-/data/mg546924/conda_envs/qwenenv/bin/python -u scripts/generate_hierarchical_beatmap.py \
+/data/mg546924/conda_envs/qwenenv/bin/python -u scripts/test_mumu_all_difficulties.py \
     --audio "src/musicForBeatmap/Fraxtil's Arrow Arrangements/Bad Ketchup/Bad Ketchup.ogg" \
     --bpm 180.0 \
-    --out "outputs/mumu_generated_Bad_Ketchup_${TIMESTAMP}.ssc"
+    --out "outputs/mumu/mumu_generated_Bad_Ketchup_${TIMESTAMP}.ssc"
 
 # Song 2: Springtime
 echo ""
 echo "Generating Level for: Springtime"
-/data/mg546924/conda_envs/qwenenv/bin/python -u scripts/generate_hierarchical_beatmap.py \
+/data/mg546924/conda_envs/qwenenv/bin/python -u scripts/test_mumu_all_difficulties.py \
     --audio "src/musicForBeatmap/Springtime/Kommisar - Springtime.mp3" \
-    --bpm 180.0 \
-    --out "outputs/mumu_generated_Springtime_${TIMESTAMP}.ssc"
+    --bpm 145.0 \
+    --out "outputs/mumu/mumu_generated_Springtime_${TIMESTAMP}.ssc"
 
 # Song 3: Mecha-Tribe Assault
 echo ""
 echo "Generating Level for: Mecha-Tribe Assault"
-/data/mg546924/conda_envs/qwenenv/bin/python -u scripts/generate_hierarchical_beatmap.py \
+/data/mg546924/conda_envs/qwenenv/bin/python -u scripts/test_mumu_all_difficulties.py \
     --audio "src/musicForBeatmap/MechaTribe Assault/Mecha-Tribe Assault.ogg" \
-    --bpm 180.0 \
-    --out "outputs/mumu_generated_MechaTribe_${TIMESTAMP}.ssc"
+    --bpm 200.0 \
+    --out "outputs/mumu/mumu_generated_MechaTribe_${TIMESTAMP}.ssc"
 
 echo ""
 echo "=============================================="
 echo "[OK] Level Generation Complete!"
 echo "   End : $(date)"
-echo "   Output beatmaps are in 'outputs/' directory."
+echo "   Output beatmaps are in 'outputs/mumu/' directory."
 echo "=============================================="
